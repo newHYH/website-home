@@ -1,6 +1,7 @@
 <template>
     <div class="home">
         <div>sdflkjaf</div>
+        dsadsad
     </div>
 </template>
 <script>
