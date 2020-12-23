@@ -3,7 +3,8 @@
 </template>
 
 <style lang="less">
-	import './less/common.less'
+	@import './less/common.less';
+
 	body{
 		margin: 0;
 		padding: 0;
