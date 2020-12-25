@@ -25,8 +25,6 @@ export default {
     @import "@/sass/common.scss";
     /*功能title样式*/
     .home{
-        color: red;
-        font-size: 1rem;
         .px-box{
             width: 300px;
             height: 192px;
