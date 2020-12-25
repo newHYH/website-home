@@ -1,13 +1,16 @@
 <template>
     <div class="home">
-        <div class="px-box">还是使用px固定单位</div>
-        <div class="box-1-rem">使用rem单位</div>
+        <Header />
     </div>
 </template>
 <script>
+import Header from '@/components/header.vue';
 
 export default {
     name: 'Home',
+    components: {
+        Header
+    },
     data() {
         return{}
     },
@@ -19,7 +22,7 @@ export default {
 }
 </script>
 <style scoped lang=scss>
-    @import "@/sass/transfrom.scss";
+    @import "@/sass/common.scss";
     /*功能title样式*/
     .home{
         color: red;
