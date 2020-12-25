@@ -2,8 +2,8 @@
 	<router-view/>
 </template>
 
-<style lang="less">
-	@import './less/common.less';
+<style lang="scss">
+	@import "./sass/transfrom.scss";
 
 	body{
 		margin: 0;
