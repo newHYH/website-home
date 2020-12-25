@@ -19,7 +19,7 @@ export default {
 }
 </script>
 <style scoped lang=scss>
-    @import "./../sass/transfrom.scss";
+    @import "@/sass/transfrom.scss";
     /*功能title样式*/
     .home{
         color: red;
