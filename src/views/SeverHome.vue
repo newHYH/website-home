@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="serve-con">
-                    <div class="con-wrapper" @click="goUrl('serviceNetwork')">
+                    <div class="con-wrapper" @click="goUrl('/service-network')">
                         <div class="con-icon">
                             <img src="../assets/serve-icon-2.png">
                         </div>
