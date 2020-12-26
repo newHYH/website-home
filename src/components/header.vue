@@ -1,60 +1,65 @@
 <template>
     <div class="header">
-        <div class="header-btn-box container">
-            <div class="target-btn" @click="downHeadMenu()">
-                <span class="target-name">消费者业务网站</span>
-                <i class="iconfont icon-arrow-up"></i>
-            </div>
-        </div>
-        <div class="container slide-down-box" :class="headerSlideDown ? 'active' : ''">
-            <div class="slide-down-menu">
-                <div class="platform-selection__item col-md-6 col-lg-3">
-                    <a title="个人用户" class="platform-selection__link link-active" target="_blank" data-bgname="个人用户">
-                        个人用户 <span class="iconfont icon-arrow-right"></span>
-                    </a>
-                    <p class="platform-selection__item-content">手机，PC和平板，穿戴设备等个人及家用产品</p>
-                </div>
-            
-                <div class="platform-selection__item col-md-6 col-lg-3">
-                    <a title="集团网站" class="platform-selection__link" target="_blank" data-bgname="集团网站" href="http://www.huawei.com/cn">
-                        集团网站 <span class="iconfont icon-arrow-right"></span>
-                    </a>
-                    <p class="platform-selection__item-content">公司信息，社会责任，新闻，展会活动，行业洞察等等</p>
-                </div>
-            
-                <div class="platform-selection__item col-md-6 col-lg-3">
-                    <a title="企业用户" class="platform-selection__link" target="_blank" data-bgname="企业用户" href="http://e.huawei.com/cn">
-                        企业用户 <span class="iconfont icon-arrow-right"></span>
-                    </a>
-                    <p class="platform-selection__item-content">企业商用产品、解决方案和云服务</p>
-                </div>
-            
-                <div class="platform-selection__item col-md-6 col-lg-3">
-                    <a title="运营商用户" class="platform-selection__link" target="_blank" data-bgname="运营商用户" href="http://carrier.huawei.com/cn">
-                        运营商用户 <span class="iconfont icon-arrow-right"></span>
-                    </a>
-                    <p class="platform-selection__item-content">运营商网络解决方案、产品及服务</p>
+        <div class="container">
+            <div class="fix-navigation">
+                <a class="logo" href="/cn">
+                    <img src="@/assets/logo.png" />
+                </a>
+                <div class="nav-title">手机</div>
+                <div class="func-box">
+                    <div class="search-btn">
+                        <img src="@/assets/search-icon.png" />
+                    </div>
+                    <div class="account-btn">
+                        <img src="@/assets/account-icon.png" />
+                    </div>
+                    <div class="login-btn">登录</div>
                 </div>
             </div>
         </div>
-        <div></div>
+        <div class="container" :class="fixHeader ? 'fixed' : ''">
+            <div class="sec-navigation">
+                <div class="logo">China UNICOM 40 Pro</div>
+                <ul class="product-tabs">
+                    <li class="tab-item active">
+                        <a class="pointer" title="功能特征">功能特征</a>
+                    </li>
+                    <li class="tab-item">
+                        <a class="pointer" title="规格参数">规格参数</a>
+                    </li>
+                    <li class="tab-item">
+                        <a class="pointer" title="配件">配件</a>
+                    </li>
+                    <li class="tab-item">
+                        <a class="pointer" title="服务支持">服务支持</a>
+                    </li>
+                </ul>
+                <div class="buy-btn pointer">购买</div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
-
 export default {
     name: 'Header',
     data() {
         return{
-            headerSlideDown: false
+            fixHeader: false
         }
     },
     mounted() {
-
+        window.addEventListener('scroll', this.scrollHander)
+    },
+    unmounted () {
+        window.removeEventListener('scroll', this.scrollHander)
     },
     methods: {
-        downHeadMenu () {
-            this.headerSlideDown = !this.headerSlideDown
+        scrollHander () {
+            if (window.pageYOffset > 90) {
+                this.fixHeader = true
+            } else {
+                this.fixHeader = false
+            }
         }
     }
 }
@@ -65,71 +70,157 @@ export default {
 /* mobile */
 @media screen and (min-width:350px) {
     .header{
-        .header-btn-box{
-            display: none;
-        }
     }
 }
 
 /* PC */
 @media screen and (min-width:1200px) {
     .header{
-        height:24px + 80px ;
-        .header-btn-box{
-            display: block;
-            background-color: #000;
-            line-height: 24px;
-            height: 24px;
-            .target-btn{
-                cursor: pointer;
-                text-align: left;
-                color: #fff;
-                font-size: 11px;
-                .target-name{
-                    vertical-align: top;
+        height: auto;
+        .container{
+            border-bottom: 1px solid #e5e5e5;
+            &.fixed{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
+        .fix-navigation{
+            height: 90px;
+            position: relative;
+            .logo{
+                position: absolute;
+                width: 78px;
+                height: 42px;
+                top: 24px;
+                left: 12px;
+                img{
+                    width: 100%;
+                    height: 100%;
                 }
-                .iconfont{
-                    display: inline-block;
-                    transform: rotate(180deg);
+            }
+            .nav-title{
+                position: absolute;
+                top: 0;
+                left: 50%;
+                margin-left: -30px;
+                width: 60px;
+                line-height: 90px;
+                text-align: center;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                font-size: 24px;
+                color: #333333;
+            }
+            .func-box{
+                position: absolute;
+                right: 12px;
+                top: 24px;
+                display: flex;
+                .login-btn{
+                    width: 93px;
+                    height: 42px;
+                    line-height: 38px;
+                    text-align: center;
+                    border-radius: 12px;
+                    border: 2px solid #979797;
+                    font-size: 24px;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #333333;
+                    cursor: pointer;
+                }
+                .search-btn,
+                .account-btn{
+                    height: 42px;
+                    cursor: pointer;
+                }
+                .account-btn{
+                    margin-right: 29px;
+                    padding-top: 4px;
+                    img{
+                        width: 30px;
+                        height: 35px;
+                    }
+                }
+                .search-btn{
+                    margin-right: 38px;
+                    padding-top: 7px;
+                    img{
+                        width: 31px;
+                        height: 31px;
+                    }
                 }
             }
         }
-        .slide-down-box{
-            position: absolute;
-            top: 24px;
-            left: 0;
-            width: 100%;
-            height: 0;
-            overflow: hidden;
-            transition: all 1s ease-in-out;
-            &.active{
-                height: 145px;
+        .sec-navigation{
+            height: 88px;
+            position: relative;
+            .logo{
+                position: absolute;
+                top: 27px;
+                left: 12px;
+                font-size: 24px;
+                font-family: PingFangSC-Medium, PingFang SC;
+                font-weight: 500;
+                color: #333333;
+                line-height: 33px;
             }
-            .slide-down-menu{
-                padding: 32px 0;
+            .buy-btn{
+                position: absolute;
+                right: 12px;
+                top: 25px;
+                width: 90px;
+                height: 38px;
+                line-height: 38px;
+                text-align: center;             
+                background: #AD0823;
+                border-radius: 19px;
+                font-size: 18px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #FFFFFF;
+            }
+            .product-tabs{
+                position: absolute;
+                right: 149px;
+                top: 33px;
                 display: flex;
-                flex-wrap: wrap;
-                margin-right: -20px;
-                margin-left: -20px;
-                font-size: 14px;
-                .platform-selection__item{
-                    text-align: left;
-                    .platform-selection__link{
-                        font-size: 14px;
-                        font-weight: 500;
-                        color: #c3172e;
-                        line-height: 24px;
-                        margin-bottom: 8px;
-                        display: inline-block;
-                        &.link-active{
+                .tab-item{
+                    position: relative;
+                    margin-left: 38px;
+                    &.active{
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 3px;
+                            background: #000000;
+                        }
+                    }
+                    &:hover{
+                        a{
+                            font-weight: 400;
                             color: #000;
                         }
                     }
-                    .platform-selection__item-content{
-                        font-size: 14px;
-                        line-height: 24px;
-                        font-weight: 500;
-                        color: #7f7f7f;
+                    &.active{
+                        a{
+                            font-weight: 600;
+                            color: #333333;
+                        }
+                    }
+                    a{
+                        font-size: 18px;
+                        display: block;
+                        font-family: PingFangSC-Semibold, PingFang SC;
+                        font-weight: 400;
+                        color: #666666;
+                        line-height: 25px;
+                        padding: 0 5px 30px;
                     }
                 }
             }
