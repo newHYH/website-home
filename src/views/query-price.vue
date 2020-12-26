@@ -68,7 +68,7 @@
                             </div>
                         </div>
                         <ul v-show="currentPhoneType == index">
-                            <li class="phone" v-for="(phone,idx) in phoneType.phoneTypeList" :key="idx">
+                            <li class="phone" @click="gotoPriceDetail" v-for="(phone,idx) in phoneType.phoneTypeList" :key="idx">
                                 {{phone.phoneName}}
                             </li>
                         </ul>
@@ -260,6 +260,9 @@
             },
             handleClickPhoneType(index){
                 this.currentPhoneType = index
+            },
+            gotoPriceDetail(){
+                this.$router.push('/price-detail')
             }
         }
     }
