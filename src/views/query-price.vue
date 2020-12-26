@@ -6,16 +6,16 @@
         <div class="device-sel row">
             <div class="sel-wrap col-sm-12 col-md-12 col-lg-12">
                 选择设备信息：
-                <a class="btn-select" id="btn_select">
-                    <span class="cur-select">选择设备</span>
-                    <select>
-                        <option>选项一</option>
-                        <option>选项二</option>
-                        <option>选项三</option>
-                        <option>选项四</option>
-                        <option>选项五</option>
-                    </select>
-                </a>
+                <div class="btn-select" @click.stop="handleClkSelDevice('')">
+                    <div class="selected-name">{{selectedDeviceName||'选择设备'}}</div>
+                    <div class="arrow-down" :class="openSelMenu?'rotateTop':'rotateDown'"></div>
+                    <div class="down-list animate__animated" :class="openSelMenu?'animate__fadeInUp':'animate__fadeOutDown'">
+                        <div class="sel-device-name" @click.stop="handleClkSelDevice(devType.typeName)" v-for="(devType,index) in deviceTypeList" :key="index">
+                            {{devType.typeName}}
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <div class="selection-part">
@@ -23,7 +23,7 @@
                 <ul class="row">
                     <li class="col-sm-12 col-md-6 col-lg-3">
                         <div class="content-wrap">
-                            <img class="device-img" src="../assets/price/vision.png" title="华为手机" alt="华为手机">
+                            <img class="device-img" src="../assets/select-1.png" title="华为手机" alt="华为手机">
                             <div class="device-name">
                                 华为手机
                             </div>
@@ -31,25 +31,25 @@
                     </li>
                     <li class="col-sm-12 col-md-6 col-lg-3">
                         <div class="content-wrap">
-                            <img class="device-img" src="../assets/price/vision.png" title="华为手机" alt="华为手机">
+                            <img class="device-img" src="../assets/select-2.png" title="华为配件" alt="华为配件">
                             <div class="device-name">
-                                华为手机
+                                华为配件
                             </div>
                         </div>
                     </li>
                     <li class="col-sm-12 col-md-6 col-lg-3">
                         <div class="content-wrap">
-                            <img class="device-img" src="../assets/price/vision.png" title="华为手机" alt="华为手机">
+                            <img class="device-img" src="../assets/select-3.png" title="小米手机" alt="小米手机">
                             <div class="device-name">
-                                华为手机
+                                小米手机
                             </div>
                         </div>
                     </li>
                     <li class="col-sm-12 col-md-6 col-lg-3">
                         <div class="content-wrap">
-                            <img class="device-img" src="../assets/price/vision.png" title="华为手机" alt="华为手机">
+                            <img class="device-img" src="../assets/select-4.png" title="小米配件" alt="小米配件">
                             <div class="device-name">
-                                华为手机
+                                小米配件
                             </div>
                         </div>
                     </li>
@@ -84,6 +84,14 @@
         name: "query-price",
         data(){
             return{
+                deviceTypeList:[
+                    {
+                        typeName:'华为',
+                    },
+                    {
+                        typeName:'小米',
+                    }
+                ],
                 phoneList:[
                     {
                         phoneTypeName:'麦芒1 全网通版 6GB+64GB',
@@ -240,10 +248,16 @@
                         ]
                     },
                 ],
+                selectedDeviceName:'',
+                openSelMenu:false,
                 currentPhoneType:0,
             }
         },
         methods:{
+            handleClkSelDevice(name){
+                this.openSelMenu = !this.openSelMenu
+                this.selectedDeviceName = name
+            },
             handleClickPhoneType(index){
                 this.currentPhoneType = index
             }
@@ -258,7 +272,7 @@
             width: 100%;
             .head-img{
                 height: torem(633);
-                background: url('../assets/price/price-banner.png');
+                background: url('../assets/banner-1.png');
                 background-size: 100% 100%;
                 font-size: torem(69);
                 font-weight: 600;
@@ -280,47 +294,94 @@
                     align-items: center;
                     justify-content: flex-start;
                     .btn-select {
+                        cursor: pointer;
                         position: relative;
-                        display: inline-block;
+                        display: flex;
+                        align-items: center;
                         width: 30%;
+                        height: torem(57);
                         font-size: torem(24);
                         color: #ccc;
-                        border: torem(1) solid #ccc;
-                        border-radius: torem(5);
-                        appearance:none;
-                        -moz-appearance:none; /* Firefox */
-                        -webkit-appearance:none; /* Safari 和 Chrome */
-                    }
-                    .btn-select .cur-select {
-                        display: inline-block;
-                        text-align: left;
+                        border: torem(1) solid #e6e6e6;
+                        border-radius: torem(8);
                         padding-left: torem(25);
-                        width: 100%;
-                        height: 100%;
-                        font: torem(20);
-                        line-height: torem(60);
+                        .selected-name{
+                            font-size: torem(24);
+                            font-weight: 400;
+                            color: #999999;
+                            line-height: torem(33);
+                        }
+                        .arrow-down{
+                            position: absolute;
+                            top:torem(23);
+                            right: torem(25);
+                            width: torem(18);
+                            height: torem(11);
+                            background: url("../assets/xiala.png");
+                            background-size: 100% 100%;
+                        }
+                        .rotateTop{
+                            transform:rotate(-180deg);
+                            transition: 1s;
+                        }
+                        .rotateDown{
+                            transform:rotate(0deg);
+                            transition: 1s;
+                        }
+                        .down-list{
+                            width: 100%;
+                            position: absolute;
+                            top: torem(57);
+                            left: 0;
+                            display: flex;
+                            flex-direction: column;
+                            border: torem(1) solid #e6e6e6;
+                            border-radius: torem(8);
+                            background: #fff;
+                            z-index: 99;
+                            .sel-device-name{
+                                height: torem(57);
+                                line-height: torem(57);
+                                text-align: left;
+                                padding-left: torem(25);
+                                color: #000;
+                            }
+                            .sel-device-name:hover{
+                                color: #007AFF;
+                            }
+                        }
                     }
-                    /*.btn-select:hover .cur-select {*/
-                    /*    background-color: #f90;*/
+
+                    /*.btn-select .cur-select {*/
+                    /*    display: inline-block;*/
+                    /*    text-align: left;*/
+                    /*    padding-left: torem(25);*/
+                    /*    width: 100%;*/
+                    /*    height: 100%;*/
+                    /*    font: torem(20);*/
+                    /*    line-height: torem(60);*/
                     /*}*/
-                    .btn-select select {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        opacity: 0;
-                        appearance:none;
-                        -moz-appearance:none; /* Firefox */
-                        -webkit-appearance:none; /* Safari 和 Chrome */
-                    }
-                    .btn-select select option {
-                        text-indent: 10px;
-                    }
-                    .btn-select select option:hover {
-                        background-color: #999;
-                        color: #fff;
-                    }
+                    /*!*.btn-select:hover .cur-select {*!*/
+                    /*!*    background-color: #f90;*!*/
+                    /*!*}*!*/
+                    /*.btn-select select {*/
+                    /*    position: absolute;*/
+                    /*    top: 0;*/
+                    /*    left: 0;*/
+                    /*    width: 100%;*/
+                    /*    height: 100%;*/
+                    /*    opacity: 0;*/
+                    /*    appearance:none;*/
+                    /*    -moz-appearance:none; !* Firefox *!*/
+                    /*    -webkit-appearance:none; !* Safari 和 Chrome *!*/
+                    /*}*/
+                    /*.btn-select select option {*/
+                    /*    text-indent: 10px;*/
+                    /*}*/
+                    /*.btn-select select option:hover {*/
+                    /*    background-color: #999;*/
+                    /*    color: #fff;*/
+                    /*}*/
                 }
             }
             .selection-part{
@@ -400,14 +461,14 @@
                                     .extend{
                                         width: torem(9);
                                         height: torem(15);
-                                        background: url("../assets/price/arrow-right.png") no-repeat;
+                                        background: url("../assets/arrow-right.png") no-repeat;
                                         background-size: 100% 100%;
                                         margin-right: torem(10);
                                     }
                                     .is-extend{
                                         width: torem(15);
                                         height: torem(10);
-                                        background: url("../assets/price/arrow-bottom.png") no-repeat;
+                                        background: url("../assets/arrow-bottom.png") no-repeat;
                                         background-size: 100% 100%;
                                         margin-right: torem(10);
                                     }
@@ -548,14 +609,14 @@
                             .extend{
                                 width: 9px;
                                 height: 15px;
-                                background: url("../assets/price/arrow-right.png") no-repeat;
+                                background: url("../assets/arrow-right.png") no-repeat;
                                 background-size: 100% 100%;
                                 margin-right: 10px;
                             }
                             .is-extend{
                                 width: 15px;
                                 height: 10px;
-                                background: url("../assets/price/arrow-bottom.png") no-repeat;
+                                background: url("../assets/arrow-bottom.png") no-repeat;
                                 background-size: 100% 100%;
                                 margin-right: 10px;
                             }
