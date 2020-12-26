@@ -60,7 +60,7 @@
                     <div class="img">
                         <img src="../assets/serve-3.png">
                     </div>
-                    <div class="con-wrapper">
+                    <div class="con-wrapper" @click="goUrl('query-price')">
                         <div class="con-icon">
                             <img src="../assets/serve-icon-1.png">
                         </div>
@@ -69,12 +69,12 @@
                     </div>
                 </div>
                 <div class="serve-con">
-                    <div class="con-wrapper">
+                    <div class="con-wrapper" @click="goUrl('/service-network')">
                         <div class="con-icon">
                             <img src="../assets/serve-icon-2.png">
                         </div>
-                        <div class="text">备件价格查询</div>
-                        <div class="text mobile-hide">查询非保修常用备件维修参考价<img src="../assets/jinru-2.png" class="link-icon" alt=""></div>
+                        <div class="text">服务店查询</div>
+                        <div class="text mobile-hide">查询服务店相关信息<img src="../assets/jinru-2.png" class="link-icon" alt=""></div>
                     </div>
                     <div class="img">
                         <img src="../assets/serve-4.png">
@@ -173,7 +173,11 @@ export default {
     mounted() {
 
     },
-    methods: {}
+    methods: {
+        goUrl(path){
+            this.$router.push(path)
+        }
+    }
 }
 </script>
 <style scoped lang=scss>

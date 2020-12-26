@@ -10,7 +10,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
   {
-    path: '/serviceNetwork',
+    path: '/service-network',
     component: () => import(/* webpackChunkName: "about" */ '../views/serviceNetwork.vue')
   },
   {
