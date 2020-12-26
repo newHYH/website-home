@@ -1,29 +1,66 @@
 <template>
     <div class="header">
-        <div class="container fix-navigation">
-            <div class="inner-box">
+        <div class="container">
+            <div class="fix-navigation">
                 <a class="logo" href="/cn">
-                    <img />
+                    <img src="@/assets/logo.png" />
                 </a>
                 <div class="nav-title">手机</div>
                 <div class="func-box">
+                    <div class="search-btn">
+                        <img src="@/assets/search-icon.png" />
+                    </div>
+                    <div class="account-btn">
+                        <img src="@/assets/account-icon.png" />
+                    </div>
+                    <div class="login-btn">登录</div>
                 </div>
+            </div>
+        </div>
+        <div class="container" :class="fixHeader ? 'fixed' : ''">
+            <div class="sec-navigation">
+                <div class="logo">China UNICOM 40 Pro</div>
+                <ul class="product-tabs">
+                    <li class="tab-item active">
+                        <a class="pointer" title="功能特征">功能特征</a>
+                    </li>
+                    <li class="tab-item">
+                        <a class="pointer" title="规格参数">规格参数</a>
+                    </li>
+                    <li class="tab-item">
+                        <a class="pointer" title="配件">配件</a>
+                    </li>
+                    <li class="tab-item">
+                        <a class="pointer" title="服务支持">服务支持</a>
+                    </li>
+                </ul>
+                <div class="buy-btn pointer">购买</div>
             </div>
         </div>
     </div>
 </template>
 <script>
-
 export default {
     name: 'Header',
     data() {
         return{
+            fixHeader: false
         }
     },
     mounted() {
-
+        window.addEventListener('scroll', this.scrollHander)
+    },
+    unmounted () {
+        window.removeEventListener('scroll', this.scrollHander)
     },
     methods: {
+        scrollHander () {
+            if (window.pageYOffset > 90) {
+                this.fixHeader = true
+            } else {
+                this.fixHeader = false
+            }
+        }
     }
 }
 </script>
@@ -40,16 +77,28 @@ export default {
 @media screen and (min-width:1200px) {
     .header{
         height: auto;
+        .container{
+            border-bottom: 1px solid #e5e5e5;
+            &.fixed{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
         .fix-navigation{
             height: 90px;
             position: relative;
-            .inner-box{}
             .logo{
                 position: absolute;
                 width: 78px;
                 height: 42px;
                 top: 24px;
-                left: 92px;
+                left: 12px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
             .nav-title{
                 position: absolute;
@@ -66,7 +115,114 @@ export default {
             }
             .func-box{
                 position: absolute;
-                right: 0;
+                right: 12px;
+                top: 24px;
+                display: flex;
+                .login-btn{
+                    width: 93px;
+                    height: 42px;
+                    line-height: 38px;
+                    text-align: center;
+                    border-radius: 12px;
+                    border: 2px solid #979797;
+                    font-size: 24px;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #333333;
+                    cursor: pointer;
+                }
+                .search-btn,
+                .account-btn{
+                    height: 42px;
+                    cursor: pointer;
+                }
+                .account-btn{
+                    margin-right: 29px;
+                    padding-top: 4px;
+                    img{
+                        width: 30px;
+                        height: 35px;
+                    }
+                }
+                .search-btn{
+                    margin-right: 38px;
+                    padding-top: 7px;
+                    img{
+                        width: 31px;
+                        height: 31px;
+                    }
+                }
+            }
+        }
+        .sec-navigation{
+            height: 88px;
+            position: relative;
+            .logo{
+                position: absolute;
+                top: 27px;
+                left: 12px;
+                font-size: 24px;
+                font-family: PingFangSC-Medium, PingFang SC;
+                font-weight: 500;
+                color: #333333;
+                line-height: 33px;
+            }
+            .buy-btn{
+                position: absolute;
+                right: 12px;
+                top: 25px;
+                width: 90px;
+                height: 38px;
+                line-height: 38px;
+                text-align: center;             
+                background: #AD0823;
+                border-radius: 19px;
+                font-size: 18px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #FFFFFF;
+            }
+            .product-tabs{
+                position: absolute;
+                right: 149px;
+                top: 33px;
+                display: flex;
+                .tab-item{
+                    position: relative;
+                    margin-left: 38px;
+                    &.active{
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 3px;
+                            background: #000000;
+                        }
+                    }
+                    &:hover{
+                        a{
+                            font-weight: 400;
+                            color: #000;
+                        }
+                    }
+                    &.active{
+                        a{
+                            font-weight: 600;
+                            color: #333333;
+                        }
+                    }
+                    a{
+                        font-size: 18px;
+                        display: block;
+                        font-family: PingFangSC-Semibold, PingFang SC;
+                        font-weight: 400;
+                        color: #666666;
+                        line-height: 25px;
+                        padding: 0 5px 30px;
+                    }
+                }
             }
         }
     }
