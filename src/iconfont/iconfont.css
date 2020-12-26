@@ -1,0 +1,41 @@
+@font-face {font-family: "iconfont";
+  src: url('iconfont.eot?t=1608905471221'); /* IE9 */
+  src: url('iconfont.eot?t=1608905471221#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAOYAAsAAAAAB9wAAANJAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDTgqCNIIhATYCJAMcCxAABCAFhG0HZRvuBsiuMTaGVk8kQkBbhhaQdm92gT4Vz+BzEUT7vc7u3YMQukQBynj2iQrrqHDBkotqfStkha8y1UCy+v/fXPk3OWY155flAXMu+ZNkafImkwMuCU3siF37/K4jVSRX1wYIUG3uGAcPPNsgNup8twBKXbweqEv916ex/P0K8P9/jpmuQYbR37Z2yU4ajSe0N7C8iKA7ojuQQ79h7CaChvgwgWGL3FyHfSMzkKcCRwXixtQVyMtEVdUo9EJbcWEt8VGjz+eMA/jAfz/+QLA8UlOAE4+vezXo+C5/f8rJgCuKIJvODeMyCraASryu9D6Qo+wW2bC3OcshMKyXcqr23u/935+eBNctB+Vh2LBxeCohFVWjJfD/Tq4fBWeZXMt3WWER/OhmkfzoYVH40cui8qOfRcOPpzqXiu7041F+B3glY7eNAV1ZWvDS0enR/RzbnmtHrW27TcP2OX2mTceWcMvsTOv8bPr2820z4VRq9kbS7Y65V8mCdHouk5lNJmdKREI1r2wu6q4Pbp+C4zc/fiRqQCwBJ4Zykx8/4J//Ea9RdU0cGtb/QRFRLWseIf4iyddKVz7hyI0Xn+80cbLB7UiXP+PIrZcv17Lo2tlxqfxLO9uL0pK0vf3Bxe0dOAIYDC2lHpBf8jzke04oozmG35Pu+o+kN3/rb4wNP/9bL235n1dYwbeiyoEcHYwwXa6XdJb9m1W1GlBNBbB11Z2AdXO8T6CzOJE3+RkL/JXgtHfT6ec61xN6cwmkzgIUvSVkxW5BY8Q2tHo7MGxT/+UjZnCyqEPYcE6CMOkhpHFfoZiUQFbsW2jM+wutyWQYdhKVNxyxklnQzVERqJHNXWKqLEaRQxSIxinUnYjC0wpOnUNumwkS8PrzhX6MIZ/iFHtLDwpBCeUsSvqkx2EkwojFWQhV4TWEsJp8Plr1RV6VRaHAAQ4pBKQhNu0iTComhtLlQkHh56cgnSNCwRsmesJzEGcz1ycCvPwdkP3aWKeJW/mMbYsuSBAoguKYKKJP2oUiIhjCqt4VglSClzEgbWnig/NoV613eX30BUqMGcA3dJFRokYTbXTRqw8RZbdQ4Zxte7ipG6IgyUWQijyt1bGy1QizMQdVKFw1AAAAAAA=') format('woff2'),
+  url('iconfont.woff?t=1608905471221') format('woff'),
+  url('iconfont.ttf?t=1608905471221') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('iconfont.svg?t=1608905471221#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-play:before {
+  content: "\e603";
+}
+
+.icon-arrow-right:before {
+  content: "\e743";
+}
+
+.icon-arrow-left:before {
+  content: "\e744";
+}
+
+.icon-arrow-up:before {
+  content: "\e745";
+}
+
+.icon-close:before {
+  content: "\e747";
+}
+
+.icon-search:before {
+  content: "\e7b3";
+}
+
