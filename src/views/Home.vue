@@ -1,7 +1,7 @@
 <template>
     <div class="home">
         <Header />
-        <div style="height: 1920px;"></div>
+        <div style="height: 1920px; "></div>
     </div>
 </template>
 <script>
