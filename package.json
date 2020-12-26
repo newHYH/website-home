@@ -31,17 +31,13 @@
     "sass-loader": "^10.1.0"
   },
   "eslintConfig": {
-    "root": true,
+    "root": false,
     "env": {
-      "node": true
+      "node": false
     },
     "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      
     ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
     "rules": {}
   },
   "browserslist": [
