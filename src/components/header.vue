@@ -105,13 +105,13 @@ export default {
                 top: 16px;
                 display: flex;
                 .login-btn{
-                    width: 93px;
-                    height: 42px;
-                    line-height: 38px;
+                    width: 62px;
+                    height: 28px;
+                    line-height: 24px;
                     text-align: center;
                     border-radius: 12px;
                     border: 2px solid #979797;
-                    font-size: 24px;
+                    font-size: 16px;
                     font-family: PingFangSC-Regular, PingFang SC;
                     font-weight: 400;
                     color: #333333;
@@ -119,23 +119,23 @@ export default {
                 }
                 .search-btn,
                 .account-btn{
-                    height: 42px;
+                    height: 28px;
                     cursor: pointer;
                 }
                 .account-btn{
-                    margin-right: 29px;
-                    padding-top: 4px;
+                    margin-right: 20px;
+                    padding-top: 2px;
                     img{
-                        width: 30px;
-                        height: 35px;
+                        width: 20px;
+                        height: 23.333px;
                     }
                 }
                 .search-btn{
-                    margin-right: 38px;
-                    padding-top: 7px;
+                    margin-right: 25px;
+                    padding-top: 4px;
                     img{
-                        width: 31px;
-                        height: 31px;
+                        width: 20.66px;
+                        height: 20.66px;
                     }
                 }
             }
@@ -206,7 +206,7 @@ export default {
                         font-weight: 400;
                         color: #666666;
                         line-height: 25px;
-                        padding: 0 4px 12px 0;
+                        padding: 0 0 12px 0;
                     }
                 }
             }
