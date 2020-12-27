@@ -1,16 +1,22 @@
 <template>
     <div class="home">
-        <Header />
-        <div style="height: 1920px;"></div>
+        <!-- <Header /> -->
+        <HeaderA />
+        <div style="height: 1920px; "></div>
+        <Footer />
     </div>
 </template>
 <script>
-import Header from '@/components/header.vue';
+// import Header from '@/components/header.vue';
+import HeaderA from '@/components/headerA.vue';
+import Footer from '@/components/footer.vue';
 
 export default {
     name: 'Home',
     components: {
-        Header
+        // Header,
+        HeaderA,
+        Footer
     },
     data() {
         return{}
