@@ -10,6 +10,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
   },
   {
+    path: '/service-network',
+    component: () => import(/* webpackChunkName: "about" */ '../views/serviceNetwork.vue')
+  },
+  {
     path: '/query-price',
     component: () => import(/* webpackChunkName: "about" */ '../views/query-price.vue')
   },

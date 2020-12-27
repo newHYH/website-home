@@ -1,7 +1,7 @@
 <template>
     <div class="query-price">
         <div class="head-img">
-            价格查询页面
+            备件价格查询
         </div>
         <div class="device-sel row">
             <div class="sel-wrap col-sm-12 col-md-12 col-lg-12">

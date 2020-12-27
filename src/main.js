@@ -5,5 +5,4 @@ import 'amfe-flexible'
 import './iconfont/iconfont.css'
 import 'animate.css'
 
-createApp(App).use(router).mount('#app')
-// createApp(App).mount('#app')
+ createApp(App).use(router).mount('#app')
