@@ -34,6 +34,10 @@ const routes = [
     path: '/notice',
     component: () => import(/* webpackChunkName: "about" */ '../views/notice.vue')
   },
+  {
+    path: '/param',
+    component: () => import(/* webpackChunkName: "about" */ '../views/param.vue')
+  }
 ]
 
 const router = createRouter({

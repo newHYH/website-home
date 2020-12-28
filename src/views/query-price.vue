@@ -1,4 +1,5 @@
 <template>
+    <HeaderA></HeaderA>
     <div class="query-price">
         <div class="head-img">
             备件价格查询
@@ -9,7 +10,7 @@
                 <div class="btn-select" @click.stop="handleClkSelDevice('')">
                     <div class="selected-name">{{selectedDeviceName||'选择设备'}}</div>
                     <div class="arrow-down" :class="openSelMenu?'rotateTop':'rotateDown'"></div>
-                    <div class="down-list animate__animated" :class="openSelMenu?'animate__fadeInUp':'animate__fadeOutDown'">
+                    <div class="down-list animate__animated" :class="openSelMenu?'animate__fadeInUp':''">
                         <div class="sel-device-name" @click.stop="handleClkSelDevice(devType.typeName)" v-for="(devType,index) in deviceTypeList" :key="index">
                             {{devType.typeName}}
                         </div>
@@ -76,10 +77,18 @@
             </div>
         </div>
     </div>
+    <Footer></Footer>
 </template>
 <script>
+    import HeaderA from '@/components/headerA.vue';
+    import Footer from '@/components/footer.vue';
 export default {
     name: "query-price",
+    components: {
+        // Header,
+        HeaderA,
+        Footer
+    },
     data() {
         return {
             deviceTypeList: [{
@@ -326,6 +335,7 @@ export default {
                 }
 
                 .down-list {
+                    opacity: 0;
                     width: 100%;
                     position: absolute;
                     top: torem(57);
