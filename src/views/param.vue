@@ -1,6 +1,6 @@
 <template>
-    <Header></Header>
     <div class="param">
+        <Header></Header>
         <div class="phone-name">HUAWEI Mate 40 Pro</div>
         <div class="phone-pic">
             <img src="../assets/phones.png" alt="">
@@ -286,8 +286,8 @@
             </ul>
             <div class="gray-line"></div>
         </div>
+        <Footer></Footer>
     </div>
-    <Footer></Footer>
 </template>
 
 <script>

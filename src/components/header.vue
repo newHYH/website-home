@@ -22,16 +22,16 @@
                 <div class="logo">China UNICOM 40 Pro</div>
                 <ul class="product-tabs">
                     <li class="tab-item active">
-                        <a class="pointer" title="功能特征">功能特征</a>
+                        <a class="pointer" title="功能特征" @click="goto(1)">功能特征</a>
                     </li>
                     <li class="tab-item">
-                        <a class="pointer" title="规格参数">规格参数</a>
+                        <a class="pointer" title="规格参数" @click="goto(2)">规格参数</a>
                     </li>
                     <li class="tab-item">
-                        <a class="pointer" title="配件">配件</a>
+                        <a class="pointer" title="配件" @click="goto(3)">配件</a>
                     </li>
                     <li class="tab-item">
-                        <a class="pointer" title="服务支持">服务支持</a>
+                        <a class="pointer" title="服务支持" @click="goto(4)">服务支持</a>
                     </li>
                 </ul>
                 <div class="buy-btn pointer">购买</div>
@@ -60,6 +60,9 @@ export default {
             } else {
                 this.fixHeader = false
             }
+        },
+        goto(){
+            this.$router.push('/param')
         }
     }
 }
