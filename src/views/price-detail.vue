@@ -1,6 +1,6 @@
 <template>
-    <HeaderA :tabs="headerTabs"></HeaderA>
     <div class="price-detail">
+        <HeaderA :tabs="headerTabs"></HeaderA>
         <div class="head-img">
             备件价格查询
         </div>
@@ -20,8 +20,8 @@
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </div>
-    <Footer></Footer>
 </template>
 
 <script>

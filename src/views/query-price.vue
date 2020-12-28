@@ -1,6 +1,6 @@
 <template>
-    <HeaderA :tabs="headerTabs"></HeaderA>
     <div class="query-price">
+        <HeaderA :tabs="headerTabs"></HeaderA>
         <div class="head-img">
             备件价格查询
         </div>
@@ -76,8 +76,8 @@
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </div>
-    <Footer></Footer>
 </template>
 <script>
     import HeaderA from '@/components/headerA.vue';
