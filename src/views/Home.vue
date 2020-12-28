@@ -8,7 +8,7 @@
             <div class="main">
                 <div class="pro-box">
                     <div class="pro-img">
-                        <div class="pro-buy">
+                        <div class="pro-buy" @click="goto('phone-page')">
                             <span class="buy-btn">了解更多</span>
                             <span class="buy-btn">购买</span>
                         </div>
@@ -21,7 +21,7 @@
                 <div class="pro-box-con">
                     <div class="pro-con">
                         <div class="pro-img">
-                            <div class="pro-buy">
+                            <div class="pro-buy" @click="goto('phone-page')">
                                 <span class="buy-btn">了解更多</span>
                                 <span class="buy-btn">购买</span>
                             </div>
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="pro-con">
-                        <div class="pro-img">
+                        <div class="pro-img" @click="goto('phone-page')">
                             <div class="pro-buy">
                                 <span class="buy-btn">了解更多</span>
                                 <span class="buy-btn">购买</span>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="pro-box">
-                    <div class="pro-img">
+                    <div class="pro-img" @click="goto('phone-page')">
                         <div class="pro-buy">
                             <span class="buy-btn">了解更多</span>
                             <span class="buy-btn">购买</span>
@@ -79,7 +79,11 @@ export default {
     mounted() {
 
     },
-    methods: {}
+    methods: {
+        goto(path){
+            this.$router.push(path)
+        }
+    }
 }
 </script>
 <style scoped lang=scss>
