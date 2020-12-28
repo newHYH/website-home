@@ -131,7 +131,7 @@ export default {
     return {
     //   show:false,
     //   carmodel:'',
-      areaList,
+    //   areaList,
       windowWidth: document.documentElement.clientWidth,
       hide: {
         query: true,
