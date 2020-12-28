@@ -1,4 +1,5 @@
 <template>
+    <HeaderA :tabs="headerTabs"></HeaderA>
   <div class="home">
     <div class="box-top">
       <img
@@ -98,6 +99,7 @@
       </div>
     </div>
   </div>
+    <Footer></Footer>
 </template>
 <script>
 import BaiduMap from "vue-baidu-map/components/map/Map";
@@ -110,10 +112,14 @@ import 'vant/lib/popup/style';
 
 import { ref } from 'vue';
 import areaList from '../components/area';
+    import HeaderA from '@/components/headerA.vue';
+import Footer from '@/components/footer.vue';
 export default {
   name: "BaiDuMap",
   components: {
     BaiduMap,
+    HeaderA,
+    Footer,
     Area,
     Popup,
   },
@@ -132,6 +138,18 @@ export default {
     //   show:false,
     //   carmodel:'',
     //   areaList,
+    headerTabs: [
+                {
+                    name: '手机',
+                    link: '/home',
+                    active: false
+                },
+                {
+                    name: '售后服务',
+                    link: '/serve-home',
+                    active: true
+                }
+            ],
       windowWidth: document.documentElement.clientWidth,
       hide: {
         query: true,
