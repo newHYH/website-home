@@ -1,5 +1,5 @@
 <template>
-    <HeaderA></HeaderA>
+    <HeaderA :tabs="headerTabs"></HeaderA>
     <div class="query-price">
         <div class="head-img">
             备件价格查询
@@ -91,6 +91,18 @@ export default {
     },
     data() {
         return {
+            headerTabs: [
+                {
+                    name: '手机',
+                    link: '/home',
+                    active: false
+                },
+                {
+                    name: '售后服务',
+                    link: '/serve-home',
+                    active: true
+                }
+            ],
             deviceTypeList: [{
                     typeName: '华为',
                 },

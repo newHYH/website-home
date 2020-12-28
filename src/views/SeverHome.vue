@@ -1,6 +1,6 @@
 <template>
     <div class="server">
-        <Header />
+        <HeaderA :tabs="headerTabs" />
         <div class="serve-banner">
             <img class="bg" src="../assets/banner.jpg">
             <div class="content">
@@ -160,15 +160,28 @@
     </div>
 </template>
 <script>
-import Header from '@/components/header.vue';
+import HeaderA from '@/components/headerA.vue';
 
 export default {
     name: 'ServeHome',
     components: {
-        Header
+        HeaderA
     },
     data() {
-        return {}
+        return {
+            headerTabs: [
+                {
+                    name: '手机',
+                    link: '/home',
+                    active: false
+                },
+                {
+                    name: '售后服务',
+                    link: '/serve-home',
+                    active: true
+                }
+            ]
+        }
     },
     mounted() {
 
