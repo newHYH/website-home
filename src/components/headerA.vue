@@ -7,7 +7,7 @@
                 </a>
                 <ul class="product-tabs">
                     <li class="tab-item" v-for="(item, index) in tabs" :key="index" :class="item.active ? 'active' : ''">
-                        <a class="pointer" :href="item.link" :title="item.name">{{item.name}}</a>
+                        <a class="pointer" @click="goto(item.link)"  :title="item.name">{{item.name}}</a>
                     </li>
                 </ul>
                 <div class="right-box big">
@@ -58,6 +58,9 @@ export default {
         window.removeEventListener('scroll', this.scrollHander)
     },
     methods: {
+        goto(path){
+            this.$router.push(path)
+        },
         scrollHander () {
             if (window.pageYOffset > 0) {
                 this.fixHeader = true
