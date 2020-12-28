@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <HeaderA />
+        <HeaderA :tabs="headerTabs" />
         <div class="box-wrapper">
             <div class="sider">
                 <div class="sider-text">全部手机</div>
@@ -74,7 +74,20 @@ export default {
         Footer
     },
     data() {
-        return {}
+        return {
+            headerTabs: [
+                {
+                    name: '功能特征',
+                    link: '',
+                    active: true
+                },
+                {
+                    name: '规格参数',
+                    link: '',
+                    active: false
+                }
+            ]
+        }
     },
     mounted() {
 

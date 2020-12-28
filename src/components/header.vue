@@ -80,6 +80,7 @@ export default {
                 width: 100%;
                 background: rgba(255,255,255,0.9);
                 backdrop-filter: saturate(180%) blur(20px);
+                z-index: 1000;
             }
         }
         .fix-navigation{
