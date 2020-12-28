@@ -24,7 +24,11 @@ const routes = [
   {
     path: '/price-detail',
     component: () => import(/* webpackChunkName: "about" */ '../views/price-detail.vue')
-  }
+  },
+  {
+    path: '/notice',
+    component: () => import(/* webpackChunkName: "about" */ '../views/notice.vue')
+  },
 ]
 
 const router = createRouter({
