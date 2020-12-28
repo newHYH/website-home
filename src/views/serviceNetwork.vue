@@ -1,6 +1,6 @@
 <template>
-    <HeaderA :tabs="headerTabs"></HeaderA>
   <div class="home">
+    <HeaderA :tabs="headerTabs"></HeaderA>
     <div class="box-top">
       <img
         v-show="hide.query"
@@ -98,8 +98,8 @@
         ></baidu-map>
       </div>
     </div>
-  </div>
     <Footer></Footer>
+  </div>
 </template>
 <script>
 import BaiduMap from "vue-baidu-map/components/map/Map";
@@ -203,7 +203,10 @@ export default {
 </script>
 <style scoped lang=scss>
 @import "./../sass/transfrom.scss";
-
+.home{
+  width:100%;
+  overflow: hidden;
+}
 .box-zhong-input {
   border: 1px solid #e5e5e5;
   border-radius: 24px;
