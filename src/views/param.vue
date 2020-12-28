@@ -1,5 +1,5 @@
 <template>
-    <HeaderA></HeaderA>
+    <Header></Header>
     <div class="param">
         <div class="phone-name">HUAWEI Mate 40 Pro</div>
         <div class="phone-pic">
@@ -291,13 +291,13 @@
 </template>
 
 <script>
-    import HeaderA from '@/components/headerA.vue';
+    import Header from '@/components/header.vue';
     import Footer from '@/components/footer.vue';
     export default {
         name: "param",
         components: {
             // Header,
-            HeaderA,
+            Header,
             Footer
         },
     }
