@@ -1,5 +1,5 @@
 <template>
-    <HeaderA></HeaderA>
+    <Header></Header>
     <div class="param">
         <div class="phone-name">HUAWEI Mate 40 Pro</div>
         <div class="phone-pic">
@@ -291,13 +291,13 @@
 </template>
 
 <script>
-    import HeaderA from '@/components/headerA.vue';
+    import Header from '@/components/header.vue';
     import Footer from '@/components/footer.vue';
     export default {
         name: "param",
         components: {
             // Header,
-            HeaderA,
+            Header,
             Footer
         },
     }
@@ -306,6 +306,8 @@
 <style scoped lang="scss">
     @import "./../sass/common.scss";
     .param{
+        width: 100%;
+        overflow: hidden;
         .phone-name{
             font-size: torem(50);
             line-height: torem(50);
