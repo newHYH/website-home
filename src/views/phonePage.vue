@@ -1,6 +1,6 @@
 <template>
     <div class="phone-wrapper">
-        <HeaderA />
+        <Header />
         <div class="phone-scroll">
             <kvLoader />
             <videoPhone />
@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-import HeaderA from '@/components/headerA.vue';
+import Header from '@/components/header.vue';
 import kvLoader from '@/components/kv-loader.vue';
 import videoPhone from '@/components/video-phone.vue';
 import magScroll from '@/components/mag-scroll.vue';
@@ -31,7 +31,7 @@ import Footer from '@/components/footer.vue';
 export default {
     name: 'Home',
     components: {
-        HeaderA,
+        Header,
         Footer,
         kvLoader,
         videoPhone,
