@@ -1,8 +1,7 @@
 <template>
     <div class="home">
         <!-- <Header /> -->
-        <HeaderA />
-        <div style="height: 1920px; "></div>
+        <HeaderA :tabs="headerTabs" />
         <Footer />
     </div>
 </template>
@@ -19,7 +18,20 @@ export default {
         Footer
     },
     data() {
-        return{}
+        return{
+            headerTabs: [
+                {
+                    name: '功能特征',
+                    link: '',
+                    active: true
+                },
+                {
+                    name: '规格参数',
+                    link: '',
+                    active: false
+                }
+            ]
+        }
     },
     mounted() {
 
