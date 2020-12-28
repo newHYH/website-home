@@ -80,23 +80,23 @@
                 </div>
             </div>
         </div>
-        <div class="org-box row">
-            <div class="item-box col-sm-12 col-md-3">
+        <div class="org-box">
+            <div class="item-box">
                 <p class="title">购买手机</p>
                 <div class="each-item">手机</div>
             </div>
-            <div class="item-box col-sm-12 col-md-3">
+            <div class="item-box">
                 <p class="title">服务与支持</p>
                 <div class="each-item">维修备件价格</div>
                 <div class="each-item">联系我们</div>
                 <div class="each-item">服务隐私声明</div>
             </div>
-            <div class="item-box col-sm-12 col-md-3">
+            <div class="item-box">
                 <p class="title">应用与下载</p>
                 <div class="each-item">终端云服务</div>
                 <div class="each-item">预置应用共公式</div>
             </div>
-            <div class="item-box col-sm-12 col-md-3">
+            <div class="item-box">
                 <p class="title">关于我们</p>
                 <div class="each-item">关于我们</div>
                 <div class="each-item">隐私</div>
@@ -510,8 +510,10 @@ export default {
         }
         .org-box{
             padding: 18px 30px 18px 30px;
+            display: flex;
+            justify-content: center;
             .item-box{
-                width: 100%;
+                max-width: 140px;
                 color: #fff;
                 text-align: left;
                 margin-bottom: 16px;
@@ -726,6 +728,7 @@ export default {
             justify-content: center;
             .item-box{
                 width: torem(270);
+                max-width: torem(270);
                 color: #fff;
                 text-align: left;
                 .title{
