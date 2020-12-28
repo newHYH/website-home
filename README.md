@@ -39,6 +39,7 @@ components -- 组件
 header -- 头部1（清源）
 headerA -- 头部2（清源）
 footer -- 底部（清源）
+
 searchinput -- 搜索 （清源）
 kv-loader -- 第一屏 图片特效 （清源）
 video-phone -- 第二屏  视频（清源）
