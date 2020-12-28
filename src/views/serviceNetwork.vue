@@ -15,39 +15,26 @@
     ></div>
     <div class="box-zhong">
       <div style="margin-top: 20px">
-        <span v-show="hide.query" style="font-size: 29px; width: 50%"
+        <span v-show="hide.query" style="font-size: 16px; width: 50%"
           >搜索附近的服务店（不限区域）：</span
         >
-        <span v-show="hide.chengshi" @click="share" class="box-zhong-chengshi">城市</span>
+        <span v-show="hide.chengshi" @click="showPopup" class="box-zhong-chengshi">城市</span>
         <input
           class="box-zhong-input"
           placeholder="请输入地址，搜索附近的服务店"
         />
-        <!-- <input v-show="hide.chengshi" id="sex" type="text" placeholder="选择区域" list="sexlist3" class="box-zhong-input2">
-                <datalist id="sexlist3">
-                    <option>华为</option>
-                    <option>小米</option>
-                </datalist> -->
-        <!-- <div class="popup">
-                    <div class="mask" v-show="shareType"></div>
-                    <div class="share" :style="{bottom: num + 'px'}">
-                        <div class="share-opt bg-color"></div>
-                        <div class="btn bg-color" @click="cancel">取消</div>
-                    </div>
-                </div> -->
-        <div class="popup">
-          <div class="mask" v-show="shareType"></div>
-          <div class="share" :style="{ bottom: num + 'px' }">
-            <div class="share-opt bg-color">
-                <div>省份</div>
-                <div>城市</div>
-            </div>
-            <div class="btn bg-color" @click="cancel">取消</div>
-          </div>
-        </div>
+            <Popup  v-model:show="show"
+                    closeable
+                    position="bottom"
+                    :style="{ height: '30%' }">
+             <Area
+                :area-list="areaList"
+                :columns-placeholder="['省', '市', '区']"
+                />
+            </Popup>
       </div>
       <div style="margin-top: 20px">
-        <span v-show="hide.query" style="font-size: 29px; width: 25%"
+        <span v-show="hide.query" style="font-size: 16px; width: 25%"
           >按区域搜索服务店：</span
         >
         <input
@@ -63,7 +50,7 @@
         </datalist>
         <input
           v-show="hide.query"
-          id="sex"
+          id="sex1"
           type="text"
           placeholder="选择城市"
           list="sexlist1"
@@ -74,7 +61,7 @@
         </datalist>
         <input
           v-show="hide.query"
-          id="sex"
+          id="sex2"
           type="text"
           placeholder="选择区域"
           list="sexlist2"
@@ -86,22 +73,19 @@
       </div>
     </div>
     <div class="box-ditu">
-      <!-- <baidu-map class="map" ak="tRQV1ysINWeNXFPtzdAUrtbFEfa4SOGb" :zoom="zoom" center="北京"
- :scroll-wheel-zoom="true">
-                    
-                </baidu-map> -->
       <div class="box-ditu-list">
         <input
           v-show="hide.query"
-          class="box-ditu-input"
+          id="sex2"
           type="text"
           placeholder="选择产品"
-        /><br />
-        <!-- <span class="box-ditu-span">华为授权服务中心</span><br />
-        <span class="box-ditu-span">宣武门外大街庄胜广场南翼沿街二层</span
-        ><br />
-        <span class="box-ditu-span">010-63158808 010-63159890</span><br />
-        <span class="box-ditu-span">营业时间：10:00-19:00(周一至周日)</span> -->
+          list="sexlist3"
+          class="box-ditu-input"
+        />
+        <datalist id="sexlist3">
+          <option>华为</option>
+          <option>小米</option>
+        </datalist>
       </div>
       <div class="map-warp">
         <baidu-map
@@ -113,50 +97,41 @@
         ></baidu-map>
       </div>
     </div>
-    <!-- <div class="box-di">
-            <div>
-                <span style="font-size: 36px;font-family: PingFangSC-Medium, PingFang SC;color: #333333;line-height: 100px;">联系我们</span>
-            </div>
-            <div>
-               <div class="box-di-span">
-                   <span class="box-di-title">电话支持</span><br>
-                   <span class="box-di-text">电话950800</span><br>
-                   <span class="box-di-text">7*24小时</span>
-               </div>
-               <div class="box-di-span">
-                   <span class="box-di-title">在线支持</span><br>
-                   <span class="box-di-text">在线客服</span><br>
-                   <span class="box-di-text">邮件咨询</span>
-               </div>
-               <div class="box-di-span">
-                   <span class="box-di-title">线下支持</span><br>
-                   <span class="box-di-text">服务店</span><br>
-                   <span class="box-di-text">零售店</span>
-               </div>
-               <div class="box-di-span">
-                   <span class="box-di-title">社交支持</span><br>
-                   <span class="box-di-text">微博</span><br>
-                   <span class="box-di-text">微信公众号</span>
-               </div>
-            </div>
-        </div> -->
   </div>
 </template>
 <script>
 import BaiduMap from "vue-baidu-map/components/map/Map";
-// import BaiduMap from 'vue-baidu-map'
-//import BaiduMap from 'vue-baidu-map/components/map/Map.vue'
-// Vue.use(BaiduMap, {
-//   // ak 是在百度地图开发者平台申请的密钥 详见 http://lbsyun.baidu.com/apiconsole/key */
-//   ak: 'tRQV1ysINWeNXFPtzdAUrtbFEfa4SOGb'
-// })
+import Area from 'vant/lib/area';
+import 'vant/lib/area/style';
+import { createApp } from 'vue';
+
+import Popup from 'vant/lib/popup';
+import 'vant/lib/popup/style';
+
+import { ref } from 'vue';
+import areaList from '../components/area';
 export default {
   name: "BaiDuMap",
   components: {
     BaiduMap,
+    Area,
+    Popup,
+  },
+  setup() {
+    const show = ref(false);
+    const showPopup = () => {
+      show.value = true;
+    };
+    return {
+      show,
+      showPopup,
+    };
   },
   data() {
     return {
+    //   show:false,
+    //   carmodel:'',
+      areaList,
       windowWidth: document.documentElement.clientWidth,
       hide: {
         query: true,
@@ -171,8 +146,8 @@ export default {
         // },
       ],
       model1: "",
-      shareType: false,
-      num: -273,
+    //   shareType: false,
+    //   num: -273,
     };
   },
   watch: {
@@ -182,6 +157,7 @@ export default {
     },
   },
   mounted() {
+      console.log(areaList.province_list)
     var that = this;
     // <!--把window.onresize事件挂在到mounted函数上-->
     window.onresize = () => {
@@ -204,16 +180,6 @@ export default {
       this.center.lng = 118.835;
       this.center.lat = 32.0835479;
     },
-    share: function () {
-      this.shareType = true;
-      this.num = 0;
-    },
-    cancel: function () {
-      this.num = -200;
-      setTimeout(() => {
-        this.shareType = false;
-      }, 600);
-    },
   },
 };
 </script>
@@ -226,16 +192,17 @@ export default {
   padding: 9px 40px 9px 15px;
   font-size: 12px;
   color: #1d1e28;
-  width: 60%;
+  width: 50%;
   background: #fff;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin-left: 8px;
 }
 .box-zhong-chengshi {
-  font-size: 18px;
+  font-size: 12px;
   color: #1a1a1a;
-  line-height: 20px;
+  /* line-height: 20px; */
   font-weight: 700;
   overflow: hidden;
   white-space: nowrap;
@@ -263,8 +230,7 @@ export default {
 .share .share-opt {
   width: 100%;
   height: 210px;
-  /* border-radius: 8px; */
-  background:blanchedalmond;
+  background:white;
 }
 .share .btn {
   width: 100%;
@@ -368,16 +334,18 @@ export default {
   }
   .box-zhong-input {
     width: 40%;
-    height: 57px;
+    height: 18px;
     border-radius: 8px;
     border: 1px solid #e6e6e6;
+    font-size: 12px;
   }
   .box-zhong-input2 {
     width: 15%;
-    height: 57px;
+    height: 20px;
     border-radius: 8px;
     border: 1px solid #e6e6e6;
     margin-left: 20px;
+    font-size: 12px;
   }
   .box-ditu {
     width: 100%;
@@ -395,9 +363,10 @@ export default {
   }
   .box-ditu-input {
     width: 80%;
-    height: 57px;
+    height: 20px;
     border-radius: 8px;
     border: 1px solid #e6e6e6;
+    font-size: 16px;
     /* box-shadow: 0px 1px 0px 0px #E6E6E6; */
   }
   .box-ditu-span {
