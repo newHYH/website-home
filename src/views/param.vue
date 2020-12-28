@@ -1,4 +1,5 @@
 <template>
+    <HeaderA></HeaderA>
     <div class="param">
         <div class="phone-name">HUAWEI Mate 40 Pro</div>
         <div class="phone-pic">
@@ -286,11 +287,19 @@
             <div class="gray-line"></div>
         </div>
     </div>
+    <Footer></Footer>
 </template>
 
 <script>
+    import HeaderA from '@/components/headerA.vue';
+    import Footer from '@/components/footer.vue';
     export default {
-        name: "param"
+        name: "param",
+        components: {
+            // Header,
+            HeaderA,
+            Footer
+        },
     }
 </script>
 
@@ -303,6 +312,7 @@
             font-weight: 800;
             color: #000;
             margin-bottom: torem(54);
+            margin-top: torem(114);
         }
         .phone-pic{
             width: torem(743);

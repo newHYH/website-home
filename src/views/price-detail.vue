@@ -1,4 +1,5 @@
 <template>
+    <HeaderA></HeaderA>
     <div class="price-detail">
         <div class="head-img">
             备件价格查询
@@ -20,6 +21,7 @@
             </div>
         </div>
     </div>
+    <Footer></Footer>
 </template>
 
 <script>
@@ -30,8 +32,15 @@
     import img5 from '../assets/select-icon-5.png'
     import img6 from '../assets/select-icon-6.png'
     import img7 from '../assets/select-icon-6.png'
+    import HeaderA from '@/components/headerA.vue';
+    import Footer from '@/components/footer.vue';
     export default {
         name: "price-detail",
+        components: {
+            // Header,
+            HeaderA,
+            Footer
+        },
         data(){
             return{
                 partList:[

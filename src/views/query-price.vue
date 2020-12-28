@@ -1,4 +1,5 @@
 <template>
+    <HeaderA></HeaderA>
     <div class="query-price">
         <div class="head-img">
             备件价格查询
@@ -76,10 +77,18 @@
             </div>
         </div>
     </div>
+    <Footer></Footer>
 </template>
 <script>
+    import HeaderA from '@/components/headerA.vue';
+    import Footer from '@/components/footer.vue';
 export default {
     name: "query-price",
+    components: {
+        // Header,
+        HeaderA,
+        Footer
+    },
     data() {
         return {
             deviceTypeList: [{
