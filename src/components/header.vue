@@ -67,14 +67,8 @@ export default {
 <style scoped lang=scss>
 @import "@/sass/common.scss";
 
-/* mobile */
-@media screen and (min-width:350px) {
-    .header{
-    }
-}
-
-/* PC */
-@media screen and (min-width:1200px) {
+/* mobile phone */
+@media screen and (min-width:320px) {
     .header{
         height: auto;
         .container{
@@ -84,6 +78,155 @@ export default {
                 top: 0;
                 left: 0;
                 width: 100%;
+                background: rgba(255,255,255,0.9);
+                backdrop-filter: saturate(180%) blur(20px);
+            }
+        }
+        .fix-navigation{
+            height: 60px;
+            position: relative;
+            .logo{
+                position: absolute;
+                width: 52px;
+                height: 28px;
+                top: 16px;
+                left: 12px;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .nav-title{
+                display: none;
+            }
+            .func-box{
+                position: absolute;
+                right: 12px;
+                top: 16px;
+                display: flex;
+                .login-btn{
+                    width: 62px;
+                    height: 28px;
+                    line-height: 24px;
+                    text-align: center;
+                    border-radius: 12px;
+                    border: 2px solid #979797;
+                    font-size: 16px;
+                    font-family: PingFangSC-Regular, PingFang SC;
+                    font-weight: 400;
+                    color: #333333;
+                    cursor: pointer;
+                }
+                .search-btn,
+                .account-btn{
+                    height: 28px;
+                    cursor: pointer;
+                }
+                .account-btn{
+                    margin-right: 20px;
+                    padding-top: 2px;
+                    img{
+                        width: 20px;
+                        height: 23.333px;
+                    }
+                }
+                .search-btn{
+                    margin-right: 25px;
+                    padding-top: 4px;
+                    img{
+                        width: 20.66px;
+                        height: 20.66px;
+                    }
+                }
+            }
+        }
+        .sec-navigation{
+            height: 96px;
+            position: relative;
+            .logo{
+                position: absolute;
+                top: 18px;
+                left: 12px;
+                font-size: 16px;
+                font-family: PingFangSC-Medium, PingFang SC;
+                font-weight: 500;
+                color: #333333;
+                line-height: 33px;
+            }
+            .buy-btn{
+                position: absolute;
+                right: 12px;
+                top: 18px;
+                width: 78px;
+                height: 32px;
+                line-height: 28px;
+                text-align: center;             
+                background: #AD0823;
+                border-radius: 16px;
+                font-size: 16px;
+                font-family: PingFangSC-Regular, PingFang SC;
+                font-weight: 400;
+                color: #FFFFFF;
+            }
+            .product-tabs{
+                position: absolute;
+                left: -7px;
+                bottom: 0;
+                display: flex;
+                .tab-item{
+                    position: relative;
+                    margin-left: 19px;
+                    &.active{
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 3px;
+                            background: #000000;
+                        }
+                    }
+                    &:hover{
+                        a{
+                            font-weight: 400;
+                            color: #000;
+                        }
+                    }
+                    &.active{
+                        a{
+                            font-weight: 600;
+                            color: #333333;
+                        }
+                    }
+                    a{
+                        font-size: 16px;
+                        display: block;
+                        font-family: PingFangSC-Semibold, PingFang SC;
+                        font-weight: 400;
+                        color: #666666;
+                        line-height: 25px;
+                        padding: 0 0 12px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ipad pro & PC */
+@media screen and (min-width:1024px) {
+    .header{
+        height: auto;
+        .container{
+            border-bottom: 1px solid #e5e5e5;
+            &.fixed{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(255,255,255,0.9);
+                backdrop-filter: saturate(180%) blur(20px);
             }
         }
         .fix-navigation{
@@ -185,7 +328,8 @@ export default {
             .product-tabs{
                 position: absolute;
                 right: 149px;
-                top: 33px;
+                left: auto;
+                top: 34px;
                 display: flex;
                 .tab-item{
                     position: relative;
@@ -226,5 +370,10 @@ export default {
             }
         }
     }
+}
+
+/* PC */
+@media screen and (min-width:1200px) {
+    
 }
 </style>
