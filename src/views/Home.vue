@@ -74,7 +74,7 @@ export default {
         Footer
     },
     data() {
-        return {}
+        return {}1
     },
     mounted() {
 
