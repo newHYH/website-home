@@ -94,6 +94,7 @@
     @import "./../sass/common.scss";
     .price-detail {
         width: 100%;
+        overflow: hidden;
         .head-img {
             height: torem(633);
             background: url('../assets/banner-1.png');

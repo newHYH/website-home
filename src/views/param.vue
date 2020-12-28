@@ -306,6 +306,8 @@
 <style scoped lang="scss">
     @import "./../sass/common.scss";
     .param{
+        width: 100%;
+        overflow: hidden;
         .phone-name{
             font-size: torem(50);
             line-height: torem(50);

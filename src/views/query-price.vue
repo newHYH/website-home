@@ -267,7 +267,7 @@ export default {
 /*@media screen and (min-width:1440px){*/
 .query-price {
     width: 100%;
-
+    overflow: hidden;
     .head-img {
         height: torem(633);
         background: url('../assets/banner-1.png');
