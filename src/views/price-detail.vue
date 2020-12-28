@@ -1,12 +1,13 @@
 <template>
+    <HeaderA></HeaderA>
     <div class="price-detail">
         <div class="head-img">
             备件价格查询
         </div>
         <div class="spare-part-container">
-            <div class="title">
-                <div class="device-name">设备信息：麦芒7 全网通版 6GB+64GB (SNE-AL00) 铂光金</div>
-                <div class="change-device">更换设备</div>
+            <div class="title row">
+                <div class="device-name col-sm-12 col-md-12 col-lg-10">设备信息：麦芒7 全网通版 6GB+64GB (SNE-AL00) 铂光金</div>
+                <div class="change-device col-sm-12 col-md-12 col-lg-2" @click="changeDevice">更换设备</div>
             </div>
             <div class="part-container row">
                 <div class="part-box col-sm-12 col-md-6 col-lg-4"
@@ -20,6 +21,7 @@
             </div>
         </div>
     </div>
+    <Footer></Footer>
 </template>
 
 <script>
@@ -30,8 +32,15 @@
     import img5 from '../assets/select-icon-5.png'
     import img6 from '../assets/select-icon-6.png'
     import img7 from '../assets/select-icon-6.png'
+    import HeaderA from '@/components/headerA.vue';
+    import Footer from '@/components/footer.vue';
     export default {
         name: "price-detail",
+        components: {
+            // Header,
+            HeaderA,
+            Footer
+        },
         data(){
             return{
                 partList:[
@@ -74,7 +83,9 @@
             }
         },
         methods:{
-
+            changeDevice(){
+                this.$router.push('/query-price')
+            }
         }
     }
 </script>
@@ -108,13 +119,17 @@
                     font-weight: 400;
                     color: #333;
                     line-height: torem(40);
+                    text-align: left;
+                    margin-bottom: torem(20);
                 }
                 .change-device{
+                    cursor: pointer;
                     height: torem(40);
                     font-size: torem(29);
                     font-weight: 400;
                     color: #037AFF;
                     line-height: torem(40);
+                    text-align: left;
                 }
             }
             .part-container{

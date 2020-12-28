@@ -316,6 +316,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
 
         .con-icon {
             width: torem(202);
