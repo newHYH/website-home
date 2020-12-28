@@ -1,7 +1,47 @@
 <template>
     <div class="home">
         <Header />
-        <div style="height: 1920px;"></div>
+        <div class="box-wrapper">
+            <div class="sider">
+                <div class="sider-text">全部手机</div>
+            </div>
+            <div class="main">
+                <div class="pro-box">
+                    <div class="pro-img">
+                        <img src="../assets/phone-1.png" alt="">
+                    </div>
+                    <div class="pro-name">
+                        HUAWEI Mate 40 Pro
+                    </div>
+                </div>
+                <div class="pro-box-con">
+                    <div class="pro-con">
+                        <div class="pro-img">
+                            <img src="../assets/phone-2.png" alt="">
+                        </div>
+                        <div class="pro-name">
+                            Redmi K30 Pro 变焦版
+                        </div>
+                    </div>
+                    <div class="pro-con">
+                        <div class="pro-img">
+                            <img src="../assets/phone-3.png" alt="">
+                        </div>
+                        <div class="pro-name">
+                            Redmi K30 Pro 变焦版
+                        </div>
+                    </div>
+                </div>
+                <div class="pro-box">
+                    <div class="pro-img">
+                        <img src="../assets/phone-4.png" alt="">
+                    </div>
+                    <div class="pro-name">
+                        Redmi 9A
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -13,32 +53,60 @@ export default {
         Header
     },
     data() {
-        return{}
+        return {}
     },
     mounted() {
 
     },
-    methods: {
-    }
+    methods: {}
 }
 </script>
 <style scoped lang=scss>
-    @import "@/sass/common.scss";
-    /*功能title样式*/
-    .home{
-        .px-box{
-            width: 300px;
-            height: 192px;
-            color: #ffffff;
-            font-size: 30px;
-            background-color: black;
+@import "@/sass/common.scss";
+
+/*功能title样式*/
+.home {
+    .box-wrapper {
+        padding:torem(77) torem(102) 0;
+        display: flex;
+        justify-content: space-between;
+
+        .sider {
+            width: torem(367);
+
+            .sider-text {
+                width: torem(267);
+                background: #FF7272;
+                border-radius: 0 torem(45) torem(45) 0;
+                color: #fff;
+                height: torem(82);
+                font-size: torem(38);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
         }
-        .box-1-rem{
-            width: 1rem;
-            height: 1rem;
-            background: blue;
-            color: #ffffff;
-            font-size: torem(30);
+        .main{
+            display: flex;
+            width:torem(1349);
+            justify-content: space-between;
+            .pro-box{
+                width:torem(481);
+                .pro-name{
+                    font-size:torem(24);
+                    color:#333;
+                    margin:torem(35) 0;
+                }
+            }
+            .pro-box-con{
+                width:torem(272);
+                .pro-name{
+                    font-size:torem(24);
+                    color:#333;
+                    margin:torem(35) 0;
+                }
+            }
         }
     }
+}
 </style>
