@@ -1,6 +1,6 @@
 <template>
     <div>
-    <div class="box-zipai" style="height:550px;width:100%;background: #000000;">
+    <div class="box-zipai">
         <div>
             <h2 class="h2-xs">双重生物识别 安全便捷</h2>
         </div>
@@ -50,9 +50,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
-    <div style="height:500px;width:100%;background: green;">
     </div>
     </div>
 </template>
@@ -111,7 +108,8 @@ export default {
         font-weight: 600;
         color: #FFFFFF;
         line-height: 50px;
-        float: left;
+        /* float: left; */
+        text-align: left;
     }
     .bottom-text{
         width: 100%;
@@ -119,14 +117,19 @@ export default {
         font-family: PingFangSC-Regular, PingFang SC;
         font-weight: 400;
         color: #FFFFFF;
+        text-align: left;
     }
     .h2-xs{
         color: #FFFFFF;
     }
-
+    .box-zipai{
+        height:320px;
+        width:100%;
+        background: #000000;
+    }
 @media screen and (min-width: 750px) {
     .box-zipai{
-        height:550px;
+        height:750px;
         width:100%;
         background: #000000;
     }
@@ -135,7 +138,7 @@ export default {
         color: #FFFFFF;
         float:left;
         position: sticky;
-        top: 80px;
+        top: 90px;
     }
     .h3-xs{
         font-size: 50px;
