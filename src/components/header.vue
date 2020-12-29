@@ -73,7 +73,7 @@ export default {
 /* mobile phone */
 @media screen and (min-width:320px) {
     .header{
-        height: auto;
+        height: 158px;
         .container{
             border-bottom: 1px solid #e5e5e5;
             &.fixed{

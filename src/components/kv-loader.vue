@@ -5,7 +5,7 @@
 
             <div class="intro-box" :class="loaded ? 'active' : ''">
                 <div class="title">
-                    <div class="logo">China UNICOM 40 Pro | 5G</div>
+                    <div class="logo">China UNICOM 40 Pro</div>
                     <div class="slogan">跃见非凡</div>
                 </div>
 
@@ -49,6 +49,7 @@
             </div>
         </div>
     </div>
+    <div class="block"></div>
 </template>
 
 <script>
@@ -85,10 +86,15 @@ export default {
 <style scoped lang=scss>
 @import "@/sass/common.scss";
 
+.block{
+    height: calc(6.41026vw + 76.92308px);
+}
+
 .wrapper{
     /* 计算整体高度，使用全屏高度减 */
     height: calc(100vh - var(--navHeight));
     position: relative;
+    -webkit-font-smoothing: antialiased;
     .move-container{
         width: 100%;
         height: 100%;
@@ -114,6 +120,8 @@ export default {
             height: 100%;
             display: flex;
             flex-direction: column;
+            width: calc(82.05128vw + 4.61538px);
+            margin: 0 auto;
             .title{
                 height: 26%;
                 flex: 2;
@@ -121,6 +129,7 @@ export default {
                 flex-direction: column;
                 justify-content: center;
                 text-align: center;
+                vertical-align: baseline;
                 &>*{
                     transform: translate(0,100px);
                     transition: transform 1s .2s cubic-bezier(.2,.8,.3,1), opacity 1s .2s cubic-bezier(.2,.8,.3,1);
@@ -154,7 +163,7 @@ export default {
                 width: 100%;
                 max-width: 132vh;
                 height: 74%;
-                max-height: 50vw;
+                max-height: 60vw;
                 margin: 0 auto;
                 position: relative;
                 picture{
@@ -226,202 +235,14 @@ export default {
     }
 }
 
-/* .gg-intro-product-container {
-    width: 100%;
-    max-width: 132vh;
-    height: 74%;
-    max-height: 50vw;
-    margin: 0 auto;
-    position: relative
-}
-
-.gg-intro-product-container picture img {
-    position: absolute;
-    bottom: 0;
-    opacity: 0;
-    transition: transform 1s 1s cubic-bezier(.2,.8,.3,1), opacity 1s 1s cubic-bezier(.2,.8,.3,1);
-    z-index: 2
-}
-
-.gg-intro-product-container picture:nth-child(1) img {
-    width: 16.53846%;
-    transform: translate(100%,0);
-    transition-duration: 2s;
-    transition-delay: 2s
-}
-
-.gg-intro-product-container picture:nth-child(2) img {
-    width: 33.84615%;
-    left: 15%;
-    transform: translate(0,25%);
-    z-index: 3
-}
-
-.gg-intro-product-container picture:nth-child(3) img {
-    width: 33.46154%;
-    right: 15.38462%;
-    transform: translate(0,25%);
-    z-index: 3
-}
-
-.gg-intro-product-container picture:nth-child(4) img {
-    width: 16.15385%;
-    right: 0;
-    transform: translate(-100%,0);
-    transition-duration: 2s;
-    transition-delay: 2s
-}
-
-.gg-intro-product-container picture:nth-child(1) img,
-.gg-intro-product-container picture:nth-child(1) img {
-    width: 16.53846%
-}
-
-.gg-intro-product-container picture:nth-child(2) img,
-.gg-intro-product-container picture:nth-child(2) img {
-    width: 33.84615%;
-    left: 15%
-}
-
-.gg-intro-n-plus .gg-intro-product-container picture:nth-child(3) img,
-.gg-intro-product-container picture:nth-child(3) img {
-    width: 33.84615%;
-    right: 15%
-}
-
-.gg-intro-n-plus .gg-intro-product-container picture:nth-child(4) img,
-.gg-intro-product-container picture:nth-child(4) img {
-    width: 16.53846%
-}
-
-.gg-intro-kv-background {
-    background-color: #000;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1;
-    opacity: 0
-}
-
-.gg-fallback .gg-intro-kv-background {
-    background: #f4f3f3;
-    opacity: 1
-}
-
-#gg-intro-kv {
-    position: sticky;
-    top: 75px;
-    top: var(--gg-height-nav);
-    height: 90vh;
-    height: var(--gg-height-full);
-    width: 100%;
-    overflow: hidden;
-}
-
-html[dir=rtl] .gg-fallback #gg-intro-kv {
-    position: relative;
-    top: 0
-}
-
-.gg-fallback .gg-intro-kv-title>*,.gg-visible .gg-intro-kv-title>* {
-    opacity: 1;
-    transform: translate(0,0)
-}
-
-.gg-fallback #gg-intro-kv picture img,
-.gg-kv-loaded picture img {
-    transform: translate(0,0)!important;
-    opacity: 1
-}
-
-@media (min-aspect-ratio: 1001 / 1000) {
-    .gg-kv-disclaimer {
-        width:90%
-    }
-}
-
-@media (min-aspect-ratio: 16 / 11) {
-    .gg-intro-product-container {
-        max-width:112vh
-    }
-}
-
-@media (max-aspect-ratio: 1 / 1) {
-    .gg-intro-kv-title>* {
-        opacity:1;
-        transform: translate(0,0)
-    }
-
-    #gg-intro-kv {
+@media (max-aspect-ratio: 1/1){
+    .wrapper{
         position: relative;
         top: 0;
-        margin-top: 10vw;
-        height: 110vw
-    }
-
-    #gg-intro-kv picture img {
-        transform: translate(0,0)!important;
-        opacity: 1
-    }
-
-    #gg-intro-kv .gg-container {
-        padding-bottom: 30px
-    }
-
-    .gg-intro-product-container {
-        height: calc(569/643*(--gg-container-width));
-        max-height: 100%
-    }
-
-    .gg-intro-product-container picture img {
-        bottom: auto;
-        top: 0
-    }
-
-    .gg-intro-product-container picture:nth-child(1) img {
-        width: 15.5521%
-    }
-
-    .gg-intro-product-container picture:nth-child(2) img {
-        width: 34.21462%;
-        left: 14.77449%
-    }
-
-    .gg-intro-product-container picture:nth-child(3) img {
-        width: 33.90358%;
-        right: 14.77449%
-    }
-
-    .gg-intro-product-container picture:nth-child(4) img {
-        width: 15.08554%
-    }
-
-    .gg-intro-product-container picture:nth-child(1) img,
-    .gg-intro-product-container picture:nth-child(1) img {
-        width: 15.5521%
-    }
-
-    .gg-intro-product-container picture:nth-child(2) img,
-    .gg-intro-product-container picture:nth-child(2) img {
-        width: 34.21462%;
-        left: 14.77449%
-    }
-
-    .gg-intro-product-container picture:nth-child(3) img,
-    .gg-intro-product-container picture:nth-child(3) img {
-        width: 34.21462%;
-        right: 14.77449%
-    }
-
-    .gg-intro-product-container picture:nth-child(4) img,
-    .gg-intro-product-container picture:nth-child(4) img {
-        width: 15.08554%
+        height: 110vw;
+        .move-container{
+            height: 100%;
+        }
     }
 }
-
-html[dir=rtl] .gg-intro-product-container {
-    direction: ltr
-} */
 </style>
