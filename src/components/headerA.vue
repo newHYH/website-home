@@ -292,6 +292,7 @@ export default {
                     left: 0;
                     width: 376px;
                     height: 42px;
+                    background: none;
                 }
                 .login-btn{
                     position: absolute;

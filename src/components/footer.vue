@@ -80,23 +80,23 @@
                 </div>
             </div>
         </div>
-        <div class="org-box row">
-            <div class="item-box col-sm-12 col-md-3">
+        <div class="org-box">
+            <div class="item-box">
                 <p class="title">购买手机</p>
                 <div class="each-item">手机</div>
             </div>
-            <div class="item-box col-sm-12 col-md-3">
+            <div class="item-box">
                 <p class="title">服务与支持</p>
                 <div class="each-item">维修备件价格</div>
                 <div class="each-item">联系我们</div>
                 <div class="each-item">服务隐私声明</div>
             </div>
-            <div class="item-box col-sm-12 col-md-3">
+            <div class="item-box">
                 <p class="title">应用与下载</p>
                 <div class="each-item">终端云服务</div>
                 <div class="each-item">预置应用共公式</div>
             </div>
-            <div class="item-box col-sm-12 col-md-3">
+            <div class="item-box">
                 <p class="title">关于我们</p>
                 <div class="each-item">关于我们</div>
                 <div class="each-item">隐私</div>
@@ -104,16 +104,18 @@
         </div>
         <div class="container">
             <div class="page-footer">
-                <div class="footer-inner">
-                    <div class="right">版权所有 © 中国联合通信有限公司 1998-2021。保留一切权利。粤A2-20044005号</div>
-                    <!-- <ul class="footer-items">
-                        <li class="f-item">网站地图</li>
-                        <li class="f-item">使用条款</li>
-                        <li class="f-item">隐私声明</li>
-                        <li class="f-item">关于cokies</li>
-                        <li class="f-item">法律信息</li>
-                    </ul>
-                    <div class="lang">China-简体中文</div> -->
+                <div class="footer-inner row">
+                    <div class="right col-12 col-md-12 col-xl-12 col-xxl-5">版权所有 © 中国联合通信有限公司 1998-2021。保留一切权利。粤A2-20044005号</div>
+                    <div class="col-md-6 col-12 col-xl-6 col-xxl-4 offset-xxl-1">
+                        <ul class="footer-items">
+                            <li class="f-item">网站地图</li>
+                            <li class="f-item">使用条款</li>
+                            <li class="f-item">隐私声明</li>
+                            <li class="f-item">关于cokies</li>
+                            <li class="f-item">法律信息</li>
+                        </ul>
+                    </div>
+                    <div class="lang col-12 col-md-6 col-xl-6 col-xxl-2"><span>China-简体中文</span></div>
                 </div>
             </div>
         </div>
@@ -315,45 +317,40 @@ export default {
             }
         }
         .page-footer{
-            padding: 30px 22px;
-            font-size: 19px;
+            padding: 20px 22px;
+            font-size: 13px;
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             color: #999999;
-            line-height: 26px;
+            line-height: 20px;
             .footer-inner{
-                height: 26px;
-                position: relative;
+                line-height: 20px;
             }
-            
             .right{
-                position: absolute;
-                top: 0;
-                left: 22px;
+                text-align: left;
             }
             .footer-items{
-                position: absolute;
-                top: 0;
-                left: 822px;
-                width: 581px;
+                max-width: 360px;
                 display: flex;
                 justify-content: space-between;
             }
             .lang{
-                position: absolute;
-                top: 0;
-                right: 22px;
                 padding-right: 36px;
-                &::after{
-                    position: absolute;
-                    content: '';
-                    top: 0;
-                    right: 0;
-                    width: 21px;
-                    height: 22px;
-                    background: url('../assets/diqiu.png') no-repeat;
-                    background-size: contain;
+                text-align: left;
+                span{
+                    position: relative;
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        right: -23px;
+                        width: 14px;
+                        height: 14px;
+                        background: url('../assets/diqiu.png') no-repeat;
+                        background-size: contain;
+                    }
                 }
+                
             }
         }
     }
@@ -510,8 +507,10 @@ export default {
         }
         .org-box{
             padding: 18px 30px 18px 30px;
+            display: flex;
+            justify-content: center;
             .item-box{
-                width: 100%;
+                max-width: 140px;
                 color: #fff;
                 text-align: left;
                 margin-bottom: 16px;
@@ -533,44 +532,38 @@ export default {
             }
         }
         .page-footer{
-            padding: 30px 22px;
-            font-size: 19px;
+            padding: 26px 18px;
+            font-size: 14px;
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             color: #999999;
-            line-height: 26px;
+            line-height: 22px;
             .footer-inner{
-                height: 26px;
-                position: relative;
+                line-height: 22px;
             }
-            
             .right{
-                position: absolute;
-                top: 0;
-                left: 22px;
+                text-align: left;
             }
             .footer-items{
-                position: absolute;
-                top: 0;
-                left: 822px;
-                width: 581px;
+                width: 380px;
                 display: flex;
                 justify-content: space-between;
             }
             .lang{
-                position: absolute;
-                top: 0;
-                right: 22px;
                 padding-right: 36px;
-                &::after{
-                    position: absolute;
-                    content: '';
-                    top: 0;
-                    right: 0;
-                    width: 21px;
-                    height: 22px;
-                    background: url('../assets/diqiu.png') no-repeat;
-                    background-size: contain;
+                text-align: right;
+                span{
+                    position: relative;
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        top: 0;
+                        right: -23px;
+                        width: 14px;
+                        height: 14px;
+                        background: url('../assets/diqiu.png') no-repeat;
+                        background-size: contain;
+                    }
                 }
             }
         }
@@ -726,6 +719,7 @@ export default {
             justify-content: center;
             .item-box{
                 width: torem(270);
+                max-width: torem(270);
                 color: #fff;
                 text-align: left;
                 .title{
@@ -746,44 +740,49 @@ export default {
             }
         }
         .page-footer{
-            padding: 30px 22px;
-            font-size: 19px;
+            padding: torem(30) torem(22);
+            font-size: torem(19);
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             color: #999999;
-            line-height: 26px;
+            line-height: torem(26);
             .footer-inner{
-                height: 26px;
-                position: relative;
+                line-height: torem(26);
             }
-            
             .right{
-                position: absolute;
-                top: 0;
-                left: 22px;
+                text-align: left;
             }
             .footer-items{
-                position: absolute;
-                top: 0;
-                left: 822px;
-                width: 581px;
+                width: torem(581);
+                max-width: none;
                 display: flex;
                 justify-content: space-between;
             }
             .lang{
-                position: absolute;
-                top: 0;
-                right: 22px;
-                padding-right: 36px;
-                &::after{
+                padding-right: torem(36);
+                text-align: right;
+                /* &::after{
                     position: absolute;
                     content: '';
                     top: 0;
                     right: 0;
-                    width: 21px;
-                    height: 22px;
+                    width: torem(21);
+                    height: torem(22);
                     background: url('../assets/diqiu.png') no-repeat;
                     background-size: contain;
+                } */
+                span{
+                    position: relative;
+                    &::after{
+                        position: absolute;
+                        content: '';
+                        top: torem(-2);
+                        right: torem(-35);
+                        width: torem(21);
+                        height: torem(22);
+                        background: url('../assets/diqiu.png') no-repeat;
+                        background-size: contain;
+                    }
                 }
             }
         }
