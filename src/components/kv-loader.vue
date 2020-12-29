@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper" :style="{'--navHeight': `${navHeight}px`}">
+    <div class="wrapper" :style="{'--navHeight': `${navHeight}px`}" ref="wrapper">
         <div class="move-container">
             <div class="bg" :style="{'--bgOpacity': `${opacityPercent}`}"></div>
 
@@ -76,9 +76,19 @@ export default {
         }
     },
     mounted() {
+        window.addEventListener('scroll', this.scrollHander)
+    },
+    unmounted () {
+        window.removeEventListener('scroll', this.scrollHander)
     },
     methods: {
-        
+        scrollHander(){
+            // let wrapperOffsetTop = this.$refs.wrapper.offsetTop // 距离页面顶端距离
+            let pageYOffset = window.pageYOffset // 页面滑动高度
+            let wrapperH = this.$refs.wrapper.offsetHeight // box高度
+
+            this.opacityPercent = 0.5 * (pageYOffset / wrapperH)
+        }
     }
 }
 </script>
