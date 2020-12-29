@@ -8,7 +8,7 @@
         src="../assets/fuwutop.png"
         alt=""
       />
-      <div class="box-top-text">服务店查询</div>
+      <!-- <div class="box-top-text">服务店查询</div> -->
     </div>
     <div
       v-show="hide.query"
@@ -16,7 +16,7 @@
     ></div>
     <div class="box-zhong">
       <div style="margin-top: 20px">
-        <span v-show="hide.query" style="font-size: 16px; width: 50%"
+        <span v-show="hide.query" style="font-size: 16px; width: 20%"
           >搜索附近的服务店（不限区域）：</span
         >
         <span v-show="hide.chengshi" @click="showPopup" class="box-zhong-chengshi">城市</span>
@@ -354,14 +354,14 @@ export default {
     height: 300px;
   }
   .box-zhong-input {
-    width: 40%;
-    height: 18px;
+    width: 70%;
+    height: 12px;
     border-radius: 8px;
     border: 1px solid #e6e6e6;
     font-size: 12px;
   }
   .box-zhong-input2 {
-    width: 15%;
+    width: 25%;
     height: 20px;
     border-radius: 8px;
     border: 1px solid #e6e6e6;
