@@ -30,7 +30,9 @@
                 </div>
             </div>
         </div>
-        <div class="right-box" data-id="0" ref="rightBox"></div>
+        <div class="right-box">
+            <div class="image" data-id="0"  ref="rightBox"></div>
+        </div>
     </div>
 </template>
 
@@ -147,34 +149,39 @@ export default {
             }
         }
         .right-box{
+            flex-shrink: 0;
             height: 40vw;
-            width: 40vw;
+            width: 20vw;
             position: sticky;
-            top: 25%;
-            background: url("../assets/camera.webp") no-repeat;
-            background-size: 100% 100%;
-            transform: translateX(20vw) !important;
-            transition: transform 0s;
-
+            top: 88px;
+            overflow: hidden;
+            .image{
+                width: 40vw;
+                height: 40vw;
+                background: url("../assets/camera.webp") no-repeat;
+                background-size: 100% 100%;
+                /*width: 200%;*/
+                /*height: 100%;*/
+            }
         }
-        .right-box[data-id='0']{
-            transform: translateX(20vw) rotate(0deg) !important;
+        .right-box .image[data-id='0']{
+            transform:rotate(0deg) !important;
             transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
         }
-        .right-box[data-id='1']{
-            transform: translateX(20vw) rotate(135deg) !important;
+        .right-box .image[data-id='1']{
+            transform: rotate(135deg) !important;
             transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
         }
-        .right-box[data-id='2']{
-            transform: translateX(20vw) rotate(225deg)!important;
+        .right-box .image[data-id='2']{
+            transform: rotate(225deg)!important;
             transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
         }
-        .right-box[data-id='3']{
-            transform: translateX(20vw) rotate(315deg)!important;
+        .right-box .image[data-id='3']{
+            transform: rotate(315deg)!important;
             transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
         }
-        .right-box[data-id='4']{
-            transform: translateX(20vw) rotate(405deg)!important;
+        .right-box .image[data-id='4']{
+            transform: rotate(405deg)!important;
             transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
         }
     }
@@ -195,28 +202,62 @@ export default {
                     display: flex;
                     align-items: center;
                     height: torem(600);
-                    font-size: torem(90);
+                    font-size: 22px;
                     font-weight: 600;
                     color: #FFFFFF;
                 }
                 .con-text{
-                    opacity: 0.2;
+                    opacity: 0.4;
                     margin-bottom: torem(130);
                     .con-text-title{
-                        font-size: torem(48);
+                        font-size: 18px;
                         font-weight: 600;
                         color: #FFFFFF;
-                        line-height: 18px;
+                        line-height: 20px;
                         margin-bottom: torem(28);
                     }
                     .text{
                         width: 70%;
-                        font-size: torem(36);
+                        font-size: 12px;
                         font-weight: 600;
                         color: #FFFFFF;
                         line-height: 18px;
                     }
                 }
+            }
+            .right-box{
+                flex-shrink: 0;
+                height: 40vw;
+                width: 20vw;
+                position: sticky;
+                top: 88px;
+                overflow: hidden;
+                .image{
+                    width: 40vw;
+                    height: 40vw;
+                    background: url("../assets/camera.webp") no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            .right-box .image[data-id='0']{
+                transform:rotate(0deg) !important;
+                transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+            }
+            .right-box .image[data-id='1']{
+                transform: rotate(135deg) !important;
+                transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+            }
+            .right-box .image[data-id='2']{
+                transform: rotate(225deg)!important;
+                transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+            }
+            .right-box .image[data-id='3']{
+                transform: rotate(315deg)!important;
+                transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
+            }
+            .right-box .image[data-id='4']{
+                transform: rotate(405deg)!important;
+                transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
             }
         }
     }

@@ -7,7 +7,8 @@
                x-webkit-airplay="true"
                x5-video-player-type="h5"
                x5-video-player-fullscreen="true">
-            <source type="video/webm" src="../assets/o.mp4">
+            <source type="video/webm" src="../assets/o.webm">
+            <source type="video/mp4" src="../assets/o.mp4">
         </video>
     </div>
 </template>
