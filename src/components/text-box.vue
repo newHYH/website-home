@@ -56,7 +56,7 @@ export default {
         .text-box{
             width: 100%;
             overflow: hidden;
-            padding: 76px 96px 68px 87px;
+            padding: 30px;
             p{
                 font-size: 12px;
                 font-weight: 400;
@@ -66,11 +66,11 @@ export default {
             }
         }
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (min-width: 750px) and (max-width: 1440px) {
         .text-box{
             width: 100%;
             overflow: hidden;
-            padding: 76px 96px 68px 87px;
+            padding: 60px;
             p{
                 font-size: 12px;
                 font-weight: 400;

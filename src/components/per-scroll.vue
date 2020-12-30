@@ -77,7 +77,7 @@ export default {
                     color: #FFFFFF;
                     line-height: torem(126);
                     text-align: left;
-                    padding-top: torem(53);
+                    padding-top: torem(100);
                     padding-left: torem(126);
                 }
             }
@@ -121,12 +121,12 @@ export default {
                     height: 100vw;
                     /*position: sticky;*/
                     .title-text{
-                        font-size: torem(90);
+                        font-size: 24px;
                         font-weight: 600;
                         color: #FFFFFF;
                         line-height: torem(126);
                         text-align: left;
-                        padding-top: torem(53);
+                        padding-top: 53px;
                         padding-left: torem(126);
                     }
                 }
@@ -139,7 +139,7 @@ export default {
                 background: #000;
                 .content-text{
                     width: 60%;
-                    font-size: torem(45);
+                    font-size: 14px;
                     font-weight: 600;
                     color: #FFFFFF;
                     text-align: left;
