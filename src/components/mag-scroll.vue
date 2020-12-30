@@ -113,7 +113,7 @@ export default {
               height: calc(1080/800*100vw);
               left:50%;
               margin-left:calc(-1920/1600*100vw);
-              max-width:400% !important;
+              max-width:400%;
         } 
     }
 }

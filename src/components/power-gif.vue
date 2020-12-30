@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <div>
-            <span class="box-top-span">小憩一下 能量满满</span>
-            <div class="box-div" style="position: relative;overflow: hidden;">
-                <img class="box-img" src="../assets/frame-n.png"/>
-                <video class="box-video" src="../assets/screen-n-cn.webm" controls="controls" muted autoplay loop playsinline preload="none"></video>
-            </div>
+    <div class="power-wrapper">
+        <div class="box-top-span">
+            <span>小憩一下 能量满满</span>
+        </div>
+        <div class="box-div">
+            <img class="box-img" src="../assets/frame-n.png"/>
+            <video class="box-video" src="../assets/screen-n-cn.webm" controls="controls" muted autoplay loop playsinline preload="none"></video>
         </div>
     </div>
 </template>
@@ -30,6 +30,9 @@ export default {
 
 <style scoped lang=scss>
 @import "@/sass/common.scss";
+.power-wrapper{
+    padding: torem(80) 0;
+}
     .box-video{
         height: 100%!important;
         width: auto;
@@ -47,20 +50,20 @@ export default {
     .box-div{
         position: relative;
         overflow: hidden;
+        background: #f4f3f3;
     }
     .box-top-span{
-        width: 750px;
-        height: 126px;
+        width: 100%;
+        height: 50px;
         font-size: 30px;
         font-family: PingFangSC-Semibold, PingFang SC;
-        font-weight: 600;
         color: #333333;
-        line-height: 126px;
-        text-align: left;
+        text-align: center;
+        margin-bottom: 20px;
     }
 @media screen and (min-width: 750px) {
     .box-top-span{
-        width: 750px;
+        width: 100%;
         height: 126px;
         font-size: 90px;
         font-family: PingFangSC-Semibold, PingFang SC;
@@ -68,6 +71,8 @@ export default {
         color: #333333;
         line-height: 126px;
         text-align: left;
+        padding-left: 120px;
+        box-sizing: border-box;
     }
     video::-webkit-media-controls-fullscreen-button {
     display: none;
@@ -120,6 +125,10 @@ export default {
     .box-div{
         position: relative;
         overflow: hidden;
+    }
+    .box-box{
+        /* margin-top: 50px;
+        margin-bottom: 50px; */
     }
 
 }
