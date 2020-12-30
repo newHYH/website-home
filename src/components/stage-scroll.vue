@@ -2,12 +2,14 @@
     <div class="stage-scroll-wrapper">
         <div class="stage-scroll">
             <div class="scroll-text">
-            <div class="title">
-                出众体验
-                <br>
-                因人而“Yi”
+                <div class="title">
+                    <h2>
+                        出众体验
+                        <br>
+                        因人而“Yi”
+                    </h2>
+                </div>
             </div>
-        </div>
             <div class="stage-bg">
                 <div class="bg">
                     <img src="../assets/home-8.png">
@@ -23,58 +25,169 @@
                     <a class="linkto" href="https://consumer.huawei.com/cn/emui-11/" target="_blank">了解更多 EMUI 11 智慧功能 &gt;</a>
                 </div>
             </div>
+            <div class="g5"></div>
         </div>
     </div>
 </template>
-
 <script>
 export default {
     name: 'stage-scroll',
     props: {
-        
+
     },
     data() {
-        return{
-        }
+        return {}
     },
-    mounted() {
-    },
+    mounted() {},
     methods: {
-        
+
     }
 }
 </script>
-
 <style scoped lang=scss>
-.stage-scroll-wrapper{
-    height:200vh;
+.stage-scroll-wrapper {
+    height: 200vh;
     color: #fff;
     width: 100%;
     position: relative;
+    z-index: 1;
 }
-.stage-scroll{
+
+.stage-scroll {
     position: sticky;
-    height: calc(100% - 88px);
+    height: calc(100vh - 88px);
     top: 88px;
     width: 100%;
-    .scroll-text{
+
+    .scroll-text {
         height: 100%;
-        position: relative;
-        z-index: 2;
         width: calc(82.05128vw + 4.61538px);
         margin: 0 auto;
-    }
-    .stage-bg{
         position: absolute;
-        width:100%;
-        height:100%;
+        top: 0;
+        left: calc(8.97436vw + 2.0769px);
         z-index: 1;
-        top:0;
-        left: 0;
-        .bg{
+
+        .title {
+            position: absolute;
+            top: 0;
+            text-align: left;
+
+            h2 {
+                font-size: calc(2.05128vw + 40.61538px);
+                font-weight: 700;
+            }
+        }
+    }
+
+    .stage-bg {
+        font-size: 0;
+        line-height: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+
+        .bg {
             width: 100%;
-            height:100%;
+            height: 100%;
+            position: relative;
+
+            img {
+                min-width: 100%;
+                position: absolute;
+                left: 50vw;
+                max-height: 100%;
+                top: 0;
+                margin-left: -50vw;
+            }
+        }
+
+        .bg-mask {
+            background-color: #000;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: -.5px;
+            left: 0;
+            opacity: 0;
         }
     }
 }
+
+.stage-text {
+    position: absolute;
+    bottom: 0;
+    left: calc(8.97436vw + 2.0769px);
+    transform: translateZ(0);
+    z-index: 10;
+    width: calc(82.05128vw + 4.61538px);
+    margin: 0 auto;
+
+    .g5 {
+        height: calc(1.92308vw + 43.07692px);
+    }
+
+    .main {
+        width: 67%;
+        transform: translateY(1em);
+
+        .text {
+            text-align: left;
+            font-size: calc(1.02564vw + 10.30769px);
+            line-height: 1.5;
+
+            a {
+                color: #6aa2da;
+                text-decoration: none;
+
+                &:hover {
+                    color: #ce0e2d;
+                }
+
+                &:link,
+                &:visited {
+
+                    text-decoration: none;
+                    transition: color .2s ease-out;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .stage-scroll {
+        height: calc(100vh - 96px);
+        top: 96px;
+
+        .scroll-text {
+
+            .title {
+                text-align: center;
+                width: 100%;
+
+                h2 {
+                    font-size: calc(2.05128vw + 18.61538px);
+                }
+            }
+        }
+    }
+
+    .stage-text {
+
+        .main {
+            width: 100%;
+
+            .text {
+                text-align: center;
+
+
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {}
 </style>
