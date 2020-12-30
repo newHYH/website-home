@@ -85,7 +85,9 @@ export default {
         .move-box{
             position: sticky;
             top: 75vh;
-            margin-bottom: 15vh;
+            padding-bottom: 15vh;
+            margin: 0;
+            background: #000;
             .content-text{
                 width: 60%;
                 font-size: torem(45);
