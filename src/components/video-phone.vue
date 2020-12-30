@@ -24,9 +24,7 @@
                 <div class="play-btn" @click="play"></div>
             </div>
             <div class="space-box"></div>
-            <div class="font-box">
-                目之所及，是对已知的追求。<br>心之所念，是对未知的探索。<br>超越，视界尽头。突破，想象边界。<br>HUAWEI Mate 40 系列，跃见非⁠凡。
-            </div>
+            <div class="font-box">目之所及，是对已知的追求。<br>心之所念，是对未知的探索。<br>超越、视界尽头。突破，想象边界。<br>China UNICOM 40 Pro 系列，悦见非凡。</div>
         </div>
     </div>
     <div class="full-screen-video" :class="playing ? 'playing' : ''">
