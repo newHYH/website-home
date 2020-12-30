@@ -195,23 +195,23 @@ export default {
                     display: flex;
                     align-items: center;
                     height: torem(600);
-                    font-size: torem(90);
+                    font-size: 22px;
                     font-weight: 600;
                     color: #FFFFFF;
                 }
                 .con-text{
-                    opacity: 0.2;
+                    opacity: 0.4;
                     margin-bottom: torem(130);
                     .con-text-title{
-                        font-size: torem(48);
+                        font-size: 18px;
                         font-weight: 600;
                         color: #FFFFFF;
-                        line-height: 18px;
+                        line-height: 20px;
                         margin-bottom: torem(28);
                     }
                     .text{
                         width: 70%;
-                        font-size: torem(36);
+                        font-size: 12px;
                         font-weight: 600;
                         color: #FFFFFF;
                         line-height: 18px;
