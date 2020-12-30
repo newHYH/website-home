@@ -150,14 +150,14 @@ export default {
         }
         .right-box{
             flex-shrink: 0;
-            height: 40vw;
-            width: 20vw;
+            height: 50vw;
+            width: 25vw;
             position: sticky;
             top: 88px;
             overflow: hidden;
             .image{
-                width: 40vw;
-                height: 40vw;
+                width: 50vw;
+                height: 50vw;
                 background: url("../assets/camera.webp") no-repeat;
                 background-size: 100% 100%;
                 /*width: 200%;*/
@@ -227,14 +227,14 @@ export default {
             }
             .right-box{
                 flex-shrink: 0;
-                height: 40vw;
-                width: 20vw;
+                height: 50vw;
+                width: 25vw;
                 position: sticky;
                 top: 88px;
                 overflow: hidden;
                 .image{
-                    width: 40vw;
-                    height: 40vw;
+                    width: 50vw;
+                    height: 50vw;
                     background: url("../assets/camera.webp") no-repeat;
                     background-size: 100% 100%;
                 }
