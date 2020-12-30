@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="power-wrapper">
         <div class="box-top-span">
             <span>小憩一下 能量满满</span>
         </div>
@@ -30,6 +30,9 @@ export default {
 
 <style scoped lang=scss>
 @import "@/sass/common.scss";
+.power-wrapper{
+    padding: torem(80) 0;
+}
     .box-video{
         height: 100%!important;
         width: auto;
@@ -47,6 +50,7 @@ export default {
     .box-div{
         position: relative;
         overflow: hidden;
+        background: #f4f3f3;
     }
     .box-top-span{
         width: 100%;
@@ -55,6 +59,7 @@ export default {
         font-family: PingFangSC-Semibold, PingFang SC;
         color: #333333;
         text-align: center;
+        margin-bottom: 20px;
     }
 @media screen and (min-width: 750px) {
     .box-top-span{
@@ -66,8 +71,8 @@ export default {
         color: #333333;
         line-height: 126px;
         text-align: left;
-        margin-top: 50px;
-        margin-left: 120px;
+        padding-left: 120px;
+        box-sizing: border-box;
     }
     video::-webkit-media-controls-fullscreen-button {
     display: none;
