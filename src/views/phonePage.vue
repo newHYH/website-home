@@ -6,6 +6,7 @@
             <videoPhone />
             <magScroll />
             <perScroll />
+            <videoScroll />
             <cameraScroll />
             <powerGif />
             <stageScroll />
@@ -21,6 +22,7 @@ import kvLoader from '@/components/kv-loader.vue';
 import videoPhone from '@/components/video-phone.vue';
 import magScroll from '@/components/mag-scroll.vue';
 import perScroll from '@/components/per-scroll.vue';
+import videoScroll from '@/components/video-scroll.vue';
 import cameraScroll from '@/components/camera-scroll.vue';
 import powerGif from '@/components/power-gif.vue';
 import stageScroll from '@/components/stage-scroll.vue';
@@ -37,6 +39,7 @@ export default {
         videoPhone,
         magScroll,
         perScroll,
+        videoScroll,
         cameraScroll,
         powerGif,
         stageScroll,
