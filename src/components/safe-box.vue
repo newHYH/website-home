@@ -8,7 +8,7 @@
             <img src="../assets/n-cn.jpg" alt="">
         </div>
     </div>
-    <div style="height:500px;width:100%;background: #000000;">
+    <div class="box-dabox">
         <div class="gg-columns-5">
             <h2 class="h3-xs">全方位守护<br>你的隐私安全</h2>
         </div>
@@ -89,9 +89,9 @@ export default {
         justify-content: space-around;
     }
     .box1{
-        width: 95%;
-        height: 45px;
-        margin-bottom: 10px;
+        width: 80%;
+        height: 85px;
+        margin-bottom: 20px;
         display: flex;
     }
     .text-wrap{
@@ -103,7 +103,7 @@ export default {
     }
     .top-text{
         width: 95%;
-        font-size: 13px;
+        font-size: 16px;
         font-family: PingFangSC-Semibold, PingFang SC;
         font-weight: 600;
         color: #FFFFFF;
@@ -127,7 +127,17 @@ export default {
         width:100%;
         background: #000000;
     }
+    .box-dabox{
+        height: 750px;
+        width: 100%;
+        background: rgb(0, 0, 0);
+    }
 @media screen and (min-width: 750px) {
+    .box-dabox{
+        height:500px;
+        width:100%;
+        background: #000000;
+    }
     .box-zipai{
         height:750px;
         width:100%;
