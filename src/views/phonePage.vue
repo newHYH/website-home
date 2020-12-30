@@ -6,7 +6,7 @@
             <videoPhone />
             <div class="g7"></div>
             <div class="nav-layout">
-                <div class="nav-wrapper">
+                <div class="nav-wrapper" :class="{'white':index!=1&& index!=3}">
                     <div :class="{'active':index ==1 }" class="link" @click="goLink(1)"><span>设计</span></div>
                     <div :class="{'active':index ==2 }" class="link" @click="goLink(2)"><span>性能</span></div>
                     <div :class="{'active':index ==3 }" class="link" @click="goLink(3)"><span>影像</span></div>
@@ -28,10 +28,10 @@
                     <div class="column" id="col4" ref="col4">
                         <powerGif />
                     </div>
-                    <div class="column" id="col5"  ref="col5">
+                    <div class="column" id="col5" ref="col5">
                         <stageScroll />
                     </div>
-                    <div class="column" id="col6"  ref="col6">
+                    <div class="column" id="col6" ref="col6">
                         <safeBox />
                     </div>
                 </div>
@@ -73,11 +73,11 @@ export default {
     },
     data() {
         return {
-            index:0
+            index: 0
         }
     },
     mounted() {
-        window.addEventListener('scroll',this.handleScroll)
+        window.addEventListener('scroll', this.handleScroll)
     },
     methods: {
         goLink(index) {
@@ -86,17 +86,38 @@ export default {
             this.index = index
             anchor.scrollIntoView()
         },
-        handleScroll(event){
-
+        handleScroll(event) {
+            let top1 = this.$refs.col1.offsetTop;
+            let top2 = this.$refs.col2.offsetTop;
+            let top3 = this.$refs.col3.offsetTop;
+            let top4 = this.$refs.col4.offsetTop;
+            let top5 = this.$refs.col5.offsetTop;
+            let top6 = this.$refs.col6.offsetTop;
+            let scrollTop = window.pageYOffset
+            if (scrollTop >= top1 && top2 > scrollTop) {
+                this.index = 1
+            } else if (scrollTop >= top2 && top3 > scrollTop) {
+                this.index = 2
+            } else if (scrollTop >= top3 && top4 > scrollTop) {
+                this.index = 3
+            } else if (scrollTop >= top4 && top5 > scrollTop) {
+                this.index = 4
+            } else if (scrollTop >= top5 && top6 > scrollTop) {
+                this.index = 5
+            } else if (scrollTop >= top6) {
+                this.index = 6
+            }
         }
     }
 }
 </script>
 <style scoped lang=scss>
 @import "@/sass/common.scss";
-.g7{
+
+.g7 {
     height: calc(6.41026vw + 76.92308px);
 }
+
 .nav-layout {
     .nav-wrapper {
         display: flex;
@@ -109,14 +130,20 @@ export default {
         height: calc(100vh - 216px);
         z-index: 100;
         mix-blend-mode: difference;
-            white-space: nowrap;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-  
+        white-space: nowrap;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        &.white{
+            .link{
+                color:#fff;
+                &:before{
+                    color:#fff;
+                }
+            }
+        }
         .link {
-            color: #fff;
             height: 0;
             width: 16px;
             overflow: hidden;
@@ -129,13 +156,16 @@ export default {
             box-sizing: content-box;
             font-size: 12px;
             font-weight: 700;
-            &.active{
-                height:28px;
-                span{
+
+            &.active,&:hover {
+                height: 28px;
+
+                span {
                     opacity: 1
                 }
             }
-            &:before{
+
+            &:before {
                 position: absolute;
                 display: block;
                 content: '';
@@ -146,9 +176,10 @@ export default {
                 top: 6px;
                 transition: all .5s ease;
                 background: #211d1e;
-                box-shadow: inset 0 0 0 2px rgba(30,32,34,.25);
+                box-shadow: inset 0 0 0 2px rgba(30, 32, 34, .25);
                 transform: scale(.66);
             }
+
             span {
                 display: inline-block;
                 writing-mode: vertical-rl;
@@ -164,7 +195,8 @@ export default {
             }
         }
     }
-    .layout-wrapper{
+
+    .layout-wrapper {
         margin-top: -372px;
     }
 }
