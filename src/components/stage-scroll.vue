@@ -1,5 +1,5 @@
 <template>
-    <div class="stage-scroll-wrapper">
+    <div class="stage-scroll-wrapper" ref="scrollCon">
         <div class="stage-scroll">
             <div class="scroll-text">
                 <div class="title">
@@ -14,10 +14,10 @@
                 <div class="bg">
                     <img src="../assets/home-8.png">
                 </div>
-                <div class="bg-mask"></div>
+                <div class="bg-mask" ref="opacityBg" :style="'opacity:'+opacity"></div>
             </div>
         </div>
-        <div class="stage-text">
+        <div class="stage-text" ref="moveBox">
             <div class="main">
                 <div class="text">
                     出色硬件性能结合出众人因交互，想不出彩都难。焕然一新的熄屏显示艺术主题，因人而⁠“艺”，更多惊喜；一镜到底的流畅动效，自然舒适的手势导航，声振一体的多感协同，因人而⁠“宜”，体验升级；智慧多窗，多屏协同，更多便捷操作，因人而⁠“易”，效率倍⁠增⁠。
@@ -36,11 +36,28 @@ export default {
 
     },
     data() {
-        return {}
+        return {
+            opacity:0,
+        }
     },
-    mounted() {},
+    mounted() {
+        this.init()
+    },
     methods: {
-
+        init(){
+            window.addEventListener('scroll',this.handelScroll)
+        },
+        handelScroll(e){
+            let opacityBg = this.$refs.opacityBg
+            let top = window.pageYOffset
+            let scrollCon = this.$refs.scrollCon.offsetTop
+            let moveBox = this.$refs.moveBox.offsetTop
+            let moveLang = top-(scrollCon-100)
+            let maxLong = moveBox - moveLang
+            if(moveLang>0 && moveLang < maxLong){
+                this.opacity= (moveLang/maxLong)*0.75
+            }
+        }
     }
 }
 </script>
