@@ -73,7 +73,7 @@ export default {
 /* mobile phone */
 @media screen and (min-width:320px) {
     .header{
-        height: auto;
+        height: 158px;
         width: 100%;
         .container{
             border-bottom: 1px solid #e5e5e5;
@@ -222,7 +222,7 @@ export default {
 /* ipad pro & PC */
 @media screen and (min-width:1024px) {
     .header{
-        height: auto;
+        height: 180px;
         .container{
             border-bottom: 1px solid #e5e5e5;
             &.fixed{
