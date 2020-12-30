@@ -3,7 +3,6 @@
     <HeaderA :tabs="headerTabs"></HeaderA>
     <div class="box-top">
       <img
-        v-show="hide.query"
         class="box-top-img"
         src="../assets/fuwutop.png"
         alt=""
@@ -11,15 +10,14 @@
       <!-- <div class="box-top-text">服务店查询</div> -->
     </div>
     <div
-      v-show="hide.query"
       style="width: 100%; height: 20px; background: #f5f5f5"
     ></div>
     <div class="box-zhong">
       <div style="margin-top: 20px">
-        <span v-show="hide.query" style="font-size: 16px; width: 20%"
+        <span class="box-zhong-sousuo" style="font-size: 16px; width: 20%"
           >搜索附近的服务店（不限区域）：</span
         >
-        <span v-show="hide.chengshi" @click="showPopup" class="box-zhong-chengshi">城市</span>
+        <span @click="showPopup" class="box-zhong-chengshi">城市</span>
         <input
           class="box-zhong-input"
           placeholder="请输入地址，搜索附近的服务店"
@@ -34,7 +32,7 @@
                 />
             </Popup>
       </div>
-      <div style="margin-top: 20px">
+      <div class="bottom-yincang" style="margin-top: 20px">
         <span v-show="hide.query" style="font-size: 16px; width: 25%"
           >按区域搜索服务店：</span
         >
@@ -182,13 +180,13 @@ export default {
       return (() => {
         window.fullWidth = document.documentElement.clientWidth;
         that.windowWidth = window.fullWidth; // 宽
-        if (this.windowWidth < 750) {
-          this.hide.query = false;
-          this.hide.chengshi = true;
-        } else {
-          this.hide.query = true;
-          this.hide.chengshi = false;
-        }
+        // if (this.windowWidth < 750) {
+        //   this.hide.query = false;
+        //   this.hide.chengshi = true;
+        // } else {
+        //   this.hide.query = true;
+        //   this.hide.chengshi = false;
+        // }
       })();
     };
   },
@@ -297,12 +295,40 @@ export default {
   border: none;
   margin-top: 10px;
 }
+.box-top {
+  display: none;
+}
+.box-zhong-sousuo{
+      font-size: 16px;
+       width: 20%;
+       display: none;
+  }
+  .bottom-yincang{
+    display: none;
+  }
+  .box-ditu-list {
+    display: none;
+  }
 
 @media screen and (min-width: 750px) {
+   .bottom-yincang{
+    display: inline;
+  }
+  .box-zhong-chengshi {
+  /* font-size: 12px;
+  color: #1a1a1a;
+  font-weight: 700;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 10%; */
+  display: none;
+}
   .box-top {
     width: 100%;
     height: torem(634);
     position: relative;
+    display: inline;
   }
   .box-top-img {
     width: 100%;
@@ -368,6 +394,11 @@ export default {
     margin-left: 20px;
     font-size: 12px;
   }
+  .box-zhong-sousuo{
+      font-size: 16px;
+       width: 20%;
+       display: inline;
+  }
   .box-ditu {
     width: 100%;
     height: 400px;
@@ -381,6 +412,7 @@ export default {
     width: 45%;
     height: 400px;
     float: left;
+    display: inline;
   }
   .box-ditu-input {
     width: 80%;
