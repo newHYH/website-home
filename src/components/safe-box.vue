@@ -1,11 +1,11 @@
 <template>
     <div>
     <div class="box-zipai">
-        <div>
+        <div class="box-h2-xx">
             <h2 class="h2-xs">双重生物识别 安全便捷</h2>
         </div>
         <div class="box-zipai-img">
-            <img style="display: block;width:100%" src="../assets/n-cn.jpg" alt="">
+            <img src="../assets/n-cn.jpg" alt="">
         </div>
     </div>
     <div style="height:500px;width:100%;background: #000000;">
@@ -134,7 +134,7 @@ export default {
         background: #000000;
     }
     .gg-columns-5{
-        width: 49.05%;
+        width: 45%;
         color: #FFFFFF;
         float:left;
         position: sticky;
@@ -144,12 +144,20 @@ export default {
         font-size: 50px;
     }
     .h2-xs{
-        font-size: 50px;
         color: #FFFFFF;
+        font-size: calc(2.05128vw + 40.61538px);
+        font-weight: 700;
+        float: left;
+        margin-left: 120px;
+        margin-top: 50px;
     }
+    /* .box-h2-xx{
+        height: 100px;
+    } */
     .box-zipai-img{
         display: block;
-        width:100%
+        width:80%;
+        margin:0 auto;
     }
     .container{
         float: right;
