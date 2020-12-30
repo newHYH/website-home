@@ -61,7 +61,9 @@ export default {
         .container-scroll{
             position: sticky;
             width: 100%;
-            background: url("../assets/animate-bg.webp") no-repeat;
+            background-color: #000;
+            background-image: url("../assets/animate-bg.webp");
+            background-repeat:  no-repeat;
             background-size: 100% 100%;
             /*height: 200vh;*/
             top: torem(54+88);
@@ -93,6 +95,58 @@ export default {
                 /*margin-top: 50vh;*/
                 /*padding-top: torem(53);*/
                 padding-left: torem(126);
+            }
+        }
+    }
+    @media screen and (max-width: 750px) {
+        .per-scroll{
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            /*height: 200vh;*/
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            .container-scroll{
+                position: sticky;
+                width: 100%;
+                background-color: #000;
+                background-image: url("../assets/animate-bg.webp");
+                background-repeat:  no-repeat;
+                background-size: 100% 100%;
+                /*height: 200vh;*/
+                top: 96px;
+                .stick-box{
+                    width: 100vw;
+                    height: 100vw;
+                    /*position: sticky;*/
+                    .title-text{
+                        font-size: torem(90);
+                        font-weight: 600;
+                        color: #FFFFFF;
+                        line-height: torem(126);
+                        text-align: left;
+                        padding-top: torem(53);
+                        padding-left: torem(126);
+                    }
+                }
+            }
+            .move-box{
+                position: sticky;
+                top: 75vw;
+                padding-bottom: 15vw;
+                margin: 0;
+                background: #000;
+                .content-text{
+                    width: 60%;
+                    font-size: torem(45);
+                    font-weight: 600;
+                    color: #FFFFFF;
+                    text-align: left;
+                    /*margin-top: 50vh;*/
+                    /*padding-top: torem(53);*/
+                    padding-left: torem(126);
+                }
             }
         }
     }

@@ -178,4 +178,46 @@ export default {
             transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
         }
     }
+    @media screen and (max-width: 750px) {
+        .camera-scroll{
+            width: 100%;
+            background: #000;
+            position: relative;
+            display: flex;
+            padding-left: torem(170);
+            padding-bottom: 12vh;
+            .left-box{
+                flex-shrink: 0;
+                margin-right: auto;
+                width: torem(850);
+                text-align: left;
+                .title-text{
+                    display: flex;
+                    align-items: center;
+                    height: torem(600);
+                    font-size: torem(90);
+                    font-weight: 600;
+                    color: #FFFFFF;
+                }
+                .con-text{
+                    opacity: 0.2;
+                    margin-bottom: torem(130);
+                    .con-text-title{
+                        font-size: torem(48);
+                        font-weight: 600;
+                        color: #FFFFFF;
+                        line-height: 18px;
+                        margin-bottom: torem(28);
+                    }
+                    .text{
+                        width: 70%;
+                        font-size: torem(36);
+                        font-weight: 600;
+                        color: #FFFFFF;
+                        line-height: 18px;
+                    }
+                }
+            }
+        }
+    }
 </style>
