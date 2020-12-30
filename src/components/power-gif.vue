@@ -67,9 +67,10 @@ export default {
     overflow: hidden;
     picture{
         display: block;
-        background: #f4f3f3
+        background: #f4f3f3;
         img{
             height: 70vh;
+            height: calc(100vh - 90px -120px);
             width: auto;
             margin: 0 auto;
             position: relative;
@@ -90,6 +91,13 @@ export default {
     .out-container {
         width: calc(82.05128vw + 4.61538px);
         margin: 0 auto;
+        picture{
+            display: block;
+            background: #f4f3f3;
+            img{
+                height: 70vh;
+            }
+        }
     }
 }
 @media (max-aspect-ratio: 1/1){
@@ -101,6 +109,8 @@ export default {
     .out-container {
         width: 100%;
         picture{
+            display: block;
+            background: #f4f3f3;
             img{
                 height: auto!important;
                 width: 100%;
