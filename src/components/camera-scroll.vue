@@ -43,7 +43,6 @@
             </div>
         </div>
         <div class="right-box" data-id="0" ref="rightBox"></div>
-        <div class="space-box"></div>
     </div>
 </template>
 
@@ -121,24 +120,23 @@ export default {
                 color: #FFFFFF;
             }
             .con-text{
-                    opacity: 0.2;
-                    margin-bottom: torem(130);
-                    .con-text-title{
-                        font-size: torem(48);
-                        font-weight: 600;
-                        color: #FFFFFF;
-                        line-height: torem(54);
-                        margin-bottom: torem(28);
-                    }
-                    .text{
-                        width: 70%;
-                        font-size: torem(36);
-                        font-weight: 600;
-                        color: #FFFFFF;
-                        line-height: torem(54);
-                    }
+                opacity: 0.2;
+                margin-bottom: torem(130);
+                .con-text-title{
+                    font-size: torem(48);
+                    font-weight: 600;
+                    color: #FFFFFF;
+                    line-height: torem(54);
+                    margin-bottom: torem(28);
                 }
-
+                .text{
+                    width: 70%;
+                    font-size: torem(36);
+                    font-weight: 600;
+                    color: #FFFFFF;
+                    line-height: torem(54);
+                }
+            }
         }
         .left-box[data-active='1']{
             .con-text[data-id="1"]{
@@ -164,7 +162,7 @@ export default {
             height: 40vw;
             width: 40vw;
             position: sticky;
-            top: 15%;
+            top: 25%;
             background: url("../assets/camera.webp") no-repeat;
             background-size: 100% 100%;
             transform: translateX(20vw) !important;
@@ -191,10 +189,5 @@ export default {
             transform: translateX(20vw) rotate(405deg)!important;
             transition: transform 1s cubic-bezier(0.46, 0.03, 0.52, 0.96);
         }
-        /*.space-box{*/
-        /*    width: 100%;*/
-        /*    height: 10vh;*/
-        /*    background: #fff;*/
-        /*}*/
     }
 </style>
