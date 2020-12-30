@@ -72,8 +72,8 @@ export default {
 
 .stage-scroll {
     position: sticky;
-    height: calc(100vh - 88px);
-    top: 88px;
+    height: calc(100vh - 96px);
+    top: 96px;
     width: 100%;
 
     .scroll-text {

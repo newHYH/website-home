@@ -4,13 +4,38 @@
         <div class="phone-scroll">
             <kvLoader />
             <videoPhone />
-            <magScroll />
-            <perScroll />
-            <videoScroll />
-            <cameraScroll />
-            <powerGif />
-            <stageScroll />
-            <safeBox />
+            <div class="g7"></div>
+            <div class="nav-layout">
+                <div class="nav-wrapper">
+                    <div :class="{'active':index ==1 }" class="link" @click="goLink(1)"><span>设计</span></div>
+                    <div :class="{'active':index ==2 }" class="link" @click="goLink(2)"><span>性能</span></div>
+                    <div :class="{'active':index ==3 }" class="link" @click="goLink(3)"><span>影像</span></div>
+                    <div :class="{'active':index ==4 }" class="link" @click="goLink(4)"><span>续航</span></div>
+                    <div :class="{'active':index ==5 }" class="link" @click="goLink(5)"><span>体验</span></div>
+                    <div :class="{'active':index ==6 }" class="link" @click="goLink(6)"><span>安全</span></div>
+                </div>
+                <div class="layout-wrapper">
+                    <div class="column" id="col1" ref="col1">
+                        <magScroll />
+                    </div>
+                    <div class="column" id="col2" ref="col2">
+                        <perScroll />
+                        <videoScroll />
+                    </div>
+                    <div class="column" id="col3" ref="col3">
+                        <cameraScroll />
+                    </div>
+                    <div class="column" id="col4" ref="col4">
+                        <powerGif />
+                    </div>
+                    <div class="column" id="col5"  ref="col5">
+                        <stageScroll />
+                    </div>
+                    <div class="column" id="col6"  ref="col6">
+                        <safeBox />
+                    </div>
+                </div>
+            </div>
             <textBox />
         </div>
         <Footer />
@@ -47,23 +72,104 @@ export default {
         textBox
     },
     data() {
-        return {}
+        return {
+            index:0
+        }
     },
     mounted() {
-
+        window.addEventListener('scroll',this.handleScroll)
     },
-    methods: {}
+    methods: {
+        goLink(index) {
+            let anchor = this.$el.querySelector('#col' + index);
+            console.log(window.pageYOffset)
+            this.index = index
+            anchor.scrollIntoView()
+        },
+        handleScroll(event){
+
+        }
+    }
 }
 </script>
 <style scoped lang=scss>
 @import "@/sass/common.scss";
-.home {
-    
+.g7{
+    height: calc(6.41026vw + 76.92308px);
 }
-@media screen and (max-width: 768px) {
-   
-}
-@media screen and (max-width: 750px) {
+.nav-layout {
+    .nav-wrapper {
+        display: flex;
+        position: sticky;
+        left: 0;
+        width: calc(8.97436vw + -2.30769px);
+        top: 160px;
+        margin-bottom: 60px !important;
+        height: 70vh;
+        height: calc(100vh - 216px);
+        z-index: 100;
+        mix-blend-mode: difference;
+            white-space: nowrap;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
   
+        .link {
+            color: #fff;
+            height: 0;
+            width: 16px;
+            overflow: hidden;
+            padding: 28px 7px 2px 7px;
+            color: #211d1e;
+            transition: color .5s ease;
+            display: block;
+            position: relative;
+            transition: height .5s ease;
+            box-sizing: content-box;
+            font-size: 12px;
+            font-weight: 700;
+            &.active{
+                height:28px;
+                span{
+                    opacity: 1
+                }
+            }
+            &:before{
+                position: absolute;
+                display: block;
+                content: '';
+                width: 18px;
+                height: 18px;
+                border-radius: 9px;
+                left: 6px;
+                top: 6px;
+                transition: all .5s ease;
+                background: #211d1e;
+                box-shadow: inset 0 0 0 2px rgba(30,32,34,.25);
+                transform: scale(.66);
+            }
+            span {
+                display: inline-block;
+                writing-mode: vertical-rl;
+                line-height: 16px;
+                opacity: 0;
+                letter-spacing: 2px;
+                transition: all .5s ease;
+                transform: scale(.75) rotate(180deg);
+                position: relative;
+                white-space: nowrap;
+                transform: scale(1);
+                left: -1px;
+            }
+        }
+    }
+    .layout-wrapper{
+        margin-top: -372px;
+    }
 }
+
+@media screen and (max-width: 768px) {}
+
+@media screen and (max-width: 750px) {}
 </style>
