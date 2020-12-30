@@ -6,13 +6,43 @@
             <videoPhone />
             <div class="g7"></div>
             <div class="nav-layout">
-                <div class="nav-wrapper" :class="{'white':index!=1&& index!=3}">
-                    <div :class="{'active':index ==1 }" class="link" @click="goLink(1)"><span>设计</span></div>
-                    <div :class="{'active':index ==2 }" class="link" @click="goLink(2)"><span>性能</span></div>
-                    <div :class="{'active':index ==3 }" class="link" @click="goLink(3)"><span>影像</span></div>
-                    <div :class="{'active':index ==4 }" class="link" @click="goLink(4)"><span>续航</span></div>
-                    <div :class="{'active':index ==5 }" class="link" @click="goLink(5)"><span>体验</span></div>
-                    <div :class="{'active':index ==6 }" class="link" @click="goLink(6)"><span>安全</span></div>
+                <div class="nav-wrapper" :class="{'white':index==2|| index==3 || index==5 || index==6}">
+                    <div :class="{'active':index ==1 }" class="link" @click="goLink(1)">
+                        <svg>
+                            <circle cx="9" cy="9" r="8" :style="'stroke-dashoffset: '+per1"></circle>
+                        </svg>
+                        <span>设计</span>
+                    </div>
+                    <div :class="{'active':index ==2 }" class="link" @click="goLink(2)">
+                        <svg>
+                            <circle cx="9" cy="9" r="8" :style="'stroke-dashoffset: '+per2"></circle>
+                        </svg>
+                        <span>性能</span>
+                    </div>
+                    <div :class="{'active':index ==3 }" class="link" @click="goLink(3)">
+                        <svg>
+                            <circle cx="9" cy="9" r="8" :style="'stroke-dashoffset: '+per3"></circle>
+                        </svg>
+                        <span>影像</span>
+                    </div>
+                    <div :class="{'active':index ==4 }" class="link" @click="goLink(4)">
+                        <svg>
+                            <circle cx="9" cy="9" r="8" :style="'stroke-dashoffset: '+per4"></circle>
+                        </svg>
+                        <span>续航</span>
+                    </div>
+                    <div :class="{'active':index ==5 }" class="link" @click="goLink(5)">
+                        <svg>
+                            <circle cx="9" cy="9" r="8" :style="'stroke-dashoffset: '+per5"></circle>
+                        </svg>
+                        <span>体验</span>
+                    </div>
+                    <div :class="{'active':index ==6 }" class="link" @click="goLink(6)">
+                        <svg>
+                            <circle cx="9" cy="9" r="8" :style="'stroke-dashoffset: '+per6"></circle>
+                        </svg>
+                        <span>安全</span>
+                    </div>
                 </div>
                 <div class="layout-wrapper">
                     <div class="column" id="col1" ref="col1">
@@ -73,7 +103,13 @@ export default {
     },
     data() {
         return {
-            index: 0
+            index: 0,
+            per1: 0,
+            per2: 0,
+            per3: 0,
+            per4: 0,
+            per5: 0,
+            per6: 0,
         }
     },
     mounted() {
@@ -93,19 +129,32 @@ export default {
             let top4 = this.$refs.col4.offsetTop;
             let top5 = this.$refs.col5.offsetTop;
             let top6 = this.$refs.col6.offsetTop;
-            let scrollTop = window.pageYOffset
-            if (scrollTop >= top1 && top2 > scrollTop) {
+            let height1 = this.$refs.col1.offsetTop + this.$refs.col1.offsetHeight - 1
+            let height2 = this.$refs.col2.offsetTop + this.$refs.col2.offsetHeight - 1
+            let height3 = this.$refs.col3.offsetTop + this.$refs.col3.offsetHeight - 1
+            let height4 = this.$refs.col4.offsetTop + this.$refs.col4.offsetHeight - 1
+            let height5 = this.$refs.col5.offsetTop + this.$refs.col5.offsetHeight - 1
+            let height6 = this.$refs.col6.offsetTop + this.$refs.col6.offsetHeight - 1
+
+            let scrollTop = window.pageYOffset - 96
+            if (scrollTop >= top1 && height1 > scrollTop) {
                 this.index = 1
-            } else if (scrollTop >= top2 && top3 > scrollTop) {
+                this.per1 = (1 - scrollTop / (height1 - top1)) * 49
+            } else if (scrollTop >= top2 && height2 >= scrollTop) {
                 this.index = 2
-            } else if (scrollTop >= top3 && top4 > scrollTop) {
+                this.per2 = (1 - scrollTop / (height2 - top2)) * 49
+            } else if (scrollTop >= top3 && height3 > scrollTop) {
                 this.index = 3
-            } else if (scrollTop >= top4 && top5 > scrollTop) {
+                this.per3 = (1 - scrollTop / (height3 - top3)) * 49
+            } else if (scrollTop >= top4 && height4 > scrollTop) {
                 this.index = 4
-            } else if (scrollTop >= top5 && top6 > scrollTop) {
+                this.per4 = (1 - scrollTop / (height4 - top4)) * 49
+            } else if (scrollTop >= top5 && height5 > scrollTop) {
                 this.index = 5
-            } else if (scrollTop >= top6) {
+                this.per5 = (1 - scrollTop / (height5 - top5)) * 49
+            } else if (scrollTop >= top6 && height6 > scrollTop) {
                 this.index = 6
+                this.per6 = (1 - scrollTop / (height6 - top6)) * 49
             }
         }
     }
@@ -129,20 +178,30 @@ export default {
         height: 70vh;
         height: calc(100vh - 216px);
         z-index: 100;
-        mix-blend-mode: difference;
+        /* mix-blend-mode: difference; */
         white-space: nowrap;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        &.white{
-            .link{
-                color:#fff;
-                &:before{
-                    color:#fff;
+
+        &.white {
+            .link {
+                color: #fff;
+
+                &:before {
+                    background: #fff;
                 }
+
+                svg {
+                    circle {
+                        stroke: #fff;
+                    }
+                }
+
             }
         }
+
         .link {
             height: 0;
             width: 16px;
@@ -157,8 +216,20 @@ export default {
             font-size: 12px;
             font-weight: 700;
 
-            &.active,&:hover {
+            &.active,
+            &:hover {
                 height: 28px;
+
+                &:before {
+                    background: 0 0;
+                    transform: scale(1);
+                    box-shadow: inset 0 0 0 2px rgba(255, 255, 245, .25);
+                }
+
+                svg {
+                    opacity: 1;
+                    transform: scale(1) rotate(-90deg);
+                }
 
                 span {
                     opacity: 1
@@ -178,6 +249,28 @@ export default {
                 background: #211d1e;
                 box-shadow: inset 0 0 0 2px rgba(30, 32, 34, .25);
                 transform: scale(.66);
+            }
+
+            svg {
+                left: 6px;
+                top: 6px;
+                width: 18px;
+                height: 18px;
+                position: absolute;
+                transform: rotate(-90deg);
+                transition: all .5s ease;
+                opacity: 0;
+                transform: scale(.5) rotate(0);
+
+                circle {
+                    stroke: #211d1e;
+                    stroke-width: 2px;
+                    fill: none;
+                    stroke-linecap: butt;
+                    stroke-dasharray: 49.9416;
+                    stroke-dashoffset: 49.9416;
+                    transition: stroke .5s ease;
+                }
             }
 
             span {
