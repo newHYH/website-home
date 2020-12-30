@@ -93,6 +93,11 @@ export default {
     }
 }
 @media (max-aspect-ratio: 1/1){
+    .font-container{
+        h2{
+            font-size: calc(2.05128vw + 24.61538px);
+        }
+    }
     .out-container {
         width: 100%;
         picture{
