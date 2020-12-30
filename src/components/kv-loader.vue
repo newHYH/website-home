@@ -59,11 +59,9 @@ export default {
         
     },
     created() {
-        console.log(this.loaded)
         this.$nextTick(()=>{
             setTimeout(() => {
                 this.loaded = true
-                console.log(this.loaded)
             }, 10)
             
         })
