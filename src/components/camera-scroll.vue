@@ -8,37 +8,25 @@
             <div class="con-text" data-id="1" ref="conText1">
                 <div class="con-text-title">超感知摄像头</div>
                 <div class="text">
-                    5000 万像素， f/1.9 光圈，1/1.28 ⁠英
-                    寸型传感器，RYYB 滤色阵列，全像
-                    素八核对焦，令人惊叹的解析力，为
-                    你全时段超清记录生⁠活⁠点⁠滴。
+                    5000 万像素， f/1.9 光圈，1/1.28 英寸型传感器，RYYB 滤色阵列，全像素八核对焦，令人惊叹的解析力，在细节之处，更⁠见⁠真⁠章⁠。
                 </div>
             </div>
             <div class="con-text" data-id="2" ref="conText2">
-                <div class="con-text-title">超感知摄像头</div>
+                <div class="con-text-title">超广角摄像头</div>
                 <div class="text">
-                    5000 万像素， f/1.9 光圈，1/1.28 ⁠英
-                    寸型传感器，RYYB 滤色阵列，全像
-                    素八核对焦，令人惊叹的解析力，为
-                    你全时段超清记录生⁠活⁠点⁠滴。
+                    1600 万像素超广角，f/2.2 光圈，天高海阔也能一览无余。超微距，微小世界更可一⁠探⁠究⁠竟⁠。
                 </div>
             </div>
             <div class="con-text" data-id="3" ref="conText3">
-                <div class="con-text-title">超感知摄像头</div>
+                <div class="con-text-title">长焦摄像头</div>
                 <div class="text">
-                    5000 万像素， f/1.9 光圈，1/1.28 ⁠英
-                    寸型传感器，RYYB 滤色阵列，全像
-                    素八核对焦，令人惊叹的解析力，为
-                    你全时段超清记录生⁠活⁠点⁠滴。
+                    800 万像素，支持 3 倍光学变焦⁠6⁠，5 倍混合变焦7，30 倍数字变焦，放远目光，拉⁠近⁠世⁠⁠界⁠。
                 </div>
             </div>
             <div class="con-text" data-id="4" ref="conText3">
-                <div class="con-text-title">超感知摄像头</div>
+                <div class="con-text-title">激光对焦传感器</div>
                 <div class="text">
-                    5000 万像素， f/1.9 光圈，1/1.28 ⁠英
-                    寸型传感器，RYYB 滤色阵列，全像
-                    素八核对焦，令人惊叹的解析力，为
-                    你全时段超清记录生⁠活⁠点⁠滴。
+                    疾速对焦，轻松抓住动⁠人瞬间。
                 </div>
             </div>
         </div>
