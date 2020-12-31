@@ -29,15 +29,14 @@ export default {
     },
     methods: {
         init() {
-            window.addEventListener('scroll',this.handleScroll)
+           window.addEventListener('scroll',this.handleScroll)
         },
         handleScroll(event){
             let scrollTop = this.$refs.scrollWrap.offsetTop
             let top = window.pageYOffset 
             let scrollBottom = scrollTop + this.$refs.scrollWrap.offsetHeight
-
             if(top >= scrollTop ){//判断在这个区域内
-                let distace = this.$refs.scrollWrap.offsetHeight - scrollTop
+                let distace = this.$refs.scrollWrap.offsetHeight + scrollTop
                 let stop = top-scrollTop
                 if(distace>=top){
                     if(distace==top){
@@ -47,10 +46,7 @@ export default {
                     }else{
                        let n = parseInt(stop/(this.$refs.canvas.offsetHeight/109));
                         if(n<=109){
-                            setTimeout(()=>{
-                                this.imgIndex = n
-                            },100)
-                           
+                            this.imgIndex = n
                         } 
                     }   
                 }else{
@@ -77,9 +73,9 @@ export default {
     height:0.48rem;
 }
 .mag-scroll {
-    height: calc(100vh - 88px);
+    height: calc(100vh - 96px);
     position: sticky;
-    top: 88px;
+    top: 96px;
     width: 100%;
     display: flex;
     flex-direction: column;

@@ -1,12 +1,26 @@
 <template>
-    <div class="power-wrapper">
-        <div class="box-top-span">
-            <span>小憩一下 能量满满</span>
-        </div>
-        <div class="box-div">
-            <img class="box-img" src="../assets/frame-n.png"/>
-            <video class="box-video" src="../assets/screen-n-cn.webm" controls="controls" muted autoplay loop playsinline preload="none"></video>
-        </div>
+    <div class="space-block"></div>
+
+    <div class="font-container">
+        <h2>小憩一下 能量满满</h2>
+        <div class="space-bottom"></div>
+    </div>
+
+    <div class="out-container">
+        
+        
+        <video muted="" autoplay="" loop="" playsinline="" webkit-playsinline="true" preload="none" x-webkit-airplay="true" x5-video-player-type="h5" x5-video-player-fullscreen="true"
+               data-poster="../assets/power-comp/screen-o-cn.jpg" data-poster-xs="../assets/power-comp/screen-o-cn-xs.jpg" poster="../assets/power-comp/screen-o-cn.jpg">
+            <source type="video/webm" data-src="../assets/power-comp/screen-o-cn.webm" data-src-xs="../assets/power-comp/screen-o-cn-xs.webm" src="../assets/power-comp/screen-o-cn.webm">
+            <source type="video/mp4" data-src="../assets/power-comp/screen-o-cn.mp4" data-src-xs="../assets/power-comp/screen-o-cn-xs.mp4" src="../assets/power-comp/screen-o-cn.mp4">
+        </video>
+
+        <picture>
+            <source type="image/webp" media="(min-width: 1920px)" data-srcset="../assets/power-comp/frame-o@2x.webp" srcset="../assets/power-comp/frame-o@2x.webp">
+            <source type="image/webp" media="(min-width: 1024px)" data-srcset="../assets/power-comp/frame-o@2x.webp" srcset="../assets/power-comp/frame-o@2x.webp">
+            <source type="image/webp" data-srcset="../assets/power-comp/frame-o.webp" srcset="../assets/power-comp/frame-o.webp">
+            <img data-src="../assets/power-comp/frame-o.png" src="../assets/power-comp/frame-o.png">
+        </picture>
     </div>
 </template>
 
@@ -30,106 +44,82 @@ export default {
 
 <style scoped lang=scss>
 @import "@/sass/common.scss";
-.power-wrapper{
-    padding: torem(80) 0;
+.space-block{
+    height: calc(6.41026vw + 76.92308px)
 }
-    .box-video{
-        height: 100%!important;
-        width: auto;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+.font-container{
+    width: calc(82.05128vw + 4.61538px);
+    margin: 0 auto;
+    h2{
+        font-size: calc(2.05128vw + 40.61538px);
+        font-weight: 700;
+        line-height: 1.25em;
+        margin: 0;
     }
-    .box-img{
-        height: auto;
-        width: auto;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
+    .space-bottom{
+        height: calc(.96154vw + 11.53846px)
     }
-    .box-div{
-        position: relative;
-        overflow: hidden;
+}
+.out-container{
+    width: calc(82.05128vw + 4.61538px);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    picture{
+        display: block;
         background: #f4f3f3;
+        img{
+            height: 70vh;
+            height: calc(100vh - 90px -120px);
+            width: auto;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
     }
-    .box-top-span{
-        width: 100%;
-        height: 50px;
-        font-size: 30px;
-        font-family: PingFangSC-Semibold, PingFang SC;
-        color: #333333;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-@media screen and (min-width: 750px) {
-    .box-top-span{
-        width: 100%;
-        height: 126px;
-        font-size: 90px;
-        font-family: PingFangSC-Semibold, PingFang SC;
-        font-weight: 600;
-        color: #333333;
-        line-height: 126px;
-        text-align: left;
-        padding-left: 120px;
-        box-sizing: border-box;
-    }
-    video::-webkit-media-controls-fullscreen-button {
-    display: none;
-    }
-    //播放按钮
-    video::-webkit-media-controls-play-button {
-        display: none;
-    }
-    //进度条
-    video::-webkit-media-controls-timeline {
-        display: none;
-    }
-    //观看的当前时间
-    video::-webkit-media-controls-current-time-display{
-        display: none;           
-    }
-    //剩余时间
-    video::-webkit-media-controls-time-remaining-display {
-        display: none;           
-    }
-    //音量按钮
-    video::-webkit-media-controls-mute-button {
-        display: none;           
-    }
-    video::-webkit-media-controls-toggle-closed-captions-button {
-        display: none;           
-    }
-    //音量的控制条
-    video::-webkit-media-controls-volume-slider {
-        display: none;           
-    }
-    //所有控件
-    video::-webkit-media-controls-enclosure{
-        display: none;
-    }
-    .box-video{
+    video{
         height: 100%!important;
         width: auto;
         position: absolute;
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 9;
     }
-    .box-img{
-        height: var(--gg-height-box);
-        width: auto;
-        margin: 0 auto;
-        position: relative;
-        z-index: 1;
-    }
-    .box-div{
-        position: relative;
-        overflow: hidden;
-    }
-    .box-box{
-        /* margin-top: 50px;
-        margin-bottom: 50px; */
-    }
-
 }
+@media (min-aspect-ratio: 1001/1000){
+    .out-container {
+        width: calc(82.05128vw + 4.61538px);
+        margin: 0 auto;
+        picture{
+            display: block;
+            background: #f4f3f3;
+            img{
+                height: 70vh;
+            }
+        }
+    }
+}
+@media (max-aspect-ratio: 1/1){
+    .font-container{
+        h2{
+            font-size: calc(2.05128vw + 24.61538px);
+        }
+    }
+    .out-container {
+        width: 100%;
+        picture{
+            display: block;
+            background: #f4f3f3;
+            img{
+                height: auto!important;
+                width: 100%;
+                margin: 0 auto;
+                position: relative;
+                z-index: 10;
+            }
+        }
+    }
+}
+
 </style>

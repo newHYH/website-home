@@ -150,7 +150,6 @@ export default {
                     color: #333333;
                 }
                 .slogan{
-                    /* font-size: calc(1.02564vw + 12.30769px); */
                     transition-delay: .3s;
                     font-size: calc(1.53846vw + 18.46154px);
                 }
@@ -162,7 +161,6 @@ export default {
             }
             @media (max-aspect-ratio: 1/1){
                 .product {
-                    height: calc(569/643*(--gg-container-width));
                     max-height: 100%;
                 }
             }
