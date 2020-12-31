@@ -13,15 +13,18 @@
         <div class="select-box row">
             <div class="col-sm-12 col-md-3 col-lg-3">按区域搜索服务店：</div>
             <div class="select-wrap col-sm-12 col-md-9 col-lg-9">
-                <el-select v-model="model1" placeholder="请选择">
+                <!-- <el-select v-model="model1" placeholder="请选择">
                     <el-option
                             v-for="item in areaListCopy.province_list"
                             :key="item"
                             :label="item"
                             :value="item">
                     </el-option>
-                </el-select>
+                </el-select> -->
             </div>
+        </div>
+        <div class="map-box container">
+            <CBaiduMap />
         </div>
         <Footer></Footer>
     </div>
@@ -36,6 +39,7 @@
         components: {
             HeaderA,
             Footer,
+            CBaiduMap
         },
         data() {
             return {
