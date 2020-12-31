@@ -6,7 +6,7 @@
         </div>
         <div class="box-mobile">
             <div class="select-mobile" @click="gotoSel">
-                <div class="sel-name">{{selProName}}</div>
+                <div class="sel-name">{{selProName||'请选择'}}</div>
                 <img class="sel-icon" src="../assets/arrow-bottom.png" />
             </div>
             <div class="search-mobile">
@@ -16,7 +16,7 @@
         </div>
         <Popup v-model:show="showPopup" position="bottom" :style="{ height: '40%' }">
             <Area
-                    title="标题"
+                    title="请选择省、市、区"
                     :area-list="areaListCopy"
                     :columns-num="3"
                     @confirm="handleConfirm"
