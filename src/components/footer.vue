@@ -61,7 +61,7 @@
                     </div>
                     <div class="connect-item col-6">
                         <p class="title">线下支持</p>
-                        <div class="func-box service">
+                        <div class="func-box service"  @click="goto('service-network')">
                             <p>服务店</p>
                         </div>
                         <div class="func-box retail">
@@ -105,8 +105,8 @@
         <div class="container">
             <div class="page-footer">
                 <div class="footer-inner row">
-                    <div class="right col-12 col-md-12 col-xl-12 col-xxl-5">版权所有 © 中国联合通信有限公司 1998-2021。保留一切权利。粤A2-20044005号</div>
-                    <div class="col-md-6 col-12 col-xl-6 col-xxl-4 offset-xxl-1">
+                    <div class="right col-12 col-md-12 col-xl-6 col-xxl-5">版权所有 © 中国联合通信有限公司 1998-2021。保留一切权利。粤A2-20044005号</div>
+                    <div class="col-md-6 col-12 col-xl-3 col-xxl-4 offset-xxl-1">
                         <ul class="footer-items">
                             <li class="f-item">网站地图</li>
                             <li class="f-item">使用条款</li>
@@ -115,7 +115,7 @@
                             <li class="f-item">法律信息</li>
                         </ul>
                     </div>
-                    <div class="lang col-12 col-md-6 col-xl-6 col-xxl-2"><span>China-简体中文</span></div>
+                    <div class="lang col-12 col-md-6 col-xl-3 col-xxl-2"><span>China-简体中文</span></div>
                 </div>
             </div>
         </div>
@@ -547,7 +547,7 @@ export default {
                 line-height: 22px;
             }
             .right{
-                text-align: left;
+                text-align: center;
             }
             .footer-items{
                 width: 380px;
