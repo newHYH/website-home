@@ -4,10 +4,30 @@
         <div class="box-top">
             <img class="box-top-img" src="../assets/fuwutop.png" alt=""/>
         </div>
+        <div class="box-mobile">
+            <div class="select-mobile" @click="gotoSel">
+                <div class="sel-name">{{selProName}}</div>
+                <img class="sel-icon" src="../assets/arrow-bottom.png" />
+            </div>
+            <div class="search-mobile">
+                <input type="text" placeholder="请输入地址，搜索附近的服务店">
+                <img class="search-icon" src="../assets/search-icon.png" />
+            </div>
+        </div>
+        <Popup v-model:show="showPopup" position="bottom" :style="{ height: '40%' }">
+            <Area
+                    title="标题"
+                    :area-list="areaListCopy"
+                    :columns-num="3"
+                    @confirm="handleConfirm"
+                    @cancel="handleCancel"
+                    :columns-placeholder="['请选择', '请选择', '请选择']"
+            />
+        </Popup>
         <div class="search-box">
             <div class="">搜索附近的服务店（不限区域）：</div>
             <div class="input-wrap">
-                <input type="text">
+                <input type="text" placeholder="请输入地址，搜索附近的服务店">
             </div>
         </div>
         <div class="select-box">
@@ -55,12 +75,21 @@
     import Footer from '../components/footer.vue';
     import cityData from "../components/city";
     // import CBaiduMap from "../components/CBaiduMap";
+    import Area from 'vant/lib/area';
+    import 'vant/lib/area/style';
+    import Popup from 'vant/lib/popup';
+    import 'vant/lib/popup/style';
+
+
+
     export default {
         name: "BaiDuMap",
         components: {
             HeaderA,
             Footer,
             // CBaiduMap
+            Area,
+            Popup
         },
         data() {
             return {
@@ -87,7 +116,7 @@
                 selCityName:'请选择',
                 selAreaName:'请选择',
                 openDownFlag:0,
-                model1:0
+                showPopup: false
             };
         },
         mounted() {
@@ -97,6 +126,17 @@
                 console.log(BMap, map);
                 this.center.lng = 118.835;
                 this.center.lat = 32.0835479;
+            },
+            gotoSel(){
+                this.showPopup = !this.showPopup
+            },
+            handleCancel(){
+                this.showPopup = false
+            },
+            handleConfirm(data){
+                console.log(data)
+                this.showPopup = false
+                this.selProName = data[0].name
             },
             openDownList(type){
                 if(this.openDownFlag != 0){
@@ -144,6 +184,9 @@
                 width: 100%;
                 height: 100%;
             }
+        }
+        .box-mobile{
+            display: none;
         }
         .search-box{
             padding: 0 torem(100);
@@ -223,6 +266,73 @@
                         display: block;
                     }
                 }
+            }
+        }
+    }
+    @media screen and (max-width: 750px){
+        .home{
+            width: 100%;
+            overflow: hidden;
+            .box-top{
+                width: 100%;
+                height: torem(634);
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .box-mobile{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin-top: 20px;
+                .select-mobile{
+                    width: 20%;
+                    font-size: 14px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    .sel-name{
+                        width: 80%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                    .sel-icon{
+                        width: 8px;
+                        height: 5px;
+                    }
+                }
+                .search-mobile{
+                    width: 70%;
+                    border: 1px solid #e5e5e5;
+                    border-radius: 24px;
+                    padding: 9px 40px 9px 15px;
+                    font-size: 12px;
+                    color: #1d1e28;
+                    background: #fff;
+                    position: relative;
+                    .search-icon{
+                        width: 14px;
+                        height: 14px;
+                        position: absolute;
+                        right: 10px;
+                        top: 9px;
+                    }
+                    input{
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+            .search-box{
+                display: none;
+            }
+            .select-box{
+                display: none;
             }
         }
     }
