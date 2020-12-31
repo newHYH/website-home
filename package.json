@@ -12,6 +12,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
+    "element-plus": "^1.0.1-beta.17",
     "jquery": "^3.5.1",
     "vant": "^3.0.1",
     "vue": "^3.0.0",
