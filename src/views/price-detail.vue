@@ -94,6 +94,8 @@
                 ]
             }
         },
+        mounted() {
+        },
         methods:{
             changeDevice(){
                 this.$router.push('/query-price')

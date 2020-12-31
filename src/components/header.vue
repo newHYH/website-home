@@ -21,11 +21,11 @@
             <div class="sec-navigation">
                 <div class="logo">China UNICOM 40 Pro</div>
                 <ul class="product-tabs">
-                    <li class="tab-item active">
-                        <a class="pointer" title="功能特征" @click="goto(1)">功能特征</a>
+                    <li class="tab-item" :class="{'active':index==1}">
+                        <a class="pointer" title="功能特征" @click="goto('phone-page',1)">功能特征</a>
                     </li>
-                    <li class="tab-item">
-                        <a class="pointer" title="规格参数" @click="goto(2)">规格参数</a>
+                    <li class="tab-item" :class="{'active':index==2}">
+                        <a class="pointer" title="规格参数" @click="goto('param',2)">规格参数</a>
                     </li>
                     <li class="tab-item">
                         <a class="pointer" title="配件" @click="goto(3)">配件</a>
@@ -44,10 +44,12 @@ export default {
     name: 'Header',
     data() {
         return{
-            fixHeader: false
+            fixHeader: false,
+            index:1,
         }
     },
     mounted() {
+        this.index =  window.index?window.index:1
         window.addEventListener('scroll', this.scrollHander)
     },
     unmounted () {
@@ -61,8 +63,11 @@ export default {
                 this.fixHeader = false
             }
         },
-        goto(){
-            this.$router.push('/param')
+        goto(path,index){
+            console.log(index)
+            window.index = index
+            this.index =  window.index
+            this.$router.push(path)
         }
     }
 }

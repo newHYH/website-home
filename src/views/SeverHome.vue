@@ -183,9 +183,6 @@ export default {
             ]
         }
     },
-    mounted() {
-
-    },
     methods: {
         goUrl(path){
             this.$router.push(path)

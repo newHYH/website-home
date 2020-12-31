@@ -300,6 +300,9 @@
             Header,
             Footer
         },
+        mounted() {
+           
+        },
     }
 </script>
 

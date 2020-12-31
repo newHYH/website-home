@@ -259,6 +259,8 @@ export default {
             currentPhoneType: 0,
         }
     },
+    mounted() {
+    },
     methods: {
         handleClkSelDevice(name) {
             this.openSelMenu = !this.openSelMenu

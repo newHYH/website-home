@@ -40,9 +40,13 @@ const routes = [
   }
 ]
 
+
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
 
+router.beforeEach(()=>{
+  window.scrollTo(0,0)
+})
 export default router
