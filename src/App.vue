@@ -7,13 +7,6 @@
 
 export default {
     name: 'app',
-    watch:{
-    	$route(){
-    		console.log(window.scrollY)
-    		window.scrollY =0
-    		
-    	}
-    }
 
 }
 </script>

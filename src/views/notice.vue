@@ -44,7 +44,6 @@ export default {
         return {}
     },
     mounted() {
-         document.body.scrollTop = 0;
     },
     methods: {}
 }

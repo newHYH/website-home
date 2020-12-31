@@ -301,7 +301,7 @@
             Footer
         },
         mounted() {
-            document.body.scrollTop = 0;
+           
         },
     }
 </script>

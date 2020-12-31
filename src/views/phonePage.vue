@@ -113,7 +113,6 @@ export default {
         }
     },
     mounted() {
-        document.body.scrollTop = 0;
         window.addEventListener('scroll', this.handleScroll)
     },
     methods: {
