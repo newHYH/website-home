@@ -173,6 +173,8 @@ export default {
     },
   },
   mounted() {
+    
+         document.body.scrollTop = 0;
       console.log(areaList.province_list)
     var that = this;
     // <!--把window.onresize事件挂在到mounted函数上-->

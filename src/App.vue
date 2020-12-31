@@ -1,7 +1,22 @@
 <template>
-	<router-view/>
+	<div id="app">
+		<router-view />
+	</div>
 </template>
+<script>
 
+export default {
+    name: 'app',
+    watch:{
+    	$route(){
+    		console.log(window.scrollY)
+    		window.scrollY =0
+    		
+    	}
+    }
+
+}
+</script>
 <style lang="scss">
 	@import "./sass/transfrom.scss";
 

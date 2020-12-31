@@ -259,6 +259,9 @@ export default {
             currentPhoneType: 0,
         }
     },
+    mounted() {
+         document.body.scrollTop = 0;
+    },
     methods: {
         handleClkSelDevice(name) {
             this.openSelMenu = !this.openSelMenu

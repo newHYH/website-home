@@ -94,6 +94,9 @@
                 ]
             }
         },
+        mounted() {
+             document.body.scrollTop = 0;
+        },
         methods:{
             changeDevice(){
                 this.$router.push('/query-price')
