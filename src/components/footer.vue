@@ -94,7 +94,7 @@
             <div class="item-box">
                 <p class="title">应用与下载</p>
                 <div class="each-item">终端云服务</div>
-                <div class="each-item">预置应用共公式</div>
+                <div class="each-item" @click="goto('notice')">预置应用共公式</div>
             </div>
             <div class="item-box">
                 <p class="title">关于我们</p>
@@ -132,6 +132,9 @@ export default {
 
     },
     methods: {
+        goto(path){
+            this.$router.push(path)
+        }
     }
 }
 </script>
@@ -313,6 +316,7 @@ export default {
                     font-weight: 400;
                     color: #FFFFFF;
                     line-height: 20px;
+                    cursor: pointer;
                 }
             }
         }
@@ -399,6 +403,7 @@ export default {
                             font-weight: 400;
                             color: #999999;
                             line-height: 20px;
+                            cursor: pointer;
                             p{
                                 margin-bottom: 8px;
                             }

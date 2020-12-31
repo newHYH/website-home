@@ -135,26 +135,27 @@ export default {
             let height4 = this.$refs.col4.offsetTop + this.$refs.col4.offsetHeight - 1
             let height5 = this.$refs.col5.offsetTop + this.$refs.col5.offsetHeight - 1
             let height6 = this.$refs.col6.offsetTop + this.$refs.col6.offsetHeight - 1
-
-            let scrollTop = window.pageYOffset - 96
+            let scrollTop = window.pageYOffset + 96
             if (scrollTop >= top1 && height1 > scrollTop) {
                 this.index = 1
-                this.per1 = (1 - scrollTop / (height1 - top1)) * 49
+                this.per1 = (1 - (scrollTop-top1) / (height1 - top1)) * 49
             } else if (scrollTop >= top2 && height2 >= scrollTop) {
                 this.index = 2
-                this.per2 = (1 - scrollTop / (height2 - top2)) * 49
+                this.per2 = (1 - (scrollTop -top2) / (height2 - top2)) * 49
             } else if (scrollTop >= top3 && height3 > scrollTop) {
                 this.index = 3
-                this.per3 = (1 - scrollTop / (height3 - top3)) * 49
+                this.per3 = (1 - (scrollTop -top3) / (height3 - top3)) * 49
             } else if (scrollTop >= top4 && height4 > scrollTop) {
                 this.index = 4
-                this.per4 = (1 - scrollTop / (height4 - top4)) * 49
+                this.per4 = (1 - (scrollTop -top4) / (height4 - top4)) * 49
             } else if (scrollTop >= top5 && height5 > scrollTop) {
                 this.index = 5
-                this.per5 = (1 - scrollTop / (height5 - top5)) * 49
+                this.per5 = (1 - (scrollTop-top5) / (height5 - top5)) * 49
             } else if (scrollTop >= top6 && height6 > scrollTop) {
                 this.index = 6
-                this.per6 = (1 - scrollTop / (height6 - top6)) * 49
+                this.per6 = (1 - (scrollTop-top6 )/ (height6 - top6)) * 49
+            }else{
+                this.index = 0;
             }
         }
     }
