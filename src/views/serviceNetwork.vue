@@ -65,7 +65,9 @@
                 </div>
             </div>
         </div>
-<!--        <CBaiduMap></CBaiduMap>-->
+        <div class="container">
+            <CBaiduMap />
+        </div>
         <Footer></Footer>
     </div>
 </template>
@@ -74,7 +76,7 @@
     import HeaderA from '../components/headerA.vue';
     import Footer from '../components/footer.vue';
     import cityData from "../components/city";
-    // import CBaiduMap from "../components/CBaiduMap";
+    import CBaiduMap from "../components/CBaiduMap";
     import Area from 'vant/lib/area';
     import 'vant/lib/area/style';
     import Popup from 'vant/lib/popup';
@@ -87,7 +89,7 @@
         components: {
             HeaderA,
             Footer,
-            // CBaiduMap
+            CBaiduMap,
             Area,
             Popup
         },
