@@ -87,6 +87,7 @@
             </div>
             <div class="item-box">
                 <p class="title">服务与支持</p>
+                <div class="each-item" @click="goto('support')">保修政策</div>
                 <div class="each-item">维修备件价格</div>
                 <div class="each-item">联系我们</div>
                 <div class="each-item">服务隐私声明</div>

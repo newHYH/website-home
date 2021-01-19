@@ -57,14 +57,14 @@
             ],
                 partList:[
                     {
+                        partName:'屏幕组件',
+                        partPrice:'¥ 99.00',
+                        img:img6,
+                    },
+                    {
                         partName:'电池',
                         partPrice:'¥ 99.00',
                         img:img1,
-                    },
-                    {
-                        partName:'特惠版',
-                        partPrice:'¥ 639.00',
-                        img:img2,
                     },
                     {
                         partName:'主板',
@@ -77,20 +77,15 @@
                         img:img4,
                     },
                     {
+                        partName:'后置摄像头',
+                        partPrice:'¥ 99.00',
+                        img:img7,
+                    },
+                    {
                         partName:'后盖',
                         partPrice:'¥ 99.00',
                         img:img5,
                     },
-                    {
-                        partName:'屏幕组件',
-                        partPrice:'¥ 99.00',
-                        img:img6,
-                    },
-                    {
-                        partName:'后置摄像头',
-                        partPrice:'¥ 99.00',
-                        img:img7,
-                    }
                 ]
             }
         },
@@ -155,6 +150,7 @@
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    background: #F3F3F3;
                     .part-img{
                         width: torem(273);
                         height: torem(273);
@@ -175,10 +171,8 @@
                         color: #0279FF;
                     }
                 }
-                .part-box:nth-child(odd) {
-                    background: #F3F3F3;
-                }
-                .part-box:nth-child(even){
+                .part-box:nth-child(2), .part-box:nth-child(5) {
+                    
                     background: #FAFAFA;
                 }
             }

@@ -1,20 +1,19 @@
 module.exports = {
     publicPath:'./',
-    /*devServer: {
+    devServer: {
         proxy: {
-           '/wep-oms': {
+           '/model': {
                 //target: 'http://10.124.193.151:8082',
-                target: 'http://10.4.239.238:8000',
+                target: 'http://192.168.0.139:8888',
                 changeOrigin: true,
                 ws: false,
-                pathRewrite: { '^/wep-oms': '/wep-oms' }
+                pathRewrite: { '^/model': '/model' }
             },
         }
-    }*/
+    },
     configureWebpack: {
         externals: {
             "BMap": 'BMap'
         }
     }
-    
 }
