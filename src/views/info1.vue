@@ -5,7 +5,7 @@
             NOP-AN00 11.0.0.160(SP1C786E160R7P1)预置应用软件信息公示
         </div>
         <div class="table-wrap">
-            <table cellpadding="0" cellspacing="0" v-show="index == 0">
+            <table cellpadding="0" cellspacing="0" v-show="index == 1">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -73,7 +73,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 1">
+            <table cellpadding="0" cellspacing="0" v-show="index == 2">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -141,7 +141,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，网络通信</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 2">
+            <table cellpadding="0" cellspacing="0" v-show="index == 3">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -209,7 +209,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，位置信息，电话，相机，日历，存储，网络通信</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 3">
+            <table cellpadding="0" cellspacing="0" v-show="index == 4">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -277,7 +277,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，位置信息，存储，网络通信，蓝牙</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 4">
+            <table cellpadding="0" cellspacing="0" v-show="index == 5">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -347,7 +347,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，通讯录，通话记录，网络通信</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 5">
+            <table cellpadding="0" cellspacing="0" v-show="index == 6">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -415,7 +415,7 @@
                     <td>读取已安装应用列表，电话，信息，通讯录，通话记录</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 6">
+            <table cellpadding="0" cellspacing="0" v-show="index == 7">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -483,7 +483,7 @@
                     <td>该应用涉及到的权限读取已安装应用列表</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 7">
+            <table cellpadding="0" cellspacing="0" v-show="index == 8">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -551,7 +551,7 @@
                     <td>该应用涉及到的权限读取已安装应用列表</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 8">
+            <table cellpadding="0" cellspacing="0" v-show="index == 9">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -619,7 +619,7 @@
                     <td>该应用涉及到的权限读取已安装应用列表，位置信息，通讯录 ，通话记录，存储，网络通信，蓝牙</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 9">
+            <table cellpadding="0" cellspacing="0" v-show="index == 10">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -687,7 +687,7 @@
                     <td>该应用涉及到的权限读取已安装应用列表，位置信息，电话，麦克风，相机，通讯录，存储，网络通信，蓝牙</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 10">
+            <table cellpadding="0" cellspacing="0" v-show="index == 11">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -755,7 +755,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，麦克风，存储，网络通信</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 11">
+            <table cellpadding="0" cellspacing="0" v-show="index == 12">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -824,7 +824,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，存储，网络通信</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 12">
+            <table cellpadding="0" cellspacing="0" v-show="index == 13">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -892,7 +892,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，位置信息，电话，相机，通讯录，存储，网络通信</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 13">
+            <table cellpadding="0" cellspacing="0" v-show="index == 14">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -966,7 +966,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 14">
+            <table cellpadding="0" cellspacing="0" v-show="index == 15">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1034,7 +1034,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 15">
+            <table cellpadding="0" cellspacing="0" v-show="index == 16">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1102,7 +1102,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 16">
+            <table cellpadding="0" cellspacing="0" v-show="index == 17">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1170,7 +1170,7 @@
                     <td>该应用涉及到的权限: 读取已安装应用列表，网络通信</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 17">
+            <table cellpadding="0" cellspacing="0" v-show="index == 18">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1238,7 +1238,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，位置信息，电话，信息，相机，通讯录，日历，存储，网络通信，蓝牙</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 18">
+            <table cellpadding="0" cellspacing="0" v-show="index == 19">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1306,7 +1306,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，位置信息，电话 ，蓝牙</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 19">
+            <table cellpadding="0" cellspacing="0" v-show="index == 20">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1374,7 +1374,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 20">
+            <table cellpadding="0" cellspacing="0" v-show="index == 21">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1442,7 +1442,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 21">
+            <table cellpadding="0" cellspacing="0" v-show="index == 22">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1510,7 +1510,7 @@
                     <td>该应用涉及到的权限:读取已安装应用列表，电话</td>
                 </tr>
             </table>
-            <table cellpadding="0" cellspacing="0" v-show="index == 22">
+            <table cellpadding="0" cellspacing="0" v-show="index == 23">
                 <thead>
                 <th>应用名称</th>
                 <th>功能描述</th>
@@ -1569,13 +1569,13 @@
         </div>
         <div class="page">
             <div class="prev-btn" @click="prevPage">
-                <img :class="index==0?'opacity':''" src="../assets/arrow-left.png" alt="">
+                <img :class="index==1?'opacity':''" src="../assets/arrow-left.png" alt="">
             </div>
             <div class="current-page">
-                <input type="text" :value="index+1"> / {{totalSize}}
+                <input type="text" @keyup="gotoPage($event,0)" @keyup.enter="gotoPage($event,1)" v-model="inputIndex"> / {{totalSize}}
             </div>
             <div class="next-btn" @click="nextPage">
-                <img :class="index==totalSize-1?'opacity':''" src="../assets/arrow-right2.png" alt="">
+                <img :class="index==totalSize?'opacity':''" src="../assets/arrow-right2.png" alt="">
             </div>
         </div>
         <Footer />
@@ -1589,8 +1589,9 @@
         name: "info1",
         data() {
             return {
-                index: 0,
-                totalSize:23
+                index: 1,
+                totalSize:23,
+                inputIndex: 1
             }
         },
         components: {
@@ -1600,16 +1601,38 @@
         },
         methods: {
             nextPage() {
-                if(this.index<this.totalSize - 1){
+                if(this.index<this.totalSize){
                     this.index += 1
                 }
                 document.body.scrollIntoView()
             },
             prevPage() {
-                if(this.index !=0){
+                if(this.index != 1){
                     this.index -= 1
                 }
                 document.body.scrollIntoView()
+            },
+            gotoPage(e,type){
+                let num = Number(this.inputIndex)
+                if(num && num>0 && num< this.totalSize){
+                    if(!this.inputIndex){
+                        if(type){
+                            this.index = 1
+                            document.body.scrollIntoView()
+                        }
+                    } else {
+                        if(type){
+                            this.index = this.inputIndex
+                            document.body.scrollIntoView()
+                        }
+                    }
+                } else {
+                    if(type){
+                        this.inputIndex = 1
+                        this.index = 1
+                        document.body.scrollIntoView()
+                    }
+                }
             }
         }
     }
