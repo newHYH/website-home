@@ -1,5 +1,6 @@
 <template>
     <div class="info1">
+        <HeaderA />
         <div class="title">
             NOP-AN00 11.0.0.160(SP1C786E160R7P1)预置应用软件信息公示
         </div>
@@ -1577,10 +1578,13 @@
                 <img :class="index==totalSize-1?'opacity':''" src="../assets/arrow-right2.png" alt="">
             </div>
         </div>
+        <Footer />
     </div>
 </template>
 
 <script>
+    import HeaderA from '@/components/headerA.vue';
+    import Footer from '@/components/footer.vue';
     export default {
         name: "info1",
         data() {
@@ -1588,6 +1592,11 @@
                 index: 0,
                 totalSize:23
             }
+        },
+        components: {
+            // Header,
+            HeaderA,
+            Footer
         },
         methods: {
             nextPage() {
@@ -1689,5 +1698,124 @@
                 }
             }
         }
+    }
+    @media screen and (max-width:750px){
+        .info1{
+            .title{
+                color: #000000;
+                text-align: center;
+                font-weight: bold;
+                font-size: 19px;
+                line-height: 25px;
+                padding: 20px;
+            }
+            .table-wrap {
+                width: 100%;
+                padding: 20px;
+                margin: 0 auto;
+                table {
+                    width: 100%;
+                    border: 0;
+                    th:nth-child(1){
+                        width: 15%;
+                    }
+                    th:nth-child(2){
+                        width: 35%;
+                    }
+                    th:nth-child(3){
+                        width: 20%;
+                    }
+                    th:nth-child(4){
+                        width: 30%;
+                    }
+                    th, td {
+                        border: 0;
+                        vertical-align: middle;
+                        color: #000000;
+                        text-align: center;
+                        line-height: 20px;
+                        padding: 10px 0;
+                    }
+                    th{
+                        font-size: 16px;
+                        display: none;
+                    }
+                    tr{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        align-items: flex-start;
+                    }
+                    td{
+                        font-size: 12px;
+                        word-break: break-all;
+                        display: flex;
+                        width: 100%;
+                        flex-direction: column;
+                        text-align: left;
+                    }
+                    td:nth-child(1){
+                        text-align: center;
+                        justify-content: center;
+                        font-size: 16px;
+                    }
+                    td:nth-child(2)::before{
+                        content: '功能描述';
+                        width: 100%;
+                        padding-top: 6px;
+                        font-weight: bold;
+                        font-size: 13px;
+                    }
+                    td:nth-child(3)::before{
+                        content: '开发者信息';
+                        width: 100%;
+                        padding-top: 6px;
+                        font-weight: bold;
+                        font-size: 13px;
+                    }
+                    td:nth-child(4)::before{
+                        content: '权限列表';
+                        width: 100%;
+                        padding-top: 6px;
+                        font-weight: bold;
+                        font-size: 13px;
+                    }
+                }
+            }
+            .page{
+                margin: 50px 0;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 36px;
+                .prev-btn, .next-btn{
+                    cursor: pointer;
+                }
+                .opacity{
+                    opacity:0.5;
+                }
+                .current-page{
+                    display: inline-block;
+                    font-size: 16px;
+                    color: #000;
+                    text-align: center;
+                    line-height: 23px;
+                    margin: 0 60px;
+                    font-weight: 500;
+                    input{
+                        border: 1px solid rgba(0,0,0,0.20);
+                        border-radius: 2px;
+                        width: 36px;
+                        height: 36px;
+                        text-align: center;
+                        font-weight: 500;
+                        color: #000;
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+
     }
 </style>
