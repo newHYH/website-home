@@ -21,35 +21,11 @@
         <div class="selection-part">
             <div class="device-list">
                 <ul class="row">
-                    <li class="col-sm-12 col-md-6 col-lg-3">
+                    <li class="col-sm-12 col-md-6 col-lg-3" v-for="(item,index) in deviceList" :key="index">
                         <div class="content-wrap">
-                            <img class="device-img" src="../assets/select-1.png" title="华为手机" alt="华为手机">
+                            <img class="device-img" src="../assets/select-1.png" :title="item.name" :alt="item.name" />
                             <div class="device-name">
-                                华为手机
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="content-wrap">
-                            <img class="device-img" src="../assets/select-2.png" title="华为配件" alt="华为配件">
-                            <div class="device-name">
-                                华为配件
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="content-wrap">
-                            <img class="device-img" src="../assets/select-3.png" title="小米手机" alt="小米手机">
-                            <div class="device-name">
-                                小米手机
-                            </div>
-                        </div>
-                    </li>
-                    <li class="col-sm-12 col-md-6 col-lg-3">
-                        <div class="content-wrap">
-                            <img class="device-img" src="../assets/select-4.png" title="小米配件" alt="小米配件">
-                            <div class="device-name">
-                                小米配件
+                                {{item.name}}
                             </div>
                         </div>
                     </li>
@@ -68,7 +44,7 @@
                             </div>
                         </div>
                         <ul v-show="currentPhoneType == index">
-                            <li class="phone" @click="gotoPriceDetail" v-for="(phone,idx) in phoneType.phoneTypeList" :key="idx">
+                            <li class="phone" @click="gotoPriceDetail(phone.id)" v-for="(phone,idx) in phoneType.phoneTypeList" :key="idx">
                                 {{phone.phoneName}}
                             </li>
                         </ul>
@@ -80,8 +56,9 @@
     </div>
 </template>
 <script>
-    import HeaderA from '@/components/headerA.vue';
-    import Footer from '@/components/footer.vue';
+import { quryGoodsType, quryGoodsTree } from '@/api/index.js'
+import HeaderA from '@/components/headerA.vue';
+import Footer from '@/components/footer.vue';
 export default {
     name: "query-price",
     components: {
@@ -91,8 +68,7 @@ export default {
     },
     data() {
         return {
-            headerTabs: [
-                {
+            headerTabs: [{
                     name: '手机',
                     link: '/home',
                     active: false
@@ -103,6 +79,7 @@ export default {
                     active: true
                 }
             ],
+            deviceList: [],
             deviceTypeList: [{
                     typeName: '华为',
                 },
@@ -123,136 +100,7 @@ export default {
                         },
                     ]
                 },
-                {
-                    phoneTypeName: '麦芒1 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒1 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒12 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒13 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒1 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒1 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒12 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒13 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒1 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒1 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒12 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒13 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒1 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒1 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒12 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒13 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒1 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒1 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒12 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒13 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒7 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒7 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒7 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒7 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-                {
-                    phoneTypeName: '麦芒7 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒7 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
+
             ],
             selectedDeviceName: '',
             openSelMenu: false,
@@ -260,8 +108,44 @@ export default {
         }
     },
     mounted() {
+        this.getData()
     },
     methods: {
+        getData() {
+            quryGoodsType().then(res => {
+                if (res.RESP_CODE == '0000') {
+                    let list = []
+                    res.data.forEach((item) => {
+                        let params = {
+                            name: item.typeName,
+                            
+                        }
+                        list.push(params)
+                    })
+                    this.deviceList = list
+                }
+            })
+            quryGoodsTree().then(res => {
+                if (res.RESP_CODE == '0000') {
+                    let list = []
+                    res.data.forEach(item => {
+                        let obj = {
+                            phoneTypeName: item.typeName,
+                            phoneTypeList: []
+                        }
+                        item.skuList.forEach(child => {
+                            let params = {
+                                phoneName: child.goodsName,
+                                id: child.id
+                            }
+                            obj.phoneTypeList.push(params)
+                        })
+                        list.push(obj)
+                    })
+                    this.phoneList = list
+                }
+            })
+        },
         handleClkSelDevice(name) {
             this.openSelMenu = !this.openSelMenu
             this.selectedDeviceName = name
@@ -269,8 +153,8 @@ export default {
         handleClickPhoneType(index) {
             this.currentPhoneType = index
         },
-        gotoPriceDetail() {
-            this.$router.push('/price-detail')
+        gotoPriceDetail(id) {
+            this.$router.push('/price-detail?id=' + id)
         }
     }
 }
@@ -282,6 +166,7 @@ export default {
 .query-price {
     width: 100%;
     overflow: hidden;
+
     .head-img {
         height: torem(633);
         background: url('../assets/banner-1.png');

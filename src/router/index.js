@@ -39,6 +39,10 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/support.vue')
   },
   {
+    path: '/quetion',
+    component: () => import(/* webpackChunkName: "about" */ '../views/quetion.vue')
+  },
+  {
     path: '/param',
     component: () => import(/* webpackChunkName: "about" */ '../views/param.vue')
   }

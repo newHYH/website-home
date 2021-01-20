@@ -95,57 +95,12 @@
                 <div class="serve-que-wrapper">
                     <div class="serve-que-inner">
                         <div class="que-list">
-                            <div class="list-row">
+                            <div class="list-row" @click="goQue(item.id)" :key="index" v-for="(item,index) in queList">
                                 <div class="text">
-                                    <span class="radius">1</span>
-                                    <span class="font ft38">问：</span><span>手机屏幕碎掉怎么办？</span>
+                                    <span class="radius">{{Number(index+1)}}</span>
+                                    <span class="font ft38">问：</span><span>{{item.quDes}}</span>
                                 </div>
-                                <div class="content">
-                                    <span class="font blue ft38">答：</span><span class="font">可以选择去售后中心更换新的屏幕。</span>
-                                </div>
-                            </div>
-                            <div class="list-row">
-                                <div class="text">
-                                    <span class="radius">2</span>
-                                    <span class="font ft38">问：</span><span>手机屏幕碎掉怎么办？</span>
-                                </div>
-                                <div class="content">
-                                    <span class="font blue ft38">答：</span><span class="font">可以选择去售后中心更换新的屏幕。</span>
-                                </div>
-                            </div>
-                            <div class="list-row">
-                                <div class="text">
-                                    <span class="radius">3</span>
-                                    <span class="font ft38">问：</span><span>手机屏幕碎掉怎么办？</span>
-                                </div>
-                                <div class="content">
-                                    <span class="font blue ft38">答：</span><span class="font">可以选择去售后中心更换新的屏幕。</span>
-                                </div>
-                            </div>
-                            <div class="list-row">
-                                <div class="text">
-                                    <span class="radius">4</span>
-                                    <span class="font ft38">问：</span><span>手机屏幕碎掉怎么办？</span>
-                                </div>
-                                <div class="content">
-                                    <span class="font blue ft38">答：</span><span class="font">可以选择去售后中心更换新的屏幕。</span>
-                                </div>
-                            </div>
-                            <div class="list-row">
-                                <div class="text">
-                                    <span class="radius">5</span>
-                                    <span class="font ft38">问：</span><span>手机屏幕碎掉怎么办？</span>
-                                </div>
-                                <div class="content">
-                                    <span class="font blue ft38">答：</span><span class="font">可以选择去售后中心更换新的屏幕。</span>
-                                </div>
-                            </div>
-                            <div class="list-row">
-                                <div class="text">
-                                    <span class="radius">6</span>
-                                    <span class="font ft38">问：</span><span>手机屏幕碎掉怎么办？</span>
-                                </div>
-                                <div class="content">
+                                <div class="content" style="display: none;">
                                     <span class="font blue ft38">答：</span><span class="font">可以选择去售后中心更换新的屏幕。</span>
                                 </div>
                             </div>
@@ -157,20 +112,22 @@
                 </div>
             </div>
         </div>
+        <Footer></Footer>
     </div>
 </template>
 <script>
 import HeaderA from '@/components/headerA.vue';
-
+import Footer from '@/components/footer.vue';
+import { quryQuestion } from '@/api/index.js'
 export default {
     name: 'ServeHome',
     components: {
-        HeaderA
+        HeaderA,
+        Footer
     },
     data() {
         return {
-            headerTabs: [
-                {
+            headerTabs: [{
                     name: '手机',
                     link: '/home',
                     active: false
@@ -180,12 +137,27 @@ export default {
                     link: '/serve-home',
                     active: true
                 }
-            ]
+            ],
+            queList: []
         }
     },
+    mounted() {
+        this.getData()
+    },
     methods: {
-        goUrl(path){
+        goUrl(path) {
             this.$router.push(path)
+        },
+        goQue(id){
+            this.$router.push('/quetion?id=' + id)
+        },
+        getData() {
+            quryQuestion().then(res => {
+                console.log(res)
+                if (res.RESP_CODE == '0000') {
+                    this.queList = res.data
+                }
+            })
         }
     }
 }
@@ -369,7 +341,8 @@ export default {
                 flex-wrap: wrap;
 
                 .list-row {
-                    width: 50%;
+                    width: 100%;
+                    cursor: pointer;
                     text-align: left;
                     color: #333;
                     font-size: torem(34);
@@ -479,11 +452,13 @@ export default {
 
     .serve-question {
         padding: 0;
+
         .serve-que-wrapper {
             .serve-que-inner {
                 .que-list {
                     display: flex;
                     flex-wrap: wrap;
+
                     .list-row {
                         width: 100%;
 

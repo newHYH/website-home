@@ -1,7 +1,7 @@
 <template>
     <div class="baidu-map">
         <div class="map-box">
-            <div id="map" ></div>
+            <div id="map"></div>
         </div>
         <div class="map-list">
             <div class="select" :class="slideOn ? 'on' : ''">
@@ -10,9 +10,8 @@
                     <li v-for="(item, index) in options" :key="index" @click="choose(index)">{{item.name}}</li>
                 </ul>
             </div>
-
             <div class="result-list">
-                <div class="result-item" v-for="(item, index) in results" :key="index" >
+                <div class="result-item" @click="changeMap(index)" v-for="(item, index) in results" :key="index">
                     <div class="title">{{item.title}}
                         <div class="distance">{{item.distance}}</div>
                         <div class="index">{{index+1}}</div>
@@ -28,92 +27,125 @@
         </div>
     </div>
 </template>
-
 <script>
-    import BMap from 'BMap'
-    
-    export default {
-        name: "CBaiduMap",
-        components:{
-        },
-        data(){
-            return{
-                options: [
-                    {name: '全部产品', val: 0},
-                    {name: '手机', val: 1},
-                    {name: '笔记本', val: 2},
-                    {name: '平板', val: 3},
-                    {name: '穿戴', val: 4},
-                    {name: '家居', val: 5},
-                    {name: '配件', val: 6}
-                ],
-                results: [
-                    {
-                        title: '华为授权服务中心（宣武门庄胜广场）',
-                        distance: '12km',
-                        address: '宣武门外大街庄胜广场南翼沿街二层（欢乐口腔南侧）',
-                        tels: ['010-63158808', '010-63159890'],
-                        workTime: '10:00-19:00(周一至周日)'
-                    },
-                    {
-                        title: '华为授权服务中心（宣武门庄胜广场）',
-                        distance: '12km',
-                        address: '宣武门外大街庄胜广场南翼沿街二层（欢乐口腔南侧）',
-                        tels: ['010-63158808', '010-63159890'],
-                        workTime: '10:00-19:00(周一至周日)'
-                    },
-                    {
-                        title: '华为授权服务中心（宣武门庄胜广场）',
-                        distance: '12km',
-                        address: '宣武门外大街庄胜广场南翼沿街二层（欢乐口腔南侧）',
-                        tels: ['010-63158808', '010-63159890'],
-                        workTime: '10:00-19:00(周一至周日)'
-                    },
-                    {
-                        title: '华为授权服务中心（宣武门庄胜广场）',
-                        distance: '12km',
-                        address: '宣武门外大街庄胜广场南翼沿街二层（欢乐口腔南侧）',
-                        tels: ['010-63158808', '010-63159890'],
-                        workTime: '10:00-19:00(周一至周日)'
-                    }
-                ],
-                slideOn: false,
-                chooseVal: ''
-            }
-        },
-        mounted() {
-            let that = this
-            that.createMap()
-            window.onresize = ()=> {
+import BMap from 'BMap'
+import { quryDept } from '@/api/index.js'
+export default {
+    name: "CBaiduMap",
+    components: {},
+    data() {
+        return {
+            options: [
+                { name: '全部产品', val: 0 },
+                { name: '手机', val: 1 },
+                { name: '笔记本', val: 2 },
+                { name: '平板', val: 3 },
+                { name: '穿戴', val: 4 },
+                { name: '家居', val: 5 },
+                { name: '配件', val: 6 }
+            ],
+            results: [],
+            posList:[],
+            center:{
+                lat:116.404,
+                lng:39.915
+            },
+            slideOn: false,
+            chooseVal: ''
+        }
+    },
+    mounted() {
+        let that = this
+        window.onresize = () => {
 
-            }
+        }
+
+        this.getData()
+    },
+    methods: {
+        getData() {
+            quryDept({}).then(res => {
+                if (res.RESP_CODE == '0000') {
+                    let list = []
+                    let posList= []
+                    res.data.forEach((item,index) => {
+                        let data = {
+                            title: item.fullname,
+                            distance: '12km',
+                            address: item.deptAddress,
+                            tels: [item.conTel, item.phoneNo],
+                            workTime: item.workTime,
+                            lat:item.deptLat,
+                            lng:item.deptLng
+                        }
+                        list.push(data)
+                        if(index ==0){
+                            this.center = {
+                                lat:item.deptLat,
+                                lng:item.deptLng
+                            }
+                        }
+                    })
+                    this.results = list
+                    this.createMap(posList)
+                }
+            })
         },
-        methods:{
-            createMap () {
-                // 创建Map实例
-                const map = new BMap.Map("map")
-                // 初始化地图,设置中心点坐标和地图级别
-                map.centerAndZoom(new BMap.Point(116.404, 39.915), 11)
-                //添加地图类型控件
-                map.addControl(new BMap.MapTypeControl({
-                    mapTypes:[BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
-                }))
-                // 设置地图显示的城市 此项是必须设置的
-                map.setCurrentCity("北京")
-                //开启鼠标滚轮缩放
-                map.enableScrollWheelZoom(true)
-            },
-            choose (index) {
-                this.chooseVal = this.options[index].name
-                this.slideOn = false
-            },
-            open () {
-                this.slideOn = !this.slideOn
+        createMap() {
+            // 创建Map实例
+            const map = new BMap.Map("map")
+            // 初始化地图,设置中心点坐标和地图级别
+            map.centerAndZoom(new BMap.Point(this.center.lng, this.center.lat), 12)
+            //添加地图类型控件
+            map.addControl(new BMap.MapTypeControl({
+                mapTypes: [BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
+            }))
+            // 设置地图显示的城市 此项是必须设置的
+            //map.setCurrentCity("北京")
+            //开启鼠标滚轮缩放
+            map.enableScrollWheelZoom(true)
+            this.results.forEach((item,index)=>{
+                let point = new BMap.Point( item.lng,item.lat);
+                var marker = new BMap.Marker(point, {
+                    icon: new BMap.Icon(require('../assets/maps/'+Number(index+1)+'.png'),new BMap.Size(22,38))
+                });
+                map.addOverlay(marker);
+                var opts = {
+                    width: 350,
+                    height: 150,
+                    title: ''
+                };
+                let info = '<div style="font-size:16px; color:#333; padding:0 12px;"><p style="color:#000;font-weight:700;">'
+                    info += item.title
+                    info += '</p><p  style="color:#7f7f7f"><span>地址：</span>'
+                    info += item.address 
+                    info += '</p><p style="color:#7f7f7f"><span>电话：<span>'
+                    info += item.tels[0]
+                    info += '</p></div>'
+                var infoWindow = new BMap.InfoWindow(info, opts);
+                // 点标记添加点击事件
+                marker.addEventListener('click', function () {
+                    map.openInfoWindow(infoWindow, point); // 开启信息窗口
+                });
+            })
+        },
+        changeMap(index){
+            this.center = {
+                lat:this.results[index].lat,
+                lng:this.results[index].lng
             }
+            this.createMap()
+        },
+        choose(index) {
+            this.chooseVal = this.options[index].name
+            this.slideOn = false
+        },
+        open() {
+            this.slideOn = !this.slideOn
         }
     }
+}
 </script>
-
 <style scoped lang="scss">
 @import "./../sass/common.scss";
 
@@ -121,27 +153,32 @@ $mapListW: torem(536);
 $mapHeight: torem(769);
 
 
-.baidu-map{
+.baidu-map {
     position: relative;
     padding: torem(40) 0 torem(40) torem(561);
-    .map-box{
+
+    .map-box {
         height: $mapHeight;
-        #map{
+
+        #map {
             width: 100%;
             height: 100%;
         }
     }
-    .map-list{
+
+    .map-list {
         position: absolute;
         width: $mapListW;
         height: $mapHeight;
         top: torem(40);
         left: 0;
         background: #F9F9F9;
-        .select{
+
+        .select {
             text-align: left;
             position: relative;
-            .placeholder{
+
+            .placeholder {
                 position: relative;
                 cursor: pointer;
                 padding-left: torem(25);
@@ -152,7 +189,8 @@ $mapHeight: torem(769);
                 font-weight: 400;
                 color: #999999;
                 box-shadow: 0px 1px 0px 0px #E6E6E6;
-                &::after{
+
+                &::after {
                     content: '';
                     position: absolute;
                     width: torem(30);
@@ -165,7 +203,8 @@ $mapHeight: torem(769);
                     background-position: center;
                 }
             }
-            .option-list{
+
+            .option-list {
                 display: none;
                 position: absolute;
                 top: 100%;
@@ -175,7 +214,8 @@ $mapHeight: torem(769);
                 border: 1px solid #e6e6e6;
                 overflow: auto;
                 max-height: torem(280);
-                li{
+
+                li {
                     background: #fff;
                     width: 100%;
                     line-height: torem(20);
@@ -184,42 +224,50 @@ $mapHeight: torem(769);
                     color: #333333;
                     font-size: torem(16);
                     cursor: pointer;
-                    &:hover{
+
+                    &:hover {
                         background: #f9f9f9;
                     }
                 }
             }
-            &.on{
-                .option-list{
+
+            &.on {
+                .option-list {
                     display: block;
                 }
             }
         }
-        .result-list{
+
+        .result-list {
             padding: torem(20) torem(25);
             overflow: auto;
             height: $mapHeight - torem(60);
-            .result-item{
+
+            .result-item {
                 text-align: left;
                 margin-top: torem(30);
                 padding-left: torem(32);
                 color: #999999;
                 font-size: torem(19);
                 line-height: torem(26);
+                cursor: pointer;
                 font-weight: 400;
                 font-family: PingFangSC-Regular, PingFang SC;
-                .title{
+
+                .title {
                     font-size: torem(21);
                     color: #333333;
                     line-height: torem(29);
                     padding-right: torem(80);
                     position: relative;
-                    .distance{
+
+                    .distance {
                         position: absolute;
                         right: 0;
                         top: 0;
                     }
-                    .index{
+
+                    .index {
                         position: absolute;
                         top: torem(3);
                         font-weight: 400;
@@ -233,10 +281,12 @@ $mapHeight: torem(769);
                         background: #FF8A8A;
                     }
                 }
-                .address{
+
+                .address {
                     margin-top: torem(15);
                     position: relative;
-                    &::after{
+
+                    &::after {
                         position: absolute;
                         top: torem(4);
                         left: torem(-32);
@@ -248,10 +298,12 @@ $mapHeight: torem(769);
                         background-position: center;
                     }
                 }
-                .tel{
+
+                .tel {
                     margin-top: torem(10);
                     position: relative;
-                    &::after{
+
+                    &::after {
                         position: absolute;
                         top: torem(4);
                         left: torem(-32);
@@ -263,10 +315,12 @@ $mapHeight: torem(769);
                         background-position: center;
                     }
                 }
-                .time{
+
+                .time {
                     margin-top: torem(10);
                     position: relative;
-                    &::after{
+
+                    &::after {
                         position: absolute;
                         top: torem(4);
                         left: torem(-32);
@@ -278,12 +332,14 @@ $mapHeight: torem(769);
                         background-position: center;
                     }
                 }
-                .get-line{
+
+                .get-line {
                     margin-top: torem(10);
                     color: #007AFF;
                     position: relative;
                     cursor: pointer;
-                    &::after{
+
+                    &::after {
                         position: absolute;
                         top: torem(4);
                         left: torem(-32);
@@ -295,7 +351,8 @@ $mapHeight: torem(769);
                         background-position: center;
                     }
                 }
-                &:first-child{
+
+                &:first-child {
                     margin-top: 0;
                 }
             }
@@ -305,23 +362,27 @@ $mapHeight: torem(769);
 
 // ipad
 @media screen and (max-width:1024px) {
-    .baidu-map{
+    .baidu-map {
         position: relative;
         padding: 16px 0;
-        .map-box{
+
+        .map-box {
             display: none;
         }
-        .map-list{
+
+        .map-list {
             position: relative;
             width: 100%;
             height: auto;
-            .select{
-                .placeholder{
+
+            .select {
+                .placeholder {
                     padding-left: 1em;
                     height: 38px;
                     line-height: 38px;
                     font-size: 16px;
-                    &::after{
+
+                    &::after {
                         width: 14px;
                         height: 14px;
                         top: 50%;
@@ -329,37 +390,44 @@ $mapHeight: torem(769);
                         right: 8px;
                     }
                 }
-                .option-list{
+
+                .option-list {
                     max-height: 220px;
-                    li{
+
+                    li {
                         line-height: 20px;
                         padding: 14px;
                         font-size: 13px;
                     }
                 }
             }
-            .result-list{
+
+            .result-list {
                 padding: 20px 25px;
                 height: auto;
-                .result-item{
+
+                .result-item {
                     text-align: left;
                     margin-top: 25px;
                     padding-left: 28px;
                     color: #999999;
                     font-size: 14px;
                     line-height: 21px;
-                    .title{
+
+                    .title {
                         font-size: 16px;
                         color: #333333;
                         line-height: 24px;
                         padding-right: 80px;
                         position: relative;
-                        .distance{
+
+                        .distance {
                             position: absolute;
                             right: 0;
                             top: 0;
                         }
-                        .index{
+
+                        .index {
                             position: absolute;
                             top: 50%;
                             margin-top: -9px;
@@ -374,10 +442,12 @@ $mapHeight: torem(769);
                             background: #FF8A8A;
                         }
                     }
-                    .address{
+
+                    .address {
                         margin-top: 7px;
                         position: relative;
-                        &::after{
+
+                        &::after {
                             position: absolute;
                             top: 0;
                             left: -28px;
@@ -389,10 +459,12 @@ $mapHeight: torem(769);
                             background-position: center;
                         }
                     }
-                    .tel{
+
+                    .tel {
                         margin-top: torem(10);
                         position: relative;
-                        &::after{
+
+                        &::after {
                             position: absolute;
                             top: 0;
                             left: -28px;
@@ -404,10 +476,12 @@ $mapHeight: torem(769);
                             background-position: center;
                         }
                     }
-                    .time{
+
+                    .time {
                         margin-top: torem(10);
                         position: relative;
-                        &::after{
+
+                        &::after {
                             position: absolute;
                             top: 0;
                             left: -28px;
@@ -419,12 +493,14 @@ $mapHeight: torem(769);
                             background-position: center;
                         }
                     }
-                    .get-line{
+
+                    .get-line {
                         margin-top: torem(10);
                         color: #007AFF;
                         position: relative;
                         cursor: pointer;
-                        &::after{
+
+                        &::after {
                             position: absolute;
                             top: 0;
                             left: -28px;
@@ -436,7 +512,8 @@ $mapHeight: torem(769);
                             background-position: center;
                         }
                     }
-                    &:first-child{
+
+                    &:first-child {
                         margin-top: 0;
                     }
                 }
@@ -447,23 +524,27 @@ $mapHeight: torem(769);
 
 // mobile
 @media screen and (max-width:768px) {
-    .baidu-map{
+    .baidu-map {
         position: relative;
         padding: 0;
-        .map-box{
+
+        .map-box {
             display: none;
         }
-        .map-list{
+
+        .map-list {
             position: relative;
             width: 100%;
             height: auto;
-            .select{
-                .placeholder{
+
+            .select {
+                .placeholder {
                     padding-left: 1em;
                     height: 38px;
                     line-height: 38px;
                     font-size: 16px;
-                    &::after{
+
+                    &::after {
                         width: 14px;
                         height: 14px;
                         top: 50%;
@@ -471,37 +552,44 @@ $mapHeight: torem(769);
                         right: 8px;
                     }
                 }
-                .option-list{
+
+                .option-list {
                     max-height: 220px;
-                    li{
+
+                    li {
                         line-height: 20px;
                         padding: 14px;
                         font-size: 13px;
                     }
                 }
             }
-            .result-list{
+
+            .result-list {
                 padding: 20px 25px;
                 height: auto;
-                .result-item{
+
+                .result-item {
                     text-align: left;
                     margin-top: 25px;
                     padding-left: 28px;
                     color: #999999;
                     font-size: 14px;
                     line-height: 21px;
-                    .title{
+
+                    .title {
                         font-size: 16px;
                         color: #333333;
                         line-height: 24px;
                         padding-right: 80px;
                         position: relative;
-                        .distance{
+
+                        .distance {
                             position: absolute;
                             right: 0;
                             top: 0;
                         }
-                        .index{
+
+                        .index {
                             position: absolute;
                             top: 50%;
                             margin-top: -9px;
@@ -516,10 +604,12 @@ $mapHeight: torem(769);
                             background: #FF8A8A;
                         }
                     }
-                    .address{
+
+                    .address {
                         margin-top: 7px;
                         position: relative;
-                        &::after{
+
+                        &::after {
                             position: absolute;
                             top: 0;
                             left: -28px;
@@ -531,10 +621,12 @@ $mapHeight: torem(769);
                             background-position: center;
                         }
                     }
-                    .tel{
+
+                    .tel {
                         margin-top: torem(10);
                         position: relative;
-                        &::after{
+
+                        &::after {
                             position: absolute;
                             top: 0;
                             left: -28px;
@@ -546,10 +638,12 @@ $mapHeight: torem(769);
                             background-position: center;
                         }
                     }
-                    .time{
+
+                    .time {
                         margin-top: torem(10);
                         position: relative;
-                        &::after{
+
+                        &::after {
                             position: absolute;
                             top: 0;
                             left: -28px;
@@ -561,12 +655,14 @@ $mapHeight: torem(769);
                             background-position: center;
                         }
                     }
-                    .get-line{
+
+                    .get-line {
                         margin-top: torem(10);
                         color: #007AFF;
                         position: relative;
                         cursor: pointer;
-                        &::after{
+
+                        &::after {
                             position: absolute;
                             top: 0;
                             left: -28px;
@@ -578,7 +674,8 @@ $mapHeight: torem(769);
                             background-position: center;
                         }
                     }
-                    &:first-child{
+
+                    &:first-child {
                         margin-top: 0;
                     }
                 }
