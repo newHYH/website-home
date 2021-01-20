@@ -17,19 +17,23 @@
             <div class="search-form">
                 <label class="search-txt">预置应用查询：</label>
                 <div class="search">
-                    <input type="text" class="search-input" placeholder="请输入产品型号名称">
-                    <i class="search-icon"></i>
+                    <input type="text" @keyup.enter="handleSearch" v-model="searchText" class="search-input" placeholder="请输入产品型号名称">
+                    <i class="search-icon" @click="handleSearch"></i>
                 </div>
             </div>
             <div class="search-text">
                 * 产品型号查看方式：手机的设置菜单-系统-关于手机-型号，输入时请注意区分字母、数字和符号。
+            </div>
+            <div class="search-result" v-if="showResult">
+                <div class="result-col" :key="index" v-for="(item,index) in reList">
+                    <h2 @click="goInfo(index)">{{item.name}}</h2>
+                </div>
             </div>
         </div>
         <Footer />
     </div>
 </template>
 <script>
-// import Header from '@/components/header.vue';
 import HeaderA from '@/components/headerA.vue';
 import Footer from '@/components/footer.vue';
 
@@ -41,11 +45,27 @@ export default {
         Footer
     },
     data() {
-        return {}
+        return {
+            searchText: '',
+            showResult:false,
+            reList: [{
+                name: 'VP002 (11.0.1.106(C04E18R1P2)) 预置应用软件信息公示'
+            }]
+        }
     },
-    mounted() {
-    },
-    methods: {}
+    mounted() {},
+    methods: {
+        handleSearch() {
+            if (this.searchText.indexOf('优畅享20') != -1) {
+                this.showResult = true
+            }
+        },
+        goInfo(index){
+            let id = Number(index +1)
+            console.log(id)
+            this.$router.push('/info'+id)
+        }
+    }
 }
 </script>
 <style scoped lang=scss>
@@ -81,36 +101,61 @@ export default {
             }
         }
     }
-    .search-box{
-        padding:torem(30) torem(100);
-        .search-form{
-            height:58px;
-            width:100%;
-            display: flex;
-            .search-txt{
-                font-size: torem(45);
-                color:#333;
-                flex:1;
-                line-height: 58px;
-                width:2rem;
+
+    .search-box {
+        padding: torem(30) torem(100);
+
+        .search-result {
+            border-top: 1px solid #D8D8D8;
+            padding-top: 50px;
+            text-align: left;
+            margin-top: 20px;
+
+            .result-col {
+                margin-bottom: 50px;
+
+                h2 {
+                    font-size: 16px;
+                    color: #000000;
+                    font-weight: bold;
+                    line-height: 21px;
+                    cursor: pointer;
+                }
             }
-            .search{
+        }
+
+        .search-form {
+            height: 58px;
+            width: 100%;
+            display: flex;
+
+            .search-txt {
+                font-size: torem(45);
+                color: #333;
+                flex: 1;
+                line-height: 58px;
+                width: 2rem;
+            }
+
+            .search {
                 display: flex;
-                width:calc(100% - 2rem);
-                border:1px solid #e6e6e6;
+                width: calc(100% - 2rem);
+                border: 1px solid #e6e6e6;
                 line-height: 56px;
                 position: relative;
                 border-radius: 8px;
             }
-            .search-input{
-                width:100%;
-                border:0;
-                padding:0 2%;
-                height:100%;
+
+            .search-input {
+                width: 100%;
+                border: 0;
+                padding: 0 2%;
+                height: 100%;
                 line-height: 56px;
-                font-size:18px;
+                font-size: 18px;
             }
-            .search-icon{
+
+            .search-icon {
                 background: url(../assets/sousuo-2.png) no-repeat;
                 background-size: 100%;
                 z-index: 3;
@@ -123,12 +168,13 @@ export default {
                 right: torem(40);
             }
         }
-        .search-text{
-            font-size:torem(24);
-            color:#666;
-            padding-top:torem(24);
+
+        .search-text {
+            font-size: torem(24);
+            color: #666;
+            padding-top: torem(24);
             text-align: left;
-            padding-left:2rem;
+            padding-left: 2rem;
         }
     }
 }
@@ -139,7 +185,7 @@ export default {
         .article-box {
 
             .title {
-                font-size:20px;
+                font-size: 20px;
             }
 
             .content {
@@ -147,7 +193,7 @@ export default {
             }
         }
     }
-    
+
 
 }
 
@@ -157,37 +203,43 @@ export default {
         .article-box {
 
             .title {
-                font-size:18px;
+                font-size: 18px;
             }
 
             .content {
                 font-size: 15px;
-                p{
-                   line-height: 2; 
+
+                p {
+                    line-height: 2;
                 }
-                
+
             }
         }
-        .search-box{
-            .search-form{
-                height:38px;
-                .search-txt{
+
+        .search-box {
+            .search-form {
+                height: 38px;
+
+                .search-txt {
                     font-size: 15px;
                     line-height: 38px;
-                    width:104px;
+                    width: 104px;
                 }
-                .search{
-                    width:calc(100% - 110px);
+
+                .search {
+                    width: calc(100% - 110px);
                     line-height: 36px;
                 }
-                .search-input{
+
+                .search-input {
                     line-height: 36px;
-                    font-size:15px;
+                    font-size: 15px;
                 }
             }
-            .search-text{
-                padding-left:5px;
-                font-size:12px;
+
+            .search-text {
+                padding-left: 5px;
+                font-size: 12px;
             }
         }
     }
