@@ -1594,7 +1594,7 @@
                 if(this.index<this.totalSize - 1){
                     this.index += 1
                 }
-                // document.body.scrollIntoView()
+                document.body.scrollIntoView()
             },
             prevPage() {
                 if(this.index !=0){

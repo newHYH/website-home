@@ -95,7 +95,7 @@
             <div class="item-box">
                 <p class="title">应用与下载</p>
                 <div class="each-item">终端云服务</div>
-                <div class="each-item" @click="goto('notice')">预置应用共公式</div>
+                <div class="each-item" @click="goto('notice')">预置应用共公示</div>
             </div>
             <div class="item-box">
                 <p class="title">关于我们</p>
