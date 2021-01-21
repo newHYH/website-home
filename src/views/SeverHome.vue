@@ -29,18 +29,18 @@
                 <div class="product-wrapper">
                     <div class="product-box">
                         <div class="img">
-                            <img src="../assets/serve-1.png" alt="华为手机">
+                            <img src="../assets/phone-1.png" alt="优畅享20 Plus">
                         </div>
                         <div class="name">
-                            华为手机
+                            优畅享20 Plus
                         </div>
                     </div>
                     <div class="product-box">
                         <div class="img">
-                            <img src="../assets/serve-1.png" alt="小米手机">
+                            <img src="../assets/phone-4.png" alt="优畅享20">
                         </div>
                         <div class="name">
-                            小米手机
+                            优畅享20
                         </div>
                     </div>
                 </div>

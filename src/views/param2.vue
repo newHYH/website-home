@@ -3,10 +3,10 @@
         <HonorHeader link1="product2" link2="param2" />
         <div class="phone-name">优畅享20</div>
         <div class="phone-pic">
-            <img src="../assets/phones.png" alt="">
+            <img src="../assets/phones2.png" alt="">
         </div>
         <div class="phone-colors">
-            秘银色，釉白色，亮黑色，夏日胡杨，秋日胡杨
+            幻夜黑，幻境银，梦境粉，绿野仙踪
         </div>
         <div class="gray-line"></div>
         <div class="param-list">

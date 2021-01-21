@@ -53,11 +53,11 @@ export default {
         }
     },
     mounted() {
-        this.index =  window.index?window.index:1
         window.addEventListener('scroll', this.scrollHander)
-        console.log(this.$route.path)
-        if(this.$route.path == '/param'){
+        if(this.$route.path == '/'+this.link2){
             this.index = 2
+        }else{
+           this.index =  window.index?window.index:1 
         }
     },
     unmounted () {
