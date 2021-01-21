@@ -15,7 +15,7 @@
                         <img src="../assets/phone-1.png" alt="">
                     </div>
                     <div class="pro-name">
-                        HUAWEI Mate 40 Pro
+                        优畅享20 Plus
                     </div>
                 </div>
                 <div class="pro-box-con">
@@ -28,7 +28,7 @@
                             <img src="../assets/phone-2.png" alt="">
                         </div>
                         <div class="pro-name">
-                            Redmi K30 Pro 变焦版
+                            优畅享20 Plus
                         </div>
                     </div>
                     <div class="pro-con">
@@ -40,7 +40,7 @@
                             <img src="../assets/phone-3.png" alt="">
                         </div>
                         <div class="pro-name">
-                            Redmi K30 Pro 变焦版
+                           优畅享20
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                         <img src="../assets/phone-4.png" alt="">
                     </div>
                     <div class="pro-name">
-                        Redmi 9A
+                       优畅享20
                     </div>
                 </div>
             </div>
