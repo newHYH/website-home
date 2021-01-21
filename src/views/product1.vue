@@ -1,5 +1,6 @@
 <template>
     <div class="product1">
+        <HonorHeader />
         <div class="img-wrap img1">
             <div class="top-text">
                 U-MAGIC是中国联合网络通信有限公司于2021年推出的全新5G手机品牌，
@@ -59,8 +60,12 @@
 </template>
 
 <script>
+    import HonorHeader from '@/components/honor-header.vue';
     export default {
-        name: "product1"
+        name: "product1",
+        components: {
+            HonorHeader
+        }
     }
 </script>
 
