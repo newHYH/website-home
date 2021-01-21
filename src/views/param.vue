@@ -1,6 +1,6 @@
 <template>
     <div class="param">
-        <Header></Header>
+        <HonorHeader link1="product1" link2="param" />
         <div class="phone-name">HUAWEI Mate 40 Pro</div>
         <div class="phone-pic">
             <img src="../assets/phones.png" alt="">
@@ -100,13 +100,12 @@
                     <p class="bold-text">后置摄像头对焦方式</p>
                     <p>自动对焦</p>
                     <p class="bold-text">后置摄像头照片分辨率</p>
-                    <p>最大可支持  8192 x 6144 像素</p>
+                    <p>最大可支持 8192 x 6144 像素</p>
                     <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p>
                     <p class="bold-text">后置摄像头照片分辨率</p>
                     <p>最大可支持 3840 x 2160 像素，支持 720p@3840 fps 超级慢动作视频</p>
                     <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p>
                     <p class="gray-text">*720p@3840 fps 基于 AI 插帧算法技术实现。</p>
-
                 </li>
             </ul>
             <div class="gray-line"></div>
@@ -118,7 +117,6 @@
                     <p>1300 万像素超感知摄像头（f/2.4 光圈）</p>
                     <p>3D 深感摄像头，支持固定对焦</p>
                     <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p>
-
                     <p class="bold-text">前置摄像头照片分辨率</p>
                     <p>最大可支持 4160 x 3120 像素</p>
                     <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p>
@@ -191,7 +189,6 @@
                     <p class="gray-text">*需要相应的路由器支持。</p>
                     <p>上行和下行物理层峰值速率为 2.4 Gbps。</p>
                     <p class="gray-text">*需要搭配 160 MHz 带宽的 Wi-Fi 6 路由器。</p>
-
                     <p class="bold-text">蓝牙</p>
                     <p>Bluetooth 5.2，支持低功耗蓝牙，支持 SBC、AAC，支持 LDAC 高清音频。</p>
                     <p class="bold-text">数据线接口</p>
@@ -289,147 +286,162 @@
         <Footer></Footer>
     </div>
 </template>
-
 <script>
-    import Header from '@/components/header.vue';
-    import Footer from '@/components/footer.vue';
-    export default {
-        name: "param",
-        components: {
-            // Header,
-            Header,
-            Footer
-        },
-        mounted() {
-           
-        },
-    }
-</script>
+import HonorHeader from '@/components/honor-header.vue';
+import Footer from '@/components/footer.vue';
+export default {
+    name: "param",
+    components: {
+        HonorHeader,
+        Footer
+    },
+    mounted() {
 
+    },
+}
+</script>
 <style scoped lang="scss">
-    @import "./../sass/common.scss";
-    .param{
-        width: 100%;
-        overflow: hidden;
-        .phone-name{
-            font-size: torem(50);
-            line-height: torem(50);
-            font-weight: 800;
-            color: #000;
-            margin-bottom: torem(54);
-            margin-top: torem(114);
+@import "./../sass/common.scss";
+
+.param {
+    width: 100%;
+    overflow: hidden;
+
+    .phone-name {
+        font-size: torem(50);
+        line-height: torem(50);
+        font-weight: 800;
+        color: #000;
+        margin-bottom: torem(54);
+        margin-top: torem(114);
+    }
+
+    .phone-pic {
+        width: torem(743);
+        height: torem(525);
+        margin: 0 auto;
+        margin-bottom: torem(54);
+
+        img {
+            width: 100%;
+            height: 100%;
         }
-        .phone-pic{
-            width: torem(743);
-            height: torem(525);
-            margin: 0 auto;
-            margin-bottom: torem(54);
-            img{
-                width: 100%;
-                height: 100%;
-            }
-        }
-        .phone-colors{
-            font-size: torem(18);
-            font-weight: 400;
-            color: #666666;
-            line-height: torem(25);
-            margin-bottom: torem(71);
-        }
-        .gray-line{
+    }
+
+    .phone-colors {
+        font-size: torem(18);
+        font-weight: 400;
+        color: #666666;
+        line-height: torem(25);
+        margin-bottom: torem(71);
+    }
+
+    .gray-line {
+        width: 69%;
+        margin: 0 auto;
+        height: torem(2);
+        background: rgba(216, 216, 216, 1);
+        margin-bottom: torem(120);
+    }
+
+    .param-list {
+        ul {
             width: 69%;
             margin: 0 auto;
-            height: torem(2);
-            background: rgba(216, 216, 216, 1);
-            margin-bottom: torem(120);
+            margin-bottom: torem(100);
+
+            li {
+                p {
+                    word-wrap: break-word;
+                    word-break: break-word;
+                    font-size: torem(20);
+                    font-weight: 400;
+                    color: #808080;
+                    line-height: torem(28);
+                    text-align: left;
+                    margin-bottom: torem(18);
+                }
+
+                .bold-text {
+                    font-size: torem(20);
+                    font-weight: 600;
+                    color: #333333;
+                    line-height: torem(28);
+                }
+
+                .bold-text-title {
+                    font-size: torem(28);
+                    font-weight: 600;
+                    color: #333333;
+                    line-height: torem(40);
+                }
+
+                .bold-gray-text {
+                    font-size: torem(20);
+                    font-weight: 600;
+                    color: #7F7F7F;
+                    line-height: torem(28);
+                }
+
+                .gray-text {
+                    font-size: torem(20);
+                    font-weight: 400;
+                    color: #B2B2B2;
+                    line-height: torem(45);
+                }
+            }
         }
-        .param-list{
-            ul{
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .param {
+        .param-list {
+            ul {
                 width: 69%;
                 margin: 0 auto;
                 margin-bottom: torem(100);
-                li{
-                    p{
+
+                li {
+                    p {
                         word-wrap: break-word;
                         word-break: break-word;
-                        font-size: torem(20);
+                        font-size: 14px;
                         font-weight: 400;
                         color: #808080;
-                        line-height: torem(28);
+                        line-height: 28px;
                         text-align: left;
-                        margin-bottom: torem(18);
+                        margin-bottom: 18px;
                     }
-                    .bold-text{
-                        font-size: torem(20);
+
+                    .bold-text {
+                        font-size: 14px;
                         font-weight: 600;
                         color: #333333;
-                        line-height: torem(28);
+                        line-height: 28px;
                     }
-                    .bold-text-title{
-                        font-size: torem(28);
+
+                    .bold-text-title {
+                        font-size: 18px;
                         font-weight: 600;
                         color: #333333;
-                        line-height: torem(40);
+                        line-height: 40px;
                     }
-                    .bold-gray-text{
-                        font-size: torem(20);
+
+                    .bold-gray-text {
                         font-weight: 600;
                         color: #7F7F7F;
-                        line-height: torem(28);
+                        line-height: 28px;
                     }
-                    .gray-text{
-                        font-size: torem(20);
+
+                    .gray-text {
                         font-weight: 400;
                         color: #B2B2B2;
-                        line-height: torem(45);
+                        line-height: 28px;
                     }
                 }
             }
         }
     }
-    @media screen and (max-width: 750px) {
-        .param{
-            .param-list{
-                ul{
-                    width: 69%;
-                    margin: 0 auto;
-                    margin-bottom: torem(100);
-                    li{
-                        p{
-                            word-wrap: break-word;
-                            word-break: break-word;
-                            font-size: 14px;
-                            font-weight: 400;
-                            color: #808080;
-                            line-height: 28px;
-                            text-align: left;
-                            margin-bottom: 18px;
-                        }
-                        .bold-text{
-                            font-size: 14px;
-                            font-weight: 600;
-                            color: #333333;
-                            line-height: 28px;
-                        }
-                        .bold-text-title{
-                            font-size: 18px;
-                            font-weight: 600;
-                            color: #333333;
-                            line-height: 40px;
-                        }
-                        .bold-gray-text{
-                            font-weight: 600;
-                            color: #7F7F7F;
-                            line-height: 28px;
-                        }
-                        .gray-text{
-                            font-weight: 400;
-                            color: #B2B2B2;
-                            line-height: 28px;
-                        }
-                    }
-                }
-            }
-        }
-    }
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div class="product1">
-        <HonorHeader />
+        <HonorHeader link1="product1" link2="param1"/>
         <div class="img-wrap img1">
             <div class="top-text">
                 U-MAGIC是中国联合网络通信有限公司于2021年推出的全新5G手机品牌，

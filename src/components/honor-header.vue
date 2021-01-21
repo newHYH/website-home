@@ -22,10 +22,10 @@
                 <div class="logo">U-MAGIC</div>
                 <ul class="product-tabs">
                     <li class="tab-item" :class="{'active':index==1}">
-                        <a class="pointer" title="功能特征" @click="goto('phone-page',1)">功能特征</a>
+                        <a class="pointer" title="功能特征" @click="goto(link1,1)">功能特征</a>
                     </li>
                     <li class="tab-item" :class="{'active':index==2}">
-                        <a class="pointer" title="规格参数" @click="goto('param',2)">规格参数</a>
+                        <a class="pointer" title="规格参数" @click="goto(link2,2)">规格参数</a>
                     </li>
                 </ul>
                 <div class="buy-btn pointer">购买</div>
@@ -36,6 +36,16 @@
 <script>
 export default {
     name: 'Header',
+    props:{
+        link1:{
+            type:String,
+            default:'',
+        },
+        link2:{
+            type:String,
+            default:''
+        }
+    },
     data() {
         return{
             fixHeader: false,
@@ -45,6 +55,10 @@ export default {
     mounted() {
         this.index =  window.index?window.index:1
         window.addEventListener('scroll', this.scrollHander)
+        console.log(this.$route.path)
+        if(this.$route.path == '/param'){
+            this.index = 2
+        }
     },
     unmounted () {
         window.removeEventListener('scroll', this.scrollHander)
@@ -58,10 +72,9 @@ export default {
             }
         },
         goto(path,index){
-            console.log(index)
-            // window.index = index
+             window.index = index
             this.index = index
-            // this.$router.push(path)
+            this.$router.push(path)
         }
     }
 }
@@ -101,7 +114,8 @@ export default {
                 }
             }
             .nav-title{
-                display: none;
+                font-size: 16px;
+                line-height: 60px;
             }
             .func-box{
                 position: absolute;
