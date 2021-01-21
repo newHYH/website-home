@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="pro-con">
-                        <div class="pro-img" @click="goto('product2')">
+                        <div class="pro-img" @click="goto('phone-page')">
                             <div class="pro-buy">
                                 <span class="buy-btn">了解更多</span>
                                 <span class="buy-btn">购买</span>
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="pro-box">
-                    <div class="pro-img" @click="goto('product2')">
+                    <div class="pro-img" @click="goto('phone-page')">
                         <div class="pro-buy">
                             <span class="buy-btn">了解更多</span>
                             <span class="buy-btn">购买</span>
