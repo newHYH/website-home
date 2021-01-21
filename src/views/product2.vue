@@ -56,15 +56,18 @@
                 </p>
             </div>
         </div>
+        <ReturnTop/>
     </div>
 </template>
 
 <script>
     import HonorHeader from '@/components/honor-header.vue';
+    import ReturnTop from '@/components/return-top.vue';
     export default {
         name: "product1",
         components: {
-            HonorHeader
+            HonorHeader,
+            ReturnTop
         }
     }
 </script>

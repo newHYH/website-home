@@ -1,7 +1,7 @@
 <template>
-    <div class="box">
+    <div class="box" v-show="gotop"  @click="toTop">
         <div class="icon"></div>
-        <div class="gotop" v-show="gotop" @click="toTop">TOP</div>
+        <div class="gotop">TOP</div>
     </div>   
 </template>
 
@@ -46,10 +46,13 @@ export default {
 <style scoped lang=scss>
 @import "@/sass/common.scss";
 .box{
-     position: relative;
+     position: fixed;
+     bottom:20px;
+     right:20px;
     width: 44px;
     height: 44px;
     color: #fff;
+    z-index: 999;
     text-align: center;
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.23);
     background-color: #000;

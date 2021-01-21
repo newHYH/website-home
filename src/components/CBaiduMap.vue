@@ -13,7 +13,7 @@
             <div class="result-list">
                 <div class="result-item" @click="changeMap(index)" v-for="(item, index) in results" :key="index">
                     <div class="title">{{item.title}}
-                        <div class="distance">{{item.distance}}</div>
+                        <!-- <div class="distance">{{item.distance}}</div> -->
                         <div class="index">{{index+1}}</div>
                     </div>
                     <div class="address">{{item.address}}</div>
@@ -97,9 +97,7 @@ export default {
             // 初始化地图,设置中心点坐标和地图级别
             map.centerAndZoom(new BMap.Point(this.center.lng, this.center.lat), 12)
             //添加地图类型控件
-            map.addControl(new BMap.MapTypeControl({
-                mapTypes: [BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
-            }))
+            
             // 设置地图显示的城市 此项是必须设置的
             //map.setCurrentCity("北京")
             //开启鼠标滚轮缩放
