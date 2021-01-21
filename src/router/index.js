@@ -52,7 +52,7 @@ const routes = [
   },
   {
     path: '/param2',
-    component: () => import(/* webpackChunkName: "about" */ '../views/param1.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/param2.vue')
   },
   {
     path: '/info1',
