@@ -4,7 +4,7 @@
         <div class="head-img">
             备件价格查询
         </div>
-        <div class="device-sel row">
+        <!-- <div class="device-sel row">
             <div class="sel-wrap col-sm-12 col-md-12 col-lg-12">
                 选择设备信息：
                 <div class="btn-select" @click.stop="handleClkSelDevice('')">
@@ -17,13 +17,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="selection-part">
             <div class="device-list">
                 <ul class="row">
                     <li class="col-sm-12 col-md-6 col-lg-3" v-for="(item,index) in deviceList" :key="index">
                         <div class="content-wrap">
-                            <img class="device-img" src="../assets/select-1.png" :title="item.name" :alt="item.name" />
+                            <img class="device-img" :src="item.imageUrl?item.imageUrl:require('../assets/select-'+Number(index+1)+'.png')" :title="item.name" :alt="item.name" />
                             <div class="device-name">
                                 {{item.name}}
                             </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="search-wrap">
                 <div class="input-warp col-sm-12 col-md-12 col-lg-12">
-                    <input type="text" placeholder="请输入您的华为手机型号信息">
+                    <input type="text" placeholder="请输入您的手机型号信息">
                 </div>
                 <div class="phone-list-wrap col-sm-12 col-md-12 col-lg-12">
                     <li class="phone-type" v-for="(phoneType,index) in phoneList" :key="index">
