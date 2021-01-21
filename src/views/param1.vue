@@ -92,8 +92,8 @@
                     <p class="bold-text-title">后置摄像头</p>
                 </li>
                 <li class="col-sm-12 col-md-12 col-lg-8">
-                    <!-- <p>5000 万像素超感知摄像头（广角， f/1.9 光圈 ）</p>
-                    <p>2000 万像素电影摄像头（f/1.8 光圈）</p>
+                    <p>13M+5M+2M(景深)，支持自动对焦，F1.8+F2.2+F2.4 光 圈</p>
+                    <!-- <p>2000 万像素电影摄像头（f/1.8 光圈）</p>
                     <p>1200 万像素长焦摄像头（f/3.4 光圈，支持 OIS 光学防抖）</p> -->
                     <p class="bold-text">后置摄像头变焦模式</p>
                     <!-- <p>支持 5 倍光学变焦（5 倍变焦为近似值，镜头焦段分别为 18 mm，23 mm，125 mm）、10 倍混合变焦（三个摄像头通过不同组合实现各种环境下出色的 10 倍变焦效果）、50 倍数字变焦 </p> -->
@@ -114,6 +114,7 @@
                     <p class="bold-text-title">前置摄像头</p>
                 </li>
                 <li class="col-sm-12 col-md-12 col-lg-8">
+                    
                     <!-- <p>1300 万像素超感知摄像头（f/2.4 光圈）</p>
                     <p>3D 深感摄像头，支持固定对焦</p>
                     <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p> -->
@@ -168,11 +169,15 @@
                 </li>
                 <li class="col-sm-12 col-md-12 col-lg-8">
                     <p class="bold-text">主卡</p>
+                    <p>GSM:B2(漫游)/B3/B5(漫游)/B8</p>
+                    <p>GSM 接收分集:全频段</p>
+                    <p>WCDMA/UMTS:B1/B2(漫游)/B4(漫游)/B5(漫游)/B6(漫 游)/B8/B19(漫游)</p>
+                    <p>DC42M:B1/B8 WCDMA 接收分集:全频段</p>
                     <!-- <p>5G 网络制式：移动 5G（NR）/联通 5G（NR）/电信 5G（NR)</p>
                     <p>4G 网络制式：移动 4G（TD-LTE）/联通 4G（TD-LTE/LTE FDD）/电信 4G（TD-LTE/LTE FDD）</p>
                     <p>3G 网络制式：联通 3G（WCDMA）/电信 3G（CDMA 2000）</p>
                     <p>2G 网络制式：移动 2G（GSM）/联通 2G（GSM）/电信 2G（CDMA 1X）</p> -->
-                    <p class="bold-text">副卡</p>
+                    <!-- <p class="bold-text">副卡</p> -->
                     <!-- <p>4G 网络制式：移动 4G（TD-LTE）/联通 4G（TD-LTE/LTE FDD）/电信 4G（TD-LTE/LTE FDD）</p>
                     <p>3G 网络制式：联通 3G（WCDMA）</p>
                     <p>2G 网络制式：移动 2G（GSM）/联通 2G（GSM）/电信 2G（CDMA 1X）</p> -->
