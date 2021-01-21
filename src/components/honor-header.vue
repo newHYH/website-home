@@ -17,7 +17,7 @@
                 </div>
             </div>
         </div>
-        <div class="container" :class="fixHeader ? 'fixed' : ''">
+        <div class="container" style="background: #F5F5F5;" :class="fixHeader ? 'fixed' : ''">
             <div class="sec-navigation">
                 <div class="logo">U-MAGIC</div>
                 <ul class="product-tabs">
