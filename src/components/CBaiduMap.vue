@@ -93,9 +93,9 @@ export default {
         },
         createMap() {
             // 创建Map实例
-            const map = new BMap.Map("map")
+            const map = new BMap.Map("map",{minZoom:1,maxZoom:15})
             // 初始化地图,设置中心点坐标和地图级别
-            map.centerAndZoom(new BMap.Point(this.center.lng, this.center.lat), 12)
+            map.centerAndZoom(new BMap.Point(this.center.lng, this.center.lat), 15)
             //添加地图类型控件
             
             // 设置地图显示的城市 此项是必须设置的

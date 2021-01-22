@@ -6511,12 +6511,14 @@ window.BMAP_AUTHENTIC_KEY = "";
           , f = Sb("normal")
           , g = 1
           , c = ld[c];
-        //this.map.Sx() && (g = 2);  //修改
-        //e = this.map.Va.Lw(e, b).hs;
-        //return (kd[Math.abs(e + a) % kd.length] + "?qt=tile&x=" + (e + "").replace(/-/gi, "M") + "&y=" + (a + "").replace(/-/gi, "M") + "&z=" + b + "&styles=" + c + "&scaler=" + g + (6 == z.ca.ia ? "&color_dep=32&colors=50" : "") + "&udt=" + f).replace(/-(\d+)/gi, "M$1")
-		
+        this.map.Sx() && (g = 2);  //修改
+        e = this.map.Va.Lw(e, b).hs;
+        return (kd[Math.abs(e + a) % kd.length] + "?qt=tile&x=" + (e + "").replace(/-/gi, "M") + "&y=" + (a + "").replace(/-/gi, "M") + "&z=" + b + "&styles=" + c + "&scaler=" + g + (6 == z.ca.ia ? "&color_dep=32&colors=50" : "") + "&udt=" + f).replace(/-(\d+)/gi, "M$1")
+		/*console.log('a',a)
+        console.log('b',b)
+        console.log('c',c)
 		var tdir = bmapcfg.tiles_dir.length>0?bmapcfg.tiles_dir:bmapcfg.home + "tiles";
-		return tdir + "/" + b + "/" + e + "/" + a + bmapcfg.imgext; // 使用本地的瓦片
+		return tdir + "/" + b + "/" + e + "/" + a + bmapcfg.imgext; // 使用本地的瓦片*/
 	}
     ;
     var La = new id("\u5730\u56fe",md,{
@@ -6530,10 +6532,10 @@ window.BMAP_AUTHENTIC_KEY = "";
           , e = a.y
           , f = 256 * Math.pow(2, 20 - b)
           , e = Math.round((9998336 - f * e) / f) - 1;
-        /*var tdir = bmapcfg.tiles_hybrid.length > 0 ? bmapcfg.tiles_hybrid : bmapcfg.home + "tiles_hybrid";//修改 使用本地卫星的瓦片 
+        var tdir = bmapcfg.tiles_hybrid.length > 0 ? bmapcfg.tiles_hybrid : bmapcfg.home + "tiles_hybrid";//修改 使用本地卫星的瓦片 
 		tdir = tdir + "/" + b + "/" + c + "/" + e + bmapcfg.imgext; //修改 使用本地卫星的瓦片 
-	    return tdir;*/
-		return url = this.NO[Math.abs(c + e) % this.NO.length] + this.map.Ub + "/" + this.map.Rw + "/3/lv" + (21 - b) + "/" + c + "," + e + ".jpg"
+	    return tdir;
+		//return url = this.NO[Math.abs(c + e) % this.NO.length] + this.map.Ub + "/" + this.map.Rw + "/3/lv" + (21 - b) + "/" + c + "," + e + ".jpg"
     }
     ;
     var Qa = new id("\u4e09\u7ef4",nd,{
