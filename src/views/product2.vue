@@ -1,5 +1,5 @@
 <template>
-    <div class="product1">
+    <div class="product2">
         <HonorHeader link1="product2" link2="param2"/>
         <div class="img-wrap img1">
             <div class="top-text">
@@ -7,54 +7,43 @@
                 致力于为消费者打造集“优质网络、优质体验、优享权益”
                 于一身的优秀5G产品，让消费者优先一步畅享5G。
             </div>
-            <div class="bold-text">
-                六大推荐理由
-            </div>
-            <img src="../assets/product1/liudaliyou.png" alt="">
+<!--            <div class="bold-text">-->
+<!--                六大推荐理由-->
+<!--            </div>-->
+            <img src="../assets/product2/fang_a.png" alt="">
         </div>
         <div class="img-wrap img2">
-            <img src="../assets/product1/20quan.png" alt="">
+            <img src="../assets/product2/fang_c.png" alt="">
+            <img src="../assets/product2/fang_b.png" alt="">
         </div>
         <div class="img-wrap img3">
-            <img src="../assets/product1/a_3.png" alt="">
+            <img class="imga" src="../assets/product2/fang_d_a.png" alt="">
+            <img class="imgb" src="../assets/product2/fang_d_b.png" alt="">
+            <img class="imgc" src="../assets/product2/fang_d_c.png" alt="">
         </div>
         <div class="img-wrap img4">
-            <img src="../assets/product1/a_4.png" alt="">
+            <img src="../assets/product2/fang_shexiangtou.png" alt="">
         </div>
         <div class="img-wrap img5">
-            <img src="../assets/product1/a_5.png" alt="">
+            <img src="../assets/product2/fang_e.png" alt="">
         </div>
         <div class="img-wrap img6">
-            <img src="../assets/product1/a_6.png" alt="">
+            <img src="../assets/product2/fang_f.png" alt="">
         </div>
         <div class="img-wrap img7">
-            <img src="../assets/product1/a_7.png" alt="">
+            <img src="../assets/product2/fang_g.png" alt="">
         </div>
         <div class="img-wrap img8">
-            <img src="../assets/product1/a_8.png" alt="">
+            <img src="../assets/product2/fang_h.png" alt="">
         </div>
         <div class="img-wrap img9">
-            <img src="../assets/product1/a_9.png" alt="">
-            <div class="bottom-text">
-                <p>
-                    *1 显示屏采用圆角设计，按照标准矩形测量时，屏幕的对角线长度是6.53英寸（实际可视区域略小）。
-                </p>
-                <p>
-                    *2 5倍光学变焦为近似值，镜头焦段分别为：17mm, 27mm, 125mm。
-                </p>
-                <p>
-                    *3 摄像头通过不同组合实现10倍混合变焦效果。
-                </p>
-                <p>
-                    *4 双结构OIS是指潜望式变焦镜头支持棱镜加镜头双光学防抖，使变焦拍摄效果更稳定，画面更清晰。
-                </p>
-                <p>
-                    *5 智慧双卡上网需用户自行开启，并设置切换策略；VoLTE高清语音业务依赖运营商网络支持，并需向运营商申请开通。
-                </p>
-                <p>
-                    *6 德国莱茵TUV安全快充认证书有效期为自发证之日起一年，相关证书信息可扫描产品包装盒上二维码查询。
-                </p>
-            </div>
+            <img src="../assets/product2/fang_i.png" alt="">
+        </div>
+        <div class="img-wrap img10">
+            <img src="../assets/product2/fang_j.png" alt="">
+        </div>
+        <div class="img-wrap img11">
+            <img src="../assets/product2/fang_k.png" alt="">
         </div>
         <ReturnTop/>
     </div>
@@ -64,7 +53,7 @@
     import HonorHeader from '@/components/honor-header.vue';
     import ReturnTop from '@/components/return-top.vue';
     export default {
-        name: "product1",
+        name: "product2",
         components: {
             HonorHeader,
             ReturnTop
@@ -73,7 +62,7 @@
 </script>
 
 <style scoped lang="less">
-    .product1{
+    .product2{
         .img-wrap{
             img{
                 width: 100%;
@@ -82,7 +71,7 @@
         }
         .img1{
             padding: 56px 95px 112px 95px;
-            background: #E8EBFA;
+            /*background: #E8EBFA;*/
             .top-text{
                 width: 65%;
                 margin: 0 auto;
@@ -91,35 +80,67 @@
                 font-weight: 400;
                 color: #333333;
                 line-height: 50px;
+                margin-bottom: 77px;
             }
             .bold-text{
                 font-size: 80px;
                 font-family: PingFangSC-Semibold, PingFang SC;
                 font-weight: 600;
-                color: #333333;
+                background-image:-webkit-linear-gradient(180deg, #87D1FF 0%, #8CB1FE 40%, #AAA4FA 56%, #D1B4FC 100%);
+                -webkit-background-clip:text;
+                -webkit-text-fill-color:transparent;
                 line-height: 112px;
                 letter-spacing: 5px;
                 margin: 58px 0;
             }
         }
-        .img9{
-            background: #000;
-            .bottom-text{
-                width: 70%;
-                margin: 0 auto;
-                font-size: 34px;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
-                color: #9E9D9E;
-                line-height: 53px;
-                text-align: left;
-                padding-top: 185px;
-                padding-bottom: 85px;
-                p{
-                    margin: 0;
-                    text-indent:-45px;
-                }
+        .img2{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            img{
+                width: 40%;
+                display: flex;
             }
+        }
+        .img3{
+            width: 100vw;
+            height: 91.1vw;
+            margin: 0 auto;
+            background: url("../assets/product2/fang_d.png") no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            img{
+                width: 19.8vw;
+                height: 44.7vw;
+            }
+            .imga{
+                position: absolute;
+                left: 18%;
+                top: 36.5vw;
+            }
+            .imgb{
+                position: absolute;
+                left: 41%;
+                top: 31.3vw;
+            }
+            .imgc{
+                position: absolute;
+                left: 64%;
+                top: 26.1vw;
+            }
+        }
+        .img5{
+            background: rgb(240,242,245);
+        }
+        .img6{
+            background: rgb(240,242,245);
+        }
+        .img7{
+            background: rgb(240,242,245);
+        }
+        .img8{
+            background: rgb(240,242,245);
         }
     }
 </style>
