@@ -18,7 +18,7 @@
                         优畅享20 Plus
                     </div>
                 </div>
-                <div class="pro-box-con">
+                <!-- <div class="pro-box-con">
                     <div class="pro-con">
                         <div class="pro-img">
                             <div class="pro-buy" @click="goto('product1')">
@@ -43,7 +43,7 @@
                            优畅享20
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="pro-box">
                     <div class="pro-img" @click="goto('product2')">
                         <div class="pro-buy">
@@ -133,10 +133,10 @@ export default {
             justify-content: space-between;
 
             .pro-box {
-                width: torem(481);
+                width: torem(600);
 
                 .pro-img {
-                    width: torem(481);
+                    width: torem(600);
                     position: relative;
                     overflow: hidden;
                     transition: .6s ease-out;

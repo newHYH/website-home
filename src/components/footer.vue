@@ -11,7 +11,7 @@
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
-                    <div class="connect-item">
+                    <!-- <div class="connect-item">
                         <p class="title">在线支持</p>
                         <div class="func-box online">
                             <p>在线客服</p>
@@ -19,7 +19,7 @@
                         <div class="func-box email">
                             <p>邮件咨询</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="connect-item">
                         <p class="title">线下支持</p>
                         <div class="func-box service">
@@ -34,9 +34,9 @@
                         <div class="func-box wb">
                             <p>微博</p>
                         </div>
-                        <div class="func-box wx">
+                        <!-- <div class="func-box wx">
                             <p>微信公众号</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
         <div class="container">
             <div class="page-footer">
                 <div class="footer-inner row">
-                    <div class="right col-12 col-md-12 col-xl-6 col-xxl-5">版权所有 © 中国联合通信有限公司 1998-2021。保留一切权利。粤A2-20044005号</div>
+                    <div class="right col-12 col-md-12 col-xl-6 col-xxl-5">版权所有 © 中国联合网络通信 1998-2021。保留一切权利。粤A2-20044005号</div>
                     <div class="col-md-6 col-12 col-xl-3 col-xxl-4 offset-xxl-1">
                         <ul class="footer-items">
                             <li class="f-item">网站地图</li>
