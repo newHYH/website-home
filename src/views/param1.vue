@@ -1,78 +1,42 @@
 <template>
     <div class="param">
         <HonorHeader link1="product1" link2="param1" />
-        <div class="phone-name">优畅享20 Plus</div>
-        <div class="phone-pic">
-            <img src="../assets/phones1.png" alt="">
-        </div>
-        <div class="phone-colors">
-            幻夜黑、翡冷翠、星河银、樱雪晴空
-        </div>
-        <div class="gray-line"></div>
+<!--        <div class="phone-name">优畅享20 Plus</div>-->
+<!--        <div class="phone-pic">-->
+<!--            <img src="../assets/phones1.png" alt="">-->
+<!--        </div>-->
+<!--        <div class="phone-colors">-->
+<!--            幻夜黑、翡冷翠、星河银、樱雪晴空-->
+<!--        </div>-->
+<!--        <div class="gray-line"></div>-->
         <div class="param-list">
-            <ul class="row">
+            <ul class="row" style="margin-top: 100px">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">尺寸与重量</p>
+                    <p class="bold-text-title">颜色</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text">长度</p>
-                    <p>163.5mm</p>
-                    <p class="bold-text">宽度</p>
-                    <p>76.5mm</p>
-                    <p class="bold-text">厚度</p>
-                    <p>8.95mm</p>
+                <li class="col-sm-12 col-md-12 col-lg-2">
+                    <div class="img-box">
+                        <img src="../assets/param1/yuan_hei.png" alt="">
+                        <span>幻夜黑</span>
+                    </div>
                 </li>
-                <li class="col-sm-12 col-md-6 col-lg-4">
-                    <p class="bold-text">重量</p>
-                    <p>约 197 克（±5）（含电池）</p>
-                    <p class="gray-text">*实际重量依配置、制造工艺、测量方法的不同可能有所差异。</p>
+                <li class="col-sm-12 col-md-12 col-lg-2">
+                    <div class="img-box">
+                        <img src="../assets/param1/yuan_yin.png" alt="">
+                        <span>星河银</span>
+                    </div>
                 </li>
-            </ul>
-            <div class="gray-line"></div>
-            <ul class="row">
-                <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">屏幕</p>
+                <li class="col-sm-12 col-md-12 col-lg-2">
+                    <div class="img-box">
+                        <img src="../assets/param1/yuan_fen.png" alt="">
+                        <span>樱雪晴空</span>
+                    </div>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text">尺寸</p>
-                    <p>6.63英寸</p>
-                    <p class="gray-text">*显示屏采用圆角设计，按照标准矩形测量时，屏幕对角线长度是6.63英寸（实际可视区域略小）。</p>
-                    <p class="bold-text">类型</p>
-                    <p>LTPS</p>
-                    <p class="bold-text">色彩</p>
-                    <p>1679万色</p>
-                </li>
-                <li class="col-sm-12 col-md-6 col-lg-4">
-                    <p class="bold-text">分辨率</p>
-                    <p>FHD+,1080*2400像素</p>
-                    <p class="gray-text">*该分辨率对应标准矩形，实际屏幕有效像素略少。</p>
-                    <p class="bold-text">重量</p>
-                    <p>约 197 克（±5）（含电池）</p>
-                    <p class="gray-text">*实际尺寸与重量依配置、制造工艺、测量方法的不同可能有所差异。</p>
-                </li>
-            </ul>
-            <div class="gray-line"></div>
-            <ul class="row">
-                <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">处理器</p>
-                </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p>MediaTek MT6853 5G</p>
-                    <p class="bold-text">CPU</p>
-                    <p>八核，2*A76 2.0GHz+6*A55 2.0GHz</p>
-                    <!-- <p class="bold-text">GPU</p>
-                    <p>24核Mali-G78</p>
-                    <p class="bold-text">NPU</p>
-                    <p>双大核NPU+微核NPU (神经网络处理单元)</p> -->
-                </li>
-            </ul>
-            <div class="gray-line"></div>
-            <ul class="row">
-                <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">操作系统</p>
-                </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p>EMUI11.0(基于Android Q)</p>
+                <li class="col-sm-12 col-md-12 col-lg-2">
+                    <div class="img-box">
+                        <img src="../assets/param1/yuan_lv.png" alt="">
+                        <span>翡冷翠</span>
+                    </div>
                 </li>
             </ul>
             <div class="gray-line"></div>
@@ -80,195 +44,193 @@
                 <li class="col-sm-12 col-md-12 col-lg-4">
                     <p class="bold-text-title">存储</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-text">运行内存+机身内存</p>
-                    <p>6GB RAM + 128GB ROM / 8GB RAM + 128GB ROM</p>
-                    <p class="gray-text">*可使用的内存容量小于此值，因为手机软件占用的空间。</p>
+                <li class="col-sm-12 col-md-12 col-lg-4">
+                    <p class="bold-text">存储空间</p>
+                    <p>6GB RAM + 128GB ROM</p>
+                    <p>8GB RAM + 128GB ROM</p>
+                </li>
+                <li class="col-sm-12 col-md-6 col-lg-4">
+                    <p class="bold-text">支持最大存储卡容量</p>
+                    <p>256GB（非标配）</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
             <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">后置摄像头</p>
+                    <p class="bold-text-title">外观</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p>4800 万像素广角摄像头（f/1.8 光圈）</p>
-                    <p>800 万像素深景摄像头（f/2.4 光圈）</p>
-                    <p>200 万像素微距摄像头（f/2.4 光圈）</p>
-                    <!-- <p class="bold-text">后置摄像头变焦模式</p>
-                    <p>支持 5 倍光学变焦（5 倍变焦为近似值，镜头焦段分别为 18 mm，23 mm，125 mm）、10 倍混合变焦（三个摄像头通过不同组合实现各种环境下出色的 10 倍变焦效果）、50 倍数字变焦 </p> -->
-                    <p class="bold-text">后置摄像头对焦方式</p>
-                    <p>PDAF</p>
-                    <p class="bold-text">后置摄像头照片分辨率</p>
-                    <p>最大可支持 6000×8000 像素</p>
-                    <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p>
-                    <p class="bold-text">后置摄像头摄像分辨率</p>
-                    <p>最大可支持 3840×2160 像素，支持 4K 视频录制，不支持光学防抖</p>
-                    <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p>
+                <li class="col-sm-12 col-md-12 col-lg-4">
+                    <img src="../assets/param1/yuan_waiguan.png" alt="">
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-4">
+                    <p class="bold-text">机身重量</p>
+                    <p>约197g</p>
+                    <p class="gray-text">(备注：因为工艺差异，实际会略有不同）</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
             <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">前置摄像头</p>
+                    <p class="bold-text-title">系统</p>
                 </li>
                 <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p>1600 万像素升降摄像头（f/2.2 光圈）</p>
-                    <p>支持固定对焦</p>
-                    <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p>
-                    <p class="bold-text">前置摄像头照片分辨率</p>
-                    <p>最大可支持 4608×3456 像素</p>
-                    <p class="gray-text">*不同拍照模式的照片像素可能有差异，请以实际为准。</p>
-                    <p class="bold-text">前置摄像头摄像分辨率</p>
-                    <p>最大可支持 1920×1080 像素，支持 1080p 视频录制，不支持光学防抖</p>
-                    <p class="gray-text">*不同拍摄模式的视频像素可能有差异，请以实际为准。</p>
-                    <!-- <p class="bold-text">前置摄像头拍摄功能</p>
-                    <p>自拍慢动作、智能广角切换、人像模式、全景模式、趣 AR、延时摄影、动态照片、智能滤镜、水印、笑脸抓拍、自拍镜像、声控拍照、定时拍照</p> -->
+                    <p class="bold-text">操作系统</p>
+                    <p>Android 10</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
             <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">电池</p>
+                    <p class="bold-text-title">蜂窝网络参数</p>
                 </li>
                 <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-gray-text">4200 mAh（典型值）</p>
-                    <p class="gray-text">*电池额定容量为 4200 mAh。</p>
-                    <p class="gray-text">*电池内置不可拆卸</p>
+                    <p class="bold-text">NR/TD-LTE/FDD LTE/WCDMA/GSM</p>
+                    <p class="gray-text">支持中国移动的5G/4G/2G</p>
+                    <p class="gray-text">支持中国联通的 5G/4G/3G/2G</p>
+                    <p class="gray-text">支持中国电信的 5G/4G</p>
+                    <p class="gray-text">说明：5G 支持 NSA 和 SA 两种网络制式。
+                        各个地区的网络和频段可能有所不同，具体取决于当地运营商以及您所在的位置。
+                        如果两张都是电信卡，副卡（非默认移动数据卡）必须开通电信 VoLTE 业务，才能同时使用电信双卡。
+                        当把双卡中的一张卡设为主卡时，则该卡支持 5G，另一张卡能支持 4G/3G/2G。</p>
+                </li>
+            </ul>
+            <div class="gray-line"></div>
+            <ul class="row">
+                <li class="col-sm-12 col-md-12 col-lg-3">
+                    <p class="bold-text-title">显示参数</p>
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-3">
+                    <img class="xianshi" src="../assets/param1/yuan_xianshi.png" alt="">
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-3">
+                    <p class="bold-text">屏幕尺寸</p>
+                    <p>6.63英寸</p>
+                    <p class="bold-text">分辨率</p>
+                    <p>1080X2400</p>
+                    <p class="bold-text">屏幕类型</p>
+                    <p>LTPS</p>
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-3">
+                    <p class="bold-text">屏幕色彩</p>
+                    <p>1670万色</p>
+                    <p class="bold-text">触摸屏</p>
+                    <p>多点触控</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
             <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">充电</p>
+                    <p class="bold-text-title">运行参数</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-gray-text">有线充电：手机支持快充 10V/4A</p>
-                    <!-- <p class="bold-gray-text">无线充电：支持 50 W 华为无线超级快充，支持无线反向充电</p> -->
-                    <!-- <p class="gray-text">*需单独购买华为超级快充立式无线充电器 (Max 50 W)或华为超级快充无线车充 (Max 50 W)，并搭配特定 66 W 华为超级快充充电器使用。</p> -->
-                    <p class="gray-text">*实际充电功率会随不同场景智能变化，请以实际为准。</p>
-                </li>
-            </ul>
-            <!-- <div class="gray-line"></div>
-            <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">防尘抗水</p>
+                    <p class="bold-text">CPU型号</p>
+                    <p>MediaTek MT6853 5G</p>
+                    <p class="bold-text">CPU主频</p>
+                    <p>2*A76*2.0GHz+6*A55*2.0GHz</p>
+                    <p class="bold-text">外部接口</p>
+                    <p>Type-C，microSD 卡槽，3.5mm 耳机接口</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-gray-text">IP68 级别</p>
-                    <p class="bold-gray-text">*本手机并非专业防水手机，在正常使用状态下可防溅、抗水、防尘，在受控实验室条件下经测试，其效果在 GB/T 4208-2017（国内）/ IEC 60529（海外）标准下达到 IP68 级别。防溅、抗水、防尘功能并非永久有效，防护性能可能会因日常磨损而下降。请勿在潮湿状态下为手机充电；请参阅使用手册了解清洁和干燥说明。由于浸入液体而导致的损坏不在保修范围之内。</p>
-                    <p class="gray-text">** IP68 中抗水条件为（1）无流动清水，水深 1.5 米；（2）试验时间 30 分钟；（3）水温与产品温差不大于 5 摄氏度。</p>
-                </li>
-            </ul> -->
-            <div class="gray-line"></div>
-            <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">网络制式</p>
-                </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-text">主卡</p>
-                    <p>5G 网络制式：移动 5G（NR）/联通 5G（NR）/电信 5G（NR)</p>
-                    <p>4G 网络制式：移动 4G（TD-LTE）/联通 4G（TD-LTE/LTE FDD）/电信 4G（TD-LTE/LTE FDD）</p>
-                    <p>3G 网络制式：联通 3G（WCDMA）</p>
-                    <p>2G 网络制式：移动 2G（GSM）/联通 2G（GSM）</p>
-                    <p class="bold-text">副卡</p>
-                    <p>4G 网络制式：移动 4G（TD-LTE）/联通 4G（TD-LTE/LTE FDD）/电信 4G（TD-LTE/LTE FDD）</p>
-                    <p>3G 网络制式：联通 3G（WCDMA）</p>
-                    <p>2G 网络制式：移动 2G（GSM）/联通 2G（GSM）</p>
+                    <p class="bold-text">CPU核数</p>
+                    <p>八核</p>
+                    <p class="bold-text">按键类型</p>
+                    <p>电源键</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
             <ul class="row">
-                <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">数据连接</p>
+                <li class="col-sm-12 col-md-12 col-lg-3">
+                    <p class="bold-text-title">拍照/摄像</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-text">WLAN</p>
-                    <p>802.11 a/b/g/n/ac 2.4G/5G</p>
-                    <p class="gray-text">*需要相应的路由器支持。</p>
-                    <p>上行和下行物理层峰值速率为 2.4 Gbps。</p>
-                    <p class="gray-text">*需要搭配 160 MHz 带宽的 Wi-Fi 6 路由器。</p>
-                    <p class="bold-text">蓝牙</p>
-                    <p>Bluetooth 5.1，支持BLE。</p>
-                    <p class="bold-text">数据线接口</p>
-                    <p>USB Type-C，USB 2.0</p>
-                    <!-- <p class="gray-text">*USB 3.1 GEN1 功能需搭配支持 USB 3.1 GEN 1 的数据线（非标配，需另行购买）使用。</p> -->
-                    <p class="gray-text">*标配数据线支持 USB 2.0。</p>
-                    <p class="bold-text">耳机接口</p>
-                    <p>USB Type-C 接口</p>
+                <li class="col-sm-12 col-md-12 col-lg-3">
+                    <p class="bold-text">后置摄像头像素</p>
+                    <p>4800 万像素（f/1.8 光圈）+800 万像素（f/2.4 光圈）+200 万像素（f/2.4 光圈）</p>
+                    <p class="bold-text">副摄像头</p>
+                    <p>1600 万像素（f/2.2 光圈）</p>
+                    <p class="bold-text">拍摄模式</p>
+                    <p>大光圈、夜景、美肤、专业、全景等</p>
+                    <p class="bold-text">对焦方式</p>
+                    <p>前置：固定焦距</p>
+                    <p>后置：PDAF</p>
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-3">
+                    <p class="bold-text">拍照</p>
+                    <p>最大可支持 6000×8000</p>
+                    <p class="bold-text">拍照</p>
+                    <p>最大可支持 4608×3456</p>
+                    <p class="bold-text">视频拍摄</p>
+                    <p>后置摄像头：支持 4K 视频录制，不支持光学防抖</p>
+                    <p>前置摄像头：支持 1080P 视频录制，不支持光学防抖</p>
+                    <p class="bold-text">闪光灯</p>
+                    <p>单色温闪光灯</p>
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-3">
+                    <p class="bold-text">摄像</p>
+                    <p>最大可支持 3840×2160</p>
+                    <p class="bold-text">摄像</p>
+                    <p>最大可支持 1920×1080</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
             <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">NFC</p>
+                    <p class="bold-text-title">电池/待机</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-gray-text">不支持</p>
-                    <!-- <p class="bold-gray-text">支持读卡器模式，点对点模式，卡模拟模式（华为钱包支付，SIM 卡支付*，HCE 支付）</p>
-                    <p class="gray-text">*SIM 卡支付所使用的 SIM 卡只能放在 SIM1 卡槽。</p> -->
+                <li class="col-sm-12 col-md-12 col-lg-4">
+                    <p class="bold-text">电池容量</p>
+                    <p>4100 mAh（最小值） 4200 mAh（典型值）</p>
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-4">
+                    <p class="bold-text">理论充电时间</p>
+                    <p>约 1.5 小时（来源于实验室，实际充电时间会有差异）</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
             <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">定位</p>
+                    <p class="bold-text-title">导航/无线</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-gray-text">GPS / AGPS / Galileo / Glonass / 北斗</p>
+                <li class="col-sm-12 col-md-12 col-lg-4">
+                    <p class="bold-text">GPS</p>
+                    <p>北斗：支持</p>
+                    <p>GPS：支持</p>
+                    <p>AGPS：支持</p>
+                    <p>Glonass：支持 等</p>
+                    <p class="bold-text">WLAN频率</p>
+                    <p>2.4GHz/5GHz</p>
+                    <p class="bold-text">USB版本</p>
+                    <p>USB 2.0</p>
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-4">
+                    <p class="bold-text">WLAN协议</p>
+                    <p>802.11a/b/g/n/ac 2.4G/5G</p>
+                    <p class="bold-text">WLAN热点</p>
+                    <p>支持</p>
+                    <p class="bold-text">蓝牙版本</p>
+                    <p>BT5.1 支持 BLE</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
             <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">感应器</p>
+                    <p class="bold-text-title">其他</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-gray-text">环境光传感器</p>
-                    <p class="bold-gray-text">指南针</p>
-                    <p class="bold-gray-text">重力传感器</p>
-                    <p class="bold-gray-text">指纹传感器</p>
-                    <p class="bold-gray-text">陀螺仪</p>
-                    <p class="bold-gray-text">升降霍尔传感器</p>
-                </li>
-            </ul>
-            <div class="gray-line"></div>
-            <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">多媒体</p>
+                    <p class="bold-text">USB功能</p>
+                    <p>USB OTG 通过 USB 连接上网 USB 充电</p>
+                    <p class="bold-text">包装清单</p>
+                    <p>(1) 手机X1</p>
+                    <p>(2) 电池（内置） X1</p>
+                    <p>(3) 快速指南 X1</p>
+                    <p>(4) 充电器 X1</p>
+                    <p>(5) 保修卡 X1</p>
+                    <p>(6) USB type-C 数据先 X1</p>
+                    <p>(7) 取卡针 X1</p>
+                    <p>(8) 保护壳 X1</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p class="bold-text">音频</p>
-                    <p class="gray-text"> Histen 音效</p>
-                    <p class="gray-text">*.mp3、*.mid、*.amr、*.3gp、*.mp4、*.wav、*.ogg、*.flac</p>
-                    <p class="bold-text">视频</p>
-                    <p class="gray-text">*3gp、*mp4</p>
-                </li>
-            </ul>
-            <!-- <div class="gray-line"></div>
-            <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">软件名称</p>
-                </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p>终端智能设备人机交互通信软件 V10.0</p>
-                </li>
-            </ul> -->
-            <div class="gray-line"></div>
-            <ul class="row">
-                <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">包装清单</p>
-                </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                    <p>外包装采用塑封，彩盒内标配：</p>
-                    <p>手机（含内置电池） x 1</p>
-                    <p>快速指南 x 1</p>
-                    <p>充电器 x 1</p>
-                    <p>保修卡 x 1</p>
-                    <p>USB Type-C 数据线 x 1</p>
-                    <p>取卡针 x 1</p>
-                    <p>保护壳 x 1</p>
-                    <p>*最终以实物为准。</p>
+                    <p class="bold-text">安全功能</p>
+                    <p>NA</p>
                 </li>
             </ul>
             <div class="gray-line"></div>
@@ -341,6 +303,26 @@ export default {
             margin-bottom: torem(100);
 
             li {
+                .img-box{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        margin-bottom: torem(57);
+                    }
+                    span{
+                        font-size: torem(18);
+                        font-family: PingFang-SC-Regular, PingFang-SC;
+                        font-weight: 400;
+                        color: #333333;
+                        line-height: torem(25);
+                    }
+                }
+                .xianshi{
+                    width: torem(226);
+                    height: torem(467);
+                }
                 p {
                     word-wrap: break-word;
                     word-break: break-word;
