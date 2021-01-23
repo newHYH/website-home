@@ -44,11 +44,18 @@ export default {
                 { name: '家居', val: 5 },
                 { name: '配件', val: 6 }
             ],
-            results: [],
+            results: [{
+                title: '测试',
+                address:'ces ',
+                tels: ['1183', '32'],
+                workTime: '9:00',
+                lat:39.915,
+                lng:116.404
+            }],
             posList:[],
             center:{
-                lat:116.404,
-                lng:39.915
+                lat:39.915,
+                lng:116.404
             },
             slideOn: false,
             chooseVal: ''
@@ -59,8 +66,8 @@ export default {
         window.onresize = () => {
 
         }
-
-        this.getData()
+        this.createMap()
+        //this.getData()
     },
     methods: {
         getData() {

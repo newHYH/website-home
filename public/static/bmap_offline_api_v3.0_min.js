@@ -6513,12 +6513,12 @@ window.BMAP_AUTHENTIC_KEY = "";
           , c = ld[c];
         this.map.Sx() && (g = 2);  //修改
         e = this.map.Va.Lw(e, b).hs;
-        return (kd[Math.abs(e + a) % kd.length] + "?qt=tile&x=" + (e + "").replace(/-/gi, "M") + "&y=" + (a + "").replace(/-/gi, "M") + "&z=" + b + "&styles=" + c + "&scaler=" + g + (6 == z.ca.ia ? "&color_dep=32&colors=50" : "") + "&udt=" + f).replace(/-(\d+)/gi, "M$1")
-		/*console.log('a',a)
+        //return (kd[Math.abs(e + a) % kd.length] + "?qt=tile&x=" + (e + "").replace(/-/gi, "M") + "&y=" + (a + "").replace(/-/gi, "M") + "&z=" + b + "&styles=" + c + "&scaler=" + g + (6 == z.ca.ia ? "&color_dep=32&colors=50" : "") + "&udt=" + f).replace(/-(\d+)/gi, "M$1")
+		console.log('a',a)
         console.log('b',b)
         console.log('c',c)
 		var tdir = bmapcfg.tiles_dir.length>0?bmapcfg.tiles_dir:bmapcfg.home + "tiles";
-		return tdir + "/" + b + "/" + e + "/" + a + bmapcfg.imgext; // 使用本地的瓦片*/
+		return tdir + "/" + b + "/" + e + "/" + a + bmapcfg.imgext; // 使用本地的瓦片
 	}
     ;
     var La = new id("\u5730\u56fe",md,{

@@ -7,7 +7,7 @@
                     <div class="connect-item">
                         <p class="title">电话支持</p>
                         <div class="func-box call">
-                            <p>消费者服务电话950800</p>
+                            <p>消费者服务电话4000118111</p>
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                     <div class="connect-item col-12">
                         <p class="title">电话支持</p>
                         <div class="func-box call">
-                            <p>消费者服务电话<a class="tel" href="tel:950800">950800</a></p>
+                            <p>消费者服务电话<a class="tel" href="tel:950800">4000118111</a></p>
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
