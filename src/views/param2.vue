@@ -314,6 +314,13 @@ export default {
                     img{
                         margin-bottom: torem(57);
                     }
+                    span{
+                        font-size: torem(18);
+                        font-family: PingFang-SC-Regular, PingFang-SC;
+                        font-weight: 400;
+                        color: #333333;
+                        line-height: torem(25);
+                    }
                 }
                 .xianshi{
                     width: torem(226);
