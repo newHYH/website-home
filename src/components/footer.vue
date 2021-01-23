@@ -11,28 +11,28 @@
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
-                    <!-- <div class="connect-item">
+                    <div class="connect-item">
                         <p class="title">在线支持</p>
                         <div class="func-box online">
                             <p>在线客服</p>
                         </div>
-                        <div class="func-box email">
+                        <!-- <div class="func-box email">
                             <p>邮件咨询</p>
                         </div>
-                    </div> -->
+ -->                    </div>
                     <div class="connect-item">
                         <p class="title">线下支持</p>
-                        <div class="func-box service">
+                        <div class="func-box service pointer" @click="goto('service-network')">
                             <p>服务店</p>
                         </div>
-                        <div class="func-box retail">
+                        <div class="func-box retail pointer" @click="goto('service-network')">
                             <p>零售店</p>
                         </div>
                     </div>
                     <div class="connect-item">
                         <p class="title">社交支持</p>
                         <div class="func-box wb">
-                            <p>微博</p>
+                            <a href="https://weibo.com/nokiae7?is_all=1" target="view_window">微博</a>
                         </div>
                         <!-- <div class="func-box wx">
                             <p>微信公众号</p>
@@ -61,41 +61,52 @@
                     </div>
                     <div class="connect-item col-6">
                         <p class="title">线下支持</p>
-                        <div class="func-box service"  @click="goto('service-network')">
+                        <div class="func-box service pointer"  @click="goto('service-network')">
                             <p>服务店</p>
                         </div>
-                        <div class="func-box retail">
+                        <div class="func-box retail pointer" @click="goto('service-network')">
                             <p>零售店</p>
                         </div>
                     </div>
                     <div class="connect-item col-6">
                         <p class="title">社交支持</p>
                         <div class="func-box wb">
-                            <p>微博</p>
+                            <a href="https://weibo.com/nokiae7?is_all=1" target="view_window">微博</a>
                         </div>
-                        <div class="func-box wx">
+                        <!-- <div class="func-box wx">
                             <p>微信公众号</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
         <div class="org-box">
-            <div class="item-box">
+            <div class="item-box" @mouseover="showBuy" @mouseout="hideBuy">
                 <p class="title">购买手机</p>
-                <div class="each-item">手机</div>
+                <div class="each-item pointer" >手机</div>
+                <div class="buy-pop" v-show="showPop"  @mouseover="showBuy" @mouseout="hideBuy">
+                  <div class="each-item">
+                        <a href="http://www.woego.cn/">沃易购</a>
+                    </div>
+                    <div class="each-item">
+                        <a href="https://lths.tmall.com/shop/view_shop.htm?spm=a230r.1.14.21.788c2756UeLhDt&user_number_id=2231547606">天猫</a>
+                    </div>
+                    <div class="each-item">
+                        <a href="https://mall.jd.com/index-607119.html">京东</a>
+                    </div>
+                </div>
             </div>
             <div class="item-box">
                 <p class="title">服务与支持</p>
-                <div class="each-item" @click="goto('support')">保修政策</div>
-                <div class="each-item">维修备件价格</div>
+                <div class="each-item pointer" @click="goto('support')">保修政策</div>
+                <div class="each-item pointer" @click="goto('query-price')">维修备件价格</div>
                 <div class="each-item">联系我们</div>
                 <div class="each-item">服务隐私声明</div>
             </div>
             <div class="item-box">
                 <p class="title">应用与下载</p>
                 <div class="each-item">终端云服务</div>
-                <div class="each-item" @click="goto('notice')">预置应用共公示</div>
+                <div class="each-item pointer" @click="goto('notice')">预置应用公示</div>
             </div>
             <div class="item-box">
                 <p class="title">关于我们</p>
@@ -127,21 +138,37 @@
 export default {
     name: 'Footer',
     data() {
-        return{}
+        return{
+            showPop:false
+        }
     },
     mounted() {
 
     },
     methods: {
         goto(path){
+            console.log(path)
             this.$router.push(path)
+        },
+        showBuy() {
+            this.showPop = true
+        },
+        hideBuy(){
+            this.showPop = false
         }
     }
 }
 </script>
 <style scoped lang=scss>
 @import "@/sass/common.scss";
-
+.buy-pop{
+    border-top:1px solid #fff;
+    margin-top: 12px;
+    width:80%;
+    .each-item{
+        margin-top: 10px !important;
+    }
+}
 /* mobile phone */
 @media screen and (min-width:320px) {
     .footer{
@@ -185,6 +212,9 @@ export default {
                             line-height: 20px;
                             p{
                                 margin-bottom: 6px;
+                            }
+                            a{
+                                color:#999
                             }
                             &.call{
                                 &::before{
@@ -317,7 +347,13 @@ export default {
                     font-weight: 400;
                     color: #FFFFFF;
                     line-height: 20px;
-                    cursor: pointer;
+                    .pointer{
+                         cursor: pointer;
+                    }
+                   
+                    a{
+                        color:#fff;
+                    }
                 }
             }
         }
@@ -404,9 +440,15 @@ export default {
                             font-weight: 400;
                             color: #999999;
                             line-height: 20px;
-                            cursor: pointer;
+                            .pointer{
+                                cursor: pointer;
+                            }
+                            
                             p{
                                 margin-bottom: 8px;
+                            }
+                            a{
+                                color:#999
                             }
                             &.call{
                                 &::before{
@@ -534,6 +576,9 @@ export default {
                     font-weight: 400;
                     color: #FFFFFF;
                     line-height: 20px;
+                    a{
+                        color:#fff;
+                    }
                 }
             }
         }
@@ -621,6 +666,9 @@ export default {
                             line-height: torem(40);
                             p{
                                 margin-bottom: torem(15);
+                            }
+                            a{
+                                color:#999
                             }
                             &.call{
                                 &::before{

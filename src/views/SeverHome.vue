@@ -10,10 +10,10 @@
                 <div class="text">
                     您需要什么帮助？
                 </div>
-                <div class="search-box">
+                <!-- <div class="search-box">
                     <input type="search" class="search" name="" placeholder="请输入您想要了解的信息">
                     <button class="search-btn"></button>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="serve-product">

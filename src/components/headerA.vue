@@ -2,23 +2,23 @@
     <div class="header">
         <div class="container fixed">
             <div class="navigation">
-                <a class="logo" href="/cn">
+                <span class="logo" @click="goto('/home')">
                     <img src="@/assets/logo.png" />
-                </a>
+                </span>
                 <ul class="product-tabs">
                     <li class="tab-item" v-for="(item, index) in tabs" :key="index" :class="item.active ? 'active' : ''">
                         <a class="pointer" @click="goto(item.link)"  :title="item.name">{{item.name}}</a>
                     </li>
                 </ul>
                 <div class="right-box big">
-                    <div class="search-box">
+                    <!-- <div class="search-box">
                         <Search :border='borderSet' />
                     </div>
-                    <div class="login-btn pointer">登录</div>
+                    <div class="login-btn pointer">登录</div> -->
                 </div>
                 <div class="right-box small">
-                    <div class="search-box pointer"></div>
-                    <div class="login-btn pointer">登录</div>
+                   <!--  <div class="search-box pointer"></div>
+                    <div class="login-btn pointer">登录</div> -->
                 </div>
             </div>
         </div>
@@ -26,12 +26,12 @@
 </template>
 
 <script>
-import Search from '@/components/searchInput.vue';
+//import Search from '@/components/searchInput.vue';
 
 export default {
     name: 'ChildPageHeader',
     components: {
-        Search
+        //Search
     },
     props: {
         tabs: {
@@ -100,11 +100,12 @@ export default {
             justify-content: space-between;
             .logo{
                 display: block;
-                width: 52px;
-                height: 28px;
-                top: 16px;
+                width: 162px;
+                height:25px;
+                top: 20px;
                 left: 12px;
-                margin-top: 19px;
+                margin-top: 30px;
+                margin-right: 12px;
             }
             .product-tabs{
                 margin-top: 17px;
@@ -156,7 +157,7 @@ export default {
             }
             .right-box{
                 position: relative;
-                width: 95px;
+                width: 5px;
                 margin-top: 19px;
                 &.big{
                     display: none;
@@ -224,9 +225,10 @@ export default {
             justify-content: space-between;
             .logo{
                 display: block;
-                width: 98px;
-                height: 53px;
-                margin-top: 19px;
+                width:200px;
+                height: 29px;
+                margin-top: 35px;
+                cursor: pointer;
             }
             .product-tabs{
                 margin-top: 29px;

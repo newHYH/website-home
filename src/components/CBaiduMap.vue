@@ -4,12 +4,12 @@
             <div id="map"></div>
         </div>
         <div class="map-list">
-            <div class="select" :class="slideOn ? 'on' : ''">
+            <!-- <div class="select" :class="slideOn ? 'on' : ''">
                 <div class="placeholder" @click="open()">{{chooseVal ? chooseVal : '选择产品'}}</div>
                 <ul class="option-list">
                     <li v-for="(item, index) in options" :key="index" @click="choose(index)">{{item.name}}</li>
                 </ul>
-            </div>
+            </div> -->
             <div class="result-list">
                 <div class="result-item" @click="changeMap(index)" v-for="(item, index) in results" :key="index">
                     <div class="title">{{item.title}}
@@ -100,9 +100,9 @@ export default {
         },
         createMap() {
             // 创建Map实例
-            const map = new BMap.Map("map",{minZoom:1,maxZoom:15})
+            const map = new BMap.Map("map",{minZoom:3,maxZoom:12})
             // 初始化地图,设置中心点坐标和地图级别
-            map.centerAndZoom(new BMap.Point(this.center.lng, this.center.lat), 15)
+            map.centerAndZoom(new BMap.Point(this.center.lng, this.center.lat), 12)
             //添加地图类型控件
             
             // 设置地图显示的城市 此项是必须设置的

@@ -2,18 +2,18 @@
     <div class="header">
         <div class="container">
             <div class="fix-navigation">
-                <a class="logo" href="/cn">
+                <a class="logo" @click="goHome">
                     <img src="@/assets/logo.png" />
                 </a>
                 <div class="nav-title">手机</div>
                 <div class="func-box">
-                    <div class="search-btn">
+                    <!-- <div class="search-btn">
                         <img src="@/assets/search-icon.png" />
                     </div>
                     <div class="account-btn">
                         <img src="@/assets/account-icon.png" />
                     </div>
-                    <div class="login-btn">登录</div>
+                    <div class="login-btn">登录</div> -->
                 </div>
             </div>
         </div>
@@ -28,7 +28,14 @@
                         <a class="pointer" title="规格参数" @click="goto(link2,2)">规格参数</a>
                     </li>
                 </ul>
-                <div class="buy-btn pointer">购买</div>
+                <div class="buy-btn pointer" @mouseover="showBuy" @mouseout="hideBuy">购买</div>
+                <div class="buy-pop" v-show="showPop" @mouseover="showBuy" @mouseout="hideBuy">
+                    <div class="buy-pop-box">
+                        <a href="http://www.woego.cn/">沃易购</a>
+                        <a href="https://lths.tmall.com/shop/view_shop.htm?spm=a230r.1.14.21.788c2756UeLhDt&user_number_id=2231547606">天猫</a>
+                        <a href="https://mall.jd.com/index-607119.html">京东</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -36,45 +43,55 @@
 <script>
 export default {
     name: 'Header',
-    props:{
-        link1:{
-            type:String,
-            default:'',
+    props: {
+        link1: {
+            type: String,
+            default: '',
         },
-        link2:{
-            type:String,
-            default:''
+        link2: {
+            type: String,
+            default: ''
         }
     },
     data() {
-        return{
+        return {
             fixHeader: false,
-            index:1,
+            index: 1,
+            showPop: false,
         }
     },
     mounted() {
         window.addEventListener('scroll', this.scrollHander)
-        if(this.$route.path == '/'+this.link2){
+        if (this.$route.path == '/' + this.link2) {
             this.index = 2
-        }else{
-           this.index =  window.index?window.index:1 
+        } else {
+            this.index = window.index ? window.index : 1
         }
     },
-    unmounted () {
+    unmounted() {
         window.removeEventListener('scroll', this.scrollHander)
     },
     methods: {
-        scrollHander () {
+        scrollHander() {
             if (window.pageYOffset > 90) {
                 this.fixHeader = true
             } else {
                 this.fixHeader = false
             }
         },
-        goto(path,index){
-             window.index = index
+        goHome() {
+            this.$router.push('/home')
+        },
+        goto(path, index) {
+            window.index = index
             this.index = index
             this.$router.push(path)
+        },
+        showBuy() {
+            this.showPop = true
+        },
+        hideBuy(){
+            this.showPop = false
         }
     }
 }
@@ -82,47 +99,79 @@ export default {
 <style scoped lang=scss>
 @import "@/sass/common.scss";
 
+.buy-pop {
+    position: absolute;
+    top: 40px;
+    right: 12px;
+    width: 90px;
+    background: #fff;
+    border: 1px solid #eee;
+    z-index: 8;
+    padding-top: 18px;
+    border-radius: 10px;
+
+    .buy-pop-box {
+        display: flex;
+        flex-direction: column;
+        padding:5px 10px;
+        font-size: 13px;
+        line-height: 28px;
+        a{
+            color:#000;
+        }
+    }
+
+}
+
 /* mobile phone */
 @media screen and (min-width:320px) {
-    .header{
+    .header {
         height: 158px;
         width: 100%;
-        .container{
+
+        .container {
             border-bottom: 1px solid #e5e5e5;
-            &.fixed{
+
+            &.fixed {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
-                background: rgba(255,255,255,0.9);
+                background: rgba(255, 255, 255, 0.9);
                 backdrop-filter: saturate(180%) blur(20px);
                 z-index: 1000;
             }
         }
-        .fix-navigation{
+
+        .fix-navigation {
             height: 60px;
             position: relative;
-            .logo{
+
+            .logo {
                 position: absolute;
                 width: 52px;
                 height: 28px;
                 top: 16px;
                 left: 12px;
-                img{
+
+                img {
                     width: 100%;
                     height: 100%;
                 }
             }
-            .nav-title{
+
+            .nav-title {
                 font-size: 16px;
                 line-height: 60px;
             }
-            .func-box{
+
+            .func-box {
                 position: absolute;
                 right: 12px;
                 top: 16px;
                 display: flex;
-                .login-btn{
+
+                .login-btn {
                     width: 62px;
                     height: 28px;
                     line-height: 24px;
@@ -135,33 +184,40 @@ export default {
                     color: #333333;
                     cursor: pointer;
                 }
+
                 .search-btn,
-                .account-btn{
+                .account-btn {
                     height: 28px;
                     cursor: pointer;
                 }
-                .account-btn{
+
+                .account-btn {
                     margin-right: 20px;
                     padding-top: 2px;
-                    img{
+
+                    img {
                         width: 20px;
                         height: 23.333px;
                     }
                 }
-                .search-btn{
+
+                .search-btn {
                     margin-right: 25px;
                     padding-top: 4px;
-                    img{
+
+                    img {
                         width: 20.66px;
                         height: 20.66px;
                     }
                 }
             }
         }
-        .sec-navigation{
+
+        .sec-navigation {
             height: 96px;
             position: relative;
-            .logo{
+
+            .logo {
                 position: absolute;
                 top: 18px;
                 left: 12px;
@@ -171,31 +227,36 @@ export default {
                 color: #333333;
                 line-height: 33px;
             }
-            .buy-btn{
+
+            .buy-btn {
                 position: absolute;
                 right: 12px;
                 top: 18px;
                 width: 78px;
                 height: 32px;
                 line-height: 28px;
-                text-align: center;             
+                text-align: center;
                 background: #AD0823;
                 border-radius: 16px;
                 font-size: 16px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #FFFFFF;
+                z-index:9;
             }
-            .product-tabs{
+
+            .product-tabs {
                 position: absolute;
                 left: -7px;
                 bottom: 0;
                 display: flex;
-                .tab-item{
+
+                .tab-item {
                     position: relative;
                     margin-left: 19px;
-                    &.active{
-                        &::after{
+
+                    &.active {
+                        &::after {
                             content: '';
                             position: absolute;
                             bottom: 0;
@@ -205,19 +266,22 @@ export default {
                             background: #000000;
                         }
                     }
-                    &:hover{
-                        a{
+
+                    &:hover {
+                        a {
                             font-weight: 400;
                             color: #000;
                         }
                     }
-                    &.active{
-                        a{
+
+                    &.active {
+                        a {
                             font-weight: 600;
                             color: #333333;
                         }
                     }
-                    a{
+
+                    a {
                         font-size: 16px;
                         display: block;
                         font-family: PingFangSC-Semibold, PingFang SC;
@@ -234,34 +298,41 @@ export default {
 
 /* ipad pro & PC */
 @media screen and (min-width:1024px) {
-    .header{
+    .header {
         height: 180px;
-        .container{
+
+        .container {
             border-bottom: 1px solid #e5e5e5;
-            &.fixed{
+
+            &.fixed {
                 position: fixed;
                 top: 0;
                 left: 0;
                 width: 100%;
-                background: rgba(255,255,255,0.9);
+                background: rgba(255, 255, 255, 0.9);
                 backdrop-filter: saturate(180%) blur(20px);
             }
         }
-        .fix-navigation{
+
+        .fix-navigation {
             height: 90px;
             position: relative;
-            .logo{
+
+            .logo {
                 position: absolute;
-                width: 78px;
-                height: 42px;
-                top: 24px;
+                width: 200px;
+                height: 29px;
+                top: 36px;
                 left: 12px;
-                img{
+                cursor: pointer;
+
+                img {
                     width: 100%;
                     height: 100%;
                 }
             }
-            .nav-title{
+
+            .nav-title {
                 position: absolute;
                 top: 0;
                 left: 50%;
@@ -274,12 +345,14 @@ export default {
                 font-size: 24px;
                 color: #333333;
             }
-            .func-box{
+
+            .func-box {
                 position: absolute;
                 right: 12px;
                 top: 24px;
                 display: flex;
-                .login-btn{
+
+                .login-btn {
                     width: 93px;
                     height: 42px;
                     line-height: 38px;
@@ -292,33 +365,40 @@ export default {
                     color: #333333;
                     cursor: pointer;
                 }
+
                 .search-btn,
-                .account-btn{
+                .account-btn {
                     height: 42px;
                     cursor: pointer;
                 }
-                .account-btn{
+
+                .account-btn {
                     margin-right: 29px;
                     padding-top: 4px;
-                    img{
+
+                    img {
                         width: 30px;
                         height: 35px;
                     }
                 }
-                .search-btn{
+
+                .search-btn {
                     margin-right: 38px;
                     padding-top: 7px;
-                    img{
+
+                    img {
                         width: 31px;
                         height: 31px;
                     }
                 }
             }
         }
-        .sec-navigation{
+
+        .sec-navigation {
             height: 88px;
             position: relative;
-            .logo{
+
+            .logo {
                 position: absolute;
                 top: 27px;
                 left: 12px;
@@ -328,32 +408,37 @@ export default {
                 color: #333333;
                 line-height: 33px;
             }
-            .buy-btn{
+
+            .buy-btn {
                 position: absolute;
                 right: 12px;
                 top: 25px;
                 width: 90px;
                 height: 38px;
                 line-height: 38px;
-                text-align: center;             
+                text-align: center;
                 background: #AD0823;
                 border-radius: 19px;
                 font-size: 18px;
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #FFFFFF;
+                z-index: 9;
             }
-            .product-tabs{
+
+            .product-tabs {
                 position: absolute;
                 left: 170px;
                 right: auto;
                 top: 34px;
                 display: flex;
-                .tab-item{
+
+                .tab-item {
                     position: relative;
                     margin-left: 38px;
-                    &.active{
-                        &::after{
+
+                    &.active {
+                        &::after {
                             content: '';
                             position: absolute;
                             bottom: 0;
@@ -363,19 +448,22 @@ export default {
                             background: #000000;
                         }
                     }
-                    &:hover{
-                        a{
+
+                    &:hover {
+                        a {
                             font-weight: 400;
                             color: #000;
                         }
                     }
-                    &.active{
-                        a{
+
+                    &.active {
+                        a {
                             font-weight: 600;
                             color: #333333;
                         }
                     }
-                    a{
+
+                    a {
                         font-size: 18px;
                         display: block;
                         font-family: PingFangSC-Semibold, PingFang SC;
@@ -391,7 +479,5 @@ export default {
 }
 
 /* PC */
-@media screen and (min-width:1200px) {
-    
-}
+@media screen and (min-width:1200px) {}
 </style>
