@@ -66,8 +66,8 @@ export default {
         window.onresize = () => {
 
         }
-        this.createMap()
-        //this.getData()
+        //this.createMap()
+        this.getData()
     },
     methods: {
         getData() {
