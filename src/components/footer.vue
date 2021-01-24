@@ -117,8 +117,10 @@
         <div class="container">
             <div class="page-footer">
                 <div class="footer-inner row">
-                    <div class="right col-12 col-md-12 col-xl-6 col-xxl-5">版权所有 © 中国联合网络通信 1998-2021。保留一切权利。粤A2-20044005号</div>
-                    <div class="col-md-6 col-12 col-xl-3 col-xxl-4 offset-xxl-1">
+                    <div class="copy">
+Copyright © 2020-2023 ChinaUnicom All Rights Reserved.联通华盛通信有限公司  <span style="padding-left:12px;">京ICP备09019351号-1</span>
+</div>
+                    <div class="nav">
                         <ul class="footer-items">
                             <li class="f-item">网站地图</li>
                             <li class="f-item">使用条款</li>
@@ -127,7 +129,7 @@
                             <li class="f-item">法律信息</li>
                         </ul>
                     </div>
-                    <div class="lang col-12 col-md-6 col-xl-3 col-xxl-2"><span>China-简体中文</span></div>
+                    <div class="lang"><span>China-简体中文</span></div>
                 </div>
             </div>
         </div>
@@ -366,6 +368,7 @@ export default {
             line-height: 20px;
             .footer-inner{
                 line-height: 20px;
+                justify-content:space-around;
             }
             .right{
                 text-align: left;
@@ -591,6 +594,7 @@ export default {
             line-height: 22px;
             .footer-inner{
                 line-height: 22px;
+                justify-content:space-around;
             }
             .right{
                 text-align: center;
@@ -802,6 +806,7 @@ export default {
             line-height: torem(26);
             .footer-inner{
                 line-height: torem(26);
+                justify-content:space-around;
             }
             .right{
                 text-align: left;

@@ -107,15 +107,15 @@ export default {
     background: #fff;
     border: 1px solid #eee;
     z-index: 8;
-    padding-top: 18px;
+    padding-top: 28px;
     border-radius: 10px;
 
     .buy-pop-box {
         display: flex;
         flex-direction: column;
         padding:5px 10px;
-        font-size: 13px;
-        line-height: 28px;
+        font-size: 15px;
+        line-height: 36px;
         a{
             color:#000;
         }
