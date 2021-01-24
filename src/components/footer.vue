@@ -110,7 +110,7 @@
             </div>
             <div class="item-box">
                 <p class="title">关于我们</p>
-                <div class="each-item">关于我们</div>
+                <div class="each-item pointer"  @click="goto('about')">关于我们</div>
                 <div class="each-item">隐私</div>
             </div>
         </div>
@@ -120,16 +120,16 @@
                     <div class="copy">
 Copyright © 2020-2023 ChinaUnicom All Rights Reserved.联通华盛通信有限公司  <span style="padding-left:12px;">京ICP备09019351号-1</span>
 </div>
-                    <div class="nav">
+                    <!-- <div class="nav">
                         <ul class="footer-items">
-                            <li class="f-item">网站地图</li>
+                            <li class="f-item cur">品牌故事</li>
                             <li class="f-item">使用条款</li>
                             <li class="f-item">隐私声明</li>
                             <li class="f-item">关于cokies</li>
                             <li class="f-item">法律信息</li>
                         </ul>
                     </div>
-                    <div class="lang"><span>China-简体中文</span></div>
+                    <div class="lang"><span>China-简体中文</span></div> -->
                 </div>
             </div>
         </div>
@@ -368,7 +368,7 @@ export default {
             line-height: 20px;
             .footer-inner{
                 line-height: 20px;
-                justify-content:space-around;
+                justify-content:center;
             }
             .right{
                 text-align: left;
@@ -376,6 +376,9 @@ export default {
             .footer-items{
                 max-width: 360px;
                 display: flex;
+                .cur{
+                    cursor: pointer;
+                }
                 justify-content: space-between;
             }
             .lang{
@@ -594,7 +597,7 @@ export default {
             line-height: 22px;
             .footer-inner{
                 line-height: 22px;
-                justify-content:space-around;
+                justify-content:center;
             }
             .right{
                 text-align: center;
@@ -806,7 +809,7 @@ export default {
             line-height: torem(26);
             .footer-inner{
                 line-height: torem(26);
-                justify-content:space-around;
+                justify-content:center;
             }
             .right{
                 text-align: left;
