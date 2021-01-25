@@ -2,60 +2,33 @@
     <div class="home">
         <HeaderA :tabs="headerTabs" />
         <div class="box-wrapper">
-            <div class="sider">
-                <div class="sider-text">全部手机</div>
-            </div>
             <div class="main">
-                <div class="pro-box">
-                    <div class="pro-img">
-                        <div class="pro-buy" @click="goto('product1')">
-                            <span class="buy-btn">了解更多</span>
-                            <span class="buy-btn">购买</span>
+                <ul class="row">
+                    <li>
+                        <div class="phone-name">
+                            <img src="../assets/home/1.webp" alt="">
                         </div>
-                        <img src="../assets/phone-1.png" alt="">
-                    </div>
-                    <div class="pro-name">
-                        优畅享20 Plus
-                    </div>
-                </div>
-                <!-- <div class="pro-box-con">
-                    <div class="pro-con">
-                        <div class="pro-img">
-                            <div class="pro-buy" @click="goto('product1')">
-                                <span class="buy-btn">了解更多</span>
-                                <span class="buy-btn">购买</span>
-                            </div>
-                            <img src="../assets/phone-2.png" alt="">
+                        <div class="btns">
+                            <div class="more-btn" @click="goto('product1')">了解更多</div>
+                            <div class="buy-now" @click="goto('product1')">立即购买</div>
                         </div>
-                        <div class="pro-name">
-                            优畅享20 Plus
+                        <div class="phone-img" @click="goto('product1')">
+                            <img src="../assets/home/4.webp" alt="">
                         </div>
-                    </div>
-                    <div class="pro-con">
-                        <div class="pro-img" @click="goto('product2')">
-                            <div class="pro-buy">
-                                <span class="buy-btn">了解更多</span>
-                                <span class="buy-btn">购买</span>
-                            </div>
-                            <img src="../assets/phone-3.png" alt="">
+                    </li>
+                    <li>
+                        <div class="phone-name">
+                            <img src="../assets/home/2.webp" alt="">
                         </div>
-                        <div class="pro-name">
-                           优畅享20
+                        <div class="btns">
+                            <div class="more-btn" @click="goto('product2')">了解更多</div>
+                            <div class="buy-now" @click="goto('product2')">立即购买</div>
                         </div>
-                    </div>
-                </div> -->
-                <div class="pro-box">
-                    <div class="pro-img" @click="goto('product2')">
-                        <div class="pro-buy">
-                            <span class="buy-btn">了解更多</span>
-                            <span class="buy-btn">购买</span>
+                        <div class="phone-img" @click="goto('product2')">
+                            <img src="../assets/home/3.webp" alt="">
                         </div>
-                        <img src="../assets/phone-4.png" alt="">
-                    </div>
-                    <div class="pro-name">
-                       优畅享20
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </div>
         </div>
         <Footer />
@@ -105,151 +78,70 @@ export default {
 .home {
     width: 100%;
     overflow: hidden;
-
     .box-wrapper {
-        padding: torem(77) torem(102) 0;
-        display: flex;
-        justify-content: space-between;
-
-        .sider {
-            width: torem(367);
-
-            .sider-text {
-                width: torem(267);
-                background: #FF7272;
-                border-radius: 0 torem(45) torem(45) 0;
-                color: #fff;
-                height: torem(82);
-                font-size: torem(38);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-
+        padding: 0.5% 0;
+        background: #f2f2f2;
         .main {
             display: flex;
-            width: torem(1349);
-            justify-content: space-between;
-
-            .pro-box {
-                width: torem(600);
-
-                .pro-img {
-                    width: torem(600);
-                    position: relative;
-                    overflow: hidden;
-                    transition: .6s ease-out;
-
-                    .pro-buy {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(0, 0, 0, 0.4);
-                        opacity: 0;
-                        z-index: 1;
-                        display: flex;
-                        cursor: pointer;
-                        align-items: center;
-                        flex-direction: column;
-                        justify-content: center;
-                        -webkit-transition: opacity .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-                        .buy-btn {
-                            margin:torem(34) 0;
-                            background: #fff;
-                            border-radius: torem(30);
-                            width:torem(184);
-                            height: torem(56);
-                            line-height: torem(56);
-                            color:#333;
-                            font-size: torem(24);
-                            transition: .3s ease-out;
-                            transform: translateY(50px);
-                            &:last-child{
-                                transition: transform .3s ease-out .2s,opacity .3s ease-out,-webkit-transform .3s ease-out .2s;
-                            }
-                        }
-                    }
-
-                    &:hover {
-                        .pro-buy {
-                            opacity: 1;
-                            .buy-btn{
-                                transform: translateY(0)
-                            }
-                        }
-
-                        img {
-                            transform: scale(1.1);
-                            transition: .3s ease-out;
-                        }
-                    }
-                }
-
-                .pro-name {
-                    font-size: torem(24);
-                    color: #333;
-                    margin: torem(35) 0;
-                }
+            justify-content: center;
+            width: 100%;
+            .row{
+                width: 100%;
             }
-
-            .pro-box-con {
-                width: torem(272);
-
-                .pro-img {
-                    width: torem(272);
-                    overflow: hidden;
-                    position: relative;
-                    transition: .6s ease-out;
-                    .pro-buy {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        background: rgba(0, 0, 0, 0.4);
-                        opacity: 0;
-                        z-index: 1;
-                        display: flex;
+            ul{
+                display: flex;
+                justify-content: space-evenly;
+                li{
+                    display: flex;
+                    flex-direction: column;
+                    /*flex: 1;*/
+                    padding: 0;
+                    /*margin: 0 5px;*/
+                    background: #fff;
+                    width: 49%;
+                    .btns{
+                        margin-bottom: 50px;
+                        .more-btn{
+                            cursor: pointer;
+                            font-size: 1vw;
+                            border-radius: 2vw;
+                            border: 1px solid #000000;
+                            padding: 0.1vw 1vw;
+                            margin-top: 0.3vw;
+                            display: inline-block;
+                            margin: 0 1vw;
+                            color: #000000;
+                        }
+                        .buy-now{
+                            cursor: pointer;
+                            font-size: 1vw;
+                            border-radius: 2vw;
+                            border: 1px solid #000000;
+                            padding: 0.1vw 1vw;
+                            margin-top: 0.3vw;
+                            display: inline-block;
+                            margin: 0 1vw;
+                            background-color: #000000;
+                            color: #ffffff;
+                        }
+                    }
+                    .phone-name{
+                        margin: 50px auto 30px;
+                        height: 100px;
+                        img{
+                            height: 100%;
+                        }
+                    }
+                    .phone-img{
                         cursor: pointer;
-                        align-items: center;
-                        flex-direction: column;
-                        justify-content: center;
-                        -webkit-transition: opacity .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-
-                        .buy-btn {
-                            margin:torem(34) 0;
-                            background: #fff;
-                            border-radius: torem(30);
-                            width:torem(184);
-                            height: torem(56);
-                            line-height: torem(56);
-                            color:#333;
-                            font-size: torem(24);
-                            transition: .3s ease-out;
-                            transform: translateY(50px);
-                            &:last-child{
-                                transition: transform .3s ease-out .2s,opacity .3s ease-out,-webkit-transform .3s ease-out .2s;
-                            }
+                        margin: 0 auto;
+                        width: 360px;
+                        margin-bottom: 50px;
+                        /*height: 250px;*/
+                        img{
+                            width: 100%;
                         }
                     }
-
-                    &:hover {
-                        img {
-                            transform: scale(1.1);
-                            transition: .3s ease-out;
-                        }
-                    }
-
-                }
-
-                .pro-name {
-                    font-size: torem(24);
-                    color: #333;
-                    margin: torem(35) 0;
                 }
             }
         }
@@ -258,12 +150,68 @@ export default {
 @media screen and (max-width: 768px) {
    .home .box-wrapper{
         flex-direction: column;
-        .sider{
-            margin-bottom: 20px;
-        }
-        .main{
-            width: 100%;
-        }
+       .main {
+           display: flex;
+           justify-content: center;
+           width: 100%;
+           .row{
+               width: 100%;
+           }
+           ul{
+               display: flex;
+               justify-content: space-around;
+               li{
+                   display: flex;
+                   flex-direction: column;
+                   /*flex: 1;*/
+                   padding: 0;
+                   /*margin: 0 5px;*/
+                   background: #fff;
+                   width: 100%;
+                   margin-bottom: 0.5%;
+                   .btns{
+                       margin-bottom: 50px;
+                       .more-btn{
+                           font-size: 16px;
+                           border-radius: 16px;
+                           border: 1px solid #000000;
+                           padding: 5px 10px;
+                           margin-top: 0.3vw;
+                           display: inline-block;
+                           margin: 0 5vw;
+                           color: #000000;
+                       }
+                       .buy-now{
+                           font-size: 16px;
+                           border-radius: 16px;
+                           border: 1px solid #000000;
+                           padding: 5px 10px;
+                           margin-top: 0.3vw;
+                           display: inline-block;
+                           margin: 0 5vw;
+                           background-color: #000000;
+                           color: #ffffff;
+                       }
+                   }
+                   .phone-name{
+                       margin: 50px auto 30px;
+                       height: 100px;
+                       img{
+                           height: 100%;
+                       }
+                   }
+                   .phone-img{
+                       margin: 0 auto;
+                       width: 360px;
+                       margin-bottom: 50px;
+                       /*height: 250px;*/
+                       img{
+                           width: 100%;
+                       }
+                   }
+               }
+           }
+       }
     }
 }
 @media screen and (max-width: 750px) {
