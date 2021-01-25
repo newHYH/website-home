@@ -29,6 +29,11 @@
                     <h2 @click="goInfo(index)">{{item.name}}</h2>
                 </div>
             </div>
+            <div class="search-result" v-if="showNoResult">
+                <div class="result-col">
+                    <h2>暂无相关产品</h2>
+                </div>
+            </div>
         </div>
         <Footer />
     </div>
@@ -48,6 +53,7 @@ export default {
         return {
             searchText: '',
             showResult:false,
+            showNoResult:false,
             reList: [{
                 name: 'VP002 (11.0.1.106(C04E18R1P2)) 预置应用软件信息公示'
             }]
@@ -57,7 +63,11 @@ export default {
     methods: {
         handleSearch() {
             if (this.searchText.indexOf('优畅享20') != -1) {
+                this.showNoResult =false
                 this.showResult = true
+            }else{
+                this.showResult =false
+                this.showNoResult = true
             }
         },
         goInfo(index){

@@ -7,19 +7,19 @@
                     <div class="connect-item">
                         <p class="title">电话支持</p>
                         <div class="func-box call">
-                            <p>消费者服务电话4000118111</p>
+                            <p>消费者服务电话 400-011-8111</p>
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
-                    <div class="connect-item">
+                   <!--  <div class="connect-item">
                         <p class="title">在线支持</p>
-                        <div class="func-box online">
+                         <div class="func-box online">
                             <p>在线客服</p>
                         </div>
-                        <!-- <div class="func-box email">
+                         <div class="func-box email">
                             <p>邮件咨询</p>
                         </div>
- -->                    </div>
+                 </div> -->
                     <div class="connect-item">
                         <p class="title">线下支持</p>
                         <div class="func-box service pointer" @click="goto('service-network')">
@@ -50,7 +50,7 @@
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
-                    <div class="connect-item col-6">
+                   <!--  <div class="connect-item col-6">
                         <p class="title">在线支持</p>
                         <div class="func-box online">
                             <p>在线客服</p>
@@ -58,7 +58,7 @@
                         <div class="func-box email">
                             <p>邮件咨询</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="connect-item col-6">
                         <p class="title">线下支持</p>
                         <div class="func-box service pointer"  @click="goto('service-network')">
@@ -100,8 +100,8 @@
                 <p class="title">服务与支持</p>
                 <div class="each-item pointer" @click="goto('support')">保修政策</div>
                 <div class="each-item pointer" @click="goto('query-price')">维修备件价格</div>
-                <div class="each-item">联系我们</div>
-                <div class="each-item">服务隐私声明</div>
+               <!--  <div class="each-item">联系我们</div>
+                <div class="each-item">服务隐私声明</div> -->
             </div>
             <div class="item-box">
                 <p class="title">应用与下载</p>
@@ -111,7 +111,7 @@
             <div class="item-box">
                 <p class="title">关于我们</p>
                 <div class="each-item pointer"  @click="goto('about')">关于我们</div>
-                <div class="each-item">隐私</div>
+                <!-- <div class="each-item">隐私</div> -->
             </div>
         </div>
         <div class="container">
@@ -651,7 +651,7 @@ export default {
                 .connect-box{
                     padding-bottom: torem(42);
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-around;
                     .connect-item{
                         text-align: left;
                         .title{
@@ -777,7 +777,7 @@ export default {
             background: #FF7272;
             padding: torem(52) 0 torem(32) 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             .item-box{
                 width: torem(270);
                 max-width: torem(270);
