@@ -78,6 +78,92 @@ export default {
 /* mobile phone */
 @media screen and (min-width:320px) {
     .header{
+        height: 91px;
+        .container{
+            border-bottom: 1px solid #e5e5e5;
+        }
+        .fixed{
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+        .navigation{
+            position: relative;
+            width: 100%;
+            height: 70px;
+            padding: 0 22px;
+            .logo{
+                display: block;
+                width: 100%;
+                height: 30px;
+                top: 20px;
+                left: 12px;
+                margin-top: 20px;
+                text-align: left;
+                img{
+                    height: 100%;
+                    width: auto;
+                }
+            }
+            .product-tabs{
+                margin-top: 5px;
+                bottom: 0;
+                display: flex;
+                .tab-item{
+                    position: relative;
+                    margin-left: torem(81);
+                    &:first-child{
+                        margin-left: 0;
+                    }
+                    &.active{
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            bottom: -1px;
+                            left: 0;
+                            width: 100%;
+                            height: 3px;
+                            background: #FF7272;
+                            border-radius: 2px;
+                        }
+                    }
+                    &:hover{
+                        a{
+                            font-weight: 400;
+                            color: #000;
+                        }
+                    }
+                    &.active{
+                        a{
+                            font-size: 14px;
+                            font-family: PingFangSC-Medium, PingFang SC;
+                            font-weight: 500;
+                            color: #333333;
+                        }
+                    }
+                    a{
+                        font-size: 14px;
+                        font-family: PingFangSC-Regular, PingFang SC;
+                        font-weight: 400;
+                        color: #999999;
+                        line-height: 33px;
+                        height: 33px;
+                        display: block;
+                        padding: 0 0 2px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ipad */
+@media screen and (min-width:768px) {
+    .header{
         height: 61px;
         .container{
             border-bottom: 1px solid #e5e5e5;
@@ -104,7 +190,7 @@ export default {
                 height:25px;
                 top: 20px;
                 left: 12px;
-                margin-top: 30px;
+                margin-top: 20px;
                 margin-right: 12px;
             }
             .product-tabs{
@@ -193,11 +279,6 @@ export default {
             
         }
     }
-}
-
-/* ipad */
-@media screen and (min-width:768px) {
-
 }
 
 /* PC */
