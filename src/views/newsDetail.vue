@@ -35,12 +35,15 @@
             </div>
         </div>
         <Footer />
+        <ReturnTop/>
     </div>
 </template>
 
 <script>
     import HeaderA from '@/components/header.vue';
     import Footer from '@/components/footer.vue';
+    import ReturnTop from '@/components/return-top.vue';
+
     import { quryDetailByNewsId } from '@/api/index.js'
 
     export default {
@@ -48,7 +51,8 @@
         components: {
             // Header,
             HeaderA,
-            Footer
+            Footer,
+            ReturnTop
         },
         data(){
             return{

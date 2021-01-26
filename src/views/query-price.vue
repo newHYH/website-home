@@ -51,6 +51,7 @@
             </div>
         </div>
         <Footer></Footer>
+        <ReturnTop/>
     </div>
 </template>
 <script>
@@ -58,6 +59,8 @@ import { quryGoodsSku, quryGoodsTree } from '@/api/index.js'
 
 import HeaderA from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
+import ReturnTop from '@/components/return-top.vue';
+
 import dianchi from "../assets/dianchi.png";
 import houke from "../assets/houke.png";
 import houzhi from "../assets/houzhi.png";
@@ -69,7 +72,8 @@ export default {
     components: {
         // Header,
         HeaderA,
-        Footer
+        Footer,
+        ReturnTop
     },
     data() {
         return {
