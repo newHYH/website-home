@@ -21,6 +21,16 @@
         <div class="image-box container">
             <img class="image" src="@/assets/home/home-img01.webp" />
         </div>
+
+        <div class="title-box">U-MAGIC 发布会</div>
+
+        <div class="video-box container">
+            <!-- <video></video> -->
+            <div class="fake-video">
+                <img class="image" src="@/assets/home/fake-video.png" />
+                <div class="play-btn"></div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -60,6 +70,7 @@ export default {
                 },
                 pagination: {
                     el: '.banner-pagination',
+                    bulletElement: 'div',
                     bulletClass: 'banner-bullets'
                 }
             })
@@ -114,7 +125,8 @@ export default {
             .btn-right{
                 right: torem(30);
             }
-            .banner-pagination{
+            .banner-pagination,
+            .swiper-pagination-bullets{
                 position: absolute;
                 left: 0;
                 bottom: torem(40);
@@ -123,17 +135,46 @@ export default {
                 z-index: 10;
                 display: flex;
                 justify-content: center;
-            }
-            .banner-bullets{
-                display: block;
-                width: torem(114);
-                height: torem(4);
-                margin: 0 torem(8.5);
+                .banner-bullets{
+                    width: torem(114);
+                    height: torem(4);
+                    margin: 0 torem(8.5);
+                }
             }
         }
 
         .image-box{
             margin-top: torem(100);
+        }
+
+        .title-box{
+            width: 100%;
+            margin: torem(77) 0 torem(16);
+            font-size: 64px;
+            font-weight: 400;
+            color: #333333;
+            line-height: 90px;
+        }
+
+        .video-box{
+            .fake-video{
+                position: relative;
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+                .play-btn{
+                    position: absolute;
+                    width: torem(96);
+                    height: torem(96);
+                    background: url(../assets/home/video-play-btn.png) no-repeat;
+                    background-size: cover;
+                    top: 50%;
+                    left: 50%;
+                    margin: torem(-48) 0 0 torem(-48);
+                    cursor: pointer;
+                }
+            }
         }
     }
 }
