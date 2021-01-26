@@ -159,10 +159,10 @@ export default {
         .title-box{
             width: 100%;
             margin: torem(77) 0 torem(16);
-            font-size: 64px;
+            font-size: torem(64);
             font-weight: 400;
             color: #333333;
-            line-height: 90px;
+            line-height: torem(90);
         }
 
         .video-box{

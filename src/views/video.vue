@@ -1,5 +1,7 @@
 <template>
     <div class="video-page">
+        <Header />
+
         <div class="title-box">U-MAGIC 5G手机发布会</div>
 
         <div class="fake-video container">
@@ -30,13 +32,19 @@
                 </div>
             </div>
         </div>
+
+        <Footer />
     </div>
 </template>
 
 <script>
+import Header from '@/components/header.vue';
+import Footer from '@/components/footer.vue';
 export default {
     name: 'VideoPage',
     components: {
+        Header,
+        Footer
     },
     data() {
         return {
@@ -99,7 +107,7 @@ export default {
             .ch-box{
                 width: torem(690);
                 height: torem(620);
-                margin: 0 torem(4);
+                margin: 0 4px;
                 position: relative;
                 .video-box{
                     position: absolute;
