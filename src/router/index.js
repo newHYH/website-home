@@ -67,6 +67,10 @@ const routes = [{
         path: '/newsDetail',
         component: () => import( /* webpackChunkName: "about" */ '../views/newsDetail.vue')
     },
+    {
+        path: '/newsList',
+        component: () => import( /* webpackChunkName: "about" */ '../views/newsList.vue')
+    },
 
     {
         path: "/404",
