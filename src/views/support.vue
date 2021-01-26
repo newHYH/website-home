@@ -87,7 +87,7 @@
 </template>
 <script>
 // import Header from '@/components/header.vue';
-import HeaderA from '@/components/headerA.vue';
+import HeaderA from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 
 export default {

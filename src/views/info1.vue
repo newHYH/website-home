@@ -1584,7 +1584,7 @@
 </template>
 
 <script>
-    import HeaderA from '@/components/headerA.vue';
+    import HeaderA from '@/components/header.vue';
     import Footer from '@/components/footer.vue';
     import ReturnTop from '@/components/return-top.vue';
 

@@ -14,7 +14,7 @@
     </div>
 </template>
 <script>
-import HeaderA from '@/components/headerA.vue';
+import HeaderA from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 import { quryQuestion } from '@/api/index.js'
 export default {
