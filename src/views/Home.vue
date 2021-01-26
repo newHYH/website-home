@@ -1,282 +1,191 @@
 <template>
     <div class="home">
-        <Header />
-        <div class="box-wrapper">
-            <div class="main">
-                <ul class="row">
-                    <li>
-                        <div class="phone-name">
-                            <img src="../assets/home/1.webp" alt="">
-                        </div>
-                        <div class="btns">
-                            <div class="more-btn" @click="goto('product1')">了解更多</div>
-                            <div class="buy-now" @click="goto('product1')">立即购买</div>
-                        </div>
-                        <div class="phone-img" @click="goto('product1')">
-                            <img src="../assets/home/4.webp" alt="">
-                        </div>
-                    </li>
-                    <li>
-                        <div class="phone-name">
-                            <img src="../assets/home/2.webp" alt="">
-                        </div>
-                        <div class="btns">
-                            <div class="more-btn" @click="goto('product2')">了解更多</div>
-                            <div class="buy-now" @click="goto('product2')">立即购买</div>
-                        </div>
-                        <div class="phone-img" @click="goto('product2')">
-                            <img src="../assets/home/3.webp" alt="">
-                        </div>
-                    </li>
-                </ul>
+        <div class="banner-box">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="@/assets/home/banner_20.png" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="@/assets/home/banner_20plus.png" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="banner-btn btn-left" ></div>
+            <div class="banner-btn btn-right" ></div>
+
+            <div class="banner-pagination"></div>
+        </div>
+
+        <div class="image-box container">
+            <img class="image" src="@/assets/home/home-img01.webp" />
+        </div>
+
+        <div class="title-box">U-MAGIC 发布会</div>
+
+        <div class="video-box container">
+            <!-- <video></video> -->
+            <div class="fake-video">
+                <img class="image" src="@/assets/home/fake-video.png" />
+                <div class="play-btn"></div>
             </div>
         </div>
-        <Footer />
     </div>
 </template>
+
 <script>
-import Header from '@/components/header.vue';
-import Footer from '@/components/footer.vue';
+import Swiper from 'swiper'
 
 export default {
     name: 'Home',
     components: {
-        Header,
-        Footer
     },
     data() {
         return {
-            headerTabs: [
-                {
-                    name: '手机',
-                    link: '/home',
-                    active: true
-                },
-                {
-                    name: '售后服务',
-                    link: '/serve-home',
-                    active: false
-                }
-            ]
         }
     },
+    computed: {
+    },
     mounted() {
+        this.setupSwiper()
     },
     methods: {
         goto(path){
             this.$router.push(path)
-        }
+        },
+        setupSwiper(){
+            new Swiper('.swiper-container', {
+                autoplay: {
+                    delay: 3500,
+                    stopOnLastSlide: false,
+                    disableOnInteraction: true,
+                },
+                loop: true,
+                slidesPerView : 1,
+                slidesPerGroup : 1,
+                navigation: {
+                    nextEl: '.btn-right',
+                    prevEl: '.btn-left',
+                },
+                pagination: {
+                    el: '.banner-pagination',
+                    bulletElement: 'div',
+                    bulletClass: 'banner-bullets'
+                }
+            })
+        },
+        bannerToLf(){},
+        bannerToRt(){}
     }
 }
 </script>
 <style scoped lang=scss>
 @import "@/sass/common.scss";
+@import '../../node_modules/swiper/css/swiper.css';
 
-/*功能title样式*/
-.home {
-    width: 100%;
-    overflow: hidden;
-    .box-wrapper {
-        padding: 0.5% 0;
-        background: #f2f2f2;
-        .main {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-            .row{
+/* mobile phone */
+@media screen and (min-width:320px) {
+    .home {
+        width: 100%;
+        .banner-box{
+            width: torem(1920);
+            height: torem(992);
+            position: relative;
+            .swiper-container{
                 width: 100%;
-            }
-            ul{
-                display: flex;
-                justify-content: space-evenly;
-                li{
-                    display: flex;
-                    flex-direction: column;
-                    /*flex: 1;*/
-                    padding: 0;
-                    /*margin: 0 5px;*/
-                    background: #fff;
-                    width: 49%;
-                    .btns{
-                        margin-bottom: 50px;
-                        .more-btn{
-                            cursor: pointer;
-                            font-size: 1vw;
-                            border-radius: 2vw;
-                            border: 1px solid #000000;
-                            padding: 0.1vw 1vw;
-                            margin-top: 0.3vw;
-                            display: inline-block;
-                            margin: 0 1vw;
-                            color: #000000;
-                        }
-                        .buy-now{
-                            cursor: pointer;
-                            font-size: 1vw;
-                            border-radius: 2vw;
-                            border: 1px solid #000000;
-                            padding: 0.1vw 1vw;
-                            margin-top: 0.3vw;
-                            display: inline-block;
-                            margin: 0 1vw;
-                            background-color: #000000;
-                            color: #ffffff;
-                        }
-                    }
-                    .phone-name{
-                        margin: 50px auto 30px;
-                        height: 100px;
+                height: 100%;
+                .swiper-wrapper{
+                    width: 100%;
+                    height: 100%;
+                    .swiper-slide{
+                        width: 100%;
+                        height: 100%;
                         img{
+                            width: 100%;
                             height: 100%;
                         }
                     }
-                    .phone-img{
-                        cursor: pointer;
-                        margin: 0 auto;
-                        width: 360px;
-                        margin-bottom: 50px;
-                        /*height: 250px;*/
-                        img{
-                            width: 100%;
-                        }
-                    }
+                }
+            }
+            .banner-btn{
+                position: absolute;
+                background: url('../assets/home/banner-btn.png') no-repeat;
+                background-size: cover;
+                width: torem(42);
+                height: torem(79);
+                top: torem(455);
+                z-index: 10;
+                cursor: pointer;
+            }
+            .btn-left{
+                left: torem(30);
+                transform: rotate(180deg);
+            }
+            .btn-right{
+                right: torem(30);
+            }
+            .banner-pagination,
+            .swiper-pagination-bullets{
+                position: absolute;
+                left: 0;
+                bottom: torem(40);
+                width: 100%;
+                height: torem(4);
+                z-index: 10;
+                display: flex;
+                justify-content: center;
+                .banner-bullets{
+                    width: torem(114);
+                    height: torem(4);
+                    margin: 0 torem(8.5);
                 }
             }
         }
-    }
-}
-@media screen and (max-width: 768px) {
-   .home .box-wrapper{
-        flex-direction: column;
-       .main {
-           display: flex;
-           justify-content: center;
-           width: 100%;
-           .row{
-               width: 100%;
-           }
-           ul{
-               display: flex;
-               justify-content: space-around;
-               li{
-                   display: flex;
-                   flex-direction: column;
-                   /*flex: 1;*/
-                   padding: 0;
-                   /*margin: 0 5px;*/
-                   background: #fff;
-                   width: 100%;
-                   margin-bottom: 0.5%;
-                   .btns{
-                       margin-bottom: 50px;
-                       .more-btn{
-                           font-size: 16px;
-                           border-radius: 16px;
-                           border: 1px solid #000000;
-                           padding: 5px 10px;
-                           margin-top: 0.3vw;
-                           display: inline-block;
-                           margin: 0 5vw;
-                           color: #000000;
-                       }
-                       .buy-now{
-                           font-size: 16px;
-                           border-radius: 16px;
-                           border: 1px solid #000000;
-                           padding: 5px 10px;
-                           margin-top: 0.3vw;
-                           display: inline-block;
-                           margin: 0 5vw;
-                           background-color: #000000;
-                           color: #ffffff;
-                       }
-                   }
-                   .phone-name{
-                       margin: 50px auto 30px;
-                       height: 100px;
-                       img{
-                           height: 100%;
-                       }
-                   }
-                   .phone-img{
-                       margin: 0 auto;
-                       width: 360px;
-                       margin-bottom: 50px;
-                       /*height: 250px;*/
-                       img{
-                           width: 100%;
-                       }
-                   }
-               }
-           }
-       }
-    }
-}
-@media screen and (max-width: 750px) {
-   .home .box-wrapper{
-        .sider{
-            width:100%;
-            .sider-text{
-                font-size:1rem;
-                height:auto;
-                width:100%;
-                border-radius: 0 0.4rem 0.4rem 0;
-            }
-        }
-        .main{
-            flex-wrap: wrap;
-            .pro-box{
-                width:100%;
-                .pro-img{
-                    width:100%;
-                    .pro-buy{
-                        .buy-btn{
-                            margin-bottom:12px;
-                            width:184px;
-                            height:56px;
-                            line-height: 56px;
-                            font-size:22px;
-                            border-radius: 30px;
-                        }
-                    }
-                }
-                .pro-name{
-                    font-size:0.8rem;
-                }
-                margin-bottom: 0.4rem;
-            }
-            .pro-box-con{
-                width:100%;
-                .pro-con{
-                    margin-bottom: 0.4rem;
-                }
-                .pro-img{
-                    width:100%;
-                    .pro-buy{
-                        .buy-btn{
-                            margin-bottom:12px;
-                            width:184px;
-                            height:56px;
-                            line-height: 56px;
-                            font-size:22px;
-                            border-radius: 30px;
-                        }
-                    }
-                    &:hover{
-                        .pro-buy {
-                            opacity: 1;
-                            .buy-btn{
-                                transform: translateY(0)
-                            }
-                        }
-                    }
-                }
-                .pro-name{
-                    font-size:0.8rem;
-                }
-            }
 
+        .image-box{
+            margin-top: torem(100);
+        }
+
+        .title-box{
+            width: 100%;
+            margin: torem(77) 0 torem(16);
+            font-size: 64px;
+            font-weight: 400;
+            color: #333333;
+            line-height: 90px;
+        }
+
+        .video-box{
+            .fake-video{
+                position: relative;
+                img{
+                    width: 100%;
+                    height: auto;
+                }
+                .play-btn{
+                    position: absolute;
+                    width: torem(96);
+                    height: torem(96);
+                    background: url(../assets/home/video-play-btn.png) no-repeat;
+                    background-size: cover;
+                    top: 50%;
+                    left: 50%;
+                    margin: torem(-48) 0 0 torem(-48);
+                    cursor: pointer;
+                }
+            }
         }
     }
+}
+
+/* ipad pro & PC */
+@media screen and (min-width:1024px) {
+
+}
+
+/* PC & bigScreen*/
+@media screen and (min-width:1200px) {
+
 }
 </style>

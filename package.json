@@ -14,8 +14,10 @@
     "bootstrap": "^4.5.3",
     "core-js": "^3.6.5",
     "jquery": "^3.5.1",
+    "swiper": "^5.4.5",
     "vant": "^3.0.1",
     "vue": "^3.0.0",
+    "vue-awesome-swiper": "^4.1.1",
     "vue-router": "^4.0.1"
   },
   "devDependencies": {
