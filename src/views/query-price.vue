@@ -4,61 +4,66 @@
         <div class="head-img">
             备件价格查询
         </div>
-        <!-- <div class="device-sel row">
+        <div class="device-sel row">
             <div class="sel-wrap col-sm-12 col-md-12 col-lg-12">
-                选择设备信息：
-                <div class="btn-select" @click.stop="handleClkSelDevice('')">
-                    <div class="selected-name">{{selectedDeviceName||'选择设备'}}</div>
-                    <div class="arrow-down" :class="openSelMenu?'rotateTop':'rotateDown'"></div>
-                    <div class="down-list animate__animated" :class="openSelMenu?'animate__fadeInUp':''">
-                        <div class="sel-device-name" @click.stop="handleClkSelDevice(devType.typeName)" v-for="(devType,index) in deviceTypeList" :key="index">
-                            {{devType.typeName}}
-                        </div>
-                    </div>
+                <div>选择机型：</div>
+                <div class="btn-select">
+                    <img src="../assets/select-icon-2.png" alt="">
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="selection-part">
-            <div class="device-list">
-                <ul class="row">
-                    <li class="col-sm-12 col-md-6 col-lg-3" v-for="(item,index) in deviceList" :key="index">
-                        <div class="content-wrap">
-                            <img class="device-img" :src="item.imageUrl?item.imageUrl:require('../assets/select-'+Number(index+1)+'.png')" :title="item.name" :alt="item.name" />
-                            <div class="device-name">
-                                {{item.name}}
-                            </div>
+            <div class="search-wrap">
+                <div class="input-warp col-sm-12 col-md-12 col-lg-12">
+                    <div class="input"  @click="handleShowList(1)">{{currentPhoneName||'请选择手机型号'}}</div>
+                    <span class="search-icon">
+                        <img v-if="!showPhoneListFlag" src="../assets/search-icon.png" alt="">
+                        <span v-if="showPhoneListFlag" @click="handleShowList(2)">X</span>
+                    </span>
+                </div>
+                <div class="phone-list-wrap col-sm-12 col-md-12 col-lg-12" :class="showPhoneListFlag?'show':'hide'">
+                    <li class="phone-type"
+                        v-for="(phoneType,index) in phoneList" :key="index">
+                        <div class="type-title">
+                            {{phoneType.typeName}}
+                        </div>
+                        <div class="phone-list" v-for="(phones,index2) in phoneType.skuList" :key="index2" @click="selPhoneName(phones)">
+                            {{phones.goodsName}}
+                        </div>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="phone-price-wrap" v-show="currentPhoneName">
+            <div class="current-phone-name">{{currentPhoneName}}</div>
+            <div class="price-list">
+                <ul>
+                    <li v-for="(price,index) in priceList" :key="index">
+                        <div class="icons">
+                            <img src="../assets/select-icon-1.png" alt="">
+                        </div>
+                        <div class="price-detai">
+                            <div class="price-name">{{price.partName}}</div>
+                            <div class="price">{{price.partPrice}}</div>
                         </div>
                     </li>
                 </ul>
-            </div>
-            <div class="search-wrap">
-                <div class="input-warp col-sm-12 col-md-12 col-lg-12">
-                    <input type="text" placeholder="请输入您的手机型号信息">
-                </div>
-                <div class="phone-list-wrap col-sm-12 col-md-12 col-lg-12">
-                    <li class="phone-type" v-for="(phoneType,index) in phoneList" :key="index">
-                        <div class="type-title" @click="handleClickPhoneType(index)">
-                            <div class="extend" :class="currentPhoneType == index?'is-extend':''"></div>
-                            <div class="phone-name">
-                                {{phoneType.phoneTypeName}}
-                            </div>
-                        </div>
-                        <ul v-show="currentPhoneType == index">
-                            <li class="phone" @click="gotoPriceDetail(phone.id)" v-for="(phone,idx) in phoneType.phoneTypeList" :key="idx">
-                                {{phone.phoneName}}
-                            </li>
-                        </ul>
-                    </li>
-                </div>
             </div>
         </div>
         <Footer></Footer>
     </div>
 </template>
 <script>
-import { quryGoodsType, quryGoodsTree } from '@/api/index.js'
+import { quryGoodsSku, quryGoodsTree } from '@/api/index.js'
+
 import HeaderA from '@/components/headerA.vue';
 import Footer from '@/components/footer.vue';
+import img6 from "../assets/select-icon-6.png";
+import img1 from "../assets/select-icon-1.png";
+import img3 from "../assets/select-icon-3.png";
+import img4 from "../assets/select-icon-4.png";
+import img7 from "../assets/select-icon-6.png";
+import img5 from "../assets/select-icon-5.png";
 export default {
     name: "query-price",
     components: {
@@ -68,7 +73,8 @@ export default {
     },
     data() {
         return {
-            headerTabs: [{
+            headerTabs: [
+                {
                     name: '手机',
                     link: '/home',
                     active: false
@@ -79,94 +85,177 @@ export default {
                     active: true
                 }
             ],
-            deviceList: [],
-            deviceTypeList: [{
-                    typeName: '华为',
-                },
+            phoneList: [
                 {
-                    typeName: '小米',
+                    "id": 5,
+                    "typeName": "优畅享20 Plus 6GB+128GB 双卡 全网通版 (XXXX)",
+                    "typeCode": "005",
+                    "skuList": [
+                        {
+                            "id": 2,
+                            "goodsName": "优畅享20 Plus 6GB+128GB 双卡 全网通版 (XXXX) 幻夜黑",
+                            "typeId": 5,
+                            "creatTime": "2021-01-18 03:33:40",
+                            "cellPrice": 1,
+                            "specialPrice": 1,
+                            "chgBoardPrice": 1,
+                            "backPrice": 1,
+                            "screenPrice": 1,
+                            "hboardPrice": 1,
+                            "fcameraPrice": 1,
+                            "rcameraPrice": 1
+                        },
+                        {
+                            "id": 3,
+                            "goodsName": "优畅享20 Plus 6GB+128GB 双卡 全网通版 (XXXX) 星河银",
+                            "typeId": 5,
+                            "creatTime": "2021-01-18 03:36:43",
+                            "cellPrice": 1,
+                            "specialPrice": 1,
+                            "chgBoardPrice": 1,
+                            "backPrice": 1,
+                            "screenPrice": 1,
+                            "hboardPrice": 1,
+                            "fcameraPrice": 1,
+                            "rcameraPrice": 1
+                        }
+                    ]
                 }
             ],
-            phoneList: [{
-                    phoneTypeName: '麦芒1 全网通版 6GB+64GB',
-                    phoneTypeList: [{
-                            phoneName: '麦芒1 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒12 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                        {
-                            phoneName: '麦芒13 全网通版 6GB+64GB (SNE-AL00)',
-                        },
-                    ]
-                },
-
-            ],
             selectedDeviceName: '',
-            openSelMenu: false,
-            currentPhoneType: 0,
+            showPhoneListFlag: false,
+            currentPhoneName: '', //当前选择的手机名称
+            priceList:[],
+            phoneId:'',
         }
     },
     mounted() {
+        // console.log('phoneList', this.phoneList)
         this.getData()
     },
     methods: {
         getData() {
-            quryGoodsType().then(res => {
-                if (res.RESP_CODE == '0000') {
-                    let list = []
-                    res.data.forEach((item) => {
-                        let params = {
-                            name: item.typeName,
-                            
-                        }
-                        list.push(params)
-                    })
-                    this.deviceList = list
-                }
-            })
             quryGoodsTree().then(res => {
                 if (res.RESP_CODE == '0000') {
-                    let list = []
-                    res.data.forEach(item => {
-                        let obj = {
-                            phoneTypeName: item.typeName,
-                            phoneTypeList: []
-                        }
-                        item.skuList.forEach(child => {
-                            let params = {
-                                phoneName: child.goodsName,
-                                id: child.id
-                            }
-                            obj.phoneTypeList.push(params)
-                        })
-                        list.push(obj)
-                    })
-                    this.phoneList = list
+                    console.log(res.data)
+                    this.phoneList = res.data
                 }
             })
         },
-        handleClkSelDevice(name) {
-            this.openSelMenu = !this.openSelMenu
-            this.selectedDeviceName = name
+        handleShowList(type){
+            // 点击输入框
+            if(type == 1){
+                if(this.showPhoneListFlag == true){
+                    return
+                } else {
+                    this.showPhoneListFlag = !this.showPhoneListFlag
+                }
+            } else {
+                this.showPhoneListFlag = !this.showPhoneListFlag
+            }
         },
-        handleClickPhoneType(index) {
-            this.currentPhoneType = index
+        selPhoneName(phones){
+            this.showPhoneListFlag = false
+            this.currentPhoneName = phones.goodsName
+            this.phoneId = phones.id
+            this.getPrice(this.phoneId)
         },
-        gotoPriceDetail(id) {
-            this.$router.push('/price-detail?id=' + id)
+        getPrice(phoneId){
+            // let data = {
+            //     "id": 1,
+            //     "goodsName": "测试 蓝色",
+            //     "typeId": 1,
+            //     "creatTime": "2021-01-05T10:58:53.000+0000",
+            //     "cellPrice": 1,  //-- 电池价格
+            //     "specialPrice": 1, //-- 特惠价格
+            //     "chgBoardPrice": 1, //-- 主板更换价格
+            //     "backPrice": 1, //-- 后盖价格
+            //     "screenPrice": 1, //-- 屏幕组件价格
+            //     "fcameraPrice": 1, //-- 前置摄像头价格
+            //     "rcameraPrice": 1, //-- 后置摄像头价格
+            //     "hboardPrice": 1 //-- 主板惠修价格
+            // }
+
+            let params = {
+                id: phoneId
+            }
+            quryGoodsSku(params).then(res => {
+                if (res.RESP_CODE == '0000') {
+                    let data = res.data[0]
+                    this.priceList = []
+                    let obj = {}
+                    for(let keys in data){
+                        switch (keys) {
+                            case  'cellPrice':
+                                obj = {
+                                    partName: '电池',
+                                    partPrice: '¥'+ data[keys]||'敬请期待…',
+                                    img: '',
+                                }
+                                this.priceList.push(obj)
+                                break;
+                            case  'specialPrice':
+                                obj = {
+                                    partName: '特惠价格',
+                                    partPrice: '¥'+ data[keys]||'敬请期待…',
+                                    img: '',
+                                }
+                                this.priceList.push(obj)
+                                break;
+                            case  'chgBoardPrice':
+                                obj = {
+                                    partName: '主板',
+                                    partPrice: '¥'+ data[keys]||'敬请期待…',
+                                    img: '',
+                                }
+                                this.priceList.push(obj)
+                                break;
+                            case  'backPrice':
+                                obj = {
+                                    partName: '后盖',
+                                    partPrice: '¥'+ data[keys]||'敬请期待…',
+                                    img: '',
+                                }
+                                this.priceList.push(obj)
+                                break;
+                            case  'screenPrice':
+                                obj = {
+                                    partName: '屏幕',
+                                    partPrice: '¥'+ data[keys]||'敬请期待…',
+                                    img: '',
+                                }
+                                this.priceList.push(obj)
+                                break;
+                            case  'fcameraPrice':
+                                obj = {
+                                    partName: '前置摄像头',
+                                    partPrice: '¥'+ data[keys]||'敬请期待…',
+                                    img: '',
+                                }
+                                this.priceList.push(obj)
+                                break;
+                            case  'rcameraPrice':
+                                obj = {
+                                    partName: '后置摄像头',
+                                    partPrice: '¥'+ data[keys]||'敬请期待…',
+                                    img: '',
+                                }
+                                this.priceList.push(obj)
+                                break;
+                        }
+                    }
+                    console.log('priceList', this.priceList)
+                }
+            })
         }
     }
 }
 </script>
 <style scoped lang="scss">
 @import "./../sass/common.scss";
-
-/*@media screen and (min-width:1440px){*/
 .query-price {
     width: 100%;
     overflow: hidden;
-
     .head-img {
         height: torem(633);
         background: url('../assets/banner-1.png');
@@ -180,409 +269,346 @@ export default {
     }
 
     .device-sel {
+        width: 70%;
+        margin: torem(40) auto;
         display: flex;
-        align-items: center;
         justify-content: flex-start;
-        margin: torem(40) 0 torem(20) torem(100);
-
         .sel-wrap {
             /*width: torem(434);*/
             /*height: torem(60);*/
             font-size: torem(29);
+            padding: 0;
             display: flex;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             justify-content: flex-start;
 
             .btn-select {
+                margin-top: torem(14);
                 cursor: pointer;
-                position: relative;
-                display: flex;
-                align-items: center;
-                width: 30%;
-                height: torem(57);
-                font-size: torem(24);
-                color: #ccc;
-                border: torem(1) solid #e6e6e6;
+                width: torem(130);
+                height: torem(130);
                 border-radius: torem(8);
-                padding-left: torem(25);
-
-                .selected-name {
-                    font-size: torem(24);
-                    font-weight: 400;
-                    color: #999999;
-                    line-height: torem(33);
-                }
-
-                .arrow-down {
-                    position: absolute;
-                    top: torem(23);
-                    right: torem(25);
-                    width: torem(18);
-                    height: torem(11);
-                    background: url("../assets/xiala.png");
-                    background-size: 100% 100%;
-                }
-
-                .rotateTop {
-                    transform: rotate(-180deg);
-                    transition: 1s;
-                }
-
-                .rotateDown {
-                    transform: rotate(0deg);
-                    transition: 1s;
-                }
-
-                .down-list {
-                    opacity: 0;
-                    width: 100%;
-                    position: absolute;
-                    top: torem(57);
-                    left: 0;
-                    display: flex;
-                    flex-direction: column;
-                    border: torem(1) solid #e6e6e6;
-                    border-radius: torem(8);
-                    background: #fff;
-                    z-index: 99;
-
-                    .sel-device-name {
-                        height: torem(57);
-                        line-height: torem(57);
-                        text-align: left;
-                        padding-left: torem(25);
-                        color: #000;
-                    }
-
-                    .sel-device-name:hover {
-                        color: #007AFF;
-                    }
+                border: torem(1) solid #666666;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                    width: torem(24);
+                    height: torem(45);
                 }
             }
-
-            /*.btn-select .cur-select {*/
-            /*    display: inline-block;*/
-            /*    text-align: left;*/
-            /*    padding-left: torem(25);*/
-            /*    width: 100%;*/
-            /*    height: 100%;*/
-            /*    font: torem(20);*/
-            /*    line-height: torem(60);*/
-            /*}*/
-            /*!*.btn-select:hover .cur-select {*!*/
-            /*!*    background-color: #f90;*!*/
-            /*!*}*!*/
-            /*.btn-select select {*/
-            /*    position: absolute;*/
-            /*    top: 0;*/
-            /*    left: 0;*/
-            /*    width: 100%;*/
-            /*    height: 100%;*/
-            /*    opacity: 0;*/
-            /*    appearance:none;*/
-            /*    -moz-appearance:none; !* Firefox *!*/
-            /*    -webkit-appearance:none; !* Safari 和 Chrome *!*/
-            /*}*/
-            /*.btn-select select option {*/
-            /*    text-indent: 10px;*/
-            /*}*/
-            /*.btn-select select option:hover {*/
-            /*    background-color: #999;*/
-            /*    color: #fff;*/
-            /*}*/
         }
     }
 
     .selection-part {
-        width: 100%;
-        padding: 0 torem(100);
-        margin-bottom: torem(77);
-
-        .device-list {
-            margin-top: torem(40);
-
-            ul {
-                margin-bottom: torem(48);
-
-                li {
-                    /*display: inline-block;*/
-                    cursor: pointer;
-                    margin-top: torem(40);
-
-                    .content-wrap {
-                        margin: 0 auto;
-                        width: 93%;
-                        /*height: torem(352);*/
-                        /*border: 1px solid #ccc;*/
-                        border-radius: torem(16);
-                        box-shadow: 0 torem(7) torem(25) 0 rgba(255, 0, 31, 0.14);
-                    }
-
-                    .content-wrap:hover .device-name {
-                        color: #007AFF;
-                    }
-
-                    .device-img {
-                        width: torem(259);
-                        height: torem(259);
-                        margin-top: torem(-32);
-                        margin-bottom: torem(32);
-                        border-radius: torem(16);
-                        box-shadow: torem(7) 0 torem(25) 0 rgba(133, 133, 133, 0.14);
-                    }
-
-                    .device-name {
-                        font-size: torem(39);
-                        height: torem(75);
-                        font-weight: 600;
-                        color: #333333;
-                    }
-                }
-            }
-        }
-
+        width: 70%;
+        margin: 0 auto;
         .search-wrap {
             .input-warp {
                 padding: 0;
-                margin-bottom: torem(1);
-
-                input {
+                margin-bottom: torem(20);
+                position: relative;
+                .input {
                     width: 100%;
                     height: torem(57);
+                    line-height: torem(57);
+                    text-align: left;
+                    color: #999;
                     background: #FFFFFF;
                     border-radius: torem(8);
                     border: torem(1) solid #E6E6E6;
                     font-size: torem(24);
                     padding-left: torem(40);
-                    appearance: none;
-                    -moz-appearance: none;
-                    /* Firefox */
-                    -webkit-appearance: none;
-                    /* Safari 和 Chrome */
+                }
+                .search-icon{
+                    width: torem(22);
+                    height: torem(22);
+                    position: absolute;
+                    right: torem(20);
+                    top: torem(18);
+                    cursor: pointer;
                 }
             }
-
+            .hide{
+                max-height: 0!important;
+                transition: max-height 1s;
+            }
+            .show{
+                max-height: 400px!important;
+                transition: max-height 1s;
+            }
             .phone-list-wrap {
                 font-size: torem(24);
                 font-weight: 400;
-                color: #666666;
-                max-height: torem(443);
-                overflow: scroll;
-                background: #F5F5F5;
-
+                color: #333;
+                max-height: 0;
+                overflow: hidden;
                 .phone-type {
                     text-align: left;
                     line-height: torem(53);
                     display: flex;
                     flex-direction: column;
                     cursor: pointer;
-
                     .type-title {
                         display: flex;
                         justify-content: flex-start;
                         align-items: center;
-
-                        .extend {
-                            width: torem(9);
-                            height: torem(15);
-                            background: url("../assets/arrow-right.png") no-repeat;
-                            background-size: 100% 100%;
-                            margin-right: torem(10);
-                        }
-
-                        .is-extend {
-                            width: torem(15);
-                            height: torem(10);
-                            background: url("../assets/arrow-bottom.png") no-repeat;
-                            background-size: 100% 100%;
-                            margin-right: torem(10);
-                        }
                     }
-
-                    .phone {
+                    .phone-list{
                         text-align: left;
                         padding-left: torem(25);
                         height: torem(53);
                         line-height: torem(53);
-                        color: #999;
+                        color: #333;
                         cursor: pointer;
                     }
-
-                    .phone:hover {
-                        color: #007AFF;
+                    .phone-list:hover {
+                        color: #E60027;
+                    }
+                }
+            }
+        }
+    }
+    .phone-price-wrap{
+        width: 70%;
+        margin: torem(50) auto;
+        .current-phone-name{
+            margin-bottom: torem(50);
+            width: 100%;
+            text-align:left;
+            font-size: torem(34);
+            font-weight: 600;
+            color: #333333;
+            line-height: torem(33);
+        }
+        ul{
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            li{
+                width: 30%;
+                height: torem(265);
+                display: flex;
+                justify-content: space-evenly;
+                align-items: flex-start;
+                border: torem(1) solid #666;
+                padding: torem(50) torem(30);
+                margin-bottom: torem(35);
+                margin-right: torem(35);
+                border-radius: torem(8);
+                .icons{
+                    width: 40%;
+                    height: 100%;
+                    img{
+                        width: torem(62);
+                        height: torem(62);
+                    }
+                }
+                .price-detai{
+                    display: flex;
+                    height: 100%;
+                    flex: 1;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    .price-name{
+                        font-size: torem(34);
+                        font-weight: 500;
+                        color: #333333;
+                        line-height: torem(48);
+                        margin-bottom: torem(40);
+                    }
+                    .price{
+                        font-size: torem(31);
+                        font-weight: 400;
+                        color: #333333;
+                        line-height: torem(44);
                     }
                 }
             }
         }
     }
 }
-
-/*}*/
 @media screen and (max-width: 750px) {
     .query-price {
-        .device-sel {
+        width: 100%;
+        overflow: hidden;
+        .head-img {
+            height: torem(633);
+            background: url('../assets/banner-1.png');
+            background-size: 100% 100%;
+            font-size: torem(69);
+            font-weight: 600;
+            color: #FFFFFF;
             display: flex;
+            justify-content: center;
             align-items: center;
-            justify-content: flex-start;
-            margin: 20px 0 10px 0px;
+        }
 
+        .device-sel {
+            width: 90%;
+            margin: 40px auto;
+            display: flex;
+            justify-content: flex-start;
             .sel-wrap {
-                /*width: torem(434);*/
-                /*height: torem(60);*/
-                font-size: 15px;
+                font-size: 16px;
+                padding: 0;
                 display: flex;
-                align-items: center;
+                flex-direction: column;
+                align-items: flex-start;
                 justify-content: flex-start;
 
                 .btn-select {
-                    position: relative;
-                    display: inline-block;
-                    width: 50%;
-                    font-size: 12px;
-                    color: #ccc;
-                    border: torem(1) solid #ccc;
-                    border-radius: torem(5);
-                    appearance: none;
-                    -moz-appearance: none;
-                    /* Firefox */
-                    -webkit-appearance: none;
-                    /* Safari 和 Chrome */
-                }
-
-                .btn-select .cur-select {
-                    display: inline-block;
-                    text-align: left;
-                    padding-left: 25px;
-                    width: 100%;
-                    height: 100%;
-                    font-size: 12px;
-                    line-height: 30px;
-                }
-
-                /*.btn-select:hover .cur-select {*/
-                /*    background-color: #f90;*/
-                /*}*/
-                .btn-select select {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    opacity: 0;
-                    appearance: none;
-                    -moz-appearance: none;
-                    /* Firefox */
-                    -webkit-appearance: none;
-                    /* Safari 和 Chrome */
-                }
-
-                .btn-select select option {
-                    text-indent: 10px;
-                }
-
-                .btn-select select option:hover {
-                    background-color: #999;
-                    color: #fff;
+                    margin-top: 14px;
+                    cursor: pointer;
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 8px;
+                    border: 1px solid #666666;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        width: 34px;
+                        height: 35px;
+                    }
                 }
             }
         }
 
         .selection-part {
-            .device-list {
-                ul {
-                    li {
-                        margin-top: 40px !important;
-
-                        .content-wrap {
-                            .device-img {
-                                width: 259px;
-                                height: 259px;
-                                margin-top: -32px;
-                                margin-bottom: 32px;
-                                border-radius: 16px;
-                                box-shadow: 7px 0 25px 0 rgba(133, 133, 133, 0.14);
-                            }
-
-                            .device-name {
-                                font-size: 20px;
-                                height: 50px;
-                                font-weight: 600;
-                                color: #333333;
-                            }
+            width: 90%;
+            margin: 0 auto;
+            .search-wrap {
+                .input-warp {
+                    padding: 0;
+                    margin-bottom: 10px;
+                    position: relative;
+                    .input {
+                        width: 100%;
+                        height: 30px;
+                        line-height: 30px;
+                        background: #FFFFFF;
+                        border-radius: 8px;
+                        border: 1px solid #E6E6E6;
+                        font-size: 12px;
+                        padding: 0 25px 0 10px;
+                        overflow-x: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    .search-icon{
+                        width: 12px;
+                        height: 12px;
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                        cursor: pointer;
+                        font-size: 12px;
+                    }
+                }
+                .hide{
+                    max-height: 0!important;
+                    transition: max-height 1s;
+                }
+                .show{
+                    max-height: 400px!important;
+                    transition: max-height 1s;
+                }
+                .phone-list-wrap {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #333;
+                    max-height: 0;
+                    overflow: hidden;
+                    padding: 0;
+                    padding-left: 10px;
+                    .phone-type {
+                        text-align: left;
+                        display: flex;
+                        flex-direction: column;
+                        cursor: pointer;
+                        .type-title {
+                            font-size: 13px;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            line-height: 30px;
+                        }
+                        .phone-list{
+                            font-size: 12px;
+                            text-align: left;
+                            padding-left: 10px;
+                            height: 20px;
+                            line-height: 20px;
+                            color: #333;
+                            cursor: pointer;
+                        }
+                        .phone-list:hover {
+                            color: #E60027;
                         }
                     }
                 }
             }
-
-            .search-wrap {
-                .input-warp {
-                    padding: 0;
-                    margin-bottom: torem(1);
-
-                    input {
-                        width: 100%;
-                        height: 38px;
-                        background: #FFFFFF;
-                        border-radius: torem(8);
-                        border: torem(1) solid #E6E6E6;
-                        font-size: 12px;
-                        padding-left: torem(40);
-                        appearance: none;
-                        -moz-appearance: none;
-                        /* Firefox */
-                        -webkit-appearance: none;
-                        /* Safari 和 Chrome */
+        }
+        .phone-price-wrap{
+            width: 90%;
+            margin: 30px auto;
+            .current-phone-name{
+                margin-bottom: 30px;
+                width: 100%;
+                text-align:left;
+                font-size: 16px;
+                font-weight: 600;
+                color: #333333;
+                line-height: 20px;
+            }
+            ul{
+                width: 80%;
+                margin: 0 auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                li{
+                    width: 100%;
+                    height: 80px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: flex-start;
+                    border: 1px solid #666;
+                    padding: 10px;
+                    margin-bottom: 10px;
+                    margin-right: 10px;
+                    border-radius: 8px;
+                    .icons{
+                        width: 40%;
+                        height: 100%;
+                        img{
+                            width: 25px;
+                            height: 45px;
+                        }
                     }
-                }
-
-                .phone-list-wrap {
-                    font-size: 12px;
-                    font-weight: 400;
-                    color: #666666;
-                    max-height: 443px;
-                    overflow-y: scroll;
-                    background: #F5F5F5;
-
-                    .phone-type {
-                        text-align: left;
-                        line-height: 53px;
+                    .price-detai{
                         display: flex;
+                        height: 100%;
+                        flex: 1;
                         flex-direction: column;
-                        cursor: pointer;
-
-                        .type-title {
-                            display: flex;
-                            justify-content: flex-start;
-                            align-items: center;
-
-                            .extend {
-                                width: 9px;
-                                height: 15px;
-                                background: url("../assets/arrow-right.png") no-repeat;
-                                background-size: 100% 100%;
-                                margin-right: 10px;
-                            }
-
-                            .is-extend {
-                                width: 15px;
-                                height: 10px;
-                                background: url("../assets/arrow-bottom.png") no-repeat;
-                                background-size: 100% 100%;
-                                margin-right: 10px;
-                            }
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                        .price-name{
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: #333333;
+                            line-height: 15px;
+                            margin-bottom: 20px;
                         }
-
-                        .phone {
-                            text-align: left;
-                            padding-left: 25px;
-                            height: 53px;
-                            line-height: 53px;
-                            color: #999;
-                            cursor: pointer;
-                        }
-
-                        .phone:hover {
-                            color: #007AFF;
+                        .price{
+                            font-size: 16px;
+                            font-weight: 300;
+                            color: #333333;
+                            line-height: 15px;
                         }
                     }
                 }
