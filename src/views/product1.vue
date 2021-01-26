@@ -37,18 +37,21 @@
                 <img src="../assets/product11/img10.webp" alt="">
             </div>
         </div>
-        <ReturnTop />
+        <Footer></Footer>
+        <ReturnTop/>
     </div>
 </template>
 <script>
 import Header from '@/components/header.vue';
 import HonorHeader from '@/components/honor-header.vue';
+import Footer from '@/components/footer.vue';
 import ReturnTop from '@/components/return-top.vue';
 export default {
     name: "product1",
     components: {
         Header,
         HonorHeader,
+        Footer,
         ReturnTop
     },
     data() {

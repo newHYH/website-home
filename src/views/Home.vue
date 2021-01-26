@@ -4,11 +4,11 @@
         <div class="banner-box">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="@/assets/home/banner_20.png" />
+                    <div class="swiper-slide" >
+                        <img @click="goto('product1')" src="@/assets/home/banner_20.png" />
                     </div>
                     <div class="swiper-slide">
-                        <img src="@/assets/home/banner_20plus.png" />
+                        <img @click="goto('product2')" src="@/assets/home/banner_20plus.png" />
                     </div>
                 </div>
             </div>
@@ -113,6 +113,7 @@ export default {
                         img{
                             width: 100%;
                             height: 100%;
+                            cursor: pointer;
                         }
                     }
                 }
