@@ -1,11 +1,32 @@
 <template>
     <div class="newsList">
         <Header></Header>
+        <div class="news-top">
+            <img src="../assets/img_xinwen.png" alt="">
+        </div>
         <div class="newsList-wrap" v-for="(news,index) in newsList" :key="index">
-            <div class="news-title">{{news.newsTitle}}</div>
-            <div class="news-time">发布时间：{{timeFilter(news.creatTime)}}</div>
-            <div class="news-author">作者：{{news.news_author}}</div>
-            <div class="goto" @click="goto(news)">查看</div>
+            <div class="news-box" @click="goto(news)">
+                <img src="../assets/xinwen_1.png" alt="">
+                <div class="news-content">
+                    <div class="news-time">
+                        {{timeFilter(news.creatTime)}} <span>NEW</span>
+                    </div>
+                    <div class="news-title">
+                        {{news.newsTitle}}
+                    </div>
+                </div>
+            </div>
+            <div class="news-box">
+                <img src="../assets/xinwen_1.png" alt="">
+                <div class="news-content">
+                    <div class="news-time">
+                        {{timeFilter(news.creatTime)}} <span>NEW</span>
+                    </div>
+                    <div class="news-title">
+                        {{news.newsTitle}}
+                    </div>
+                </div>
+            </div>
         </div>
         <Footer></Footer>
     </div>
@@ -47,29 +68,79 @@
             },
             timeFilter(time){
                 let newsTime = new Date(time)
-                return newsTime.getFullYear() + '-' + (newsTime.getMonth() + 1) + '-' + newsTime.getDate();
+                return newsTime.getFullYear() + '/' + (newsTime.getMonth() + 1) + '/' + newsTime.getDate();
             }
         }
     }
 </script>
 
-<style scoped lang="less">
+<style scoped lang="scss">
+    @import "./../sass/common.scss";
     .newsList{
         width: 100%;
-        .newsList-wrap{
-            height: 80px;
-            line-height: 80px;
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: flex-start;
-            font-size: 20px;
-            div{
-                margin-right: 20px;
+        background: #fafafa;
+        .news-top{
+            width: torem(1920);
+            height: torem(850);
+            img{
+                width: 100%;
+                height: 100%;
             }
-            .goto{
-                color: blue;
+        }
+        .newsList-wrap{
+            width: 73%;
+            margin: torem(90) auto;
+            display: flex;
+            justify-content: space-between;
+            font-size: torem(20);
+            .news-box{
                 cursor: pointer;
+                width: torem(690);
+                height: torem(580);
+                position: relative;
+                img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                .news-content{
+                    width: torem(609);
+                    height: torem(166);
+                    background: #fff;
+                    color: #000;
+                    position: absolute;
+                    bottom: torem(-20);
+                    left: torem(40);
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: flex-start;
+                    padding: torem(30);
+                    .news-time{
+                        font-size: torem(18);
+                        font-weight: 400;
+                        color: #333333;
+                        line-height: torem(25);
+                        span{
+                            font-size: torem(14);
+                            width: torem(50);
+                            height: torem(20);
+                            line-height: torem(20);
+                            background: #000000;
+                            border-radius: torem(14);
+                            color: #fff;
+                            padding: torem(2) torem(10);
+                        }
+                    }
+                    .news-title{
+                        font-size: torem(24);
+                        font-weight: 600;
+                        color: #333333;
+                        line-height: torem(33);
+                    }
+                }
             }
         }
     }

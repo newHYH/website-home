@@ -268,7 +268,7 @@ export default {
                     color: #999;
                     background: #FFFFFF;
                     border-radius: torem(8);
-                    border: torem(1) solid #E6E6E6;
+                    border: torem(1) solid #D0D0D0;
                     font-size: torem(24);
                     padding-left: torem(40);
                 }
@@ -345,7 +345,7 @@ export default {
                 display: flex;
                 justify-content: space-evenly;
                 align-items: flex-start;
-                border: torem(1) solid #666;
+                border: torem(1) solid #D0D0D0;
                 padding: torem(50) torem(30);
                 margin-bottom: torem(35);
                 margin-right: torem(35);
@@ -443,7 +443,7 @@ export default {
                         line-height: 30px;
                         background: #FFFFFF;
                         border-radius: 8px;
-                        border: 1px solid #E6E6E6;
+                        border: 1px solid #D0D0D0;
                         font-size: 12px;
                         padding: 0 25px 0 10px;
                         overflow-x: hidden;
@@ -527,7 +527,7 @@ export default {
                     display: flex;
                     justify-content: space-evenly;
                     align-items: flex-start;
-                    border: 1px solid #666;
+                    border: 1px solid #D0D0D0;
                     padding: 10px;
                     margin-bottom: 10px;
                     margin-right: 10px;
