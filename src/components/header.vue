@@ -16,7 +16,7 @@
         </div>
         <div class="header-nav" v-show="isShowNav" @mouseover="showNavSub()" @mouseout="hideNav()">
             <div class="nav-container" v-show="navIndex==3">
-                <span>新闻稿</span>
+                <span @click="goto('newsList')">新闻稿</span>
                 <span>视频</span>
             </div>
             <div class="nav-container" v-show="navIndex ==4">

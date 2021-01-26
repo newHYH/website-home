@@ -62,6 +62,7 @@
             <CBaiduMap :mapData="mapData" />
         </div>
         <Footer></Footer>
+        <ReturnTop/>
     </div>
 </template>
 <script>
@@ -70,6 +71,8 @@ import Header from '../components/header.vue';
 import Footer from '../components/footer.vue';
 import cityData from "../components/city";
 import CBaiduMap from "../components/CBaiduMap";
+import ReturnTop from '@/components/return-top.vue';
+
 import Area from 'vant/lib/area';
 import 'vant/lib/area/style';
 import Popup from 'vant/lib/popup';
@@ -83,7 +86,8 @@ export default {
         Footer,
         CBaiduMap,
         Area,
-        Popup
+        Popup,
+        ReturnTop
     },
     data() {
         return {

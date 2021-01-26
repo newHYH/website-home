@@ -14,17 +14,20 @@
             </div>
         </div>
         <Footer />
+        <ReturnTop/>
     </div>
 </template>
 <script>
 import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
+import ReturnTop from '@/components/return-top.vue';
 
 export default {
     name: 'about',
     components: {
         Header,
-        Footer
+        Footer,
+        ReturnTop
     },
     data() {
         return {}

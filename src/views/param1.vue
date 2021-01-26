@@ -229,18 +229,22 @@
             <div class="gray-line"></div>
         </div>
         <Footer></Footer>
+        <ReturnTop/>
     </div>
 </template>
 <script>
 import Header from '@/components/header.vue';
 import HonorHeader from '@/components/honor-header.vue';
 import Footer from '@/components/footer.vue';
+import ReturnTop from '@/components/return-top.vue';
+
 export default {
     name: "param",
     components: {
         Header,
         HonorHeader,
-        Footer
+        Footer,
+        ReturnTop
     },
     mounted() {
     },

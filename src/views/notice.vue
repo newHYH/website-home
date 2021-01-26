@@ -36,18 +36,22 @@
             </div>
         </div>
         <Footer />
+        <ReturnTop/>
     </div>
 </template>
 <script>
 import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
+import ReturnTop from '@/components/return-top.vue';
+
 
 export default {
     name: 'notice',
     components: {
         // Header,
         Header,
-        Footer
+        Footer,
+        ReturnTop
     },
     data() {
         return {
