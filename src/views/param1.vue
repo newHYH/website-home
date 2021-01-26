@@ -248,17 +248,14 @@ export default {
         Footer
     },
     mounted() {
-
     },
 }
 </script>
 <style scoped lang="scss">
 @import "./../sass/common.scss";
-
 .param {
     width: 100%;
     overflow: hidden;
-
     .phone-name {
         font-size: torem(50);
         line-height: torem(50);
@@ -267,19 +264,16 @@ export default {
         margin-bottom: torem(54);
         margin-top: torem(114);
     }
-
     .phone-pic {
         width: torem(743);
         height: torem(525);
         margin: 0 auto;
         margin-bottom: torem(54);
-
         img {
             width: 100%;
             height: 100%;
         }
     }
-
     .phone-colors {
         font-size: torem(18);
         font-weight: 400;
@@ -287,7 +281,6 @@ export default {
         line-height: torem(25);
         margin-bottom: torem(71);
     }
-
     .gray-line {
         width: 69%;
         margin: 0 auto;
@@ -295,13 +288,11 @@ export default {
         background: rgba(216, 216, 216, 1);
         margin-bottom: torem(120);
     }
-
     .param-list {
         ul {
             width: 69%;
             margin: 0 auto;
             margin-bottom: torem(100);
-
             li {
                 .img-box{
                     display: flex;
@@ -333,28 +324,24 @@ export default {
                     text-align: left;
                     margin-bottom: torem(18);
                 }
-
                 .bold-text {
                     font-size: torem(20);
                     font-weight: 600;
                     color: #333333;
                     line-height: torem(28);
                 }
-
                 .bold-text-title {
                     font-size: torem(28);
                     font-weight: 600;
                     color: #333333;
                     line-height: torem(40);
                 }
-
                 .bold-gray-text {
                     font-size: torem(20);
                     font-weight: 600;
                     color: #7F7F7F;
                     line-height: torem(28);
                 }
-
                 .gray-text {
                     font-size: torem(20);
                     font-weight: 400;
@@ -365,7 +352,6 @@ export default {
         }
     }
 }
-
 @media screen and (max-width: 750px) {
     .param {
         .param-list {
@@ -373,7 +359,6 @@ export default {
                 width: 69%;
                 margin: 0 auto;
                 margin-bottom: torem(100);
-
                 li {
                     p {
                         word-wrap: break-word;
@@ -385,27 +370,23 @@ export default {
                         text-align: left;
                         margin-bottom: 18px;
                     }
-
                     .bold-text {
                         font-size: 14px;
                         font-weight: 600;
                         color: #333333;
                         line-height: 28px;
                     }
-
                     .bold-text-title {
                         font-size: 18px;
                         font-weight: 600;
                         color: #333333;
                         line-height: 40px;
                     }
-
                     .bold-gray-text {
                         font-weight: 600;
                         color: #7F7F7F;
                         line-height: 28px;
                     }
-
                     .gray-text {
                         font-weight: 400;
                         color: #B2B2B2;
