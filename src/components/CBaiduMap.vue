@@ -94,7 +94,7 @@ export default {
             this.results.forEach((item, index) => {
                 let point = new BMap.Point(item.lng, item.lat);
                 var marker = marker = new BMap.Marker(point)
-                if (index<30) {
+                if (index<=50) {
                     let icon = require('../assets/maps/' + Number(index + 1) + '.png')
                      marker = new BMap.Marker(point, {
                         icon: new BMap.Icon(icon, new BMap.Size(22, 38))

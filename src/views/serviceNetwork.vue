@@ -10,8 +10,8 @@
                 <img class="sel-icon" src="../assets/arrow-bottom.png" />
             </div>
             <div class="search-mobile">
-                <input type="text" v-model="deptAddress" placeholder="请输入地址，搜索附近的服务门店">
-                <img class="search-icon" src="../assets/search-icon.png" />
+                <input type="text" @keyup.enter="handleSearch"  v-model="deptAddress" placeholder="请输入地址，搜索附近的服务门店">
+                <img class="search-icon" @click="handleSearch"  src="../assets/search-icon.png" />
             </div>
         </div>
         <Popup v-model:show="showPopup" position="bottom" :style="{ height: '40%' }">
@@ -93,10 +93,10 @@ export default {
             areaDataCopy: [],
             provinceId: '北京',
             cityId: '北京',
-            areaId: '东城区',
+            areaId: '',
             selProName: '北京',
             selCityName: '北京',
-            selAreaName: '东城区',
+            selAreaName: '请选择',
             openDownFlag: 0,
             showPopup: false,
             provinceList: [],

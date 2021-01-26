@@ -46,11 +46,11 @@ export default {
             }, {
                 name: '新闻',
                 index: 3,
-                path: 'product1'
+                path: ''
             }, {
                 name: '服务支持',
                 index: 4,
-                path: 'serve-home'
+                path: ''
             }, {
                 name: '关于我们',
                 index: 5,
