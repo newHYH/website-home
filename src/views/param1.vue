@@ -1,14 +1,7 @@
 <template>
     <div class="param">
+        <Header />
         <HonorHeader link1="product1" link2="param1" />
-<!--        <div class="phone-name">优畅享20 Plus</div>-->
-<!--        <div class="phone-pic">-->
-<!--            <img src="../assets/phones1.png" alt="">-->
-<!--        </div>-->
-<!--        <div class="phone-colors">-->
-<!--            幻夜黑、翡冷翠、星河银、樱雪晴空-->
-<!--        </div>-->
-<!--        <div class="gray-line"></div>-->
         <div class="param-list">
             <ul class="row" style="margin-top: 100px">
                 <li class="col-sm-12 col-md-12 col-lg-4">
@@ -239,11 +232,13 @@
     </div>
 </template>
 <script>
+import Header from '@/components/header.vue';
 import HonorHeader from '@/components/honor-header.vue';
 import Footer from '@/components/footer.vue';
 export default {
     name: "param",
     components: {
+        Header,
         HonorHeader,
         Footer
     },
