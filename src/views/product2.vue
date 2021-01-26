@@ -1,5 +1,6 @@
 <template>
     <div class="product2">
+        <Header />
         <HonorHeader link1="product2" link2="param2" />
         <div class="news">
             <div class="img-wrap">
@@ -38,11 +39,13 @@
     </div>
 </template>
 <script>
+import Header from '@/components/header.vue';
 import HonorHeader from '@/components/honor-header.vue';
 import ReturnTop from '@/components/return-top.vue';
 export default {
     name: "product2",
     components: {
+        Header,
         HonorHeader,
         ReturnTop
     },

@@ -1,13 +1,7 @@
 <template>
     <div class="param">
+        <Header />
         <HonorHeader link1="product2" link2="param2" />
-<!--        <div class="phone-name">优畅享20</div>-->
-<!--        <div class="phone-pic">-->
-<!--            <img src="../assets/phones2.png" alt="">-->
-<!--        </div>-->
-<!--        <div class="phone-colors">-->
-<!--            亮黑色、绮境森林、樱雪晴空-->
-<!--        </div>-->
         <div class="param-list">
             <ul class="row" style="margin-top: 100px">
                 <li class="col-sm-12 col-md-12 col-lg-3">
@@ -48,10 +42,8 @@
                 <li class="col-sm-12 col-md-6 col-lg-4">
                     <p class="bold-text">机身内存（ROM）</p>
                     <p>128G</p>
-<!--                    <p class="gray-text">*该分辨率对应标准矩形，实际屏幕有效像素略少。</p>-->
                     <p class="bold-text">支持最大存储卡容量</p>
                     <p>512GB（非标配）</p>
-<!--                    <p class="gray-text">*实际尺寸与重量依配置、制造工艺、测量方法的不同可能有所差异。</p>-->
                 </li>
             </ul>
             <div class="gray-line"></div>
@@ -178,17 +170,6 @@
                 </li>
             </ul>
             <div class="gray-line"></div>
-            <!--<ul class="row">
-                <li class="col-sm-12 col-md-12 col-lg-4">
-                    <p class="bold-text-title">防尘抗水</p>
-                </li>
-                <li class="col-sm-12 col-md-12 col-lg-8">
-                     <p class="bold-gray-text">IP68 级别</p>
-                    <p class="bold-gray-text">*本手机并非专业防水手机，在正常使用状态下可防溅、抗水、防尘，在受控实验室条件下经测试，其效果在 GB/T 4208-2017（国内）/ IEC 60529（海外）标准下达到 IP68 级别。防溅、抗水、防尘功能并非永久有效，防护性能可能会因日常磨损而下降。请勿在潮湿状态下为手机充电；请参阅使用手册了解清洁和干燥说明。由于浸入液体而导致的损坏不在保修范围之内。</p>
-                    <p class="gray-text">** IP68 中抗水条件为（1）无流动清水，水深 1.5 米；（2）试验时间 30 分钟；（3）水温与产品温差不大于 5 摄氏度。</p> 
-                </li>
-            </ul>
-            <div class="gray-line"></div>-->
             <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
                     <p class="bold-text-title">导航/无线</p>
@@ -242,11 +223,13 @@
     </div>
 </template>
 <script>
+import Header from '@/components/header.vue';
 import HonorHeader from '@/components/honor-header.vue';
 import Footer from '@/components/footer.vue';
 export default {
     name: "param",
     components: {
+        Header,
         HonorHeader,
         Footer
     },

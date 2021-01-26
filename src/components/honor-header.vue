@@ -1,23 +1,7 @@
 <template>
-    <div class="header">
-        <div class="container">
-            <div class="fix-navigation">
-                <a class="logo" @click="goHome">
-                    <img src="@/assets/logo.png" />
-                </a>
-                <div class="nav-title">手机</div>
-                <div class="func-box">
-                    <!-- <div class="search-btn">
-                        <img src="@/assets/search-icon.png" />
-                    </div>
-                    <div class="account-btn">
-                        <img src="@/assets/account-icon.png" />
-                    </div>
-                    <div class="login-btn">登录</div> -->
-                </div>
-            </div>
-        </div>
-        <div class="container" style="background: #F5F5F5;" :class="fixHeader ? 'fixed' : ''">
+    <div class="header-tab">
+        <div class="header-tab-height"></div>
+        <div class="container" style="background: #F5F5F5;">
             <div class="sec-navigation">
                 <div class="logo">U-MAGIC</div>
                 <ul class="product-tabs">
@@ -31,9 +15,9 @@
                 <div class="buy-btn pointer" @mouseover="showBuy" @mouseout="hideBuy">购买</div>
                 <div class="buy-pop" v-show="showPop" @mouseover="showBuy" @mouseout="hideBuy">
                     <div class="buy-pop-box">
-                        <a href="http://www.woego.cn/">沃易购</a>
-                        <a href="https://lths.tmall.com/shop/view_shop.htm?spm=a230r.1.14.21.788c2756UeLhDt&user_number_id=2231547606">天猫</a>
-                        <a href="https://mall.jd.com/index-607119.html">京东</a>
+                        <a href="https://card.10010.com/html/actv/term/product-details.html?goodsId=992101252696">10010手厅</a>
+                        <a href="https://mobile.yangkeduo.com/goods.html?goods_id=219352575939">拼多多集团官旗</a>
+                        <a href="https://m-zl.mucfc.com/0WEC/mall/#/pages/product/detail/index?commonId=2965099">招联</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +26,7 @@
 </template>
 <script>
 export default {
-    name: 'Header',
+    name: 'Header-tab',
     props: {
         link1: {
             type: String,
@@ -103,7 +87,7 @@ export default {
     position: absolute;
     top: 40px;
     right: 12px;
-    width: 90px;
+    width: 180px;
     background: #fff;
     border: 1px solid #eee;
     z-index: 8;
@@ -126,97 +110,27 @@ export default {
 
 /* mobile phone */
 @media screen and (min-width:320px) {
-    .header {
+    .header-tab {
         height: 158px;
         width: 100%;
 
+        .header-tab-height {
+            height: 96px;
+        }
+
         .container {
             border-bottom: 1px solid #e5e5e5;
-
-            &.fixed {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.9);
-                backdrop-filter: saturate(180%) blur(20px);
-                z-index: 1000;
-            }
         }
 
-        .fix-navigation {
-            height: 60px;
-            position: relative;
-
-            .logo {
-                position: absolute;
-                width: 200px;
-                top: 16px;
-                left: 12px;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-
-            .nav-title {
-                font-size: 16px;
-                line-height: 60px;
-                display: none;
-            }
-
-            .func-box {
-                position: absolute;
-                right: 12px;
-                top: 16px;
-                display: flex;
-
-                .login-btn {
-                    width: 62px;
-                    height: 28px;
-                    line-height: 24px;
-                    text-align: center;
-                    border-radius: 12px;
-                    border: 2px solid #979797;
-                    font-size: 16px;
-                    font-family: PingFangSC-Regular, PingFang SC;
-                    font-weight: 400;
-                    color: #333333;
-                    cursor: pointer;
-                }
-
-                .search-btn,
-                .account-btn {
-                    height: 28px;
-                    cursor: pointer;
-                }
-
-                .account-btn {
-                    margin-right: 20px;
-                    padding-top: 2px;
-
-                    img {
-                        width: 20px;
-                        height: 23.333px;
-                    }
-                }
-
-                .search-btn {
-                    margin-right: 25px;
-                    padding-top: 4px;
-
-                    img {
-                        width: 20.66px;
-                        height: 20.66px;
-                    }
-                }
-            }
-        }
 
         .sec-navigation {
             height: 96px;
-            position: relative;
+            background: #fff;
+            position: fixed;
+            top:90px;
+            left: 0;
+            width: 100%;
+            z-index: 90;
 
             .logo {
                 position: absolute;
@@ -233,7 +147,7 @@ export default {
                 position: absolute;
                 right: 12px;
                 top: 18px;
-                width: 78px;
+                width: 180px;
                 height: 32px;
                 line-height: 28px;
                 text-align: center;
@@ -299,106 +213,24 @@ export default {
 
 /* ipad pro & PC */
 @media screen and (min-width:1024px) {
-    .header {
+    .header-tab {
         height: 180px;
 
         .container {
             border-bottom: 1px solid #e5e5e5;
-
-            &.fixed {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.9);
-                backdrop-filter: saturate(180%) blur(20px);
-            }
         }
-
-        .fix-navigation {
-            height: 90px;
-            position: relative;
-
-            .logo {
-                position: absolute;
-                width: 200px;
-                height: 29px;
-                top: 36px;
-                left: 12px;
-                cursor: pointer;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-
-            .nav-title {
-                position: absolute;
-                top: 0;
-                left: 50%;
-                margin-left: -30px;
-                width: 60px;
-                line-height: 90px;
-                text-align: center;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
-                font-size: 24px;
-                color: #333333;
-                display: block;
-            }
-
-            .func-box {
-                position: absolute;
-                right: 12px;
-                top: 24px;
-                display: flex;
-
-                .login-btn {
-                    width: 93px;
-                    height: 42px;
-                    line-height: 38px;
-                    text-align: center;
-                    border-radius: 12px;
-                    border: 2px solid #979797;
-                    font-size: 24px;
-                    font-family: PingFangSC-Regular, PingFang SC;
-                    font-weight: 400;
-                    color: #333333;
-                    cursor: pointer;
-                }
-
-                .search-btn,
-                .account-btn {
-                    height: 42px;
-                    cursor: pointer;
-                }
-
-                .account-btn {
-                    margin-right: 29px;
-                    padding-top: 4px;
-
-                    img {
-                        width: 30px;
-                        height: 35px;
-                    }
-                }
-
-                .search-btn {
-                    margin-right: 38px;
-                    padding-top: 7px;
-
-                    img {
-                        width: 31px;
-                        height: 31px;
-                    }
-                }
-            }
+        .header-height{
+            height:88px;
         }
 
         .sec-navigation {
             height: 88px;
-            position: relative;
+            position: fixed;
+            top:90px;
+            left:0;
+            width:100%;
+            z-index: 90;
+            background: #fff;
 
             .logo {
                 position: absolute;
@@ -415,7 +247,7 @@ export default {
                 position: absolute;
                 right: 12px;
                 top: 25px;
-                width: 90px;
+                width: 180px;
                 height: 38px;
                 line-height: 38px;
                 text-align: center;
