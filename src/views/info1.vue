@@ -273,7 +273,7 @@
                 <tr>
                     <td>健康使用手机</td>
                     <td>供用户管理和统计屏幕使用时间，并将孩子的位置信息共享给家长。</td>
-                    <td>华为终端 有限公司</td>
+                    <td>华为终端有限公司</td>
                     <td>该应用涉及到的权限:读取已安装应用列表，位置信息，存储，网络通信，蓝牙</td>
                 </tr>
             </table>
@@ -1603,18 +1603,20 @@
             nextPage() {
                 if(this.index<this.totalSize){
                     this.index += 1
-                }
+                    this.inputIndex +=1
                 document.body.scrollIntoView()
+                }
             },
             prevPage() {
                 if(this.index != 1){
                     this.index -= 1
-                }
+                    this.inputIndex -=1
                 document.body.scrollIntoView()
+                }
             },
             gotoPage(e,type){
                 let num = Number(this.inputIndex)
-                if(num && num>0 && num< this.totalSize){
+                if(num && num>0 && num<= this.totalSize){
                     if(!this.inputIndex){
                         if(type){
                             this.index = 1

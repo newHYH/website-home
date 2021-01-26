@@ -7,7 +7,7 @@
                 <p><span>适用产品：手机</span><span>适用版本：不涉及系统版本</span></p>
             </div>
             <div class="body" :style="{height:IframeHeight+'px'}">
-                <iframe class="iframe" id="iframe"  frameborder="0" scrolling="no" ref="iframe" :src="'./'+data.quResult"></iframe>
+                <iframe class="iframe" id="iframe" frameborder="0" scrolling="no" ref="iframe" :src="'./'+data.quResult"></iframe>
             </div>
         </div>
         <Footer />
@@ -27,23 +27,23 @@ export default {
     data() {
         return {
             data: {
-                IframeHeight:0
+                IframeHeight: 0,
             }
         }
     },
     mounted() {
         this.getData()
-        this.$nextTick(()=>{
-            let iframe =  document.getElementById("iframe");
-            this.IframeHeight = document.getElementById('iframe').contentWindow.frames.outerHeight *2     
-        })
     },
     methods: {
         getData() {
             let id = this.$route.query.id
-                            let self = this
+            if (id == 1) {
+                this.IframeHeight = 1680
+            } else if (id == 2) {
+                this.IframeHeight = 900
+            }
+            let self = this
             quryQuestion().then(res => {
-                console.log(res)
                 if (res.RESP_CODE == '0000') {
                     res.data.forEach(item => {
                         if (item.id == id) {
@@ -97,12 +97,13 @@ export default {
         .body {
             margin-bottom: 20px;
             padding-top: 28px;
-            width:100%;
-            height:auto;
-            .iframe{
-                width:100%;
-                border:0;
-                height:100%;
+            width: 100%;
+            height: auto;
+
+            .iframe {
+                width: 100%;
+                border: 0;
+                height: 100%;
             }
         }
     }

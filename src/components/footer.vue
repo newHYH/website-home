@@ -7,36 +7,36 @@
                     <div class="connect-item">
                         <p class="title">电话支持</p>
                         <div class="func-box call">
-                            <p>消费者服务电话950800</p>
+                            <p>消费者服务电话 400-011-8111</p>
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
-                    <div class="connect-item">
+                   <!--  <div class="connect-item">
                         <p class="title">在线支持</p>
-                        <div class="func-box online">
+                         <div class="func-box online">
                             <p>在线客服</p>
                         </div>
-                        <div class="func-box email">
+                         <div class="func-box email">
                             <p>邮件咨询</p>
                         </div>
-                    </div>
+                 </div> -->
                     <div class="connect-item">
                         <p class="title">线下支持</p>
-                        <div class="func-box service">
+                        <div class="func-box service pointer" @click="goto('service-network')">
                             <p>服务店</p>
                         </div>
-                        <div class="func-box retail">
+                        <div class="func-box retail pointer" @click="goto('service-network')">
                             <p>零售店</p>
                         </div>
                     </div>
                     <div class="connect-item">
                         <p class="title">社交支持</p>
                         <div class="func-box wb">
-                            <p>微博</p>
+                            <a href="https://weibo.com/nokiae7?is_all=1" target="view_window">微博</a>
                         </div>
-                        <div class="func-box wx">
+                        <!-- <div class="func-box wx">
                             <p>微信公众号</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -46,11 +46,11 @@
                     <div class="connect-item col-12">
                         <p class="title">电话支持</p>
                         <div class="func-box call">
-                            <p>消费者服务电话<a class="tel" href="tel:950800">950800</a></p>
+                            <p>消费者服务电话<a class="tel" href="tel:950800">4000118111</a></p>
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
-                    <div class="connect-item col-6">
+                   <!--  <div class="connect-item col-6">
                         <p class="title">在线支持</p>
                         <div class="func-box online">
                             <p>在线客服</p>
@@ -58,65 +58,78 @@
                         <div class="func-box email">
                             <p>邮件咨询</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="connect-item col-6">
                         <p class="title">线下支持</p>
-                        <div class="func-box service"  @click="goto('service-network')">
+                        <div class="func-box service pointer"  @click="goto('service-network')">
                             <p>服务店</p>
                         </div>
-                        <div class="func-box retail">
+                        <div class="func-box retail pointer" @click="goto('service-network')">
                             <p>零售店</p>
                         </div>
                     </div>
                     <div class="connect-item col-6">
                         <p class="title">社交支持</p>
                         <div class="func-box wb">
-                            <p>微博</p>
+                            <a href="https://weibo.com/nokiae7?is_all=1" target="view_window">微博</a>
                         </div>
-                        <div class="func-box wx">
+                        <!-- <div class="func-box wx">
                             <p>微信公众号</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
         <div class="org-box">
-            <div class="item-box">
+            <div class="item-box" @mouseover="showBuy" @mouseout="hideBuy">
                 <p class="title">购买手机</p>
-                <div class="each-item">手机</div>
+                <div class="each-item pointer" >手机</div>
+                <div class="buy-pop" v-show="showPop"  @mouseover="showBuy" @mouseout="hideBuy">
+                  <div class="each-item">
+                        <a href="http://www.woego.cn/">沃易购</a>
+                    </div>
+                    <div class="each-item">
+                        <a href="https://lths.tmall.com/shop/view_shop.htm?spm=a230r.1.14.21.788c2756UeLhDt&user_number_id=2231547606">天猫</a>
+                    </div>
+                    <div class="each-item">
+                        <a href="https://mall.jd.com/index-607119.html">京东</a>
+                    </div>
+                </div>
             </div>
             <div class="item-box">
                 <p class="title">服务与支持</p>
-                <div class="each-item" @click="goto('support')">保修政策</div>
-                <div class="each-item">维修备件价格</div>
-                <div class="each-item">联系我们</div>
-                <div class="each-item">服务隐私声明</div>
+                <div class="each-item pointer" @click="goto('support')">保修政策</div>
+                <div class="each-item pointer" @click="goto('query-price')">维修备件价格</div>
+               <!--  <div class="each-item">联系我们</div>
+                <div class="each-item">服务隐私声明</div> -->
             </div>
             <div class="item-box">
                 <p class="title">应用与下载</p>
                 <div class="each-item">终端云服务</div>
-                <div class="each-item" @click="goto('notice')">预置应用共公示</div>
+                <div class="each-item pointer" @click="goto('notice')">预置应用公示</div>
             </div>
             <div class="item-box">
                 <p class="title">关于我们</p>
-                <div class="each-item">关于我们</div>
-                <div class="each-item">隐私</div>
+                <div class="each-item pointer"  @click="goto('about')">关于我们</div>
+                <!-- <div class="each-item">隐私</div> -->
             </div>
         </div>
         <div class="container">
             <div class="page-footer">
                 <div class="footer-inner row">
-                    <div class="right col-12 col-md-12 col-xl-6 col-xxl-5">版权所有 © 中国联合通信有限公司 1998-2021。保留一切权利。粤A2-20044005号</div>
-                    <div class="col-md-6 col-12 col-xl-3 col-xxl-4 offset-xxl-1">
+                    <div class="copy">
+Copyright © 2020-2023 ChinaUnicom All Rights Reserved.联通华盛通信有限公司  <span style="padding-left:12px;">京ICP备09019351号-1</span>
+</div>
+                    <!-- <div class="nav">
                         <ul class="footer-items">
-                            <li class="f-item">网站地图</li>
+                            <li class="f-item cur">品牌故事</li>
                             <li class="f-item">使用条款</li>
                             <li class="f-item">隐私声明</li>
                             <li class="f-item">关于cokies</li>
                             <li class="f-item">法律信息</li>
                         </ul>
                     </div>
-                    <div class="lang col-12 col-md-6 col-xl-3 col-xxl-2"><span>China-简体中文</span></div>
+                    <div class="lang"><span>China-简体中文</span></div> -->
                 </div>
             </div>
         </div>
@@ -127,21 +140,37 @@
 export default {
     name: 'Footer',
     data() {
-        return{}
+        return{
+            showPop:false
+        }
     },
     mounted() {
 
     },
     methods: {
         goto(path){
+            console.log(path)
             this.$router.push(path)
+        },
+        showBuy() {
+            this.showPop = true
+        },
+        hideBuy(){
+            this.showPop = false
         }
     }
 }
 </script>
 <style scoped lang=scss>
 @import "@/sass/common.scss";
-
+.buy-pop{
+    border-top:1px solid #fff;
+    margin-top: 12px;
+    width:80%;
+    .each-item{
+        margin-top: 10px !important;
+    }
+}
 /* mobile phone */
 @media screen and (min-width:320px) {
     .footer{
@@ -185,6 +214,9 @@ export default {
                             line-height: 20px;
                             p{
                                 margin-bottom: 6px;
+                            }
+                            a{
+                                color:#999
                             }
                             &.call{
                                 &::before{
@@ -317,7 +349,13 @@ export default {
                     font-weight: 400;
                     color: #FFFFFF;
                     line-height: 20px;
-                    cursor: pointer;
+                    .pointer{
+                         cursor: pointer;
+                    }
+                   
+                    a{
+                        color:#fff;
+                    }
                 }
             }
         }
@@ -330,6 +368,7 @@ export default {
             line-height: 20px;
             .footer-inner{
                 line-height: 20px;
+                justify-content:center;
             }
             .right{
                 text-align: left;
@@ -337,6 +376,9 @@ export default {
             .footer-items{
                 max-width: 360px;
                 display: flex;
+                .cur{
+                    cursor: pointer;
+                }
                 justify-content: space-between;
             }
             .lang{
@@ -404,9 +446,15 @@ export default {
                             font-weight: 400;
                             color: #999999;
                             line-height: 20px;
-                            cursor: pointer;
+                            .pointer{
+                                cursor: pointer;
+                            }
+                            
                             p{
                                 margin-bottom: 8px;
+                            }
+                            a{
+                                color:#999
                             }
                             &.call{
                                 &::before{
@@ -534,6 +582,9 @@ export default {
                     font-weight: 400;
                     color: #FFFFFF;
                     line-height: 20px;
+                    a{
+                        color:#fff;
+                    }
                 }
             }
         }
@@ -546,6 +597,7 @@ export default {
             line-height: 22px;
             .footer-inner{
                 line-height: 22px;
+                justify-content:center;
             }
             .right{
                 text-align: center;
@@ -599,7 +651,7 @@ export default {
                 .connect-box{
                     padding-bottom: torem(42);
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-around;
                     .connect-item{
                         text-align: left;
                         .title{
@@ -621,6 +673,9 @@ export default {
                             line-height: torem(40);
                             p{
                                 margin-bottom: torem(15);
+                            }
+                            a{
+                                color:#999
                             }
                             &.call{
                                 &::before{
@@ -722,7 +777,7 @@ export default {
             background: #FF7272;
             padding: torem(52) 0 torem(32) 0;
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             .item-box{
                 width: torem(270);
                 max-width: torem(270);
@@ -754,6 +809,7 @@ export default {
             line-height: torem(26);
             .footer-inner{
                 line-height: torem(26);
+                justify-content:center;
             }
             .right{
                 text-align: left;

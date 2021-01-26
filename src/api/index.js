@@ -1,5 +1,6 @@
 import { getApi, postApi } from './config.js'
 
+let baseUrl = ''
 //1.查询问题描述接口
 export function quryQuestion(data) {
     const url = '/model/quryQuestion';
@@ -27,7 +28,3 @@ export function quryGoodsTree(data) {
 }
 
 
-export function testpost(data) {
-    const url = '/api/post';
-    return postApi(url, data)
-}

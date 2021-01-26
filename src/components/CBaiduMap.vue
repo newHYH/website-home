@@ -4,16 +4,16 @@
             <div id="map"></div>
         </div>
         <div class="map-list">
-            <div class="select" :class="slideOn ? 'on' : ''">
+            <!-- <div class="select" :class="slideOn ? 'on' : ''">
                 <div class="placeholder" @click="open()">{{chooseVal ? chooseVal : '选择产品'}}</div>
                 <ul class="option-list">
                     <li v-for="(item, index) in options" :key="index" @click="choose(index)">{{item.name}}</li>
                 </ul>
-            </div>
+            </div> -->
             <div class="result-list">
                 <div class="result-item" @click="changeMap(index)" v-for="(item, index) in results" :key="index">
                     <div class="title">{{item.title}}
-                        <div class="distance">{{item.distance}}</div>
+                        <!-- <div class="distance">{{item.distance}}</div> -->
                         <div class="index">{{index+1}}</div>
                     </div>
                     <div class="address">{{item.address}}</div>
@@ -44,11 +44,18 @@ export default {
                 { name: '家居', val: 5 },
                 { name: '配件', val: 6 }
             ],
-            results: [],
+            results: [{
+                title: '测试',
+                address:'ces ',
+                tels: ['1183', '32'],
+                workTime: '9:00',
+                lat:39.915,
+                lng:116.404
+            }],
             posList:[],
             center:{
-                lat:116.404,
-                lng:39.915
+                lat:39.915,
+                lng:116.404
             },
             slideOn: false,
             chooseVal: ''
@@ -59,7 +66,7 @@ export default {
         window.onresize = () => {
 
         }
-
+        //this.createMap()
         this.getData()
     },
     methods: {
@@ -93,13 +100,11 @@ export default {
         },
         createMap() {
             // 创建Map实例
-            const map = new BMap.Map("map")
+            const map = new BMap.Map("map",{minZoom:3,maxZoom:12})
             // 初始化地图,设置中心点坐标和地图级别
             map.centerAndZoom(new BMap.Point(this.center.lng, this.center.lat), 12)
             //添加地图类型控件
-            map.addControl(new BMap.MapTypeControl({
-                mapTypes: [BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]
-            }))
+            
             // 设置地图显示的城市 此项是必须设置的
             //map.setCurrentCity("北京")
             //开启鼠标滚轮缩放

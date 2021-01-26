@@ -10,10 +10,10 @@
                 <div class="text">
                     您需要什么帮助？
                 </div>
-                <div class="search-box">
+                <!-- <div class="search-box">
                     <input type="search" class="search" name="" placeholder="请输入您想要了解的信息">
                     <button class="search-btn"></button>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="serve-product">
@@ -29,18 +29,18 @@
                 <div class="product-wrapper">
                     <div class="product-box">
                         <div class="img">
-                            <img src="../assets/serve-1.png" alt="华为手机">
+                            <img src="../assets/phone-1.png" alt="优畅享20 Plus">
                         </div>
                         <div class="name">
-                            华为手机
+                            优畅享20 Plus
                         </div>
                     </div>
                     <div class="product-box">
                         <div class="img">
-                            <img src="../assets/serve-1.png" alt="小米手机">
+                            <img src="../assets/phone-4.png" alt="优畅享20">
                         </div>
                         <div class="name">
-                            小米手机
+                            优畅享20
                         </div>
                     </div>
                 </div>

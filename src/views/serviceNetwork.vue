@@ -4,7 +4,7 @@
         <div class="box-top">
             <img class="box-top-img" src="../assets/fuwutop.png" alt="" />
         </div>
-        <div class="box-mobile">
+        <!-- <div class="box-mobile">
             <div class="select-mobile" @click="gotoSel">
                 <div class="sel-name">{{selProName||'请选择'}}</div>
                 <img class="sel-icon" src="../assets/arrow-bottom.png" />
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="container">
             <CBaiduMap />
         </div>
@@ -70,18 +70,18 @@ import HeaderA from '../components/headerA.vue';
 import Footer from '../components/footer.vue';
 import cityData from "../components/city";
 import CBaiduMap from "../components/CBaiduMap";
-import Area from 'vant/lib/area';
+/*import Area from 'vant/lib/area';
 import 'vant/lib/area/style';
 import Popup from 'vant/lib/popup';
-import 'vant/lib/popup/style';
+import 'vant/lib/popup/style';*/
 export default {
     name: "serviceNetWork",
     components: {
         HeaderA,
         Footer,
         CBaiduMap,
-        Area,
-        Popup
+        /*Area,
+        Popup*/
     },
     data() {
         return {
