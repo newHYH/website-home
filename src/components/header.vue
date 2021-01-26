@@ -39,7 +39,7 @@
             <div class="nav-container" v-show="navIndex ==4">
                 <span @click="goto('query-price')">备件价格查询</span>
                 <span @click="goto('service-network')">服务门店</span>
-                <span @click="goto('about')">常见问题</span>
+                <span @click="goto('problem')">常见问题</span>
             </div>
         </div>
     </div>
