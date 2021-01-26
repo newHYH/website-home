@@ -46,7 +46,7 @@
                     <div class="connect-item col-12">
                         <p class="title">电话支持</p>
                         <div class="func-box call">
-                            <p>消费者服务电话<a class="tel" href="tel:950800">4000118111</a></p>
+                            <p>消费者服务电话  <a class="tel" href="tel:4000118111">400-011-8111</a></p>
                             <p>7*24小时 | 普通话</p>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="org-box">
-            <div class="item-box" @mouseover="showBuy" @mouseout="hideBuy">
+            <!-- <div class="item-box" @mouseover="showBuy" @mouseout="hideBuy">
                 <p class="title">购买手机</p>
                 <div class="each-item pointer" >手机</div>
                 <div class="buy-pop" v-show="showPop"  @mouseover="showBuy" @mouseout="hideBuy">
@@ -95,7 +95,7 @@
                         <a href="https://mall.jd.com/index-607119.html">京东</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="item-box">
                 <p class="title">服务与支持</p>
                 <div class="each-item pointer" @click="goto('support')">保修政策</div>
@@ -105,7 +105,7 @@
             </div>
             <div class="item-box">
                 <p class="title">应用与下载</p>
-                <div class="each-item">终端云服务</div>
+                <!-- <div class="each-item">终端云服务</div> -->
                 <div class="each-item pointer" @click="goto('notice')">预置应用公示</div>
             </div>
             <div class="item-box">
@@ -149,7 +149,6 @@ export default {
     },
     methods: {
         goto(path){
-            console.log(path)
             this.$router.push(path)
         },
         showBuy() {

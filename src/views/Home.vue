@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <HeaderA :tabs="headerTabs" />
+        <Header />
         <div class="box-wrapper">
             <div class="main">
                 <ul class="row">
@@ -35,15 +35,13 @@
     </div>
 </template>
 <script>
-// import Header from '@/components/header.vue';
-import HeaderA from '@/components/headerA.vue';
+import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 
 export default {
     name: 'Home',
     components: {
-        // Header,
-        HeaderA,
+        Header,
         Footer
     },
     data() {

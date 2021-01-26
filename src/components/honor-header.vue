@@ -90,7 +90,7 @@ export default {
         showBuy() {
             this.showPop = true
         },
-        hideBuy(){
+        hideBuy() {
             this.showPop = false
         }
     }
@@ -113,11 +113,12 @@ export default {
     .buy-pop-box {
         display: flex;
         flex-direction: column;
-        padding:5px 10px;
+        padding: 5px 10px;
         font-size: 15px;
         line-height: 36px;
-        a{
-            color:#000;
+
+        a {
+            color: #000;
         }
     }
 
@@ -149,8 +150,7 @@ export default {
 
             .logo {
                 position: absolute;
-                width: 52px;
-                height: 28px;
+                width: 200px;
                 top: 16px;
                 left: 12px;
 
@@ -163,6 +163,7 @@ export default {
             .nav-title {
                 font-size: 16px;
                 line-height: 60px;
+                display: none;
             }
 
             .func-box {
@@ -242,7 +243,7 @@ export default {
                 font-family: PingFangSC-Regular, PingFang SC;
                 font-weight: 400;
                 color: #FFFFFF;
-                z-index:9;
+                z-index: 9;
             }
 
             .product-tabs {
@@ -344,6 +345,7 @@ export default {
                 font-weight: 400;
                 font-size: 24px;
                 color: #333333;
+                display: block;
             }
 
             .func-box {
