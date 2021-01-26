@@ -1,28 +1,29 @@
 <template>
     <div class="about-wrapper">
-        <HeaderA />
+        <Header />
         <img src="../assets/about-banner.webp" class="about-banner" alt="">
         <div class="about-box">
             <div class="hd">
-                U-MAGIC
+                关于我们
             </div>
             <div class="bd">
                 <h5>优先一步，畅享5G！</h5>
-                <p>U-MAGIC是中国联合网络通信有限公司于2021年推出的全新5G手机品牌，致力于为消费者打造集“优质网络、优异体验、优享权益”于一身的优秀5G产品，让消费者优先一步畅享5G。</p>
+                <p>U-MAGIC是中国联合网络通信有限公司于2021年推出的全新5G手机品牌，</p>
+                <p>致力于为消费者打造集“优质网络、优异体验、优享权益”于一身的优秀5G产品，</p>
+                <p>让消费者优先一步畅享5G。</p>
             </div>
         </div>
         <Footer />
     </div>
 </template>
 <script>
-import HeaderA from '@/components/headerA.vue';
+import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 
 export default {
     name: 'about',
     components: {
-        // Header,
-        HeaderA,
+        Header,
         Footer
     },
     data() {
@@ -72,16 +73,17 @@ export default {
         .bd {
             padding:20px;
             h5{
-                font-size:16px;
+                font-size:1em;
                 color:#000;
                 margin:15px 0;
             }
             p {
-                font-size: 1.08vw;
+                font-size: 0.8em;
                 color: #000000;
-                line-height: 2.6vw;
-                max-width:400px;
+                line-height: 2;
+                max-width:530px;
                 margin:0 auto;
+                text-align: left;
             }
         }
     }
