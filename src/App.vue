@@ -12,6 +12,7 @@ export default {
 </script>
 <style lang="scss">
 	@import "./sass/transfrom.scss";
+	@import './common/font.css';
 
 	body{
 		width: 100%;
@@ -23,7 +24,7 @@ export default {
 		box-sizing: border-box;
 	}
 	#app {
-		font-family: Avenir, Helvetica, Arial, sans-serif;
+		font-family: 'HYQiHei', sans-serif !important;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-align: center;

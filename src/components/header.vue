@@ -1,40 +1,28 @@
 <template>
-    <div class="header">
-        <div class="container">
-            <div class="fix-navigation">
-                <a class="logo" href="/cn">
-                    <img src="@/assets/logo.png" />
-                </a>
-                <div class="nav-title">手机</div>
-                <div class="func-box">
-                    <div class="search-btn">
-                        <img src="@/assets/search-icon.png" />
-                    </div>
-                    <div class="account-btn">
-                        <img src="@/assets/account-icon.png" />
-                    </div>
-                    <!-- <div class="login-btn">登录</div> -->
+    <div class="header-wrapper">
+        <div class="header-fixed">
+        </div>
+        <div class="header">
+            <h1 class="logo" @click="goto('home')">
+                <img src="../assets/logo.png" alt="">
+            </h1>
+            <div class="nav">
+                <div class="nav-col" :key="item.index" :class="curIndex==item.index?'cur':''" v-for="item in navList" @click="goto(item.path)" @mouseover="showNav(item.index)" @mouseout="hideNav()">
+                    {{item.name}}
                 </div>
             </div>
+            <div class="top">
+            </div>
         </div>
-        <div class="container" :class="fixHeader ? 'fixed' : ''">
-            <div class="sec-navigation">
-                <div class="logo">China UNICOM 40 Pro</div>
-                <ul class="product-tabs">
-                    <li class="tab-item" :class="{'active':index==1}">
-                        <a class="pointer" title="功能特征" @click="goto('phone-page',1)">功能特征</a>
-                    </li>
-                    <li class="tab-item" :class="{'active':index==2}">
-                        <a class="pointer" title="规格参数" @click="goto('param',2)">规格参数</a>
-                    </li>
-                    <li class="tab-item">
-                        <a class="pointer" title="配件" @click="goto(3)">配件</a>
-                    </li>
-                    <li class="tab-item">
-                        <a class="pointer" title="服务支持" @click="goto(4)">服务支持</a>
-                    </li>
-                </ul>
-                <div class="buy-btn pointer">购买</div>
+        <div class="header-nav" v-show="isShowNav" @mouseover="showNavSub()" @mouseout="hideNav()">
+            <div class="nav-container" v-show="navIndex==3">
+                <span>新闻稿</span>
+                <span>视频</span>
+            </div>
+            <div class="nav-container" v-show="navIndex ==4">
+                <span @click="goto('query-price')">备件价格查询</span>
+                <span @click="goto('service-network')">服务门店</span>
+                <span @click="goto('about')">常见问题</span>
             </div>
         </div>
     </div>
@@ -43,30 +31,47 @@
 export default {
     name: 'Header',
     data() {
-        return{
-            fixHeader: false,
-            index:1,
+        return {
+            navIndex: 0,
+            isShowNav: false,
+            curIndex: 0,
+            navList: [{
+                name: '优畅享20Plus',
+                index: 1,
+                path: 'product1'
+            }, {
+                name: '优畅享20',
+                index: 2,
+                path: 'product2'
+            }, {
+                name: '新闻',
+                index: 3,
+                path: 'product1'
+            }, {
+                name: '服务支持',
+                index: 4,
+                path: 'serve-home'
+            }, {
+                name: '关于我们',
+                index: 5,
+                path: 'about'
+            }]
         }
     },
-    mounted() {
-        this.index =  window.index?window.index:1
-        window.addEventListener('scroll', this.scrollHander)
-    },
-    unmounted () {
-        window.removeEventListener('scroll', this.scrollHander)
-    },
+    mounted() {},
     methods: {
-        scrollHander () {
-            if (window.pageYOffset > 90) {
-                this.fixHeader = true
-            } else {
-                this.fixHeader = false
-            }
+        showNav(index) {
+            this.navIndex = index
+            this.isShowNav = true
+            this.curIndex = index
         },
-        goto(path,index){
-            console.log(index)
-            window.index = index
-            this.index =  window.index
+        showNavSub() {
+            this.isShowNav = true
+        },
+        hideNav() {
+            this.isShowNav = false
+        },
+        goto(path, index) {
             this.$router.push(path)
         }
     }
@@ -75,315 +80,133 @@ export default {
 <style scoped lang=scss>
 @import "@/sass/common.scss";
 
-/* mobile phone */
-@media screen and (min-width:320px) {
-    .header{
-        height: 158px;
+.header-wrapper {
+    width: 100%;
+    position: relative;
+
+    .header-fixed {
+        height: 90px;
+    }
+
+    .header {
+        position: fixed;
+        height: 90px;
+        top: 0;
+        left: 0;
         width: 100%;
-        .container{
-            border-bottom: 1px solid #e5e5e5;
-            &.fixed{
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background: rgba(255,255,255,0.9);
-                backdrop-filter: saturate(180%) blur(20px);
-                z-index: 1000;
-            }
-        }
-        .fix-navigation{
-            height: 60px;
-            position: relative;
-            .logo{
-                position: absolute;
-                width: 52px;
-                height: 28px;
-                top: 16px;
-                left: 12px;
-                img{
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-            .nav-title{
-                display: none;
-            }
-            .func-box{
-                position: absolute;
-                right: 12px;
-                top: 16px;
-                display: flex;
-                .login-btn{
-                    width: 62px;
-                    height: 28px;
-                    line-height: 24px;
-                    text-align: center;
-                    border-radius: 12px;
-                    border: 2px solid #979797;
-                    font-size: 16px;
-                    font-family: PingFangSC-Regular, PingFang SC;
-                    font-weight: 400;
-                    color: #333333;
-                    cursor: pointer;
-                }
-                .search-btn,
-                .account-btn{
-                    height: 28px;
-                    cursor: pointer;
-                }
-                .account-btn{
-                    margin-right: 20px;
-                    padding-top: 2px;
-                    img{
-                        width: 20px;
-                        height: 23.333px;
-                    }
-                }
-                .search-btn{
-                    margin-right: 25px;
-                    padding-top: 4px;
-                    img{
-                        width: 20.66px;
-                        height: 20.66px;
-                    }
-                }
-            }
-        }
-        .sec-navigation{
-            height: 96px;
-            position: relative;
-            .logo{
-                position: absolute;
-                top: 18px;
-                left: 12px;
-                font-size: 16px;
-                font-family: PingFangSC-Medium, PingFang SC;
-                font-weight: 500;
-                color: #333333;
-                line-height: 33px;
-            }
-            .buy-btn{
-                position: absolute;
-                right: 12px;
-                top: 18px;
-                width: 78px;
-                height: 32px;
-                line-height: 28px;
-                text-align: center;             
-                background: #AD0823;
-                border-radius: 16px;
-                font-size: 16px;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
-                color: #FFFFFF;
-            }
-            .product-tabs{
-                position: absolute;
-                left: -7px;
-                bottom: 0;
-                display: flex;
-                .tab-item{
-                    position: relative;
-                    margin-left: 19px;
-                    &.active{
-                        &::after{
-                            content: '';
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 3px;
-                            background: #000000;
-                        }
-                    }
-                    &:hover{
-                        a{
-                            font-weight: 400;
-                            color: #000;
-                        }
-                    }
-                    &.active{
-                        a{
-                            font-weight: 600;
-                            color: #333333;
-                        }
-                    }
-                    a{
-                        font-size: 16px;
-                        display: block;
-                        font-family: PingFangSC-Semibold, PingFang SC;
-                        font-weight: 400;
-                        color: #666666;
-                        line-height: 25px;
-                        padding: 0 0 12px 0;
-                    }
-                }
-            }
-        }
-    }
-}
+        display: flex;
+        z-index: 999;
+        background: #fff;
 
-/* ipad pro & PC */
-@media screen and (min-width:1024px) {
-    .header{
-        height: 180px;
-        .container{
-            border-bottom: 1px solid #e5e5e5;
-            &.fixed{
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                background: rgba(255,255,255,0.9);
-                backdrop-filter: saturate(180%) blur(20px);
-            }
+        .logo {
+            margin: 21px 25px;
+            width: 333px;
+            height: 49px;
+            cursor: pointer;
         }
-        .fix-navigation{
+
+        .nav {
+            display: flex;
             height: 90px;
-            position: relative;
-            .logo{
-                position: absolute;
-                width: 78px;
-                height: 42px;
-                top: 24px;
-                left: 12px;
-                img{
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-            .nav-title{
-                position: absolute;
-                top: 0;
-                left: 50%;
-                margin-left: -30px;
-                width: 60px;
-                line-height: 90px;
-                text-align: center;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
-                font-size: 24px;
-                color: #333333;
-            }
-            .func-box{
-                position: absolute;
-                right: 12px;
-                top: 24px;
+            width: 60%;
+
+            .nav-col {
                 display: flex;
-                .login-btn{
-                    width: 93px;
-                    height: 42px;
-                    line-height: 38px;
-                    text-align: center;
-                    border-radius: 12px;
-                    border: 2px solid #979797;
-                    font-size: 24px;
-                    font-family: PingFangSC-Regular, PingFang SC;
-                    font-weight: 400;
-                    color: #333333;
-                    cursor: pointer;
-                }
-                .search-btn,
-                .account-btn{
-                    height: 42px;
-                    cursor: pointer;
-                }
-                .account-btn{
-                    margin-right: 29px;
-                    padding-top: 4px;
-                    img{
-                        width: 30px;
-                        height: 35px;
-                    }
-                }
-                .search-btn{
-                    margin-right: 38px;
-                    padding-top: 7px;
-                    img{
-                        width: 31px;
-                        height: 31px;
-                    }
-                }
-            }
-        }
-        .sec-navigation{
-            height: 88px;
-            position: relative;
-            .logo{
-                position: absolute;
-                top: 27px;
-                left: 12px;
+                align-items: center;
+                height: 100%;
                 font-size: 24px;
-                font-family: PingFangSC-Medium, PingFang SC;
-                font-weight: 500;
-                color: #333333;
-                line-height: 33px;
-            }
-            .buy-btn{
-                position: absolute;
-                right: 12px;
-                top: 25px;
-                width: 90px;
-                height: 38px;
-                line-height: 38px;
-                text-align: center;             
-                background: #AD0823;
-                border-radius: 19px;
-                font-size: 18px;
-                font-family: PingFangSC-Regular, PingFang SC;
-                font-weight: 400;
-                color: #FFFFFF;
-            }
-            .product-tabs{
-                position: absolute;
-                right: 149px;
-                left: auto;
-                top: 34px;
-                display: flex;
-                .tab-item{
-                    position: relative;
-                    margin-left: 38px;
-                    &.active{
-                        &::after{
-                            content: '';
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 3px;
-                            background: #000000;
-                        }
-                    }
-                    &:hover{
-                        a{
-                            font-weight: 400;
-                            color: #000;
-                        }
-                    }
-                    &.active{
-                        a{
-                            font-weight: 600;
-                            color: #333333;
-                        }
-                    }
-                    a{
-                        font-size: 18px;
-                        display: block;
-                        font-family: PingFangSC-Semibold, PingFang SC;
-                        font-weight: 400;
-                        color: #666666;
-                        line-height: 25px;
-                        padding: 0 5px 30px;
+                margin: 0 2%;
+                color: #666;
+                cursor: pointer;
+                position: relative;
+
+                &:hover,
+                &.cur {
+                    color: #333;
+
+                    &:before {
+                        height: 5px;
+                        background: #FF7272;
+                        border-radius: 3px;
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        margin-left: -24px;
+                        width:48px;
                     }
                 }
             }
         }
     }
+
+    .header-nav {
+        position: fixed;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        height: 120px;
+        padding-top: 30px;
+        z-index: 99;
+
+        .nav-container {
+            display: flex;
+            border-top: 1px solid #f0f0f0;
+            height: 90px;
+            width: 100%;
+            background: #fff;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                margin: 0 60px;
+                cursor: pointer;
+                color: #666;
+
+                &:hover {
+                    color: #333;
+                }
+            }
+
+        }
+    }
 }
 
-/* PC */
-@media screen and (min-width:1200px) {
-    
+/* s手机 */
+@media screen and (max-width:750px) {
+    .header-wrapper {
+        width: 100%;
+        position: relative;
+
+        .header-fixed {
+            height: 90px;
+        }
+
+        .header {
+            position: fixed;
+            height: 90px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            z-index: 999;
+
+            .logo {
+                margin: 21px 25px;
+                width: 333px;
+                height: 49px;
+                cursor: pointer;
+            }
+
+            .nav {
+                display: none;
+                height: 90px;
+                width: 60%;
+
+            }
+        }
+
+
+    }
 }
 </style>
