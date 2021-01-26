@@ -69,7 +69,6 @@
 import areaList from '../components/area';
 import Header from '../components/header.vue';
 import Footer from '../components/footer.vue';
-import cityData from "../components/city";
 import CBaiduMap from "../components/CBaiduMap";
 import ReturnTop from '@/components/return-top.vue';
 
@@ -92,7 +91,6 @@ export default {
     data() {
         return {
             areaListCopy: areaList,
-            provinceDataCopy: cityData,
             cityDataCopy: [],
             areaDataCopy: [],
             provinceId: '北京',
@@ -218,7 +216,12 @@ export default {
             this.showPopup = false
         },
         handleConfirm(data) {
+            console.log(data)
             this.showPopup = false
+            this.provinceId = data[0].name
+            this.cityId = data[1].name
+            this.areaId = data[2].name
+            this.getMapData()
             this.selProName = data[0].name
         },
         openDownList(type) {
