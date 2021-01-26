@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        <HeaderA/>
         <div class="banner-box">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -31,15 +32,23 @@
                 <div class="play-btn"></div>
             </div>
         </div>
+        <Footer/>
+        <ReturnTop/>
     </div>
 </template>
 
 <script>
 import Swiper from 'swiper'
+import HeaderA from '@/components/header.vue';
+import Footer from '@/components/footer.vue';
+import ReturnTop from '@/components/return-top.vue';
 
 export default {
     name: 'Home',
     components: {
+        HeaderA,
+        Footer,
+        ReturnTop
     },
     data() {
         return {

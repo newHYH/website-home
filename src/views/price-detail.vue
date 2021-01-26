@@ -31,7 +31,7 @@ import img4 from '../assets/select-icon-4.png'
 import img5 from '../assets/select-icon-5.png'
 import img6 from '../assets/select-icon-6.png'
 import img7 from '../assets/select-icon-6.png'
-import HeaderA from '@/components/headerA.vue';
+import HeaderA from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 export default {
     name: "price-detail",
