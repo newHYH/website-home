@@ -35,26 +35,26 @@ export default {
             navIndex: 0,
             isShowNav: false,
             curIndex: 0,
-            navList:[{
-                name:'优畅享20Plus',
-                index:1,
-                path:'product1'
-            },{
-                name:'优畅享20',
-                index:2,
-                path:'product2'
-            },{
-                name:'新闻',
-                index:3,
-                path:'product1'
-            },{
-                name:'服务支持',
-                index:4,
-                path:'serve-home'
-            },{
-                name:'关于我们',
-                index:5,
-                path:'about'
+            navList: [{
+                name: '优畅享20Plus',
+                index: 1,
+                path: 'product1'
+            }, {
+                name: '优畅享20',
+                index: 2,
+                path: 'product2'
+            }, {
+                name: '新闻',
+                index: 3,
+                path: 'product1'
+            }, {
+                name: '服务支持',
+                index: 4,
+                path: 'serve-home'
+            }, {
+                name: '关于我们',
+                index: 5,
+                path: 'about'
             }]
         }
     },
@@ -96,6 +96,7 @@ export default {
         width: 100%;
         display: flex;
         z-index: 999;
+        background: #fff;
 
         .logo {
             margin: 21px 25px;
@@ -159,9 +160,10 @@ export default {
             span {
                 margin: 0 60px;
                 cursor: pointer;
-                color:#666;
-                &:hover{
-                    color:#333;
+                color: #666;
+
+                &:hover {
+                    color: #333;
                 }
             }
 
@@ -169,6 +171,41 @@ export default {
     }
 }
 
-/* PC */
-@media screen and (min-width:1200px) {}
+/* s手机 */
+@media screen and (max-width:750px) {
+    .header-wrapper {
+        width: 100%;
+        position: relative;
+
+        .header-fixed {
+            height: 90px;
+        }
+
+        .header {
+            position: fixed;
+            height: 90px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            z-index: 999;
+
+            .logo {
+                margin: 21px 25px;
+                width: 333px;
+                height: 49px;
+                cursor: pointer;
+            }
+
+            .nav {
+                display: none;
+                height: 90px;
+                width: 60%;
+
+            }
+        }
+
+
+    }
+}
 </style>
