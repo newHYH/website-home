@@ -131,8 +131,9 @@ export default {
                         content: '';
                         position: absolute;
                         bottom: 0;
-                        left: 0;
-                        width: 100%;
+                        left: 50%;
+                        margin-left: -24px;
+                        width:48px;
                     }
                 }
             }
