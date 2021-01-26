@@ -26,5 +26,15 @@ export function quryGoodsTree(data) {
     const url = '/model/quryGoodsTree';
     return getApi(url, data)
 }
+//6.新闻列表查询接口
+export function quryNews(data) {
+    const url = '/news/quryNews';
+    return getApi(url, data)
+}
+//7.新闻详情查询接口
+export function quryDetailByNewsId(data) {
+    const url = '/news/quryDetailByNewsId';
+    return getApi(url, data)
+}
 
 
