@@ -15,8 +15,8 @@
                 <div class="buy-btn pointer" @mouseover="showBuy" @mouseout="hideBuy">购买</div>
                 <div class="buy-pop" v-show="showPop" @mouseover="showBuy" @mouseout="hideBuy">
                     <div class="buy-pop-box">
-                        <a href="https://card.10010.com/html/actv/term/product-details.html?goodsId=992101252696">10010手厅</a>
-                        <a href="https://mobile.yangkeduo.com/goods.html?goods_id=219352575939">拼多多集团官旗</a>
+                        <a href="https://card.10010.com/html/actv/term/product-details.html?goodsId=992101252696">10010</a>
+                        <a href="https://mobile.yangkeduo.com/goods.html?goods_id=219352575939">拼多多</a>
                         <a href="https://m-zl.mucfc.com/0WEC/mall/#/pages/product/detail/index?commonId=2965099">招联</a>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ export default {
     position: absolute;
     top: 40px;
     right: 12px;
-    width: 180px;
+    width: 120px;
     background: #fff;
     border: 1px solid #eee;
     z-index: 8;
@@ -147,7 +147,7 @@ export default {
                 position: absolute;
                 right: 12px;
                 top: 18px;
-                width: 180px;
+                width: 120px;
                 height: 32px;
                 line-height: 28px;
                 text-align: center;
@@ -247,7 +247,7 @@ export default {
                 position: absolute;
                 right: 12px;
                 top: 25px;
-                width: 180px;
+                width: 120px;
                 height: 38px;
                 line-height: 38px;
                 text-align: center;

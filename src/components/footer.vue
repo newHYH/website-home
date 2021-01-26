@@ -131,7 +131,14 @@ export default {
 
         .connect-item .title {
             margin-top: 20px;
+            font-size: 13px;
         }
+        .connect-item  .func-box{
+            font-size: 12px;
+        }
+    }
+    .footer  .page-footer{
+        font-size: 11px;
     }
 }
 </style>

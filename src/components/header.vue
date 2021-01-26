@@ -224,14 +224,15 @@ export default {
         left: 0;
         height: 120px;
         padding-top: 30px;
-        z-index: 99;
+        z-index: 1000;
 
         .nav-container {
             display: flex;
             border-top: 1px solid #f0f0f0;
             height: 90px;
             width: 100%;
-            background: #fff;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0px 0 3px rgba(0,0,0,0.2);
             justify-content: center;
             align-items: center;
 

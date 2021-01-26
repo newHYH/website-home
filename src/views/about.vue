@@ -76,12 +76,12 @@ export default {
         .bd {
             padding:20px;
             h5{
-                font-size:1em;
+                font-size:18px;
                 color:#000;
                 margin:15px 0;
             }
             p {
-                font-size: 0.8em;
+                font-size: 13px;
                 color: #000000;
                 line-height: 2;
                 max-width:530px;
@@ -92,5 +92,14 @@ export default {
     }
 
 
+}
+/* 手机 */
+@media screen and (max-width:750px) {
+   .about-wrapper  .about-box{
+    width:96%;
+    .bd{
+        padding:0
+    }
+    }
 }
 </style>
