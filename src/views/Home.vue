@@ -3,11 +3,19 @@
         <div class="banner-box">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" v-for="(item, index) in swiperList" :key="index">
-                        <img :src="item.url" />
+                    <div class="swiper-slide">
+                        <img src="@/assets/home/banner_20.png" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="@/assets/home/banner_20plus.png" />
                     </div>
                 </div>
             </div>
+
+            <div class="banner-btn btn-left" ></div>
+            <div class="banner-btn btn-right" ></div>
+
+            <div class="banner-pagination"></div>
         </div>
 
         <div class="image-box container">
@@ -25,17 +33,6 @@ export default {
     },
     data() {
         return {
-            swiperList: [
-                {
-                    url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa0.att.hudong.com%2F52%2F62%2F31300542679117141195629117826.jpg&refer=http%3A%2F%2Fa0.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614227454&t=5e42c49d70708d9761348e2f0c171d17'
-                },
-                {
-                    url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa0.att.hudong.com%2F52%2F62%2F31300542679117141195629117826.jpg&refer=http%3A%2F%2Fa0.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614227454&t=5e42c49d70708d9761348e2f0c171d17'
-                },
-                {
-                    url: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa0.att.hudong.com%2F52%2F62%2F31300542679117141195629117826.jpg&refer=http%3A%2F%2Fa0.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1614227454&t=5e42c49d70708d9761348e2f0c171d17'
-                }
-            ]
         }
     },
     computed: {
@@ -50,15 +47,25 @@ export default {
         setupSwiper(){
             new Swiper('.swiper-container', {
                 autoplay: {
-                    delay: 3000,
+                    delay: 3500,
                     stopOnLastSlide: false,
                     disableOnInteraction: true,
                 },
                 loop: true,
                 slidesPerView : 1,
                 slidesPerGroup : 1,
+                navigation: {
+                    nextEl: '.btn-right',
+                    prevEl: '.btn-left',
+                },
+                pagination: {
+                    el: '.banner-pagination',
+                    bulletClass: 'banner-bullets'
+                }
             })
-        }
+        },
+        bannerToLf(){},
+        bannerToRt(){}
     }
 }
 </script>
@@ -73,6 +80,7 @@ export default {
         .banner-box{
             width: torem(1920);
             height: torem(992);
+            position: relative;
             .swiper-container{
                 width: 100%;
                 height: 100%;
@@ -88,6 +96,39 @@ export default {
                         }
                     }
                 }
+            }
+            .banner-btn{
+                position: absolute;
+                background: url('../assets/home/banner-btn.png') no-repeat;
+                background-size: cover;
+                width: torem(42);
+                height: torem(79);
+                top: torem(455);
+                z-index: 10;
+                cursor: pointer;
+            }
+            .btn-left{
+                left: torem(30);
+                transform: rotate(180deg);
+            }
+            .btn-right{
+                right: torem(30);
+            }
+            .banner-pagination{
+                position: absolute;
+                left: 0;
+                bottom: torem(40);
+                width: 100%;
+                height: torem(4);
+                z-index: 10;
+                display: flex;
+                justify-content: center;
+            }
+            .banner-bullets{
+                display: block;
+                width: torem(114);
+                height: torem(4);
+                margin: 0 torem(8.5);
             }
         }
 
