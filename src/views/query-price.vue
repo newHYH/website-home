@@ -1,6 +1,6 @@
 <template>
     <div class="query-price">
-        <HeaderA :tabs="headerTabs"></HeaderA>
+        <HeaderA></HeaderA>
         <div class="head-img">
             备件价格查询
         </div>
@@ -56,7 +56,7 @@
 <script>
 import { quryGoodsSku, quryGoodsTree } from '@/api/index.js'
 
-import HeaderA from '@/components/headerA.vue';
+import HeaderA from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 import img6 from "../assets/select-icon-6.png";
 import img1 from "../assets/select-icon-1.png";
@@ -73,18 +73,6 @@ export default {
     },
     data() {
         return {
-            headerTabs: [
-                {
-                    name: '手机',
-                    link: '/home',
-                    active: false
-                },
-                {
-                    name: '售后服务',
-                    link: '/serve-home',
-                    active: true
-                }
-            ],
             phoneList: [
                 {
                     "id": 5,
