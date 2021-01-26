@@ -16,7 +16,7 @@
         </div>
         <div class="header-nav" v-show="isShowNav" @mouseover="showNavSub()" @mouseout="hideNav()">
             <div class="nav-container" v-show="navIndex==3">
-                <span>新闻稿</span>
+                <span @click="goto('newsList')">新闻稿</span>
                 <span>视频</span>
             </div>
             <div class="nav-container" v-show="navIndex ==4">
@@ -46,11 +46,11 @@ export default {
             }, {
                 name: '新闻',
                 index: 3,
-                path: 'product1'
+                path: ''
             }, {
                 name: '服务支持',
                 index: 4,
-                path: 'serve-home'
+                path: ''
             }, {
                 name: '关于我们',
                 index: 5,

@@ -1,6 +1,6 @@
 <template>
     <div class="article-wrapper">
-        <HeaderA />
+        <Header />
         <div class="article-box">
             <div class="title">预置应用信息公示查询</div>
             <div class="content">
@@ -36,18 +36,22 @@
             </div>
         </div>
         <Footer />
+        <ReturnTop/>
     </div>
 </template>
 <script>
-import HeaderA from '@/components/headerA.vue';
+import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
+import ReturnTop from '@/components/return-top.vue';
+
 
 export default {
     name: 'notice',
     components: {
         // Header,
-        HeaderA,
-        Footer
+        Header,
+        Footer,
+        ReturnTop
     },
     data() {
         return {

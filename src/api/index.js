@@ -37,4 +37,25 @@ export function quryDetailByNewsId(data) {
     return getApi(url, data)
 }
 
+//6.省份查询接口
+export function quryProvince(data) {
+    const url = '/model/quryProvince';
+    return getApi(url, data)
+}
+
+//7.地市查询接口
+export function quryCity(data) {
+    const url = '/model/quryCity';
+    return postApi(url, data)
+}
+
+//8.区县查询接口
+export function quryDistrict(data) {
+    const url = '/model/quryDistrict';
+    return postApi(url, data)
+}
+
+
+
+
 

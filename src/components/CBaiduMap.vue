@@ -32,7 +32,12 @@ import BMap from 'BMap'
 import { quryDept } from '@/api/index.js'
 export default {
     name: "CBaiduMap",
-    components: {},
+    props: {
+        mapData: {
+            type: Array,
+            default: () => []
+        }
+    },
     data() {
         return {
             options: [
@@ -44,18 +49,11 @@ export default {
                 { name: '家居', val: 5 },
                 { name: '配件', val: 6 }
             ],
-            results: [{
-                title: '测试',
-                address:'ces ',
-                tels: ['1183', '32'],
-                workTime: '9:00',
-                lat:39.915,
-                lng:116.404
-            }],
-            posList:[],
-            center:{
-                lat:39.915,
-                lng:116.404
+            results: [],
+            posList: [],
+            center: {
+                lat: 39.915,
+                lng: 116.404
             },
             slideOn: false,
             chooseVal: ''
@@ -63,81 +61,69 @@ export default {
     },
     mounted() {
         let that = this
-        window.onresize = () => {
-
-        }
-        //this.createMap()
         this.getData()
+    },
+    watch: {
+        'mapData': function(oldval, newVal) {
+            if (oldval != newVal) {
+                console.log(newVal)
+                this.getData()
+            }
+        }
     },
     methods: {
         getData() {
-            quryDept({}).then(res => {
-                if (res.RESP_CODE == '0000') {
-                    let list = []
-                    let posList= []
-                    res.data.forEach((item,index) => {
-                        let data = {
-                            title: item.fullname,
-                            distance: '12km',
-                            address: item.deptAddress,
-                            tels: [item.conTel, item.phoneNo],
-                            workTime: item.workTime,
-                            lat:item.deptLat,
-                            lng:item.deptLng
-                        }
-                        list.push(data)
-                        if(index ==0){
-                            this.center = {
-                                lat:item.deptLat,
-                                lng:item.deptLng
-                            }
-                        }
-                    })
-                    this.results = list
-                    this.createMap(posList)
-                }
-            })
+            if (this.mapData.length > 0) {
+                this.results = this.mapData
+                this.center = { lat: this.mapData[0].lat, lng: this.mapData[0].lng }
+                this.createMap()
+            }
+
         },
         createMap() {
             // 创建Map实例
-            const map = new BMap.Map("map",{minZoom:3,maxZoom:12})
+            const map = new BMap.Map("map", { minZoom: 3, maxZoom: 12 })
             // 初始化地图,设置中心点坐标和地图级别
             map.centerAndZoom(new BMap.Point(this.center.lng, this.center.lat), 12)
             //添加地图类型控件
-            
+
             // 设置地图显示的城市 此项是必须设置的
             //map.setCurrentCity("北京")
             //开启鼠标滚轮缩放
             map.enableScrollWheelZoom(true)
-            this.results.forEach((item,index)=>{
-                let point = new BMap.Point( item.lng,item.lat);
-                var marker = new BMap.Marker(point, {
-                    icon: new BMap.Icon(require('../assets/maps/'+Number(index+1)+'.png'),new BMap.Size(22,38))
-                });
+            this.results.forEach((item, index) => {
+                let point = new BMap.Point(item.lng, item.lat);
+                var marker = marker = new BMap.Marker(point)
+                if (index<=50) {
+                    let icon = require('../assets/maps/' + Number(index + 1) + '.png')
+                     marker = new BMap.Marker(point, {
+                        icon: new BMap.Icon(icon, new BMap.Size(22, 38))
+                    });
+                }
                 map.addOverlay(marker);
                 var opts = {
                     width: 350,
-                    height: 150,
+                    height: 200,
                     title: ''
                 };
                 let info = '<div style="font-size:16px; color:#333; padding:0 12px;"><p style="color:#000;font-weight:700;">'
-                    info += item.title
-                    info += '</p><p  style="color:#7f7f7f"><span>地址：</span>'
-                    info += item.address 
-                    info += '</p><p style="color:#7f7f7f"><span>电话：<span>'
-                    info += item.tels[0]
-                    info += '</p></div>'
+                info += item.title
+                info += '</p><p  style="color:#7f7f7f"><span>地址：</span>'
+                info += item.address
+                info += '</p><p style="color:#7f7f7f"><span>电话：<span>'
+                info += item.tels[0]
+                info += '</p></div>'
                 var infoWindow = new BMap.InfoWindow(info, opts);
                 // 点标记添加点击事件
-                marker.addEventListener('click', function () {
+                marker.addEventListener('click', function() {
                     map.openInfoWindow(infoWindow, point); // 开启信息窗口
                 });
             })
         },
-        changeMap(index){
+        changeMap(index) {
             this.center = {
-                lat:this.results[index].lat,
-                lng:this.results[index].lng
+                lat: this.results[index].lat,
+                lng: this.results[index].lng
             }
             this.createMap()
         },
@@ -275,6 +261,7 @@ $mapHeight: torem(769);
                     .index {
                         position: absolute;
                         top: torem(3);
+                        font-size: torem(12);
                         font-weight: 400;
                         left: torem(-32);
                         width: torem(22);

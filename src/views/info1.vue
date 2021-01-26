@@ -1579,12 +1579,15 @@
             </div>
         </div>
         <Footer />
+        <ReturnTop/>
     </div>
 </template>
 
 <script>
     import HeaderA from '@/components/headerA.vue';
     import Footer from '@/components/footer.vue';
+    import ReturnTop from '@/components/return-top.vue';
+
     export default {
         name: "info1",
         data() {
@@ -1597,7 +1600,8 @@
         components: {
             // Header,
             HeaderA,
-            Footer
+            Footer,
+            ReturnTop
         },
         methods: {
             nextPage() {

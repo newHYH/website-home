@@ -8,7 +8,7 @@
             <div class="sel-wrap col-sm-12 col-md-12 col-lg-12">
                 <div>选择机型：</div>
                 <div class="btn-select">
-                    <img src="../assets/select-icon-2.png" alt="">
+                    <img src="../assets/img_jixing.png" alt="">
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     <div class="input"  @click="handleShowList(1)">{{currentPhoneName||'请选择手机型号'}}</div>
                     <span class="search-icon">
                         <img v-if="!showPhoneListFlag" src="../assets/search-icon.png" alt="">
-                        <span v-if="showPhoneListFlag" @click="handleShowList(2)">X</span>
+                        <img v-if="showPhoneListFlag" src="../assets/deletes.png" alt="" @click="handleShowList(2)">
                     </span>
                 </div>
                 <div class="phone-list-wrap col-sm-12 col-md-12 col-lg-12" :class="showPhoneListFlag?'show':'hide'">
@@ -40,7 +40,7 @@
                 <ul>
                     <li v-for="(price,index) in priceList" :key="index">
                         <div class="icons">
-                            <img src="../assets/select-icon-1.png" alt="">
+                            <img :src="price.img" alt="">
                         </div>
                         <div class="price-detai">
                             <div class="price-name">{{price.partName}}</div>
@@ -51,6 +51,7 @@
             </div>
         </div>
         <Footer></Footer>
+        <ReturnTop/>
     </div>
 </template>
 <script>
@@ -58,58 +59,25 @@ import { quryGoodsSku, quryGoodsTree } from '@/api/index.js'
 
 import HeaderA from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
-import img6 from "../assets/select-icon-6.png";
-import img1 from "../assets/select-icon-1.png";
-import img3 from "../assets/select-icon-3.png";
-import img4 from "../assets/select-icon-4.png";
-import img7 from "../assets/select-icon-6.png";
-import img5 from "../assets/select-icon-5.png";
+import ReturnTop from '@/components/return-top.vue';
+
+import dianchi from "../assets/dianchi.png";
+import houke from "../assets/houke.png";
+import houzhi from "../assets/houzhi.png";
+import pingmuzujian from "../assets/pingmuzujian.png";
+import qianzhi from "../assets/qianzhi.png";
+import zhuban from "../assets/zhuban.png";
 export default {
     name: "query-price",
     components: {
         // Header,
         HeaderA,
-        Footer
+        Footer,
+        ReturnTop
     },
     data() {
         return {
-            phoneList: [
-                {
-                    "id": 5,
-                    "typeName": "优畅享20 Plus 6GB+128GB 双卡 全网通版 (XXXX)",
-                    "typeCode": "005",
-                    "skuList": [
-                        {
-                            "id": 2,
-                            "goodsName": "优畅享20 Plus 6GB+128GB 双卡 全网通版 (XXXX) 幻夜黑",
-                            "typeId": 5,
-                            "creatTime": "2021-01-18 03:33:40",
-                            "cellPrice": 1,
-                            "specialPrice": 1,
-                            "chgBoardPrice": 1,
-                            "backPrice": 1,
-                            "screenPrice": 1,
-                            "hboardPrice": 1,
-                            "fcameraPrice": 1,
-                            "rcameraPrice": 1
-                        },
-                        {
-                            "id": 3,
-                            "goodsName": "优畅享20 Plus 6GB+128GB 双卡 全网通版 (XXXX) 星河银",
-                            "typeId": 5,
-                            "creatTime": "2021-01-18 03:36:43",
-                            "cellPrice": 1,
-                            "specialPrice": 1,
-                            "chgBoardPrice": 1,
-                            "backPrice": 1,
-                            "screenPrice": 1,
-                            "hboardPrice": 1,
-                            "fcameraPrice": 1,
-                            "rcameraPrice": 1
-                        }
-                    ]
-                }
-            ],
+            phoneList: [],
             selectedDeviceName: '',
             showPhoneListFlag: false,
             currentPhoneName: '', //当前选择的手机名称
@@ -178,47 +146,47 @@ export default {
                                 obj = {
                                     partName: '电池',
                                     partPrice: '¥'+ data[keys]||'敬请期待…',
-                                    img: '',
+                                    img: dianchi,
                                 }
                                 this.priceList.push(obj)
                                 break;
-                            case  'specialPrice':
-                                obj = {
-                                    partName: '特惠价格',
-                                    partPrice: '¥'+ data[keys]||'敬请期待…',
-                                    img: '',
-                                }
-                                this.priceList.push(obj)
-                                break;
+                            // case  'specialPrice':
+                            //     obj = {
+                            //         partName: '特惠价格',
+                            //         partPrice: '¥'+ data[keys]||'敬请期待…',
+                            //         img: '',
+                            //     }
+                            //     this.priceList.push(obj)
+                            //     break;
                             case  'chgBoardPrice':
                                 obj = {
                                     partName: '主板',
                                     partPrice: '¥'+ data[keys]||'敬请期待…',
-                                    img: '',
+                                    img: zhuban,
                                 }
                                 this.priceList.push(obj)
                                 break;
                             case  'backPrice':
                                 obj = {
-                                    partName: '后盖',
+                                    partName: '后壳',
                                     partPrice: '¥'+ data[keys]||'敬请期待…',
-                                    img: '',
+                                    img: houke,
                                 }
                                 this.priceList.push(obj)
                                 break;
                             case  'screenPrice':
                                 obj = {
-                                    partName: '屏幕',
+                                    partName: '屏幕组件',
                                     partPrice: '¥'+ data[keys]||'敬请期待…',
-                                    img: '',
+                                    img: pingmuzujian,
                                 }
                                 this.priceList.push(obj)
                                 break;
                             case  'fcameraPrice':
                                 obj = {
-                                    partName: '前置摄像头',
+                                    partName: '前置摄像头组件',
                                     partPrice: '¥'+ data[keys]||'敬请期待…',
-                                    img: '',
+                                    img: qianzhi,
                                 }
                                 this.priceList.push(obj)
                                 break;
@@ -226,7 +194,7 @@ export default {
                                 obj = {
                                     partName: '后置摄像头',
                                     partPrice: '¥'+ data[keys]||'敬请期待…',
-                                    img: '',
+                                    img: houzhi,
                                 }
                                 this.priceList.push(obj)
                                 break;
@@ -274,16 +242,15 @@ export default {
             .btn-select {
                 margin-top: torem(14);
                 cursor: pointer;
-                width: torem(130);
-                height: torem(130);
+                width: torem(120);
+                height: torem(120);
                 border-radius: torem(8);
-                border: torem(1) solid #666666;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 img{
-                    width: torem(24);
-                    height: torem(45);
+                    width: 100%;
+                    height: 100%;
                 }
             }
         }
@@ -305,7 +272,7 @@ export default {
                     color: #999;
                     background: #FFFFFF;
                     border-radius: torem(8);
-                    border: torem(1) solid #E6E6E6;
+                    border: torem(1) solid #D0D0D0;
                     font-size: torem(24);
                     padding-left: torem(40);
                 }
@@ -382,7 +349,7 @@ export default {
                 display: flex;
                 justify-content: space-evenly;
                 align-items: flex-start;
-                border: torem(1) solid #666;
+                border: torem(1) solid #D0D0D0;
                 padding: torem(50) torem(30);
                 margin-bottom: torem(35);
                 margin-right: torem(35);
@@ -391,8 +358,8 @@ export default {
                     width: 40%;
                     height: 100%;
                     img{
-                        width: torem(62);
-                        height: torem(62);
+                        width: torem(80);
+                        height: torem(80);
                     }
                 }
                 .price-detai{
@@ -403,7 +370,7 @@ export default {
                     justify-content: flex-start;
                     align-items: flex-start;
                     .price-name{
-                        font-size: torem(34);
+                        font-size: torem(28);
                         font-weight: 500;
                         color: #333333;
                         line-height: torem(48);
@@ -455,13 +422,12 @@ export default {
                     width: 80px;
                     height: 80px;
                     border-radius: 8px;
-                    border: 1px solid #666666;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     img{
-                        width: 34px;
-                        height: 35px;
+                        width: 100%;
+                        height: 100%;
                     }
                 }
             }
@@ -481,7 +447,7 @@ export default {
                         line-height: 30px;
                         background: #FFFFFF;
                         border-radius: 8px;
-                        border: 1px solid #E6E6E6;
+                        border: 1px solid #D0D0D0;
                         font-size: 12px;
                         padding: 0 25px 0 10px;
                         overflow-x: hidden;
@@ -565,7 +531,7 @@ export default {
                     display: flex;
                     justify-content: space-evenly;
                     align-items: flex-start;
-                    border: 1px solid #666;
+                    border: 1px solid #D0D0D0;
                     padding: 10px;
                     margin-bottom: 10px;
                     margin-right: 10px;
@@ -574,8 +540,8 @@ export default {
                         width: 40%;
                         height: 100%;
                         img{
-                            width: 25px;
-                            height: 45px;
+                            width: 40px;
+                            height: 40px;
                         }
                     }
                     .price-detai{

@@ -1,6 +1,6 @@
 <template>
     <div class="server">
-        <HeaderA :tabs="headerTabs" />
+        <Header />
         <div class="serve-banner">
             <img class="bg" src="../assets/banner.jpg">
             <div class="content">
@@ -116,13 +116,13 @@
     </div>
 </template>
 <script>
-import HeaderA from '@/components/headerA.vue';
+import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 import { quryQuestion } from '@/api/index.js'
 export default {
     name: 'ServeHome',
     components: {
-        HeaderA,
+        Header,
         Footer
     },
     data() {

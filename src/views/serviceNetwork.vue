@@ -1,37 +1,37 @@
 <template>
     <div class="home">
-        <HeaderA :tabs="headerTabs"></HeaderA>
+        <Header></Header>
         <div class="box-top">
             <img class="box-top-img" src="../assets/fuwutop.png" alt="" />
         </div>
-        <!-- <div class="box-mobile">
+        <div class="box-mobile">
             <div class="select-mobile" @click="gotoSel">
                 <div class="sel-name">{{selProName||'请选择'}}</div>
                 <img class="sel-icon" src="../assets/arrow-bottom.png" />
             </div>
             <div class="search-mobile">
-                <input type="text" placeholder="请输入地址，搜索附近的服务店">
-                <img class="search-icon" src="../assets/search-icon.png" />
+                <input type="text" @keyup.enter="handleSearch"  v-model="deptAddress" placeholder="请输入地址，搜索附近的服务门店">
+                <img class="search-icon" @click="handleSearch"  src="../assets/search-icon.png" />
             </div>
         </div>
         <Popup v-model:show="showPopup" position="bottom" :style="{ height: '40%' }">
             <Area title="请选择省、市、区" :area-list="areaListCopy" :columns-num="3" @confirm="handleConfirm" @cancel="handleCancel" :columns-placeholder="['请选择', '请选择', '请选择']" />
         </Popup>
         <div class="search-box">
-            <div class="">搜索附近的服务店（不限区域）：</div>
+            <div class="">搜索附近的服务门店（不限区域）：</div>
             <div class="input-wrap">
-                <input type="text" placeholder="请输入地址，搜索附近的服务店">
+                <input type="text" v-model="deptAddress" @keyup.enter="handleSearch" placeholder="请输入地址，搜索附近的服务门店">
             </div>
         </div>
         <div class="select-box">
-            <div class="">按区域搜索服务店：</div>
+            <div class="">按区域搜索服务门店：</div>
             <div class="select-wrap">
                 <div class="sel-box" @click.stop="openDownList(1)">
                     <div class="selected-name">{{selProName}}</div>
                     <div class="arrow-down"></div>
                     <div class="down-list" :class="openDownFlag==1?'active-down':''">
-                        <div class="down-list-opt" v-for="(province,provinceIndex) in provinceDataCopy" :key="provinceIndex" @click.stop="selOpt('pro',province)">
-                            {{province.provinceName}}
+                        <div class="down-list-opt" v-for="(province,provinceIndex) in provinceList" :key="provinceIndex" @click.stop="selOpt('pro',province)">
+                            {{province}}
                             <input type="text" v-model="provinceId" style="display: none">
                         </div>
                     </div>
@@ -40,8 +40,8 @@
                     <div class="selected-name">{{selCityName}}</div>
                     <div class="arrow-down"></div>
                     <div class="down-list" :class="openDownFlag==2?'active-down':''">
-                        <div class="down-list-opt" v-for="(city,cityIndex) in cityDataCopy" :key="cityIndex" @click.stop="selOpt('city',city)">
-                            {{city.cityName}}
+                        <div class="down-list-opt" v-for="(city,cityIndex) in cityList" :key="cityIndex" @click.stop="selOpt('city',city)">
+                            {{city}}
                             <input type="text" v-model="cityId" style="display: none">
                         </div>
                     </div>
@@ -50,73 +50,166 @@
                     <div class="selected-name">{{selAreaName}}</div>
                     <div class="arrow-down"></div>
                     <div class="down-list" :class="openDownFlag==3?'active-down':''">
-                        <div class="down-list-opt" v-for="(area,areaIndex) in areaDataCopy" :key="areaIndex" @click.stop="selOpt('area',area)">
-                            {{area.areaName}}
+                        <div class="down-list-opt" v-for="(area,areaIndex) in areaList" :key="areaIndex" @click.stop="selOpt('area',area)">
+                            {{area}}
                             <input type="text" v-model="areaId" style="display: none">
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <div class="container">
-            <CBaiduMap />
+            <CBaiduMap :mapData="mapData" />
         </div>
         <Footer></Footer>
+        <ReturnTop/>
     </div>
 </template>
 <script>
 import areaList from '../components/area';
-import HeaderA from '../components/headerA.vue';
+import Header from '../components/header.vue';
 import Footer from '../components/footer.vue';
 import cityData from "../components/city";
 import CBaiduMap from "../components/CBaiduMap";
-/*import Area from 'vant/lib/area';
+import ReturnTop from '@/components/return-top.vue';
+
+import Area from 'vant/lib/area';
 import 'vant/lib/area/style';
 import Popup from 'vant/lib/popup';
-import 'vant/lib/popup/style';*/
+import 'vant/lib/popup/style';
+import { quryProvince, quryCity, quryDistrict, quryDept } from '@/api/index.js'
+import BMap from 'BMap'
 export default {
     name: "serviceNetWork",
     components: {
-        HeaderA,
+        Header,
         Footer,
         CBaiduMap,
-        /*Area,
-        Popup*/
+        Area,
+        Popup,
+        ReturnTop
     },
     data() {
         return {
-            headerTabs: [{
-                    name: '手机',
-                    link: '/home',
-                    active: false
-                },
-                {
-                    name: '售后服务',
-                    link: '/serve-home',
-                    active: true
-                }
-            ],
             areaListCopy: areaList,
             provinceDataCopy: cityData,
             cityDataCopy: [],
             areaDataCopy: [],
-            provinceId: '',
-            cityId: '',
+            provinceId: '北京',
+            cityId: '北京',
             areaId: '',
-            selProName: '请选择',
-            selCityName: '请选择',
+            selProName: '北京',
+            selCityName: '北京',
             selAreaName: '请选择',
             openDownFlag: 0,
-            showPopup: false
+            showPopup: false,
+            provinceList: [],
+            cityList: [],
+            areaList: [],
+            deptAddress: '',
+            mapData: [],
         };
     },
     mounted() {
+        this.getData()
+
     },
     methods: {
-        handler({ BMap, map }) {
-            console.log(BMap, map);
-            this.center.lng = 118.835;
-            this.center.lat = 32.0835479;
+        getData() {
+            quryProvince().then(res => {
+                if (res.RESP_CODE == '0000') {
+                    this.provinceList = res.data
+                }
+            })
+            this.getMapData()
+            this.getQuryCity()
+            this.getquryDistrict()
+        },
+        getQuryCity() {
+            let params = {
+                province: this.provinceId
+            }
+            quryCity(params).then(res => {
+                if (res.RESP_CODE == '0000') {
+                    this.cityList = res.data
+                }
+            })
+        },
+        getquryDistrict() {
+            let params = {
+                city: this.cityId
+            }
+            quryDistrict(params).then(res => {
+                console.log(res)
+                if (res.RESP_CODE == '0000') {
+                    this.areaList = res.data
+                }
+            })
+        },
+        getMapData() {
+            let params = {
+                province: this.provinceId,
+                city: this.cityId,
+                district: this.areaId,
+            }
+            let self = this
+            quryDept(params).then(res => {
+                if (res.RESP_CODE == '0000') {
+                    let len = res.data.length
+                    let list= []
+                    res.data.forEach((item, index) => {
+                        var myGeo = new BMap.Geocoder()
+                        myGeo.getPoint(item.deptAddress, function(point) {
+                            if (point) {
+                                console.log(point)
+                                let data = {
+                                    title: item.fullname,
+                                    address: item.deptAddress,
+                                    tels: [item.conTel, item.phoneNo],
+                                    workTime: item.workTime,
+                                    lng: point.lng,
+                                    lat: point.lat
+                                }
+                                list.push(data)
+                                if (index == len-1) {
+                                    self.mapData = list
+                                }
+                            }
+                        }, item.city)
+                    })
+                }
+            })
+        },
+        handleSearch() {
+            let params = {
+                deptAddress: this.deptAddress
+            }
+            let self = this
+            quryDept(params).then(res => {
+                if (res.RESP_CODE == '0000') {
+                    let len = res.data.length
+                    let list= []
+                    res.data.forEach((item, index) => {
+                        var myGeo = new BMap.Geocoder()
+                        myGeo.getPoint(item.deptAddress, function(point) {
+                            if (point) {
+                                let data = {
+                                    title: item.fullname,
+                                    address: item.deptAddress,
+                                    tels: [item.conTel, item.phoneNo],
+                                    workTime: item.workTime,
+                                    lng: point.lng,
+                                    lat: point.lat
+                                }
+                                list.push(data)
+                                if (index == len-1) {
+                                    self.mapData = list
+                                }
+                            }
+                        }, item.city)
+                    })
+                }
+            })
         },
         gotoSel() {
             this.showPopup = !this.showPopup
@@ -125,7 +218,6 @@ export default {
             this.showPopup = false
         },
         handleConfirm(data) {
-            console.log(data)
             this.showPopup = false
             this.selProName = data[0].name
         },
@@ -143,20 +235,21 @@ export default {
                 this.areaDataCopy = []
                 this.selCityName = '请选择'
                 this.selAreaName = '请选择'
-                this.provinceId = item.provinceCode
-                this.selProName = item.provinceName
-                this.cityDataCopy = item.mallCityList
+                this.provinceId = item
+                this.selProName = item
+                this.getQuryCity()
             }
             if (type == 'city') {
                 this.areaDataCopy = []
                 this.selAreaName = '请选择'
-                this.cityId = item.cityCode
-                this.selCityName = item.cityName
-                this.areaDataCopy = item.mallAreaList
+                this.cityId = item
+                this.selCityName = item
+                this.getquryDistrict()
             }
             if (type == 'area') {
-                this.areaId = item.areaCode
-                this.selAreaName = item.areaName
+                this.areaId = item
+                this.selAreaName = item
+                this.getMapData()
             }
         }
     },
@@ -231,7 +324,8 @@ export default {
                 width: 30%;
                 border-bottom: 1px solid #d8d8d8;
                 color: #1d1e28;
-                font-weight: 600;
+                font-size: 15px;
+                font-weight: 400;
 
                 .arrow-down {
                     position: absolute;

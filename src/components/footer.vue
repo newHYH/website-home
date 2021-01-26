@@ -31,7 +31,7 @@
                     <p class="title">关注我们</p>
                     <div class="func-box">
                         <p><a href="https://weibo.com/nokiae7?is_all=1" target="view_window"><img src="../assets/weibo.png" class="wb" alt=""></a>
-                            </p>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -90,6 +90,7 @@ export default {
 
                     p {
                         margin-top: 24px;
+                        color: #666;
 
                     }
 
@@ -123,5 +124,14 @@ export default {
 }
 
 /* 手机 */
-@media screen and (max-width:750px) {}
+@media screen and (max-width:750px) {
+    .footer .connect .connect-box {
+        flex-direction: column;
+        padding-left: 20px;
+
+        .connect-item .title {
+            margin-top: 20px;
+        }
+    }
+}
 </style>
