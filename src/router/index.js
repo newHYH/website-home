@@ -26,7 +26,7 @@ const routes = [{
     },
     {
         path: '/notice',
-        component: () => import( /* webpackChunkName: "about" */ '../views/notice.vue')
+        component: () => import( /* webpackChunkName: "about" */ '../views/notice.vue') 
     },
     {
         path: '/support',
@@ -63,7 +63,6 @@ const routes = [{
         path: '/product2',
         component: () => import( /* webpackChunkName: "about" */ '../views/product2.vue')
     },
-
     {
         path: "/404",
         name: "notFound",
