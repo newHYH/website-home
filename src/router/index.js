@@ -71,6 +71,10 @@ const routes = [{
         path: '/newsList',
         component: () => import( /* webpackChunkName: "about" */ '../views/newsList.vue')
     },
+    {
+        path: '/publicVideo',
+        component: () => import( /* webpackChunkName: "about" */ '../views/video.vue')
+    },
 
     {
         path: "/404",
