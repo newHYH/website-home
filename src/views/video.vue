@@ -99,6 +99,64 @@ export default {
         .sec-video{
             box-sizing: border-box;
             width: 100%;
+            padding: torem(60) 0 torem(55) 0;
+            background: #F5F5F5;
+            padding-top: torem(60);
+            .ch-box{
+                width: torem(1380);
+                height: torem(1240);
+                margin: 0 auto;
+                position: relative;
+                margin-bottom: torem(50);
+                .video-box{
+                    position: absolute;
+                    width: 100%;
+                    height: torem(1160);
+                    
+                    &.box-1{
+                        background: url(../assets/video/img_shipin_plus.png) no-repeat;
+                        background-size: cover;
+                    }
+                    &.box-2{
+                        background: url(../assets/video/img_shipin_20.png) no-repeat;
+                        background-size: cover;
+                    }
+                    .play-btn{
+                        position: absolute;
+                        width: torem(96);
+                        height: torem(96);
+                        background: url(../assets/home/video-play-btn.png) no-repeat;
+                        background-size: cover;
+                        top: 50%;
+                        left: 50%;
+                        margin: torem(-48) 0 0 torem(-48);
+                        cursor: pointer;
+                    }
+                }
+                .product-info{
+                    background: #fff;
+                    line-height: torem(332);
+                    height: torem(332);
+                    width: torem(1220);
+                    padding-left: torem(40);
+                    font-size: torem(56);
+                    font-weight: 600;
+                    color: #333333;
+                    position: absolute;
+                    left: torem(80);
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+/* ipad pro & PC */
+@media screen and (min-width:1024px) {
+    .video-page{
+        .sec-video{
+            box-sizing: border-box;
+            width: 100%;
             height: torem(736);
             background: #F5F5F5;
             display: flex;
@@ -149,11 +207,6 @@ export default {
             }
         }
     }
-}
-
-/* ipad pro & PC */
-@media screen and (min-width:1024px) {
-
 }
 
 /* PC & bigScreen*/
