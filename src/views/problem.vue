@@ -7,7 +7,7 @@
                 <p>查找常见问题，帮您快速定位故障，提供有效解决方案</p>
             </div>
             <div class="problem-list">
-                <div class="problem-col" :key="index" v-for="(item,index) in list">
+                <div class="problem-col" :key="index" v-show="lenIndex>=index" v-for="(item,index) in list">
                     <div class="hd" @click="handleDrop(index)">
                         <div class="hd-t">{{item.title}}</div>
                         <div class="hd-icon" :class="curIndex==index?'icon-up':'icon-down'"></div>
@@ -36,7 +36,8 @@ export default {
     data() {
         return {
             list: proList,
-            curIndex: -1
+            lenIndex:9,
+            curIndex: -1,
         }
     },
     mounted() {
@@ -113,6 +114,7 @@ export default {
 
                 &:nth-child(2) {
                     background: #F2F5F5;
+
                     .hd {
                         &:before {
                             background: url(../assets/wenti_b.png) no-repeat;
@@ -133,10 +135,11 @@ export default {
                             width: 68px;
                             height: 68px;
                             display: block;
-                            
+
                             margin-right: 10px;
                         }
                     }
+
                     background: #F2F5F5;
                 }
 
@@ -149,7 +152,8 @@ export default {
                     cursor: pointer;
 
                     .hd-t {
-                    flex:1;}
+                        flex: 1;
+                    }
 
                     .hd-icon {
                         width: 18px;
