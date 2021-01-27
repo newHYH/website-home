@@ -66,7 +66,7 @@ export default {
                 path: '',
                 showChild: false,
                 child: [{
-                    name: '新闻稿',
+                    name: '资讯',
                     path: 'newsList'
                 }, {
                     name: '视频',
