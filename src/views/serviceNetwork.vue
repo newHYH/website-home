@@ -9,20 +9,20 @@
                 <div class="sel-name">{{selProName||'请选择'}}</div>
                 <img class="sel-icon" src="../assets/arrow-bottom.png" />
             </div>
-            <div class="search-mobile">
-                <input type="text" @keyup.enter="handleSearch"  v-model="deptAddress" placeholder="请输入地址，搜索附近的服务门店">
-                <img class="search-icon" @click="handleSearch"  src="../assets/search-icon.png" />
-            </div>
+            <!-- <div class="search-mobile">
+                <input type="text" @keyup.enter="handleSearch" v-model="deptAddress" placeholder="请输入地址，搜索附近的服务门店">
+                <img class="search-icon" @click="handleSearch" src="../assets/search-icon.png" />
+            </div> -->
         </div>
         <Popup v-model:show="showPopup" position="bottom" :style="{ height: '40%' }">
             <Area title="请选择省、市、区" :area-list="areaListCopy" :columns-num="3" @confirm="handleConfirm" @cancel="handleCancel" :columns-placeholder="['请选择', '请选择', '请选择']" />
         </Popup>
-        <div class="search-box">
+        <!-- <div class="search-box">
             <div class="">搜索附近的服务门店（不限区域）：</div>
             <div class="input-wrap">
                 <input type="text" v-model="deptAddress" @keyup.enter="handleSearch" placeholder="请输入地址，搜索附近的服务门店">
             </div>
-        </div>
+        </div> -->
         <div class="select-box">
             <div class="">按区域搜索服务门店：</div>
             <div class="select-wrap">
@@ -62,7 +62,7 @@
             <CBaiduMap :mapData="mapData" />
         </div>
         <Footer></Footer>
-        <ReturnTop/>
+        <ReturnTop />
     </div>
 </template>
 <script>
@@ -154,7 +154,7 @@ export default {
             quryDept(params).then(res => {
                 if (res.RESP_CODE == '0000') {
                     let len = res.data.length
-                    let list= []
+                    let list = []
                     res.data.forEach((item, index) => {
                         var myGeo = new BMap.Geocoder()
                         myGeo.getPoint(item.deptAddress, function(point) {
@@ -169,7 +169,7 @@ export default {
                                     lat: point.lat
                                 }
                                 list.push(data)
-                                if (index == len-1) {
+                                if (index == len - 1) {
                                     self.mapData = list
                                 }
                             }
@@ -179,35 +179,41 @@ export default {
             })
         },
         handleSearch() {
-            let params = {
-                deptAddress: this.deptAddress
-            }
-            let self = this
-            quryDept(params).then(res => {
-                if (res.RESP_CODE == '0000') {
-                    let len = res.data.length
-                    let list= []
-                    res.data.forEach((item, index) => {
-                        var myGeo = new BMap.Geocoder()
-                        myGeo.getPoint(item.deptAddress, function(point) {
-                            if (point) {
-                                let data = {
-                                    title: item.fullname,
-                                    address: item.deptAddress,
-                                    tels: [item.conTel, item.phoneNo],
-                                    workTime: item.workTime,
-                                    lng: point.lng,
-                                    lat: point.lat
-                                }
-                                list.push(data)
-                                if (index == len-1) {
-                                    self.mapData = list
-                                }
-                            }
-                        }, item.city)
-                    })
+
+            if (this.deptAddress != '') {
+                let params = {
+                    deptAddress: this.deptAddress
                 }
-            })
+                let self = this
+                quryDept(params).then(res => {
+                    if (res.RESP_CODE == '0000') {
+                        let len = res.data.length
+                        let list = []
+                        res.data.forEach((item, index) => {
+                            var myGeo = new BMap.Geocoder()
+                            myGeo.getPoint(item.deptAddress, function(point) {
+                                if (point) {
+                                    let data = {
+                                        title: item.fullname,
+                                        address: item.deptAddress,
+                                        tels: [item.conTel, item.phoneNo],
+                                        workTime: item.workTime,
+                                        lng: point.lng,
+                                        lat: point.lat
+                                    }
+                                    list.push(data)
+                                    if (index == len - 1) {
+                                        self.mapData = list
+                                    }
+                                }
+                            }, item.city)
+                        })
+                    }
+                })
+            } else {
+                this.getMapData()
+            }
+
         },
         gotoSel() {
             this.showPopup = !this.showPopup

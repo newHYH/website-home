@@ -171,11 +171,6 @@ export default {
             position: absolute;
             right: 10px;
             top: 0;
-
-            img {
-                width: 213px;
-                height: 31px;
-            }
         }
 
         .nav-mobile {
@@ -421,10 +416,6 @@ export default {
                 width: 82px;
                 height: 36px;
                 top: 12px;
-
-                img {
-                    width: 82px;
-                }
             }
         }
 

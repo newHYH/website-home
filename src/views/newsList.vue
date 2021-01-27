@@ -1,9 +1,9 @@
 <template>
     <div class="newsList">
         <Header></Header>
-        <div class="news-top">
-            <img src="../assets/img_xinwen.png" alt="">
-        </div>
+<!--        <div class="news-top">-->
+<!--            <img src="../assets/img_xinwen.png" alt="">-->
+<!--        </div>-->
         <div class="newsList-wrap">
             <div class="news-box" v-for="(news,index) in newsList" :key="index" @click="goto(news)">
                 <img :src="news.cover" alt="">

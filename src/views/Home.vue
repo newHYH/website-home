@@ -131,7 +131,7 @@ export default {
 
         .banner-btn {
             position: absolute;
-            background: url('../assets/home/banner-btn.png') no-repeat;
+            background: url('../assets/home/you.png') no-repeat;
             background-size: cover;
             width: torem(42);
             height: torem(79);
