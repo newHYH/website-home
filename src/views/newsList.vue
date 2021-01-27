@@ -5,7 +5,7 @@
 <!--            <img src="../assets/img_xinwen.png" alt="">-->
 <!--        </div>-->
         <div class="newsList-wrap">
-            <div class="news-box" v-for="(news,index) in newsList" :key="index" @click="goto(news)">
+            <div class="news-box" v-for="(news,index) in newsList" :key="index" @click="goto(news,index)">
                 <img :src="news.cover" alt="">
                 <div class="news-content">
                     <div class="news-time">
@@ -55,9 +55,17 @@
                     }
                 })
             },
-            goto(news){
-                let id = news.id
-                this.$router.push('/newsDetail?id='+ id)
+            goto(news, index){
+                if(index == 0){
+                    let id = news.id
+                    this.$router.push('/newsDetail?id='+ id)
+                } else if(index == 1){
+                    window.open('https://mp.weixin.qq.com/s/dCDdTzpr-QE6-ajicN4Neg')
+                } else if(index == 2){
+                    window.open('https://mp.weixin.qq.com/s/3hDmvzm2lm0o3fdfCfrVkw')
+                } else if(index == 3){
+                    window.open('https://www.toutiao.com/i6921513917420192268/')
+                }
             },
             timeFilter(time){
                 let newsTime = new Date(time)
