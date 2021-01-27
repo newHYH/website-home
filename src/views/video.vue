@@ -123,13 +123,13 @@ export default {
                 }
                 .play-btn{
                     position: absolute;
-                    width: torem(96);
-                    height: torem(96);
+                    width: torem(190);
+                    height: torem(190);
                     background: url(../assets/home/video-play-btn.png) no-repeat;
                     background-size: cover;
                     top: 50%;
                     left: 50%;
-                    margin: torem(-48) 0 0 torem(-48);
+                    margin: torem(-95) 0 0 torem(-95);
                     cursor: pointer;
                 }
             }
@@ -143,7 +143,7 @@ export default {
             background: #F5F5F5;
             padding-top: torem(60);
             .ch-box{
-                width: torem(1380);
+                width: torem(1700);
                 height: torem(1240);
                 margin: 0 auto;
                 position: relative;
@@ -160,24 +160,15 @@ export default {
                         left: 0;
                         top: torem(90);
                     }
-                    
-                    /* &.box-1{
-                        background: url(../assets/video/img_shipin_plus.png) no-repeat;
-                        background-size: cover;
-                    }
-                    &.box-2{
-                        background: url(../assets/video/img_shipin_20.png) no-repeat;
-                        background-size: cover;
-                    } */
                     .play-btn{
                         position: absolute;
-                        width: torem(96);
-                        height: torem(96);
+                        width: torem(190);
+                        height: torem(190);
                         background: url(../assets/home/video-play-btn.png) no-repeat;
                         background-size: cover;
                         top: 50%;
                         left: 50%;
-                        margin: torem(-48) 0 0 torem(-48);
+                        margin: torem(-95) 0 0 torem(-95);
                         cursor: pointer;
                     }
                 }
@@ -185,14 +176,15 @@ export default {
                     background: #fff;
                     line-height: torem(332);
                     height: torem(332);
-                    width: torem(1220);
-                    padding-left: torem(40);
+                    width: torem(1400);
+                    /* padding-left: torem(40); */
                     font-size: torem(56);
                     font-weight: 600;
                     color: #333333;
                     position: absolute;
-                    left: torem(80);
+                    left: torem(150);
                     bottom: 0;
+                    text-align: center;
                 }
             }
         }
@@ -252,6 +244,7 @@ export default {
                     position: absolute;
                     left: torem(40);
                     bottom: 0;
+                    text-align: left;
                 }
             }
         }
