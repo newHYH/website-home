@@ -194,6 +194,22 @@ export default {
 /* ipad pro & PC */
 @media screen and (min-width:1024px) {
     .video-page{
+        .fake-video{
+
+            .video-box{
+
+                .play-btn{
+                    width: 96px;
+                    height: 96px;
+                    background: url(../assets/home/video-play-btn.png) no-repeat;
+                    background-size: cover;
+                    top: 50%;
+                    left: 50%;
+                    margin: -48px 0 0 -48px;
+                    cursor: pointer;
+                }
+            }
+        }
         .sec-video{
             box-sizing: border-box;
             width: 100%;
