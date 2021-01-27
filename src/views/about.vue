@@ -76,16 +76,18 @@ export default {
         .bd {
             padding:20px;
             h5{
-                font-size:18px;
+                font-size:20px;
+                font-weight: 700;
                 color:#000;
                 margin:15px 0;
             }
             p {
-                font-size: 13px;
+                font-size: 18px;
                 text-indent: 2em;
-                color: #000000;
+                color: #333;
+                font-weight: 400;
                 line-height: 2;
-                max-width:530px;
+                max-width:795px;
                 margin:0 auto;
                 text-align: left;
                 margin-bottom: 12px;

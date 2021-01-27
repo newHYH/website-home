@@ -59,7 +59,7 @@ export default {
             showResult:false,
             showNoResult:false,
             reList: [{
-                name: 'NOP-AN00 11.0.0.160(SP1C786E160R7P1)预置应用软件信息公示'
+                name: 'VP002 (11.0.1.106(C04E18R1P2)) 预置应用软件信息公示'
             }]
         }
     },
