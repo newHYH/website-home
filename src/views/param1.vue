@@ -1,7 +1,7 @@
 <template>
     <div class="param">
         <Header />
-        <HonorHeader link1="product1" link2="param1" />
+        <HonorHeader title="优畅享20Plus" link1="product1" link2="param1" />
         <div class="param-list">
             <ul class="row" style="margin-top: 100px">
                 <li class="col-sm-12 col-md-12 col-lg-4">

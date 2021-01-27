@@ -1,7 +1,7 @@
 <template>
     <div class="product2">
         <Header />
-        <HonorHeader link1="product2" link2="param2" />
+        <HonorHeader title="优畅享20" link1="product2" link2="param2" />
         <div class="news">
             <div class="img-wrap">
                 <img src="../assets/product22/img0.webp" alt="">

@@ -3,13 +3,13 @@
         <div class="header-tab-height"></div>
         <div class="container" style="background: #F5F5F5;">
             <div class="sec-navigation">
-                <div class="logo">U-MAGIC</div>
+                <div class="logo">{{title}}</div>
                 <ul class="product-tabs">
-                    <li class="tab-item" :class="{'active':index==1}">
-                        <a class="pointer" title="功能特征" @click="goto(link1,1)">功能特征</a>
+                    <li class="tab-item" @click="goto(link1,1)" :class="{'active':index==1}">
+                        <div class="pointer" title="功能特征" >功能特征</div>
                     </li>
-                    <li class="tab-item" :class="{'active':index==2}">
-                        <a class="pointer" title="规格参数" @click="goto(link2,2)">规格参数</a>
+                    <li class="tab-item" :class="{'active':index==2}" @click="goto(link2,2)">
+                        <div class="pointer" title="规格参数" >规格参数</div>
                     </li>
                 </ul>
                 <div class="buy-btn pointer" @mouseover="showBuy" @mouseout="hideBuy">购买</div>
@@ -28,6 +28,10 @@
 export default {
     name: 'Header-tab',
     props: {
+        title:{
+            type: String,
+            default: '',
+        },
         link1: {
             type: String,
             default: '',
@@ -48,9 +52,10 @@ export default {
         window.addEventListener('scroll', this.scrollHander)
         if (this.$route.path == '/' + this.link2) {
             this.index = 2
-        } else {
-            this.index = window.index ? window.index : 1
+        } else if(this.$route.path == '/' + this.link1) {
+            this.index =  1
         }
+        console.log(this.index)
     },
     unmounted() {
         window.removeEventListener('scroll', this.scrollHander)
@@ -67,7 +72,6 @@ export default {
             this.$router.push('/home')
         },
         goto(path, index) {
-            window.index = index
             this.index = index
             this.$router.push(path)
         },
@@ -183,20 +187,20 @@ export default {
                     }
 
                     &:hover {
-                        a {
+                        .pointer {
                             font-weight: 400;
                             color: #000;
                         }
                     }
 
                     &.active {
-                        a {
+                        .pointer {
                             font-weight: 600;
                             color: #333333;
                         }
                     }
 
-                    a {
+                    .pointer  {
                         font-size: 16px;
                         display: block;
                         font-family: PingFangSC-Semibold, PingFang SC;
@@ -284,20 +288,20 @@ export default {
                     }
 
                     &:hover {
-                        a {
+                        .pointer  {
                             font-weight: 400;
                             color: #000;
                         }
                     }
 
                     &.active {
-                        a {
+                        .pointer  {
                             font-weight: 600;
                             color: #333333;
                         }
                     }
 
-                    a {
+                    .pointer {
                         font-size: 18px;
                         display: block;
                         font-family: PingFangSC-Semibold, PingFang SC;
