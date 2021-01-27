@@ -19,19 +19,25 @@
                     </div>
                 </div>
             </div>
+            <div class="more" v-if="lenIndex>=40">
+                <span @click="handleMore">更多常见问题</span>
+            </div>
         </div>
+        <ReturnTop />
         <Footer></Footer>
     </div>
 </template>
 <script>
-    import Header from '@/components/header.vue';
+import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 import proList from '@/components/pro.js';
+import ReturnTop from '@/components/return-top.vue';
 export default {
     name: 'problem',
     components: {
         Header,
-        Footer
+        Footer,
+        ReturnTop 
     },
     data() {
         return {
@@ -51,7 +57,11 @@ export default {
             }else{
                 this.curIndex = index
             }
-            
+        },
+        handleMore(){
+            if(this.lenIndex<40){
+                 this.lenIndex = this.lenIndex+10
+            }
         }
     }
 }
@@ -83,6 +93,17 @@ export default {
                 margin-bottom: 45px;
                 font-size: 14px;
                 line-height: 1.5;
+            }
+        }
+
+        .more {
+            color: #0679FF;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 0;
+            text-align: center;
+            span{
+                cursor: pointer;
             }
         }
 
