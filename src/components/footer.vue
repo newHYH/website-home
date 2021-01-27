@@ -69,18 +69,17 @@ export default {
 
     .connect {
         padding: 50px 0;
-
+        border-top: 1px solid #DCDCDC;
         .connect-box {
             display: flex;
             justify-content: space-between;
-
             .connect-item {
                 text-align: left;
 
                 .title {
 
                     height: 33px;
-                    font-size: 18px;
+                    font-size: 14px;
                     color: #333;
                     line-height: 33px;
                 }
