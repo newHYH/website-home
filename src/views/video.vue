@@ -6,28 +6,40 @@
 
         <div class="fake-video container">
             <div class="video-box">
-                <img src="@/assets/video/video-bg.png" />
-                <div class="play-btn"></div>
+                <!-- <img src="@/assets/video/video-bg.png" /> -->
+                <video ref="indexVideo" class="img video" :controls="controlIndex" poster="../assets/video/video-bg.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">
+                    <source src="http://www.u-magic.cn/images/5minfbh.mp4" type="video/mp4">
+                    您的浏览器不支持 HTML5 video 标签。
+                </video>
+                <div class="play-btn" v-show="!controlIndex" @click="indexPlay()"></div>
             </div>
         </div>
 
         <div class="sec-video">
             <div class="ch-box">
                 <div class="video-box box-1">
-                    <div class="play-btn"></div>
+                    <video ref="secVideoA" class="img video" :controls="controlSecA" poster="../assets/video/img_shipin_plus.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">
+                        <source src="http://www.u-magic.cn/images/20Pluskx.mp4" type="video/mp4">
+                        您的浏览器不支持 HTML5 video 标签。
+                    </video>
+                    <div class="play-btn" v-show="!controlSecA" @click="secAPlay()"></div>
                 </div>
 
-                <div class="product-info">
+                <div class="product-info" v-show="!controlSecA">
                     优畅享 20 Plus
                 </div>
             </div>
 
             <div class="ch-box">
                 <div class="video-box box-2">
-                    <div class="play-btn"></div>
+                    <video ref="secVideoB" class="img video" :controls="controlSecB" poster="../assets/video/img_shipin_20.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">
+                        <source src="http://www.u-magic.cn/images/20cp.mp4" type="video/mp4">
+                        您的浏览器不支持 HTML5 video 标签。
+                    </video>
+                    <div class="play-btn" v-show="!controlSecB" @click="secBPlay()"></div>
                 </div>
 
-                <div class="product-info">
+                <div class="product-info" v-show="!controlSecB">
                     优畅享 20
                 </div>
             </div>
@@ -48,13 +60,36 @@ export default {
     },
     data() {
         return {
+            indexVideo: null,
+            secVideoA: null,
+            secVideoB: null,
+            controlIndex: false,
+            controlSecA: false,
+            controlSecB: false
         }
     },
     computed: {
     },
     mounted() {
+        this.$nextTick(()=>{
+            this.indexVideo = this.$refs.indexVideo
+            this.secVideoA = this.$refs.secVideoA
+            this.secVideoB = this.$refs.secVideoB
+        })
     },
     methods: {
+        indexPlay(){
+            this.indexVideo.play()
+            this.controlIndex = true
+        },
+        secAPlay(){
+            this.secVideoA.play()
+            this.controlSecA = true
+        },
+        secBPlay(){
+            this.secVideoB.play()
+            this.controlSecB = true
+        }
     }
 }
 </script>
@@ -81,6 +116,11 @@ export default {
             
             .video-box{
                 position: relative;
+
+                video{
+                    width: 100%;
+                    height: auto;
+                }
                 .play-btn{
                     position: absolute;
                     width: torem(96);
@@ -112,15 +152,23 @@ export default {
                     position: absolute;
                     width: 100%;
                     height: torem(1160);
+
+                    video{
+                        width: 100%;
+                        height: auto;
+                        position: absolute;
+                        left: 0;
+                        top: torem(90);
+                    }
                     
-                    &.box-1{
+                    /* &.box-1{
                         background: url(../assets/video/img_shipin_plus.png) no-repeat;
                         background-size: cover;
                     }
                     &.box-2{
                         background: url(../assets/video/img_shipin_20.png) no-repeat;
                         background-size: cover;
-                    }
+                    } */
                     .play-btn{
                         position: absolute;
                         width: torem(96);
@@ -171,14 +219,15 @@ export default {
                     position: absolute;
                     width: 100%;
                     height: torem(580);
-                    &.box-1{
+                    background: #fff;
+                    /* &.box-1{
                         background: url(../assets/video/img_shipin_plus.png) no-repeat;
                         background-size: cover;
                     }
                     &.box-2{
                         background: url(../assets/video/img_shipin_20.png) no-repeat;
                         background-size: cover;
-                    }
+                    } */
                     .play-btn{
                         position: absolute;
                         width: torem(96);
