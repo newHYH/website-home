@@ -2,7 +2,7 @@
     <div class="video-page">
         <Header />
 
-        <div class="title-box">U-MAGIC 5G手机发布会</div>
+        <div class="title-box">U-MAGIC 5G手机新品发布会</div>
 
         <div class="fake-video container">
             <div class="video-box">
