@@ -5,10 +5,10 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img @click="goto('product1')" src="@/assets/banner-20p.png" />
+                        <img @click="goto('product1')" src="@/assets/20p.png" />
                     </div>
                     <div class="swiper-slide">
-                        <img @click="goto('product2')" src="@/assets/banner20.png" />
+                        <img @click="goto('product2')" src="@/assets/20.png" />
                     </div>
                 </div>
             </div>
@@ -219,7 +219,7 @@ export default {
     .video-box {
         max-width: 1278px;
         margin: 0 auto;
-
+        margin-bottom: 50px;
         .video {
             width: 100%;
         }
