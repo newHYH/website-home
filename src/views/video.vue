@@ -18,7 +18,7 @@
         <div class="sec-video">
             <div class="ch-box">
                 <div class="video-box box-1">
-                    <video ref="secVideoA" class="img video" :controls="controlSecA" poster="../assets/video/img_shipin_plus.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">
+                    <video ref="secVideoA" class="img video" :controls="controlSecA" poster="../assets/video/img_shipin_plus.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:contain">
                         <source src="http://www.u-magic.cn/images/20Pluskx.mp4" type="video/mp4">
                         您的浏览器不支持 HTML5 video 标签。
                     </video>
@@ -32,7 +32,7 @@
 
             <div class="ch-box">
                 <div class="video-box box-2">
-                    <video ref="secVideoB" class="img video" :controls="controlSecB" poster="../assets/video/img_shipin_20.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">
+                    <video ref="secVideoB" class="img video" :controls="controlSecB" poster="../assets/video/img_shipin_20.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:cover">
                         <source src="http://www.u-magic.cn/images/20cp.mp4" type="video/mp4">
                         您的浏览器不支持 HTML5 video 标签。
                     </video>
@@ -144,21 +144,23 @@ export default {
             padding-top: torem(60);
             .ch-box{
                 width: torem(1700);
-                height: torem(1240);
+                height: torem(1680);
                 margin: 0 auto;
                 position: relative;
                 margin-bottom: torem(50);
                 .video-box{
                     position: absolute;
                     width: 100%;
-                    height: torem(1160);
+                    height: torem(1430);
 
                     video{
                         width: 100%;
-                        height: auto;
+                        height: torem(1430);
                         position: absolute;
                         left: 0;
                         top: torem(90);
+                        overflow: hidden;
+                        object-fit: contain;
                     }
                     .play-btn{
                         position: absolute;
