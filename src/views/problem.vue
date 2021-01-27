@@ -7,7 +7,7 @@
                 <p>查找常见问题，帮您快速定位故障，提供有效解决方案</p>
             </div>
             <div class="problem-list">
-                <div class="problem-col" :key="index" v-for="(item,index) in list">
+                <div class="problem-col" :key="index" v-show="lenIndex>=index" v-for="(item,index) in list">
                     <div class="hd" @click="handleDrop(index)">
                         <div class="hd-t">{{item.title}}</div>
                         <div class="hd-icon" :class="curIndex==index?'icon-up':'icon-down'"></div>
@@ -19,7 +19,11 @@
                     </div>
                 </div>
             </div>
+            <div class="more" v-if="lenIndex<39">
+                <span @click="handleMore">更多常见问题</span>
+            </div>
         </div>
+        <ReturnTop />
         <Footer></Footer>
     </div>
 </template>
@@ -27,16 +31,19 @@
     import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 import proList from '@/components/pro.js';
+import ReturnTop from '@/components/return-top.vue';
 export default {
     name: 'problem',
     components: {
         Header,
-        Footer
+        Footer,
+        ReturnTop 
     },
     data() {
         return {
             list: proList,
-            curIndex: -1
+            lenIndex:9,
+            curIndex: -1,
         }
     },
     mounted() {
@@ -50,7 +57,11 @@ export default {
             }else{
                 this.curIndex = index
             }
-            
+        },
+        handleMore(){
+            if(this.lenIndex<40){
+                 this.lenIndex = this.lenIndex+10
+            }
         }
     }
 }
@@ -85,6 +96,18 @@ export default {
             }
         }
 
+        .more {
+            color: #0679FF;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 0;
+            text-align: center;
+
+            span {
+                cursor: pointer;
+            }
+        }
+
         .problem-list {
             width: 60%;
             margin: 10px auto;
@@ -113,6 +136,7 @@ export default {
 
                 &:nth-child(2) {
                     background: #F2F5F5;
+
                     .hd {
                         &:before {
                             background: url(../assets/wenti_b.png) no-repeat;
@@ -133,10 +157,11 @@ export default {
                             width: 68px;
                             height: 68px;
                             display: block;
-                            
+
                             margin-right: 10px;
                         }
                     }
+
                     background: #F2F5F5;
                 }
 
@@ -149,7 +174,8 @@ export default {
                     cursor: pointer;
 
                     .hd-t {
-                    flex:1;}
+                        flex: 1;
+                    }
 
                     .hd-icon {
                         width: 18px;
@@ -184,5 +210,60 @@ export default {
 }
 
 
-@media screen and (max-width: 750px) {}
+@media screen and (max-width: 750px) {
+    .problem-wrapper .problem-box .problem-list {
+        width: 96%;
+    }
+
+    .problem-wrapper .problem-box .problem-list .problem-col {
+        padding: 20px 12px;
+
+        .hd {
+            font-size: 15px;
+            line-height: 1.5;
+             .hd-icon{
+                width:12px;
+                height:8px;
+             }
+        }
+
+        .bd {
+            font-size: 14px;
+        }
+
+        &:nth-child(1) {
+            .hd {
+                &:before {
+                    background-size: 100%;
+                    width: 42px;
+                    height: 42px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            .hd {
+                &:before {
+                    background-size: 100%;
+                    width: 42px;
+                    height: 42px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            .hd {
+                &:before {
+                    background-size: 100%;
+                    width: 42px;
+                    height: 42px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+    }
+}
 </style>
