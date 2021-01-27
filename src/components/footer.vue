@@ -80,13 +80,13 @@ export default {
                 .title {
 
                     height: 33px;
-                    font-size: 24px;
+                    font-size: 18px;
                     color: #333;
                     line-height: 33px;
                 }
 
                 .func-box {
-                    font-size: 18px;
+                    font-size: 12px;
                     color: #666;
                     line-height: 25px;
                     position: relative;
@@ -116,7 +116,7 @@ export default {
         max-width: 1278px;
         margin: 0 auto;
         padding: 30px 0;
-        font-size: 19px;
+        font-size: 12px;
         color: #999999;
         line-height: 1.5;
 

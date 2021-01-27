@@ -8,38 +8,37 @@
             </h1>
             <div class="nav">
                 <div class="nav-col" :key="item.index" :class="curIndex==item.index?'cur':''" v-for="item in navList" @click="goto(item.path)" @mouseover="showNav(item.index)" @mouseout="hideNav()">
-                    {{item.name}}
+                    <p>{{item.name}}</p>
+                    <div class="nav-child" v-show="curIndex==item.index">
+                        <div class="nav-container" :key="index" v-for="(child,index) in item.child">
+                            <p @click="goto(child.path)">{{child.name}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="UMAGIC">
                 <img src="../assets/UMAGIC.png" alt="">
             </div>
+            <div class="header-nav" v-show="isShowNav">
+                <div class="nav-container" v-show="navIndex==3 || navIndex==4"></div>
+            </div>
             <div class="nav-mobile">
                 <div class="nav-icon" @click="handleOpen()" :class="isOpenNav?'nav-icon-close':'nav-icon-open'"></div>
-                <div class="nav-mobile-list" v-show="isOpenNav">
-                    <div class="nav-col" :key="item.index" :class="curIndex==item.index?'cur':''" v-for="item in navList" >
-                        <p @click="goto(item.path,item.index)">
-                            {{item.name}}
-                            <span class="icon" :class="item.showChild?'icon-add':'icon-del'" v-if="item.child"></span>
-                        </p>
-                        <div class="nav-child" v-show="item.showChild">
-                            <div class="nav-container" :key="index" v-for="(child,index) in item.child">
-                                <p @click="goto(child.path)">{{child.name}}</p>
+                <transition name="fade" enter-active-class="animate__animated animate__slideInLeft" leave-active-class="animate__animated animate__slideOutLeft">
+                    <div class="nav-mobile-list" v-if="isOpenNav">
+                        <div class="nav-col" :key="item.index" :class="curIndex==item.index?'cur':''" v-for="item in navList">
+                            <p @click="goto(item.path,item.index)">
+                                {{item.name}}
+                                <span class="icon" :class="item.showChild?'icon-add':'icon-del'" v-if="item.child"></span>
+                            </p>
+                            <div class="nav-child" :class="item.showChild?'down':'up'">
+                                <div class="nav-container" :key="index" v-for="(child,index) in item.child">
+                                    <p @click="goto(child.path)">{{child.name}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-nav" v-if="isShowNav" @mouseover="showNavSub()" @mouseout="hideNav()">
-            <div class="nav-container" v-show="navIndex==3">
-                <span @click="goto('newsList')">新闻稿</span>
-                <span @click="goto('publicVideo')">视频</span>
-            </div>
-            <div class="nav-container" v-show="navIndex ==4">
-                <span @click="goto('query-price')">备件价格查询</span>
-                <span @click="goto('service-network')">服务门店</span>
-                <span @click="goto('problem')">常见问题</span>
+                </transition>
             </div>
         </div>
     </div>
@@ -51,7 +50,7 @@ export default {
         return {
             navIndex: 0,
             isShowNav: false,
-            isOpenNav:false,
+            isOpenNav: false,
             curIndex: 0,
             navList: [{
                 name: '优畅享20Plus',
@@ -107,8 +106,9 @@ export default {
         },
         hideNav() {
             this.isShowNav = false
+            this.curIndex = -1
         },
-        handleOpen(){
+        handleOpen() {
             this.isOpenNav = !this.isOpenNav
         },
         goto(path, index) {
@@ -213,6 +213,36 @@ export default {
                         width: 48px;
                     }
                 }
+
+                .nav-child {
+                    position: fixed;
+                    top: 90px;
+                    display: flex;
+                    height:90px;
+                    margin-left: -172px;
+                    width: 400px;
+                    align-items: center;
+                        justify-content: center;
+                    z-index: 999;
+
+                    .nav-container {
+                        margin: 0 20px;
+                        cursor: pointer;
+                        color: #666;
+
+                        p {
+                            cursor: pointer;
+                            font-size: 16px;
+                            color: #666;
+
+                            &:hover {
+                                color: #333;
+                            }
+                        }
+
+                    }
+
+                }
             }
         }
     }
@@ -220,26 +250,25 @@ export default {
     .header-nav {
         position: fixed;
         width: 100%;
-        top: 60px;
+        top: 90px;
         left: 0;
-        height: 120px;
-        padding-top: 30px;
-        z-index: 1000;
+        height: 90px;
+        z-index: 900;
 
         .nav-container {
             display: flex;
             border-top: 1px solid #f0f0f0;
             height: 90px;
             width: 100%;
-            background: rgba(255,255,255,0.9);
-            box-shadow: 0px 0 3px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0px 0 3px rgba(0, 0, 0, 0.2);
             justify-content: center;
             align-items: center;
 
             span {
                 margin: 0 60px;
                 cursor: pointer;
-                font-size:18px;
+                font-size: 18px;
                 color: #666;
 
                 &:hover {
@@ -270,7 +299,8 @@ export default {
         height: auto;
         width: 106px;
     }
-    .header-wrapper .header-nav .nav-container span{
+
+    .header-wrapper .header-nav .nav-container span {
         font-size: 20px;
     }
 }
@@ -293,7 +323,7 @@ export default {
             width: 100%;
             display: flex;
             z-index: 999;
-            padding-top:12px; 
+            padding-top: 12px;
 
             .logo {
                 margin: 0 25px;
@@ -367,6 +397,20 @@ export default {
                                 background-size: 100%;
                             }
                         }
+
+                        .nav-child {
+                            max-height: 0;
+                            overflow: hidden;
+                            transition: max-height 0.6s;
+
+                            &.down {
+                                max-height: 150px;
+                            }
+
+                            &.up {
+                                max-height: 0;
+                            }
+                        }
                     }
                 }
 
@@ -375,9 +419,10 @@ export default {
             .UMAGIC {
                 width: 82px;
                 height: 36px;
-                top:12px;
-                img{
-                    width:82px;
+                top: 12px;
+
+                img {
+                    width: 82px;
                 }
             }
         }
