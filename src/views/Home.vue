@@ -20,7 +20,7 @@
             <img class="image" src="@/assets/home/home-img01.webp" />
         </div> -->
         <div class="title-box">U-MAGIC 发布会</div>
-        <div class="video-box container">
+        <div class="video-box">
             <div class="fake-video">
                 <video ref="video" class="img video" :controls="controls" poster="../assets/home/fake-video.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">
                     <source src="http://www.u-magic.cn/images/fbh300wkx.mp4" type="video/mp4">
@@ -48,17 +48,17 @@ export default {
     },
     data() {
         return {
-            video:null,
-            controls:false,
+            video: null,
+            controls: false,
         }
     },
     computed: {},
     mounted() {
         this.setupSwiper()
-        this.$nextTick(()=>{
-            this.video = this.$refs.video 
+        this.$nextTick(() => {
+            this.video = this.$refs.video
         })
-       
+
     },
     methods: {
         goto(path) {
@@ -87,7 +87,7 @@ export default {
         },
         bannerToLf() {},
         bannerToRt() {},
-        handlePlay(){
+        handlePlay() {
             this.video.play();
             this.controls = true
         }
@@ -100,121 +100,131 @@ export default {
 
 /* mobile phone */
 
-    .home {
-        width: 100%;
+.home {
+    width: 100%;
 
-        .banner-box {
-            width: torem(1920);
-            height: torem(992);
-            position: relative;
+    .banner-box {
+        width: torem(1920);
+        height: torem(992);
+        position: relative;
 
-            .swiper-container {
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+
+            .swiper-wrapper {
                 width: 100%;
                 height: 100%;
 
-                .swiper-wrapper {
+                .swiper-slide {
                     width: 100%;
                     height: 100%;
 
-                    .swiper-slide {
+                    img {
                         width: 100%;
                         height: 100%;
-
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            cursor: pointer;
-                        }
+                        cursor: pointer;
                     }
                 }
             }
-
-            .banner-btn {
-                position: absolute;
-                background: url('../assets/home/banner-btn.png') no-repeat;
-                background-size: cover;
-                width: torem(42);
-                height: torem(79);
-                top: torem(455);
-                z-index: 10;
-                cursor: pointer;
-            }
-
-            .btn-left {
-                left: torem(30);
-                transform: rotate(180deg);
-            }
-
-            .btn-right {
-                right: torem(30);
-            }
-
-            .banner-pagination,
-            .swiper-pagination-bullets {
-                position: absolute;
-                left: 0;
-                bottom: torem(40);
-                width: 100%;
-                height: torem(4);
-                z-index: 10;
-                display: flex;
-                justify-content: center;
-
-                .banner-bullets {
-                    width: torem(114);
-                    height: torem(4);
-                    margin: 0 torem(8.5);
-                }
-            }
         }
 
-        .image-box {
-            margin-top: torem(100);
+        .banner-btn {
+            position: absolute;
+            background: url('../assets/home/banner-btn.png') no-repeat;
+            background-size: cover;
+            width: torem(42);
+            height: torem(79);
+            top: torem(455);
+            z-index: 10;
+            cursor: pointer;
         }
 
-        .title-box {
+        .btn-left {
+            left: torem(30);
+            transform: rotate(180deg);
+        }
+
+        .btn-right {
+            right: torem(30);
+        }
+
+        .banner-pagination,
+        .swiper-pagination-bullets {
+            position: absolute;
+            left: 0;
+            bottom: torem(40);
             width: 100%;
-            margin: torem(77) 0 torem(16);
-            font-size: torem(64);
-            font-weight: 400;
-            color: #333333;
-            line-height: torem(90);
-        }
+            height: torem(4);
+            z-index: 10;
+            display: flex;
+            justify-content: center;
 
-        .video-box {
-            .video {
-                width: 100%;
-            }
-
-            .fake-video {
-                position: relative;
-
-                img {
-                    width: 100%;
-                    height: auto;
-                }
-
-                .play-btn {
-                    position: absolute;
-                    width: 96px;
-                    height: 96px;
-                    background: url(../assets/home/video-play-btn.png) no-repeat;
-                    background-size: cover;
-                    top: 50%;
-                    left: 50%;
-                    margin: -48px 0 0 -48px;
-                    cursor: pointer;
-                }
+            .banner-bullets {
+                width: torem(114);
+                height: torem(4);
+                margin: 0 torem(8.5);
             }
         }
     }
-@media screen and (max-width:750px) {
-    .home .video-box .fake-video .play-btn{
-        width:48px;
-        height:48px;
-        margin:-24px 0 0 -24px;
+
+    .image-box {
+        margin-top: torem(100);
+    }
+
+    .title-box {
+        width: 100%;
+        margin: torem(77) 0 torem(16);
+        font-size: torem(48);
+        font-weight: 400;
+        color: #333333;
+        line-height: torem(90);
+    }
+
+    .video-box {
+        max-width: 1278px;
+        margin: 0 auto;
+
+        .video {
+            width: 100%;
+        }
+
+        .fake-video {
+            position: relative;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            .play-btn {
+                position: absolute;
+                width: 96px;
+                height: 96px;
+                background: url(../assets/home/video-play-btn.png) no-repeat;
+                background-size: cover;
+                top: 50%;
+                left: 50%;
+                margin: -48px 0 0 -48px;
+                cursor: pointer;
+            }
+        }
     }
 }
 
+@media screen and (max-width:1280px) {
+    .home .video-box {
+        max-width: 1200px;
+        padding: 0 30px;
+    }
 
+}
+
+@media screen and (max-width:750px) {
+    .home .video-box .fake-video .play-btn {
+        width: 48px;
+        height: 48px;
+        margin: -24px 0 0 -24px;
+    }
+}
 </style>

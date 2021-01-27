@@ -155,8 +155,8 @@ export default {
         background: #fff;
 
         .logo {
-            margin: 0 25px;
-            width: 333px;
+            margin: 0 192px 0 25px;
+            width: 266px;
             height: 90px;
             display: flex;
             align-items: center;
@@ -164,7 +164,7 @@ export default {
         }
 
         .UMAGIC {
-            width: 213px;
+            width: 149px;
             height: 90px;
             display: flex;
             align-items: center;
@@ -191,7 +191,7 @@ export default {
                 display: flex;
                 align-items: center;
                 height: 100%;
-                font-size: 24px;
+                font-size: 18px;
                 margin: 0 5%;
                 color: #666;
                 cursor: pointer;
@@ -239,7 +239,7 @@ export default {
             span {
                 margin: 0 60px;
                 cursor: pointer;
-                font-size:24px;
+                font-size:18px;
                 color: #666;
 
                 &:hover {
@@ -253,7 +253,8 @@ export default {
 
 @media screen and (max-width:1280px) {
     .header-wrapper .header .logo {
-        width: 280px;
+        width: 266px;
+        margin-right: 50px;
     }
 
     .header-wrapper .header .nav .nav-col {

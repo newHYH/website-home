@@ -64,12 +64,15 @@ export default {
 
 
 .footer {
+    max-width: 1278px;
+    margin: 0 auto;
+
     .connect {
         padding: 50px 0;
 
         .connect-box {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
 
             .connect-item {
                 text-align: left;
@@ -110,7 +113,9 @@ export default {
     }
 
     .page-footer {
-        padding: 30px;
+        max-width: 1278px;
+        margin: 0 auto;
+        padding: 30px 0;
         font-size: 19px;
         color: #999999;
         line-height: 1.5;
@@ -120,6 +125,16 @@ export default {
         }
 
 
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .footer {
+        padding:0 30px;
+        max-width: 1200px;
+        .page-footer {
+            max-width: 1200px;
+        }
     }
 }
 
@@ -133,11 +148,14 @@ export default {
             margin-top: 20px;
             font-size: 13px;
         }
-        .connect-item  .func-box{
+
+        .connect-item .func-box {
             font-size: 12px;
         }
     }
-    .footer  .page-footer{
+
+    .footer .page-footer {
+        padding: 30px 15px;
         font-size: 11px;
     }
 }
