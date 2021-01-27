@@ -11,17 +11,23 @@
                     <source src="http://www.u-magic.cn/images/5minfbh.mp4" type="video/mp4">
                     您的浏览器不支持 HTML5 video 标签。
                 </video>
+
+                <div class="cover-img" v-show="!controlIndex"></div>
+
                 <div class="play-btn" v-show="!controlIndex" @click="indexPlay()"></div>
             </div>
         </div>
 
         <div class="sec-video">
             <div class="ch-box">
-                <div class="video-box box-1">
+                <div class="video-box">
                     <video ref="secVideoA" class="img video" :controls="controlSecA" poster="../assets/video/img_shipin_plus.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="">
                         <source src="http://www.u-magic.cn/images/20Pluskx.mp4" type="video/mp4">
                         您的浏览器不支持 HTML5 video 标签。
                     </video>
+
+                    <div class="cover-img-1" v-show="!controlSecA"></div>
+
                     <div class="play-btn" v-show="!controlSecA" @click="secAPlay()"></div>
                 </div>
 
@@ -31,11 +37,14 @@
             </div>
 
             <div class="ch-box">
-                <div class="video-box box-2">
+                <div class="video-box">
                     <video ref="secVideoB" class="img video" :controls="controlSecB" poster="../assets/video/img_shipin_20.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="">
                         <source src="http://www.u-magic.cn/images/20cp.mp4" type="video/mp4">
                         您的浏览器不支持 HTML5 video 标签。
                     </video>
+
+                    <div class="cover-img-2" v-show="!controlSecB"></div>
+
                     <div class="play-btn" v-show="!controlSecB" @click="secBPlay()"></div>
                 </div>
 
@@ -117,6 +126,16 @@ export default {
             .video-box{
                 position: relative;
 
+                .cover-img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: url(../assets/video/video-bg.png) no-repeat;
+                    background-size: contain;
+                }
+
                 video{
                     width: 100%;
                     height: auto;
@@ -144,23 +163,42 @@ export default {
             padding-top: torem(60);
             .ch-box{
                 width: torem(1700);
-                height: torem(1680);
-                margin: 0 auto;
+                height: torem(1121);
+                margin: auto;
                 position: relative;
+                margin-top: 10px;
                 margin-bottom: torem(50);
                 .video-box{
                     position: absolute;
                     width: 100%;
-                    height: torem(1430);
+                    height: torem(956);
 
                     video{
                         width: 100%;
-                        height: torem(1430);
+                        height: 100%;
                         position: absolute;
                         left: 0;
-                        top: torem(90);
+                        top: 0;
                         overflow: hidden;
                         object-fit: contain;
+                    }
+                    .cover-img-1{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: url(../assets/video/img_shipin_plus.png) no-repeat;
+                        background-size: cover;
+                    }
+                    .cover-img-2{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: url(../assets/video/img_shipin_20.png) no-repeat;
+                        background-size: cover;
                     }
                     .play-btn{
                         position: absolute;
@@ -176,8 +214,8 @@ export default {
                 }
                 .product-info{
                     background: #fff;
-                    line-height: torem(332);
-                    height: torem(332);
+                    line-height: torem(330);
+                    height: torem(330);
                     width: torem(1400);
                     /* padding-left: torem(40); */
                     font-size: torem(56);
@@ -199,6 +237,15 @@ export default {
         .fake-video{
 
             .video-box{
+                .cover-img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: url(../assets/video/video-bg.png) no-repeat;
+                    background-size: contain;
+                }
 
                 .play-btn{
                     width: 96px;
@@ -215,29 +262,35 @@ export default {
         .sec-video{
             box-sizing: border-box;
             width: 100%;
-            height: torem(736);
+            height: torem(558);
             background: #F5F5F5;
             display: flex;
             justify-content: center;
             padding-top: torem(60);
             .ch-box{
                 width: torem(690);
-                height: torem(620);
+                height: torem(438);
                 margin: 0 4px;
                 position: relative;
                 .video-box{
                     position: absolute;
                     width: 100%;
-                    height: torem(580);
+                    height: torem(388);
                     background: #fff;
-                    /* &.box-1{
+                    .cover-img-1{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
                         background: url(../assets/video/img_shipin_plus.png) no-repeat;
                         background-size: cover;
                     }
-                    &.box-2{
+                    .cover-img-2{
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
                         background: url(../assets/video/img_shipin_20.png) no-repeat;
                         background-size: cover;
-                    } */
+                    }
                     .video{
                         object-fit:fill;
                         top:0;
@@ -257,8 +310,8 @@ export default {
                 }
                 .product-info{
                     background: #fff;
-                    line-height: torem(166);
-                    height: torem(166);
+                    line-height: torem(100);
+                    height: torem(100);
                     width: torem(610);
                     padding-left: torem(20);
                     font-size: torem(28);
