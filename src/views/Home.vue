@@ -23,7 +23,7 @@
         <div class="video-box container">
             <div class="fake-video">
                 <video ref="video" class="img video" :controls="controls" poster="../assets/home/fake-video.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:fill">
-                    <source src="http://www.u-magic.cn/images/movie.mp4" type="video/mp4">
+                    <source src="http://www.u-magic.cn/images/fbh300wkx.mp4" type="video/mp4">
                     您的浏览器不支持 HTML5 video 标签。
                 </video>
                 <div class="play-btn" v-show="!controls" @click="handlePlay()"></div>
