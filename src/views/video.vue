@@ -18,7 +18,7 @@
         <div class="sec-video">
             <div class="ch-box">
                 <div class="video-box box-1">
-                    <video ref="secVideoA" class="img video" :controls="controlSecA" poster="../assets/video/img_shipin_plus.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:contain">
+                    <video ref="secVideoA" class="img video" :controls="controlSecA" poster="../assets/video/img_shipin_plus.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="">
                         <source src="http://www.u-magic.cn/images/20Pluskx.mp4" type="video/mp4">
                         您的浏览器不支持 HTML5 video 标签。
                     </video>
@@ -32,7 +32,7 @@
 
             <div class="ch-box">
                 <div class="video-box box-2">
-                    <video ref="secVideoB" class="img video" :controls="controlSecB" poster="../assets/video/img_shipin_20.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="object-fit:cover">
+                    <video ref="secVideoB" class="img video" :controls="controlSecB" poster="../assets/video/img_shipin_20.png" preload="auto" webkit-playsinline="true" x-webkit-airplay="allow" x5-video-player-type="h5" x5-video-player-fullscreen="true" x5-video-orientation="portraint" style="">
                         <source src="http://www.u-magic.cn/images/20cp.mp4" type="video/mp4">
                         您的浏览器不支持 HTML5 video 标签。
                     </video>
@@ -238,6 +238,11 @@ export default {
                         background: url(../assets/video/img_shipin_20.png) no-repeat;
                         background-size: cover;
                     } */
+                    .video{
+                        object-fit:fill;
+                        top:0;
+                        height:100%;
+                    }
                     .play-btn{
                         position: absolute;
                         width: torem(96);

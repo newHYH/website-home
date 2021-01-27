@@ -254,6 +254,7 @@ export default {
         left: 0;
         height: 90px;
         z-index: 900;
+        overflow: hidden;
 
         .nav-container {
             display: flex;

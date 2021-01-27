@@ -169,6 +169,7 @@ export default {
                 left: -7px;
                 bottom: 0;
                 display: flex;
+                z-index: 99;
 
                 .tab-item {
                     position: relative;
