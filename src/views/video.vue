@@ -88,15 +88,27 @@ export default {
     },
     methods: {
         indexPlay(){
+            this.secVideoA.pause()
+            this.secVideoB.pause()
             this.indexVideo.play()
+            this.controlSecA = false
+            this.controlSecB = false
             this.controlIndex = true
         },
         secAPlay(){
+            this.indexVideo.pause()
+            this.secVideoB.pause()
             this.secVideoA.play()
+            this.controlIndex = false
+            this.controlSecB = false
             this.controlSecA = true
         },
         secBPlay(){
+            this.indexVideo.pause()
+            this.secVideoA.pause()
             this.secVideoB.play()
+            this.controlSecA = false
+            this.controlIndex = false
             this.controlSecB = true
         }
     }
