@@ -149,7 +149,7 @@ export default {
                 top: 18px;
                 width: 120px;
                 height: 32px;
-                line-height: 28px;
+                line-height: 32px;
                 text-align: center;
                 background: #AD0823;
                 border-radius: 16px;

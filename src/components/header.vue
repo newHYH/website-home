@@ -86,7 +86,7 @@ export default {
                     path: 'service-network'
                 }, {
                     name: '常见问题',
-                    path: 'about'
+                    path: 'problem'
                 }]
             }, {
                 name: '关于我们',
@@ -371,6 +371,9 @@ export default {
                 width: 82px;
                 height: 36px;
                 top:12px;
+                img{
+                    width:82px;
+                }
             }
         }
 

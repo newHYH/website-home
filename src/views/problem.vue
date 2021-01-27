@@ -19,7 +19,7 @@
                     </div>
                 </div>
             </div>
-            <div class="more" v-if="lenIndex>=40">
+            <div class="more" v-if="lenIndex<39">
                 <span @click="handleMore">更多常见问题</span>
             </div>
         </div>
@@ -28,7 +28,7 @@
     </div>
 </template>
 <script>
-import Header from '@/components/header.vue';
+    import Header from '@/components/header.vue';
 import Footer from '@/components/footer.vue';
 import proList from '@/components/pro.js';
 import ReturnTop from '@/components/return-top.vue';
@@ -102,7 +102,8 @@ export default {
             font-weight: 600;
             padding: 12px 0;
             text-align: center;
-            span{
+
+            span {
                 cursor: pointer;
             }
         }
@@ -209,5 +210,60 @@ export default {
 }
 
 
-@media screen and (max-width: 750px) {}
+@media screen and (max-width: 750px) {
+    .problem-wrapper .problem-box .problem-list {
+        width: 96%;
+    }
+
+    .problem-wrapper .problem-box .problem-list .problem-col {
+        padding: 20px 12px;
+
+        .hd {
+            font-size: 15px;
+            line-height: 1.5;
+             .hd-icon{
+                width:12px;
+                height:8px;
+             }
+        }
+
+        .bd {
+            font-size: 14px;
+        }
+
+        &:nth-child(1) {
+            .hd {
+                &:before {
+                    background-size: 100%;
+                    width: 42px;
+                    height: 42px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            .hd {
+                &:before {
+                    background-size: 100%;
+                    width: 42px;
+                    height: 42px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            .hd {
+                &:before {
+                    background-size: 100%;
+                    width: 42px;
+                    height: 42px;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+    }
+}
 </style>
