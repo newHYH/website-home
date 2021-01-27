@@ -18,10 +18,11 @@
                     </div>
                     <div class="address">{{item.address}}</div>
                     <div class="tel">
-                        <span v-for="(tel, telIndex) in item.tels" :key="telIndex">{{tel}}</span>
+                        <!-- <span v-for="(tel, telIndex) in item.tels" :key="telIndex">{{tel}}</span> -->
+                        {{item.tels[0]}}
                     </div>
                     <div class="time">营业时间：{{item.workTime}}</div>
-                    <div class="get-line">获取路线</div>
+                    <!-- <div class="get-line">获取路线</div> -->
                 </div>
             </div>
         </div>
@@ -75,6 +76,7 @@ export default {
         getData() {
             if (this.mapData.length > 0) {
                 this.results = this.mapData
+                console.log(this.results)
                 this.center = { lat: this.mapData[0].lat, lng: this.mapData[0].lng }
                 this.createMap()
             }
