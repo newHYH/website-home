@@ -3,7 +3,7 @@
         <Header />
         <HonorHeader title="优畅享20" link1="product2" link2="param2" />
         <div class="param-list">
-            <ul class="row" style="margin-top: 100px">
+            <ul class="row">
                 <li class="col-sm-12 col-md-12 col-lg-3">
                     <p class="bold-text-title">颜色</p>
                 </li>
@@ -298,15 +298,20 @@ export default {
                     flex-direction: column;
                     justify-content: center;
                     align-items: center;
+                    margin-bottom: torem(40);
                     img{
+                        width: torem(263);
+                        height: torem(557);
                         margin-bottom: torem(57);
                     }
                     span{
-                        font-size: torem(18);
+                        width: torem(263);
+                        font-size: torem(24);
                         font-family: PingFang-SC-Regular, PingFang-SC;
                         font-weight: 400;
                         color: #333333;
                         line-height: torem(25);
+                        text-align: center;
                     }
                 }
                 .xianshi{
@@ -370,13 +375,22 @@ export default {
                         flex-direction: column;
                         justify-content: center;
                         align-items: center;
+                        margin-bottom: 20px;
                         img{
-                            margin-bottom: torem(57);
+                            width: 100%;
+                            height: 100%;
+                            margin-bottom: 30px;
+                        }
+                        span{
+                            width: 100%;
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #333333;
                         }
                     }
                     .xianshi{
-                        width: torem(226);
-                        height: torem(467);
+                        width: 113px;
+                        height: 233px;
                     }
                     p {
                         word-wrap: break-word;
@@ -402,14 +416,14 @@ export default {
                         color: #333333;
                         line-height: 40px;
                     }
-
                     .bold-gray-text {
+                        font-size: 14px;
                         font-weight: 600;
                         color: #7F7F7F;
                         line-height: 28px;
                     }
-
                     .gray-text {
+                        font-size: 14px;
                         font-weight: 400;
                         color: #B2B2B2;
                         line-height: 28px;
