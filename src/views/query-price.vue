@@ -44,7 +44,7 @@
                         </div>
                         <div class="price-detai">
                             <div class="price-name">{{price.partName}}</div>
-                            <div class="price">{{price.partPrice == '¥1'?'暂无':price.partPrice}}</div>
+                            <div class="price">{{price.partPrice == '¥1'?'敬请期待':price.partPrice}}</div>
                         </div>
                     </li>
                 </ul>
