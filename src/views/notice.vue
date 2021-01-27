@@ -17,7 +17,7 @@
             <div class="search-form">
                 <label class="search-txt">预置应用查询：</label>
                 <div class="search">
-                    <input type="text" @keyup.enter="handleSearch" v-model="searchText" class="search-input" placeholder="请输入产品型号名称">
+                    <input type="text" @click="clickSearch" @keyup.enter="handleSearch" v-model="searchText" class="search-input" placeholder="请输入产品型号名称">
                     <i class="search-icon" @click="handleSearch"></i>
                 </div>
             </div>
@@ -59,7 +59,7 @@ export default {
             showResult:false,
             showNoResult:false,
             reList: [{
-                name: 'VP002 (11.0.1.106(C04E18R1P2)) 预置应用软件信息公示'
+                name: 'NOP-AN00 11.0.0.160(SP1C786E160R7P1)预置应用软件信息公示'
             }]
         }
     },
@@ -73,6 +73,9 @@ export default {
                 this.showResult =false
                 this.showNoResult = true
             }
+        },
+        clickSearch(){
+            this.showResult = true
         },
         goInfo(index){
             let id = Number(index +1)
