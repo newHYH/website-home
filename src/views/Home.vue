@@ -8,7 +8,7 @@
                         <img @click="goto('product1')" src="@/assets/banner-20p.png" />
                     </div>
                     <div class="swiper-slide">
-                        <img @click="goto('product2')" src="@/assets/banner_20.jpg" />
+                        <img @click="goto('product2')" src="@/assets/banner20.png" />
                     </div>
                 </div>
             </div>
