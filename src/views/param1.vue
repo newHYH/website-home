@@ -413,11 +413,13 @@ export default {
                         line-height: 40px;
                     }
                     .bold-gray-text {
+                        font-size: 14px;
                         font-weight: 600;
                         color: #7F7F7F;
                         line-height: 28px;
                     }
                     .gray-text {
+                        font-size: 14px;
                         font-weight: 400;
                         color: #B2B2B2;
                         line-height: 28px;
