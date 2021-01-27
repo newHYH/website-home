@@ -3,29 +3,31 @@
         <Header />
         <HonorHeader title="优畅享20Plus" link1="product1" link2="param1" />
         <div class="param-list">
-            <ul class="row" style="margin-top: 100px">
+            <ul class="row first-row">
                 <li class="col-sm-12 col-md-12 col-lg-4">
                     <p class="bold-text-title">颜色</p>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-2">
+                <li class="col-sm-12 col-md-12 col-lg-4">
                     <div class="img-box">
                         <img src="../assets/param1/yuan_hei.png" alt="">
                         <span>幻夜黑</span>
                     </div>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-2">
+                <li class="col-sm-12 col-md-12 col-lg-4">
                     <div class="img-box">
                         <img src="../assets/param1/yuan_yin.png" alt="">
                         <span>星河银</span>
                     </div>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-2">
+                <li class="col-sm-12 col-md-12 col-lg-4">
+                </li>
+                <li class="col-sm-12 col-md-12 col-lg-4">
                     <div class="img-box">
                         <img src="../assets/param1/yuan_fen.png" alt="">
                         <span>樱雪晴空</span>
                     </div>
                 </li>
-                <li class="col-sm-12 col-md-12 col-lg-2">
+                <li class="col-sm-12 col-md-12 col-lg-4">
                     <div class="img-box">
                         <img src="../assets/param1/yuan_lv.png" alt="">
                         <span>翡冷翠</span>
@@ -288,6 +290,9 @@ export default {
         margin-bottom: torem(120);
     }
     .param-list {
+        .first-row{
+            /*margin-top: 100px;*/
+        }
         ul {
             width: 69%;
             margin: 0 auto;
@@ -297,16 +302,21 @@ export default {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
-                    align-items: center;
+                    align-items: flex-start;
+                    margin-bottom: torem(40);
                     img{
+                        width: torem(263);
+                        height: torem(557);
                         margin-bottom: torem(57);
                     }
                     span{
-                        font-size: torem(18);
+                        width: torem(263);
+                        font-size: torem(24);
                         font-family: PingFang-SC-Regular, PingFang-SC;
                         font-weight: 400;
                         color: #333333;
                         line-height: torem(25);
+                        text-align: center;
                     }
                 }
                 .xianshi{
@@ -354,11 +364,32 @@ export default {
 @media screen and (max-width: 750px) {
     .param {
         .param-list {
+            .first-row{
+                margin-top: 0;
+            }
             ul {
                 width: 69%;
                 margin: 0 auto;
                 margin-bottom: torem(100);
                 li {
+                    .img-box{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 20px;
+                        img{
+                            width: 100%;
+                            height: 100%;
+                            margin-bottom: 30px;
+                        }
+                        span{
+                            width: 100%;
+                            font-size: 14px;
+                            font-weight: 400;
+                            color: #333333;
+                        }
+                    }
                     p {
                         word-wrap: break-word;
                         word-break: break-word;
@@ -382,11 +413,13 @@ export default {
                         line-height: 40px;
                     }
                     .bold-gray-text {
+                        font-size: 14px;
                         font-weight: 600;
                         color: #7F7F7F;
                         line-height: 28px;
                     }
                     .gray-text {
+                        font-size: 14px;
                         font-weight: 400;
                         color: #B2B2B2;
                         line-height: 28px;
