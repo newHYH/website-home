@@ -81,7 +81,8 @@ export default {
                 pagination: {
                     el: '.banner-pagination',
                     bulletElement: 'div',
-                    bulletClass: 'banner-bullets'
+                    bulletClass: 'banner-bullet',
+                    bulletActiveClass: 'banner-active'
                 }
             })
         },
@@ -94,6 +95,25 @@ export default {
     }
 }
 </script>
+
+<style lang=scss>
+@import "@/sass/common.scss";
+/* 覆盖swiper的样式 */
+.banner-bullet {
+    width: torem(114);
+    height: torem(4);
+    margin: 0 torem(9);
+    background: #fff;
+    opacity: 0.6;
+}
+.banner-active{
+    width: torem(114);
+    height: torem(4);
+    margin: 0 torem(9);
+    background: #fff;
+    opacity: 1;
+}
+</style>
 <style scoped lang=scss>
 @import "@/sass/common.scss";
 @import '../../node_modules/swiper/css/swiper.css';
@@ -102,11 +122,18 @@ export default {
 
 .home {
     width: 100%;
+    box-sizing: border-box;
 
     .banner-box {
-        width: torem(1920);
+        width: 100%;
         height: torem(992);
         position: relative;
+
+        &:hover{
+            .banner-btn {
+                display: block;
+            }
+        }
 
         .swiper-container {
             width: 100%;
@@ -131,13 +158,14 @@ export default {
 
         .banner-btn {
             position: absolute;
-            background: url('../assets/home/you.png') no-repeat;
+            background: url('../assets/home/banner-btn.png') no-repeat;
             background-size: cover;
-            width: torem(42);
-            height: torem(79);
+            width: torem(60);
+            height: torem(60);
             top: torem(455);
             z-index: 10;
             cursor: pointer;
+            display: none;
         }
 
         .btn-left {
@@ -159,12 +187,19 @@ export default {
             z-index: 10;
             display: flex;
             justify-content: center;
-
-            .banner-bullets {
-                width: torem(114);
-                height: torem(4);
-                margin: 0 torem(8.5);
-            }
+        }
+        .banner-bullet {
+            width: torem(114);
+            height: torem(4);
+            margin: 0 torem(9);
+            background: #fff;
+            opacity: 0.6;
+        }
+        .banner-active{
+            width: torem(114);
+            height: torem(4);
+            margin: 0 torem(9);
+            background: #fff;
         }
     }
 
@@ -221,6 +256,14 @@ export default {
 }
 
 @media screen and (max-width:750px) {
+    .home .banner-box .banner-btn {
+        display: block;
+        width: 30px;
+        height: 30px;
+        top: torem(455);
+        z-index: 10;
+        cursor: pointer;
+    }
     .home .video-box .fake-video .play-btn {
         width: 48px;
         height: 48px;
