@@ -32,7 +32,7 @@
                 </div>
 
                 <div class="product-info" v-show="!controlSecA">
-                    优畅享 20 Plus
+                    优畅享 20 Plus 产品介绍
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="product-info" v-show="!controlSecB">
-                    优畅享 20
+                    优畅享 20 产品介绍
                 </div>
             </div>
         </div>
@@ -111,11 +111,11 @@ export default {
         width: 100%;
 
         .title-box{
-            font-size: torem(64);
+            font-size: torem(48);
             font-family: PingFangSC-Regular, PingFang SC;
             font-weight: 400;
             color: #333333;
-            line-height: torem(90);
+            line-height: torem(67);
             padding: torem(62) 0 torem(16) 0;
         }
 
