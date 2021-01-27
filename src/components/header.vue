@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="header-nav" v-show="isShowNav" @mouseover="showNavSub()" @mouseout="hideNav()">
+        <div class="header-nav" v-if="isShowNav" @mouseover="showNavSub()" @mouseout="hideNav()">
             <div class="nav-container" v-show="navIndex==3">
                 <span @click="goto('newsList')">新闻稿</span>
                 <span @click="goto('publicVideo')">视频</span>
@@ -112,7 +112,6 @@ export default {
             this.isOpenNav = !this.isOpenNav
         },
         goto(path, index) {
-                console.log(path)
             if (path) {
                 this.$router.push(path)
             } else {
@@ -139,6 +138,7 @@ export default {
 .header-wrapper {
     width: 100%;
     position: relative;
+    overflow: hidden;
 
     .header-fixed {
         height: 90px;
@@ -239,6 +239,7 @@ export default {
             span {
                 margin: 0 60px;
                 cursor: pointer;
+                font-size:24px;
                 color: #666;
 
                 &:hover {
@@ -267,6 +268,9 @@ export default {
     .header-wrapper .header .UMAGIC img {
         height: auto;
         width: 106px;
+    }
+    .header-wrapper .header-nav .nav-container span{
+        font-size: 20px;
     }
 }
 

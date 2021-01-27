@@ -134,6 +134,7 @@
                         font-weight: 600;
                         color: #333333;
                         line-height: torem(33);
+                        text-align: left;
                     }
                 }
             }
@@ -205,6 +206,7 @@
                             font-weight: 600;
                             color: #333333;
                             line-height: 20px;
+                            text-align: left;
                         }
                     }
                 }
